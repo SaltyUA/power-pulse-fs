@@ -1,5 +1,3 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
-export const Title = styled.h1`
-  color: #000000;
-`;
+export const Styled = styled.div``;

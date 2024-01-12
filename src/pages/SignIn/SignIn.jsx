@@ -1,13 +1,34 @@
+import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
+import { emailPattern } from '../../constants/patterns';
+import { FormContainer, FormTitle, FormWrapper } from './SignIn.styled';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
   return (
-    <>
-      <h2>SignIn</h2>
-      <FormInput placeholder="Name" name="name">
-        SignUp
-      </FormInput>
-    </>
+    <FormContainer>
+      <FormTitle>Sign In</FormTitle>
+      <p>Welcome! Please enter your credentials to login to the platform:</p>
+      <FormWrapper>
+        <FormInput
+          placeholder="Email"
+          name="email"
+          type="email"
+          pattern={emailPattern}
+        />
+        <FormInput placeholder="Password" name="password" type="password" />
+        <Button
+          type="submit"
+          width="136px"
+          // onSubmit={handleSubmit}
+        >
+          SignIn
+        </Button>
+        <p>
+          Don’t have an account? <Link to={'/signup'}>Sign Up</Link>
+        </p>
+      </FormWrapper>
+    </FormContainer>
   );
 };
 
