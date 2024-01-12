@@ -30,5 +30,69 @@ export const data = [
         call: "50",
         category: "fruits",
         weight: "200"
+},
+    {
+        id: "05",
+        recommended: true,
+        title: "apple", 
+        call: "250",
+        category: "fruits",
+        weight: "125"
+    },
+    {
+        id: "06",
+        recommended: false,
+        title: "tomato", 
+        call: "50",
+        category: "fruits",
+        weight: "200"
+},
+    {
+        id: "07",
+        recommended: true,
+        title: "apple", 
+        call: "250",
+        category: "fruits",
+        weight: "125"
+    },
+    {
+        id: "08",
+        recommended: false,
+        title: "tomato", 
+        call: "50",
+        category: "fruits",
+        weight: "200"
+},
+    {
+        id: "09",
+        recommended: true,
+        title: "apple", 
+        call: "250",
+        category: "fruits",
+        weight: "125"
+    },
+    {
+        id: "10",
+        recommended: false,
+        title: "tomato", 
+        call: "50",
+        category: "fruits",
+        weight: "200"
+},
+    {
+        id: "11",
+        recommended: true,
+        title: "apple", 
+        call: "250",
+        category: "fruits",
+        weight: "125"
+    },
+    {
+        id: "12",
+        recommended: false,
+        title: "tomato", 
+        call: "50",
+        category: "fruits",
+        weight: "200"
 }
 ]

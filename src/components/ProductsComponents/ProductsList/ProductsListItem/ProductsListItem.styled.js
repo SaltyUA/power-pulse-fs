@@ -6,13 +6,15 @@ export const StyledArrowSvg = styled(ArrowSvg)`
 width: 16px;
 height: 16px;
 `
+
 export const StyledRunManSvg = styled(RunManSvg)`
 width: 24px;
 height: 24px;
 `
 
 export const StyledLiItem = styled.li`
-width: 335px;
+width: 100%;
+max-width: 335px;
 height: 141px;
 border-radius: 12px;
 border: 1px solid rgba(239, 237, 232, 0.20);
@@ -80,6 +82,9 @@ text-overflow: ellipsis;
 font-family: Roboto;
 font-size: 20px;
 line-height: 1.2;
+@media screen and (min-width: 1440px) {
+    width:333px;
+    }
 }
 
 .detailed-info-div {
@@ -102,6 +107,11 @@ font-family: Roboto;
 font-size: 12px;
 line-height: 1.5;
 }
+
+@media screen and (min-width: 1440px) {
+    max-width: 405px;
+    width: calc((100% - 16px) / 2);
+}
 `
 
 export const StyledRecommendedSpan = styled.span`
@@ -120,5 +130,5 @@ line-height: 1.5;
         border-radius: 10px;
         background-color: ${props => (props.$color ? '#419B09' : '#E9101D')};
         display: inline-block;
-    }
-`
+ }
+ `
