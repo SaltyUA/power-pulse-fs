@@ -1,4 +1,4 @@
-import Button from '../../components/Button/Button';
+//import Button from '../../components/Button/Button';
 import {
   Title,
   ContainerBtn,
@@ -16,6 +16,7 @@ import {
   CaloriesContainer,
   CaloriesCaunt,
   CaloriesText,
+  IconWrap,
 } from './Welcome.styled';
 import sprite from '../../assets/images/sprite.svg';
 
@@ -24,8 +25,8 @@ const Welcome = () => {
     <>
       <WelcomeContainer>
         <Title>Transforming your body shape with Power Pulse</Title>
-        <Svgline>
-          <use href={sprite + '#icon-start-arrow'}></use>
+        <Svgline width={98} height={35}>
+          <use href={sprite + '#icon-Line'}></use>
         </Svgline>
         <ContainerBtn>
           {/* <Button to={'/signin'} title="SignIn" /> */}
@@ -33,18 +34,22 @@ const Welcome = () => {
           <TransparentButton to={'/signup'}> Sign up </TransparentButton>
         </ContainerBtn>
         <StatisticsVideo>
-          <SvgPlay>
-            <use href={sprite + '#icon-play'}></use>
-          </SvgPlay>
+          <IconWrap>
+            <SvgPlay width={12} height={12}>
+              <use href={sprite + '#icon-play'}></use>
+            </SvgPlay>
+          </IconWrap>
           <VideoContainer>
             <VideoCaunt>350+</VideoCaunt>
             <VideoText>Video tutorial</VideoText>
           </VideoContainer>
         </StatisticsVideo>
         <StatisticsCalories>
-          <SvgRunning>
-            <use href={sprite + '#icon-running'}></use>
-          </SvgRunning>
+          <IconWrap>
+            <SvgRunning width={12} height={12}>
+              <use href={sprite + '#icon-running'}></use>
+            </SvgRunning>
+          </IconWrap>
           <CaloriesContainer>
             <CaloriesCaunt>500</CaloriesCaunt>
             <CaloriesText>cal</CaloriesText>

@@ -21,33 +21,22 @@ export const Title = styled.h1`
 `;
 
 export const Svgline = styled.svg`
+  stroke: ${styleGuide.orangeColor};
   position: absolute;
-  stroke-width: 2px;
-  stroke: #ef8964;
-  fill: white;
-  width: 98px;
-  height: 35px;
-  top: 5px;
-  left: 50px;
+  z-index: -1;
+  top: 149px;
+  left: 234px;
 `;
 
 export const SvgPlay = styled.svg`
-  border-radius: 50%;
-  stroke-width: 2px;
-  stroke: #efede8;
-  /* fill: white; */
-  width: 30px;
-  height: 30px;
-  margin-right: 8px;
+  fill: ${styleGuide.whiteColor};
+  align-items: center;
+  margin-left: 2px;
 `;
 
 export const SvgRunning = styled.svg`
-  border-radius: 50%;
-  stroke-width: 2px;
-  stroke: #efede8;
-  fill: #ef8964;
-  width: 20px;
-  height: 20px;
+  fill: ${styleGuide.whiteColor};
+  margin-right: 1px;
 `;
 
 export const ContainerBtn = styled.div`
@@ -112,13 +101,15 @@ export const StatisticsVideo = styled.div`
 
 export const StatisticsCalories = styled.div`
   display: flex;
+  gap: 4px;
+  flex-direction: column;
   justify-content: flex-end;
   width: 119px;
   height: 76px;
   border-radius: 12px;
   background: #ef8964;
   padding: 14px 18px;
-  margin-left: 100px;
+  margin-left: 145px;
 `;
 
 export const CaloriesContainer = styled.div`
@@ -142,7 +133,9 @@ export const CaloriesCaunt = styled.div`
   margin-right: 8px;
 `;
 
-export const VideoContainer = styled.div``;
+export const VideoContainer = styled.div`
+  margin-left: 8px;
+`;
 
 export const VideoCaunt = styled.div`
   color: #efede8;
@@ -157,4 +150,14 @@ export const VideoText = styled.div`
   font-size: 12px;
   font-weight: 400;
   line-height: 1.33;
+`;
+
+export const IconWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: ${styleGuide.orangeColor};
 `;
