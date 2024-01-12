@@ -36,7 +36,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
-  color: #efede8;
+  color: rgba(239, 237, 232, 0.3);
 
   background-color: #040404;
 }
@@ -84,6 +84,7 @@ button {
   font-family: inherit;
   padding: 0;
   background-color: transparent;
+  display: inline-block;
 }
 
 img {

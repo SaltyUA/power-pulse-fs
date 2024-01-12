@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { styleGuide } from '../../helpers/styleGuide';
+import { styleGuide } from '../../constants/styleGuide';
 
 export const WelcomeContainer = styled.div`
   width: 320px;
@@ -10,6 +10,7 @@ export const WelcomeContainer = styled.div`
 `;
 
 export const Title = styled.h1`
+  color: ${styleGuide.whiteColor};
   font-size: 38px;
   font-style: normal;
   font-weight: 500;
