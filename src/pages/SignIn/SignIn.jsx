@@ -1,5 +1,5 @@
 import Button from '../../components/Button/Button';
-import FormInput from '../../components/FormInput/FormInput';
+import AuthInput from '../../components/AuthInput/AuthInput';
 import { emailPattern } from '../../constants/patterns';
 import { FormContainer, FormTitle, FormWrapper } from './SignIn.styled';
 import { Link } from 'react-router-dom';
@@ -10,13 +10,13 @@ const SignIn = () => {
       <FormTitle>Sign In</FormTitle>
       <p>Welcome! Please enter your credentials to login to the platform:</p>
       <FormWrapper>
-        <FormInput
+        <AuthInput
           placeholder="Email"
           name="email"
           type="email"
           pattern={emailPattern}
         />
-        <FormInput placeholder="Password" name="password" type="password" />
+        <AuthInput placeholder="Password" name="password" type="password" />
         <Button
           type="submit"
           width="136px"

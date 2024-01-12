@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import FormInput from '../../components/FormInput/FormInput';
+import AuthInput from '../../components/AuthInput/AuthInput';
 import { emailPattern } from '../../constants/patterns';
 import { FormContainer, FormTitle, FormWrapper } from '../SignIn/SignIn.styled';
 
@@ -13,14 +13,14 @@ const SignUp = () => {
         registration process, please provide us with the following information.
       </p>
       <FormWrapper>
-        <FormInput placeholder="Name" name="name" type="text" />
-        <FormInput
+        <AuthInput placeholder="Name" name="name" type="text" />
+        <AuthInput
           placeholder="Email"
           name="email"
           type="email"
           pattern={emailPattern}
         />
-        <FormInput placeholder="Password" name="password" type="password" />
+        <AuthInput placeholder="Password" name="password" type="password" />
         <Button
           type="submit"
           width="136px"
