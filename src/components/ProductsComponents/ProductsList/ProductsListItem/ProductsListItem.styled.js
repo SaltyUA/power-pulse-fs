@@ -73,6 +73,9 @@ gap: 16px;
 }
 
 .product-info-div-title {
+    @media screen and (max-width: 375px){
+        width:208px;
+    }
 overflow: hidden;
 white-space: nowrap;
 width:258px;

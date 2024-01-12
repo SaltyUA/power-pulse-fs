@@ -6,9 +6,11 @@ const Products = () => {
   return (
     <StyledSection>
       <StyledWrapper>
-        <Title>Products</Title>
-        <ProductsForm />
-        <ProductsList />
+        <div className="title-form-block">
+          <Title>Products</Title>
+          <ProductsForm />
+             </div>
+                  <ProductsList />
       </StyledWrapper>
     </StyledSection>
    

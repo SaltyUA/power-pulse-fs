@@ -39,9 +39,24 @@ max-width: 375px;
     max-width: 1440px;
     padding-left: 96px;
      padding-top: 42px;
-  }
+
+     .title-form-block{
+      display: flex;
+      gap:454px;
+      position: relative;
+     }
+    }
 `
 
 export const Title = styled.h1`
-  color: #ffffff;
+ color: #EFEDE8;
+font-family: Roboto;
+font-size: 24px;
+font-weight: 700;
+line-height: 1.17;
+
+@media screen and (min-width: 768px) {
+font-size: 32px;
+line-height: 1.38;
+}
 `;

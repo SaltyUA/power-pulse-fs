@@ -1,7 +1,7 @@
 import { StyledLiItem, StyledArrowSvg, StyledRecommendedSpan, StyledRunManSvg } from "./ProductsListItem.styled";
 
 export const ProductsListItem = ({ data }) => {
-console.log(data)
+
     return (
         <StyledLiItem>
             <span className='diet-span'>diet</span>
