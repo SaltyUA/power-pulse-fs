@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { styleGuide } from '../../helpers/styleGuide';
+import { styleGuide } from '../../constants/styleGuide';
 
 export const WelcomeContainer = styled.div`
   width: 320px;
