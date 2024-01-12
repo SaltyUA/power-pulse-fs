@@ -1,4 +1,4 @@
-import { StyledInput } from './FormInput.styled';
+import { StyledInput } from './AuthInput.styled';
 
 const FormInput = ({ placeholder, name, type, autofocus, pattern }) => {
   return (

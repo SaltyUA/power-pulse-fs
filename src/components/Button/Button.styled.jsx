@@ -1,33 +1,34 @@
 import styled from 'styled-components';
-import { styleGuide } from '../../helpers/styleGuide';
-import { Link } from 'react-router-dom';
+import { styleGuide } from '../../constants/styleGuide';
 
-export const FullfilledButton = styled(Link)`
-  padding: 16px 60px;
+const { animation, orangeColor, orange2Color } = styleGuide;
+export const StyledButton = styled.button`
+  padding: 12px 40px;
+  width: ${(props) => props.$width};
+
   color: ${styleGuide.whiteColor};
-  background-color: ${styleGuide.orangeColor};
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.13;
+
   border-radius: 12px;
-  transition: color ${styleGuide.animation};
 
-  &:is(:hover, .base-btn:focus) {
-    background-color: ${styleGuide.orange2Color};
-    outline: none;
-  }
+  border: ${(props) =>
+    props.$transparent
+      ? '1px solid rgba(239, 237, 232, 0.3);'
+      : `1px solid ${orangeColor}`};
 
-  &.disabled {
-    color: #efede899;
-  }
-`;
+  background-color: ${(props) =>
+    props.$transparent ? 'transparent' : orangeColor};
 
-export const TransparentButton = styled.button`
-  padding: 16px 60px;
-  color: ${styleGuide.whiteColor};
-  background-color: transparent;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  transition: color ${styleGuide.animation};
+  transition: ${(props) =>
+    props.$transparent ? `border-color ${animation}` : `color ${animation}`};
 
-  &:is(:hover, .base-btn:focus) {
-    border-color: ${styleGuide.orangeColor};
+  &:is(:hover, :focus) {
+    ${(props) =>
+      props.$transparent
+        ? `border-color: ${orange2Color}`
+        : `background-color: ${orange2Color}`};
     outline: none;
   }
 
