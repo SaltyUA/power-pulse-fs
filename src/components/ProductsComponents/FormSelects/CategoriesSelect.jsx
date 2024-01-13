@@ -1,5 +1,6 @@
 import Select, { components } from 'react-select';
 import { ReactComponent as SelectArrow } from '../img/selectArrow.svg';
+import { styleGuide } from "../../../constants/styleGuide";
 
 const options = [
   { value: 'Alcoholic drinks', label: 'Alcoholic drinks' },
@@ -25,7 +26,7 @@ const customStyles = {
     ...provided,
     width: '146px',
     height: '46px',
-    '@media (max-width: 375px)': {
+    '@media (max-width: 374px)': {
       width: '120px',
     },
     '@media (min-width: 768px)': {
@@ -37,20 +38,26 @@ const customStyles = {
     width: '146px',
     height: '46px',
     borderRadius: '12px',
-    border: '1px solid rgba(239, 237, 232, 0.30)',
+    border: `1px solid ${styleGuide.greyTextColor}`,
     backgroundColor: 'inherit',
     cursor: 'pointer',
     outline: 'none !important',
-    boxShadow: state.isFocused ? '0 0 0 2px #E6533C' : 0,
+    boxShadow: state.isFocused ? `0 0 0 2px ${styleGuide.orangeColor}` : 0,
+    transition: `all ${styleGuide.animation}`,
     '&:hover': {
-      borderColor: '#E6533C',
+      borderColor: `${styleGuide.orangeColor}`,
     },
-    '@media (max-width: 375px)': {
-      width: '120px', // Adjust as needed for smaller screens
+    '@media (max-width: 374px)': {
+      width: '120px', 
     },
     '@media (min-width: 768px)': {
-      width: '192px', // Adjust as needed for smaller screens
+      width: '192px', 
     },
+  }),
+  dropdownIndicator: (base, state) => ({
+    ...base,
+    transition: `all ${styleGuide.animation}`,
+    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null
   }),
   indicatorSeparator: (provided) => ({
     ...provided,
@@ -64,18 +71,21 @@ const customStyles = {
   singleValue: (provided) => ({
     ...provided,
     fontSize: '14px',
-    color: '#EFEDE8',
+    color: `${styleGuide.whiteColor}`,
   }),
-  option: (provided) => ({
+  option: (provided, state) => ({
     ...provided,
     cursor: 'pointer',
     borderRadius: '12px',
     backgroundColor: 'inherit',
+    color: state.isSelected ? `${styleGuide.successColor}` : `${styleGuide.whiteColor}`,
+      fontSize: '16px',
     '&:hover': {
-      backgroundColor: '#E6533C',
-      color: '#EFEDE8',
+      backgroundColor: `${styleGuide.orangeColor}`,
+      color: `${styleGuide.whiteColor}`,
     },
   }),
+  
   menuList: (base) => ({
     ...base,
 
