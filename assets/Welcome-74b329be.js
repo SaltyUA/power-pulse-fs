@@ -1,9 +1,10 @@
-import{L as r,j as e}from"./index-47db6e62.js";import{n as i}from"./emotion-styled.browser.esm-b0bfdc39.js";import{s as o}from"./styleGuide-85d48662.js";const s=i.div`
+import{L as r,j as e}from"./index-496683f7.js";import{n as i}from"./emotion-styled.browser.esm-6950cc93.js";import{s as o}from"./styleGuide-85d48662.js";const s=i.div`
   width: 320px;
   height: 812px;
   padding: 0px 20px;
   margin: 0 auto;
 `,l=i.h1`
+  color: ${o.whiteColor};
   font-size: 38px;
   font-style: normal;
   font-weight: 500;
@@ -12,13 +13,14 @@ import{L as r,j as e}from"./index-47db6e62.js";import{n as i}from"./emotion-styl
   margin-top: 90px;
   position: relative;
   z-index: 2;
-`,d=i.svg`
+`,a=i.svg`
   stroke: ${o.orangeColor};
   position: absolute;
+  top: 45px; /* або інше значення в залежності від вашого дизайну */
+  left: 45%; /* або інше значення в залежності від вашого дизайну */
+  transform: translateX(-50%);
   z-index: -1;
-  top: 149px;
-  left: 234px;
-`,a=i.svg`
+`,d=i.svg`
   fill: ${o.whiteColor};
   align-items: center;
   margin-left: 2px;
@@ -125,4 +127,6 @@ import{L as r,j as e}from"./index-47db6e62.js";import{n as i}from"./emotion-styl
   width: 20px;
   border-radius: 50%;
   background-color: ${o.orangeColor};
-`,n="/power-pulse-fs/assets/sprite-5feb51c2.svg",z=()=>e.jsx(e.Fragment,{children:e.jsxs(s,{children:[e.jsx(l,{children:"Transforming your body shape with Power Pulse"}),e.jsx(d,{width:98,height:35,children:e.jsx("use",{href:n+"#icon-Line"})}),e.jsxs(x,{children:[e.jsx(p,{to:"/signin",children:" Sign ip "}),e.jsx(h,{to:"/signup",children:" Sign up "})]}),e.jsxs(g,{children:[e.jsx(t,{children:e.jsx(a,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-play"})})}),e.jsxs(j,{children:[e.jsx(w,{children:"350+"}),e.jsx(v,{children:"Video tutorial"})]})]}),e.jsxs(f,{children:[e.jsx(t,{children:e.jsx(c,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-running"})})}),e.jsxs(u,{children:[e.jsx(b,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]})});export{z as default};
+`,C=i.div`
+  position: relative;
+`,n="/power-pulse-fs/assets/sprite-5feb51c2.svg",k=()=>e.jsx(e.Fragment,{children:e.jsxs(s,{children:[e.jsxs(C,{children:[e.jsx(l,{children:"Transforming your body shape with Power Pulse"}),e.jsx(a,{width:98,height:35,children:e.jsx("use",{href:n+"#icon-Line"})})]}),e.jsxs(x,{children:[e.jsx(p,{to:"/signin",children:" Sign ip "}),e.jsx(h,{to:"/signup",children:" Sign up "})]}),e.jsxs(g,{children:[e.jsx(t,{children:e.jsx(d,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-play"})})}),e.jsxs(j,{children:[e.jsx(w,{children:"350+"}),e.jsx(v,{children:"Video tutorial"})]})]}),e.jsxs(f,{children:[e.jsx(t,{children:e.jsx(c,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-running"})})}),e.jsxs(u,{children:[e.jsx(b,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]})});export{k as default};
