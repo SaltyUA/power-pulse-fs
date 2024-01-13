@@ -10,6 +10,7 @@ export const WelcomeContainer = styled.div`
 `;
 
 export const Title = styled.h1`
+  color: ${styleGuide.whiteColor};
   font-size: 38px;
   font-style: normal;
   font-weight: 500;
@@ -23,9 +24,10 @@ export const Title = styled.h1`
 export const Svgline = styled.svg`
   stroke: ${styleGuide.orangeColor};
   position: absolute;
+  top: 45px; /* або інше значення в залежності від вашого дизайну */
+  left: 45%; /* або інше значення в залежності від вашого дизайну */
+  transform: translateX(-50%);
   z-index: -1;
-  top: 149px;
-  left: 234px;
 `;
 
 export const SvgPlay = styled.svg`
@@ -160,4 +162,8 @@ export const IconWrap = styled.div`
   width: 20px;
   border-radius: 50%;
   background-color: ${styleGuide.orangeColor};
+`;
+
+export const TitleWrapper = styled.div`
+  position: relative;
 `;

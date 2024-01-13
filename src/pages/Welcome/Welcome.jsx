@@ -17,6 +17,7 @@ import {
   CaloriesCaunt,
   CaloriesText,
   IconWrap,
+  TitleWrapper,
 } from './Welcome.styled';
 import sprite from '../../assets/images/sprite.svg';
 
@@ -24,10 +25,12 @@ const Welcome = () => {
   return (
     <>
       <WelcomeContainer>
-        <Title>Transforming your body shape with Power Pulse</Title>
-        <Svgline width={98} height={35}>
-          <use href={sprite + '#icon-Line'}></use>
-        </Svgline>
+        <TitleWrapper>
+          <Title>Transforming your body shape with Power Pulse</Title>
+          <Svgline width={98} height={35}>
+            <use href={sprite + '#icon-Line'}></use>
+          </Svgline>
+        </TitleWrapper>
         <ContainerBtn>
           {/* <Button to={'/signin'} title="SignIn" /> */}
           <FullfilledButton to={'/signin'}> Sign ip </FullfilledButton>
