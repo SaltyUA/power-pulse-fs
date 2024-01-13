@@ -1,6 +1,14 @@
 import { StyledInput } from './AuthInput.styled';
 
-const FormInput = ({ placeholder, name, type, autofocus, pattern }) => {
+const FormInput = ({
+  placeholder,
+  name,
+  type,
+  autofocus,
+  pattern,
+  onChange,
+  value,
+}) => {
   return (
     <StyledInput
       placeholder={placeholder}
@@ -8,6 +16,9 @@ const FormInput = ({ placeholder, name, type, autofocus, pattern }) => {
       type={type}
       autoFocus={autofocus}
       pattern={pattern}
+      onChange={onChange}
+      value={value}
+      required
     />
   );
 };
