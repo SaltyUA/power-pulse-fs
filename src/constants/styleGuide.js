@@ -7,6 +7,7 @@ export const styleGuide = {
   orange2Color: '#ef8964',
   beigeColor: '#efa082',
   whiteColor: ' #efede8',
+  greyTextColor: 'rgba(239, 237, 232, 0.30)',
   successColor: '#3cbf61',
   errorColor: '#d80027',
   modalBackgroundColor: 'rgba(4, 4, 4, 0.4)',

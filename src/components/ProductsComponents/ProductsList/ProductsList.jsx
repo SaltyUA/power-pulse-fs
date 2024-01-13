@@ -1,12 +1,16 @@
-import { StyledList } from "./ProductsList.styled";
-import { ProductsListItem } from "./ProductsListItem/ProductsListItem";
-import { data } from "./data";
+import { StyledList } from './ProductsList.styled';
+import { ProductsPlaceholder } from './ProductsPlaceholder/ProductsPlaceholder';
+import { ProductsListItem } from './ProductsListItem/ProductsListItem';
+import { data } from './data';
 
 export const ProductsList = () => {
-
-    return (
-        <StyledList>
-            {data.map(item => <ProductsListItem key={item.id} data={item} />)}
-        </StyledList>
-    )
-}
+  return data.length > 0 ? (
+    <StyledList>
+      {data.map((item) => (
+        <ProductsListItem key={item.id} data={item} />
+      ))}
+    </StyledList>
+  ) : (
+    <ProductsPlaceholder/>
+  );
+};

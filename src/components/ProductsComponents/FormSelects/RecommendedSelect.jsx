@@ -1,5 +1,6 @@
 import Select, { components } from 'react-select';
 import { ReactComponent as SelectArrow } from '../img/selectArrow.svg';
+import { styleGuide } from "../../../constants/styleGuide";
 
 const options = [
     { value: 'All', label: "All"},
@@ -20,10 +21,13 @@ const customStyles = {
         width: '173px',
         height: '46px',
         '@media (min-width: 768px)': {
-                   width: '204px', // Adjust as needed for smaller screens
+                   width: '204px',
     },
-        '@media (max-width: 375px)': {
-                   width: '160px', // Adjust as needed for smaller screens
+        '@media (max-width: 374px)': {
+                   width: '160px', 
+    },
+        '@media (max-width: 334px)': {
+                   width: '140px', 
         },
            }),
       control: (provided, state) => ({
@@ -31,25 +35,34 @@ const customStyles = {
         width: '173px',
         height: '46px',
           borderRadius: '12px',
-           border: '1px solid rgba(239, 237, 232, 0.30)',
+           border: `1px solid ${styleGuide.greyTextColor}`,
          backgroundColor: 'inherit',
          cursor: 'pointer',
         outline: 'none !important',
-         boxShadow: state.isFocused ? '0 0 0 2px #E6533C' : 0,
+        boxShadow: state.isFocused ? `0 0 0 2px ${styleGuide.orangeColor}` : 0,
+         transition: `all ${styleGuide.animation}`,
           '&:hover': {
-        borderColor: '#E6533C',
+        borderColor: `${styleGuide.orangeColor}`,
           },
            '@media (min-width: 768px)': {
-                   width: '204px', // Adjust as needed for smaller screens
+                   width: '204px', 
         },
-            '@media (max-width: 375px)': {
-                   width: '160px', // Adjust as needed for smaller screens
+            '@media (max-width: 374px)': {
+                   width: '160px',
+        },
+             '@media (max-width: 334px)': {
+                   width: '140px',
         },
     }),
      indicatorSeparator: provided => ({
     ...provided,
     display: 'none',
-    }),
+  }),
+     dropdownIndicator: (base, state) => ({
+    ...base,
+    transition: `all ${styleGuide.animation}`,
+    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null
+  }),
      menu: (provided) => ({
     ...provided,
      borderRadius: '12px',
@@ -59,16 +72,18 @@ background: '#1C1C1C',
        singleValue: provided => ({
     ...provided,
            fontSize: '14px',
-    color: '#EFEDE8',
+    color: `${styleGuide.whiteColor}`,
     }),
-       option: (provided, ) => ({
+       option: (provided, state) => ({
         ...provided,
         cursor: 'pointer',
            borderRadius: '12px',
-        backgroundColor: 'inherit',
+         backgroundColor: 'inherit',
+        color: state.isSelected ? `${styleGuide.successColor}` : `${styleGuide.whiteColor}`,
+      fontSize: '16px',
  '&:hover': {
-     backgroundColor: '#E6533C',
-     color: '#EFEDE8',
+     backgroundColor: `${styleGuide.orangeColor}`,
+     color: `${styleGuide.whiteColor}`,
     },
     }),
    }
