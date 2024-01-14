@@ -5,6 +5,7 @@ import { emailPattern } from '../../constants/patterns';
 import { FormContainer, FormTitle, FormWrapper } from '../SignIn/SignIn.styled';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
+import { Container } from '../../App.styled';
 
 const SignUp = () => {
   const formik = useFormik({
@@ -26,42 +27,45 @@ const SignUp = () => {
   });
 
   return (
-    <FormContainer>
-      <FormTitle>Sign Up</FormTitle>
-      <p>
-        Thank you for your interest in our platform. To complete the
-        registration process, please provide us with the following information.
-      </p>
-      <FormWrapper onSubmit={formik.handleSubmit}>
-        <AuthInput
-          placeholder="Name"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          name="name"
-          type="text"
-        />
-        <AuthInput
-          placeholder="Email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          name="email"
-          type="email"
-        />
-        <AuthInput
-          placeholder="Password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          name="password"
-          type="password"
-        />
-        <Button type="submit" width="136px">
-          SignUp
-        </Button>
+    <Container>
+      <FormContainer>
+        <FormTitle>Sign Up</FormTitle>
         <p>
-          Already have an account? <Link to={'/signin'}>Sign In</Link>
+          Thank you for your interest in our platform. To complete the
+          registration process, please provide us with the following
+          information.
         </p>
-      </FormWrapper>
-    </FormContainer>
+        <FormWrapper onSubmit={formik.handleSubmit}>
+          <AuthInput
+            placeholder="Name"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            name="name"
+            type="text"
+          />
+          <AuthInput
+            placeholder="Email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            name="email"
+            type="email"
+          />
+          <AuthInput
+            placeholder="Password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            name="password"
+            type="password"
+          />
+          <Button type="submit" width="136px">
+            SignUp
+          </Button>
+          <p>
+            Already have an account? <Link to={'/signin'}>Sign In</Link>
+          </p>
+        </FormWrapper>
+      </FormContainer>
+    </Container>
   );
 };
 
