@@ -41,6 +41,13 @@ body {
   background-color: #040404;
 }
 
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
 h1,
 h2,
 h3,
