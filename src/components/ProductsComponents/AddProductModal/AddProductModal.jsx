@@ -6,7 +6,7 @@ import { AddProductFrom } from "../AddProductFrom/AddProductForm";
 const modal = document.querySelector('#add-product-modal');
 
 export const AddProductModal = ({data, closeModal, showModal}) => {
-    console.log(showModal)
+   
     useEffect(() => {
     if (!showModal) return;
     const handleKeydown = e => {

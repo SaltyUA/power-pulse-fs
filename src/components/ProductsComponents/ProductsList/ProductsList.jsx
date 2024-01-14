@@ -15,7 +15,7 @@ export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-console.log(showModal)
+
     useEffect(() => {
     if (showModal) {
       document.body.style.overflowY = 'hidden';
@@ -74,10 +74,10 @@ console.log(showModal)
           
         <StyledList>
           {products.map((item) => (
-            <ProductsListItem showModal={showModal} modalData={modalData} handleCloseModal={handleCloseModal} handleOpenModal={handleOpenModal} key={item._id} data={item} />
+            <ProductsListItem handleOpenModal={handleOpenModal} key={item._id} data={item} />
           ))}
                   </StyledList>
-          {showModal && <AddProductModal showModal={showModal} closeModal={handleCloseModal} data={modalData} />}
+          <AddProductModal showModal={showModal} closeModal={handleCloseModal} data={modalData} />
           </>
       ) : (
         <ProductsPlaceholder />

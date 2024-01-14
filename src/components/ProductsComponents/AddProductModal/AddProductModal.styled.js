@@ -44,8 +44,9 @@ export const StyledBackdrop = styled.div`
 
    opacity: 1;
   visibility: visible;
-  transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 2000ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &.hide-hidden {
     opacity: 0;
     pointer-events: none;
