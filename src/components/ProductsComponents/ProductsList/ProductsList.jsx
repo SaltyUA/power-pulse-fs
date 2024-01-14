@@ -7,6 +7,8 @@ import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsThunk } from '../../../store/products/operations';
 import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
+import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
+
 const queryParams = {
   bloodType: '1',
 };
@@ -14,7 +16,7 @@ export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-  const { products } = useSelector((state) => state.products);
+  const { products,isLoading } = useSelector((state) => state.products);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -62,11 +64,12 @@ export const ProductsList = () => {
     <>
       <StyledList>
         {products.map((item) => (
-          <ProductsListItem
+          isLoading ? <StyledLiItem style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} key={item._id}>
+           <div className="loader"></div></StyledLiItem> : <ProductsListItem
             handleOpenModal={handleOpenModal}
             key={item._id}
             data={item}
-          />
+          /> 
         ))}
       </StyledList>
       <AddProductModal

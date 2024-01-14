@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { ReactComponent as CloseSvg } from '../img/xSvg.svg';
 import { ReactComponent as ArrowSvg } from '../img/arrow.svg';
 import bgPhoto from '../img/bgFood.png'
@@ -7,11 +7,37 @@ import { styleGuide } from '../../../constants/styleGuide'
 import { NavLink } from "react-router-dom";
 
 export const StyledNavLink = styled(NavLink)`
-
+display: flex;
+align-items:center;
+gap: 8px;
+color: rgba(239, 237, 232, 0.30);
+line-height: 1.29;
+ transition: all ${styleGuide.animation};
+ &:hover  {
+      color: ${styleGuide.orangeColor};
+      }
+      &:focus  {
+      color: ${styleGuide.orangeColor};
+      }
 `
 
 export const StyledArrowSvg = styled(ArrowSvg)`
-
+width:16px;
+height: 16px;
+> path {
+        stroke: ${styleGuide.greyTextColor};
+      }
+      transition: all ${styleGuide.animation};
+        @media screen and (min-width: 768px) {
+    ${StyledNavLink}:hover &, ${StyledNavLink}:focus & {
+      > path {
+        stroke: ${styleGuide.orangeColor};
+      }
+    }
+    ${StyledNavLink}:hover &, ${StyledNavLink}:focus & {
+      transform: translateX(10px);
+    }
+  }
 `
 
 export const StyledCloseSvg = styled(CloseSvg)`
@@ -20,6 +46,24 @@ top: 14px;
 right: 14px;
 width: 22px;
 height: 22px;
+cursor: pointer;
+ > path {
+        stroke: ${styleGuide.whiteColor};
+      }
+      transition: stroke ${styleGuide.animation},
+    scale 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media screen and (min-width: 768px) {
+    &:hover {
+      > path {
+        stroke: ${styleGuide.orangeColor};
+      }
+    }
+    &:hover {
+      scale: 1.25;
+      transform: rotate(180deg);
+    }
+  }
 `
 
 export const StyledBackdrop = styled.div`
@@ -111,10 +155,18 @@ justify-content: center;
 align-items: center;
 border-radius: 12px;
 background: ${styleGuide.orangeColor};
+transition: all ${styleGuide.animation};
+&:hover, &:focus {
+  background: ${styleGuide.orange2Color};
+}
     }
 
   @media screen and (min-width: 768px) {
-    width: 479px;
-height: 286px;
+width: 430px;
+height: 428px;
+padding-top: 180px;
+background-position: top 64px right 154px;
+.calories {
+               margin-bottom: 32px;
   }
 `
