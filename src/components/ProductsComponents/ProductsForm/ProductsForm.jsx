@@ -15,14 +15,19 @@ export const ProductsForm = () => {
   const { search, category, recommended } = params;
  
   useEffect(() => {
-    if (!search && !category && !recommended) return;
-    const newSearch = {
-      ...(search !== undefined && { search }),
-    ...(category !== undefined && { category }),
-    ...(recommended !== undefined && { recommended }),
-    }
-    console.log(newSearch)
-}, [search, category, recommended])
+    // if (!search && !category && !recommended) return;
+    // const newSearch = {
+    //   ...(search !== undefined && { search }),
+    // ...(category !== undefined && { category }),
+    // ...(recommended !== undefined && { recommended }),
+    // }
+    // setSearchParams((prevSearchParams) => {
+    //           const updatedParams = new URLSearchParams(prevSearchParams);
+    //           updatedParams.set('bloodType', '1');
+    //           return updatedParams;
+    //         });
+    
+}, [search, category, recommended, setSearchParams])
 
   const formik = useFormik({
     initialValues: {
@@ -35,7 +40,7 @@ export const ProductsForm = () => {
       if (search) {
         setSearchParams((prevSearchParams) => {
           const updatedParams = new URLSearchParams(prevSearchParams);
-          updatedParams.set('search', search);
+          updatedParams.set('q', search);
           return updatedParams;
         });
       }

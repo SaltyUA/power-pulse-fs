@@ -4,8 +4,8 @@ import { styleGuide } from "../../../constants/styleGuide";
 
 const options = [
     { value: 'All', label: "All"},
-  { value: 'Recommended', label:  'Recommended'},
-    { value: 'Not recommended', label: 'Not recommended' }
+    { value: 'true', label:  'Recommended'},
+    { value: 'false', label: 'Not recommended' }
 ];
   const DropdownIndicator = (props) => {
   return (
