@@ -1,10 +1,12 @@
-import { StyledBackdrop, StyledModal } from "./AddProductModal.styled";
+import { StyledBackdrop, StyledModal, StyledCloseSvg, StyledCloseButton } from "./AddProductModal.styled";
 import { createPortal } from 'react-dom';
 import { useEffect } from "react";
+import { AddProductFrom } from "../AddProductFrom/AddProductForm";
+
 const modal = document.querySelector('#add-product-modal');
+
 export const AddProductModal = ({data, closeModal, showModal}) => {
     console.log(showModal)
-
     useEffect(() => {
     if (!showModal) return;
     const handleKeydown = e => {
@@ -27,10 +29,10 @@ export const AddProductModal = ({data, closeModal, showModal}) => {
     return createPortal(
         <StyledBackdrop
             onClick={handleBackdropClick}
-            showModal={showModal}
-            className={`${showModal ? '' : 'is-hidden'}`}>
-            <StyledModal showModal={showModal} className='modal'>
-                <p>{data.title}</p>
+            className={ showModal ? '' : 'hide-hidden'}>
+        <StyledModal className='modal'>
+          <StyledCloseButton onClick={closeModal} type='button'><StyledCloseSvg/></StyledCloseButton>
+                <AddProductFrom data={data} closeModal={closeModal} />
             </StyledModal>
         </StyledBackdrop>, modal
     )

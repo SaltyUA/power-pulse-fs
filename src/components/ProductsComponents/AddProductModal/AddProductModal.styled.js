@@ -1,8 +1,37 @@
 import styled from 'styled-components';
+import { styleGuide } from '../../../constants/styleGuide';
+import { ReactComponent as CloseSvg } from '../img/xSvg.svg';
+
+export const StyledCloseButton = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+`;
+
+export const StyledCloseSvg = styled(CloseSvg)`
+  transition:
+    stroke ${styleGuide.animation},
+    scale 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  > path {
+    stroke: white;
+  }
+  @media screen and (min-width: 768px) {
+    ${StyledCloseButton}:hover & {
+      > path {
+        stroke: ${styleGuide.orangeColor};
+      }
+    }
+    ${StyledCloseButton}:hover & {
+      scale: 1.25;
+      transform: rotate(180deg);
+    }
+  }
+`;
 
 export const StyledBackdrop = styled.div`
- overflow-y: hidden;
- position: fixed;
+  overflow-y: hidden;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -12,30 +41,37 @@ export const StyledBackdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: ${({ showModal }) => (showModal ? '1' : '0')};
-  visibility: ${({ showModal }) => (showModal ? 'visible' : 'hidden')};
-  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-//    &.is-hidden {
-//     opacity: 0;
-//     pointer-events: none;
-//     visibility: hidden;
-//       }
+   opacity: 1;
+  visibility: visible;
+  transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 2000ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.hide-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+      }
 
-//   &.is-hidden .modal {
-//     transform: scale(0.5);
-//   }
-`
+  &.hide-hidden .modal {
+    transform: scale(0.5);
+  }
+`;
 
 export const StyledModal = styled.div`
-position: relative;
-width: 335px;
-height: 280px;
-border-radius: 12px;
-border: 1px solid rgba(239, 237, 232, 0.20);
-background: #10100F;
-  transform: scale(${({ showModal }) => (showModal ? '1' : '0.5')});
-// transform:  scale(1);
+  padding-top: 48px;
+  padding-left: 24px;
+  position: relative;
+  width: 335px;
+  height: 280px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: #10100f;
 transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
-`
+ transform:  scale(1);
+  
+
+  @media screen and (min-width: 768px) {
+    width: 479px;
+height: 286px;
+  }
+`;

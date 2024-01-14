@@ -6,11 +6,10 @@ import {
   StyledAddBtn,
   StyledBtnSpan,
 } from './ProductsListItem.styled';
-
 const bloodType = '1';
 
-export const ProductsListItem = ({ data, handleModal }) => {
-  const { calories, category, title, weight, groupBloodNotAllowed } = data;
+export const ProductsListItem = ({ data, handleOpenModal}) => {
+  const { calories, category, title, weight, groupBloodNotAllowed, _id } = data;
   const recommended = groupBloodNotAllowed[bloodType];
  
   return (
@@ -23,7 +22,7 @@ export const ProductsListItem = ({ data, handleModal }) => {
         >
           {recommended ? 'Recommended' : 'Not recommended'}
         </StyledRecommendedSpan>
-        <StyledAddBtn onClick={() => handleModal({calories,title,weight}) } type="button" className="add-btn">
+        <StyledAddBtn onClick={() => handleOpenModal({calories,title,weight, _id}) } type="button" className="add-btn">
           <StyledBtnSpan className="add-btn-span">Add</StyledBtnSpan>
           <StyledArrowSvg />
         </StyledAddBtn>

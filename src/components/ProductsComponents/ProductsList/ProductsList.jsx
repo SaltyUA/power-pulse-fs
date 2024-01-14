@@ -15,7 +15,7 @@ export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-
+console.log(showModal)
     useEffect(() => {
     if (showModal) {
       document.body.style.overflowY = 'hidden';
@@ -27,7 +27,7 @@ export const ProductsList = () => {
   const handleOpenModal = data => {
     setModalData(data)
     setShowModal(true)
-  }
+     }
    const handleCloseModal = () => {
        setShowModal(false)
   }
@@ -60,7 +60,7 @@ export const ProductsList = () => {
         const { data } = await axios.get(`${BASE_URL}products`, {
           params: queryParams,
         });
-        setProducts(data);
+                setProducts(data);
       } catch (error) {
         console.log(error.message);
         setProducts([]);
@@ -69,17 +69,19 @@ export const ProductsList = () => {
     FetchData();
   }, [category, recommended, search]);
   return (
-    <>
-      {products.length > 0 ? (
+      products.length > 0 ? (
+        <>
+          
         <StyledList>
           {products.map((item) => (
-            <ProductsListItem handleModal={handleOpenModal} key={item._id} data={item} />
+            <ProductsListItem showModal={showModal} modalData={modalData} handleCloseModal={handleCloseModal} handleOpenModal={handleOpenModal} key={item._id} data={item} />
           ))}
-        </StyledList>
+                  </StyledList>
+          {showModal && <AddProductModal showModal={showModal} closeModal={handleCloseModal} data={modalData} />}
+          </>
       ) : (
         <ProductsPlaceholder />
-      )}
-      {showModal && <AddProductModal showModal={showModal} closeModal={handleCloseModal} data={modalData } />}
-    </>
+      )
+  
   );
 }
