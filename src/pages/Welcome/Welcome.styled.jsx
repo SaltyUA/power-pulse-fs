@@ -16,7 +16,6 @@ export const WelcomeContainer = styled.div`
 export const Title = styled.h1`
   color: ${styleGuide.whiteColor};
   font-size: 38px;
-  font-style: normal;
   font-weight: 500;
   line-height: 1.05;
   margin-bottom: 40px;
@@ -24,7 +23,7 @@ export const Title = styled.h1`
   position: relative;
   z-index: 2;
   @media screen and (min-width: 375px) {
-    width: 375px;
+    width: 335px;
   }
 `;
 
