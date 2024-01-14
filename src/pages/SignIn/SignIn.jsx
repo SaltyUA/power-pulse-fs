@@ -36,7 +36,6 @@ const SignIn = () => {
       .min(6, 'Must have at least 6 symbols')
       .required('Please enter password'),
   });
-  console.log(formik.errors);
   return (
     <Container>
       <FormContainer>

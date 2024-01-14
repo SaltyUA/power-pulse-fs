@@ -25,7 +25,7 @@ const FormInput = ({
         value={value}
         required
         className={className}
-        message={message}
+        $message={message}
       />
       {message && (
         <ValidationMessage className={className}>
