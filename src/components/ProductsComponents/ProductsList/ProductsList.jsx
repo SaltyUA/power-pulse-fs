@@ -4,33 +4,34 @@ import { ProductsListItem } from './ProductsListItem/ProductsListItem';
 import { AddProductModal } from '../AddProductModal/AddProductModal';
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
-
-const BASE_URL = 'https://power-4vwy.onrender.com/api/v1/';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsThunk } from '../../../store/products/operations';
+import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
 const queryParams = {
   bloodType: '1',
 };
 export const ProductsList = () => {
-  const [products, setProducts] = useState([]);
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const { products } = useSelector((state) => state.products);
 
-    useEffect(() => {
+  const dispatch = useDispatch();
+  useEffect(() => {
     if (showModal) {
       document.body.style.overflowY = 'hidden';
     } else {
       document.body.style.overflowY = 'auto';
     }
-    }, [showModal]);
-  
-  const handleOpenModal = data => {
-    setModalData(data)
-    setShowModal(true)
-     }
-   const handleCloseModal = () => {
-       setShowModal(false)
-  }
+  }, [showModal]);
+
+  const handleOpenModal = (data) => {
+    setModalData(data);
+    setShowModal(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const params = useMemo(
     () => Object.fromEntries([...searchParams]),
@@ -55,33 +56,27 @@ export const ProductsList = () => {
   }
 
   useEffect(() => {
-    const FetchData = async () => {
-      try {
-        const { data } = await axios.get(`${BASE_URL}products`, {
-          params: queryParams,
-        });
-                setProducts(data);
-      } catch (error) {
-        console.log(error.message);
-        setProducts([]);
-      }
-    };
-    FetchData();
-  }, [category, recommended, search]);
-  return (
-      products.length > 0 ? (
-        <>
-          
-        <StyledList>
-          {products.map((item) => (
-            <ProductsListItem handleOpenModal={handleOpenModal} key={item._id} data={item} />
-          ))}
-                  </StyledList>
-          <AddProductModal showModal={showModal} closeModal={handleCloseModal} data={modalData} />
-          </>
-      ) : (
-        <ProductsPlaceholder />
-      )
-  
+    dispatch(getProductsThunk(queryParams));
+  }, [category, recommended, search, dispatch]);
+  return products.length > 0 ? (
+    <>
+      <StyledList>
+        {products.map((item) => (
+          <ProductsListItem
+            handleOpenModal={handleOpenModal}
+            key={item._id}
+            data={item}
+          />
+        ))}
+      </StyledList>
+      <AddProductModal
+        showModal={showModal}
+        closeModal={handleCloseModal}
+        data={modalData}
+      />
+      <SuccessPopUp/>
+    </>
+  ) : (
+    <ProductsPlaceholder />
   );
-}
+};

@@ -3,9 +3,6 @@ import sidePhoto1x from '../../components/ProductsComponents/img/sideView1x.jpg'
 import sidePhoto2x from '../../components/ProductsComponents/img/sideView2x.jpg';
 
 export const StyledSection = styled.section`
-@media screen and (min-width: 768px) {
-  overflow-y: hidden;
-}
 
 @media screen and (min-width: 1440px) {
   height: 90vh;

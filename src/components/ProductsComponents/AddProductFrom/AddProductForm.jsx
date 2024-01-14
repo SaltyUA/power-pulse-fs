@@ -10,7 +10,7 @@ function Data() {
 }
 
 export const AddProductFrom = ({ data, closeModal }) => {
-  const { title, weight, calories, _id } = data;
+  const { title = 'Loading...', weight = 'Loading...', calories = 'Loading...', _id = 'Loading...' } = data || {};
 
   const formik = useFormik({
     initialValues: {
