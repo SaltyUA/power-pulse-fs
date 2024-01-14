@@ -2,38 +2,48 @@ import Button from '../../components/Button/Button';
 import AuthInput from '../../components/AuthInput/AuthInput';
 import { emailPattern } from '../../constants/patterns';
 import {
+  AuthText,
   FormContainer,
   FormTitle,
   FormWrapper,
   InputWrap,
+  RedirectText,
 } from './SignIn.styled';
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import { Container } from '../../App.styled';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../store/auth/thunk';
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit: (values) => {
-      console.log('SignUp', values);
+      dispatch(logIn(values));
     },
     validationSchema: object().shape({
       email: string()
         .required('Please enter email')
         .matches(emailPattern, 'Please check is it true email'),
     }),
-    password: string().required('Please enter password'),
+    password: string()
+      .min(6, 'Must have at least 6 symbols')
+      .required('Please enter password'),
   });
-
+  console.log(formik.errors);
   return (
     <Container>
       <FormContainer>
         <FormTitle>Sign In</FormTitle>
-        <p>Welcome! Please enter your credentials to login to the platform:</p>
+        <AuthText>
+          Welcome! Please enter your credentials to login to the platform:
+        </AuthText>
         <FormWrapper onSubmit={formik.handleSubmit}>
           <InputWrap>
             <AuthInput
@@ -82,9 +92,9 @@ const SignIn = () => {
           <Button type="submit" width="136px">
             SignIn
           </Button>
-          <p>
+          <RedirectText>
             Don’t have an account? <Link to={'/signup'}>Sign Up</Link>
-          </p>
+          </RedirectText>
         </FormWrapper>
       </FormContainer>
     </Container>

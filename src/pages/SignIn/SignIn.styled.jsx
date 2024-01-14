@@ -14,15 +14,23 @@ export const FormTitle = styled.h2`
   }
 `;
 
+export const AuthText = styled.p`
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+    width: 496px;
+  }
+`;
+
 export const FormContainer = styled.div`
   padding: 90px 20px 0;
 
   @media screen and (min-width: 768px) {
     padding: 140px 32px 0px;
-  }
-
-  & p {
-    width: 496px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -46,15 +54,15 @@ export const FormWrapper = styled.form`
     color: ${styleGuide.whiteColor};
     text-decoration: underline;
   }
+`;
 
-  & p {
-    font-size: 12px;
-    line-height: 1.5;
-    color: rgba(239, 237, 232, 0.6);
+export const RedirectText = styled.p`
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(239, 237, 232, 0.6);
 
-    @media screen and (min-width: 768px) {
-      font-size: 16px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
   }
 `;
 
