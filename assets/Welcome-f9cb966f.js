@@ -1,4 +1,4 @@
-import{L as r,j as e}from"./index-d9b75141.js";import{n as i}from"./emotion-styled.browser.esm-86a14bd6.js";import{s as o}from"./styleGuide-7c616dce.js";const s=i.div`
+import{L as r,j as e}from"./index-28e59a83.js";import{n as i}from"./emotion-styled.browser.esm-0ea72b98.js";import{s as o}from"./styleGuide-7c616dce.js";const s=i.div`
   width: 320px;
   height: 812px;
   padding: 0px 20px;
@@ -100,13 +100,13 @@ import{L as r,j as e}from"./index-d9b75141.js";import{n as i}from"./emotion-styl
   font-weight: 700;
   line-height: 1.33;
   text-transform: uppercase;
-`,b=i.div`
+`,j=i.div`
   color: #efede8;
   font-size: 24px;
   font-weight: 700;
   line-height: 1;
   margin-right: 8px;
-`,j=i.div`
+`,b=i.div`
   margin-left: 8px;
 `,w=i.div`
   color: #efede8;
@@ -129,4 +129,4 @@ import{L as r,j as e}from"./index-d9b75141.js";import{n as i}from"./emotion-styl
   background-color: ${o.orangeColor};
 `,C=i.div`
   position: relative;
-`,n="/power-pulse-fs/assets/sprite-5feb51c2.svg",k=()=>e.jsx(e.Fragment,{children:e.jsxs(s,{children:[e.jsxs(C,{children:[e.jsx(l,{children:"Transforming your body shape with Power Pulse"}),e.jsx(a,{width:98,height:35,children:e.jsx("use",{href:n+"#icon-Line"})})]}),e.jsxs(x,{children:[e.jsx(p,{to:"/signin",children:" Sign ip "}),e.jsx(h,{to:"/signup",children:" Sign up "})]}),e.jsxs(g,{children:[e.jsx(t,{children:e.jsx(d,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-play"})})}),e.jsxs(j,{children:[e.jsx(w,{children:"350+"}),e.jsx(v,{children:"Video tutorial"})]})]}),e.jsxs(f,{children:[e.jsx(t,{children:e.jsx(c,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-running"})})}),e.jsxs(u,{children:[e.jsx(b,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]})});export{k as default};
+`,n="/power-pulse-fs/assets/sprite-c039aea0.svg",k=()=>e.jsx(e.Fragment,{children:e.jsxs(s,{children:[e.jsxs(C,{children:[e.jsx(l,{children:"Transforming your body shape with Power Pulse"}),e.jsx(a,{width:98,height:35,children:e.jsx("use",{href:n+"#icon-Line"})})]}),e.jsxs(x,{children:[e.jsx(p,{to:"/signin",children:" Sign ip "}),e.jsx(h,{to:"/signup",children:" Sign up "})]}),e.jsxs(g,{children:[e.jsx(t,{children:e.jsx(d,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-play"})})}),e.jsxs(b,{children:[e.jsx(w,{children:"350+"}),e.jsx(v,{children:"Video tutorial"})]})]}),e.jsxs(f,{children:[e.jsx(t,{children:e.jsx(c,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-running"})})}),e.jsxs(u,{children:[e.jsx(j,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]})});export{k as default};
