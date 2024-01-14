@@ -2,11 +2,22 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import AuthInput from '../../components/AuthInput/AuthInput';
 import { emailPattern } from '../../constants/patterns';
-import { FormContainer, FormTitle, FormWrapper } from '../SignIn/SignIn.styled';
+import {
+  AuthText,
+  FormContainer,
+  FormTitle,
+  FormWrapper,
+  InputWrap,
+} from '../SignIn/SignIn.styled';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
+import { Container } from '../../App.styled';
+import { useDispatch } from 'react-redux';
+import { register } from '../../store/auth/thunk';
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -14,7 +25,7 @@ const SignUp = () => {
       password: '',
     },
     onSubmit: (values) => {
-      console.log('SignIn', values);
+      dispatch(register(values));
     },
     validationSchema: object().shape({
       name: string().required('Please enter your name'),
@@ -26,42 +37,89 @@ const SignUp = () => {
   });
 
   return (
-    <FormContainer>
-      <FormTitle>Sign Up</FormTitle>
-      <p>
-        Thank you for your interest in our platform. To complete the
-        registration process, please provide us with the following information.
-      </p>
-      <FormWrapper onSubmit={formik.handleSubmit}>
-        <AuthInput
-          placeholder="Name"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          name="name"
-          type="text"
-        />
-        <AuthInput
-          placeholder="Email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          name="email"
-          type="email"
-        />
-        <AuthInput
-          placeholder="Password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          name="password"
-          type="password"
-        />
-        <Button type="submit" width="136px">
-          SignUp
-        </Button>
-        <p>
-          Already have an account? <Link to={'/signin'}>Sign In</Link>
-        </p>
-      </FormWrapper>
-    </FormContainer>
+    <Container>
+      <FormContainer>
+        <FormTitle>Sign Up</FormTitle>
+        <AuthText>
+          Thank you for your interest in our platform. To complete the
+          registration process, please provide us with the following
+          information.
+        </AuthText>
+        <FormWrapper onSubmit={formik.handleSubmit}>
+          <InputWrap>
+            <AuthInput
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              className={
+                formik.touched.name
+                  ? formik.errors.name
+                    ? 'error'
+                    : 'success'
+                  : null
+              }
+              message={
+                formik.touched.name
+                  ? formik.errors.name
+                    ? formik.errors.name
+                    : 'Success name'
+                  : null
+              }
+              placeholder="Name"
+              name="name"
+              type="text"
+            />
+            <AuthInput
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              className={
+                formik.touched.email
+                  ? formik.errors.email
+                    ? 'error'
+                    : 'success'
+                  : null
+              }
+              message={
+                formik.touched.email
+                  ? formik.errors.email
+                    ? formik.errors.email
+                    : 'Success email'
+                  : null
+              }
+              placeholder="Email"
+              name="email"
+              type="email"
+            />
+            <AuthInput
+              placeholder="Password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              className={
+                formik.touched.password
+                  ? formik.errors.password
+                    ? 'error'
+                    : 'success'
+                  : null
+              }
+              message={
+                formik.touched.password
+                  ? formik.errors.password
+                    ? formik.errors.password
+                    : 'Success password'
+                  : null
+              }
+              name="password"
+              type="password"
+            />
+          </InputWrap>
+          <Button type="submit" width="136px">
+            SignUp
+          </Button>
+          <p>
+            Already have an account? <Link to={'/signin'}>Sign In</Link>
+          </p>
+        </FormWrapper>
+      </FormContainer>
+    </Container>
   );
 };
 

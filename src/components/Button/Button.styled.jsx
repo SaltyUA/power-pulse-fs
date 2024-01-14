@@ -32,7 +32,7 @@ export const StyledButton = styled.button`
     outline: none;
   }
 
-  &.disabled {
+  &:disabled {
     color: #efede899;
   }
 `;
