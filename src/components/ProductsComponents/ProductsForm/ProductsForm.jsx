@@ -21,8 +21,13 @@ export const ProductsForm = () => {
     ...(category !== undefined && { category }),
     ...(recommended !== undefined && { recommended }),
     }
+    setSearchParams((prevSearchParams) => {
+              const updatedParams = new URLSearchParams(prevSearchParams);
+              updatedParams.set('bloodType', '1');
+              return updatedParams;
+            });
     console.log(newSearch)
-}, [search, category, recommended])
+}, [search, category, recommended, setSearchParams])
 
   const formik = useFormik({
     initialValues: {

@@ -9,10 +9,12 @@ margin-top: 40px;
 
 @media screen and (min-width:768px) {
     flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 16px;
+    column-gap: 16px;
     row-gap: 32px;
-    height: 660px;
+    max-height: 660px;
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: #EF8964 rgba(239, 237, 232, 0.10);
@@ -33,6 +35,6 @@ margin-top: 40px;
 }
 @media screen and (min-width: 1440px) {
     width: 850px;
-    height: 487px;
+    max-height: 487px;
 }
 `
