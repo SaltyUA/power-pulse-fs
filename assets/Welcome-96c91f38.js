@@ -1,9 +1,9 @@
-import{L as r,j as e}from"./index-28e59a83.js";import{n as i}from"./emotion-styled.browser.esm-0ea72b98.js";import{s as o}from"./styleGuide-7c616dce.js";const s=i.div`
+import{L as r,j as i}from"./index-6df5cef1.js";import{n as e}from"./emotion-styled.browser.esm-e15dcae0.js";import{s as o}from"./styleGuide-7c616dce.js";import{s as n}from"./sprite-00554938.js";const s=e.div`
   width: 320px;
   height: 812px;
   padding: 0px 20px;
   margin: 0 auto;
-`,l=i.h1`
+`,l=e.h1`
   color: ${o.whiteColor};
   font-size: 38px;
   font-style: normal;
@@ -13,25 +13,25 @@ import{L as r,j as e}from"./index-28e59a83.js";import{n as i}from"./emotion-styl
   margin-top: 90px;
   position: relative;
   z-index: 2;
-`,a=i.svg`
+`,a=e.svg`
   stroke: ${o.orangeColor};
   position: absolute;
   top: 45px; /* або інше значення в залежності від вашого дизайну */
   left: 45%; /* або інше значення в залежності від вашого дизайну */
   transform: translateX(-50%);
   z-index: -1;
-`,d=i.svg`
+`,d=e.svg`
   fill: ${o.whiteColor};
   align-items: center;
   margin-left: 2px;
-`,c=i.svg`
+`,c=e.svg`
   fill: ${o.whiteColor};
   margin-right: 1px;
-`,x=i.div`
+`,x=e.div`
   display: flex;
   gap: 0px 14px;
   margin-bottom: 230px;
-`,p=i(r)`
+`,p=e(r)`
   padding: 16px 40px;
   font-size: 16px;
   font-weight: 500;
@@ -50,7 +50,7 @@ import{L as r,j as e}from"./index-28e59a83.js";import{n as i}from"./emotion-styl
   &.disabled {
     color: #efede899;
   }
-`,h=i(r)`
+`,h=e(r)`
   padding: 12px 40px;
   font-size: 16px;
   font-weight: 500;
@@ -69,7 +69,7 @@ import{L as r,j as e}from"./index-28e59a83.js";import{n as i}from"./emotion-styl
   &.disabled {
     color: #efede899;
   }
-`,g=i.div`
+`,g=e.div`
   width: 146px;
   height: 66px;
   border-radius: 12px;
@@ -79,7 +79,7 @@ import{L as r,j as e}from"./index-28e59a83.js";import{n as i}from"./emotion-styl
   flex-direction: row;
   padding: 18px;
   margin-left: 80px;
-`,f=i.div`
+`,f=e.div`
   display: flex;
   gap: 4px;
   flex-direction: column;
@@ -90,36 +90,36 @@ import{L as r,j as e}from"./index-28e59a83.js";import{n as i}from"./emotion-styl
   background: #ef8964;
   padding: 14px 18px;
   margin-left: 145px;
-`,u=i.div`
+`,u=e.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-`,m=i.div`
+`,m=e.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 700;
   line-height: 1.33;
   text-transform: uppercase;
-`,j=i.div`
+`,j=e.div`
   color: #efede8;
   font-size: 24px;
   font-weight: 700;
   line-height: 1;
   margin-right: 8px;
-`,b=i.div`
+`,b=e.div`
   margin-left: 8px;
-`,w=i.div`
+`,w=e.div`
   color: #efede8;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.12;
   margin-bottom: 4px;
-`,v=i.div`
+`,v=e.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.33;
-`,t=i.div`
+`,t=e.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,6 +127,6 @@ import{L as r,j as e}from"./index-28e59a83.js";import{n as i}from"./emotion-styl
   width: 20px;
   border-radius: 50%;
   background-color: ${o.orangeColor};
-`,C=i.div`
+`,C=e.div`
   position: relative;
-`,n="/power-pulse-fs/assets/sprite-c039aea0.svg",k=()=>e.jsx(e.Fragment,{children:e.jsxs(s,{children:[e.jsxs(C,{children:[e.jsx(l,{children:"Transforming your body shape with Power Pulse"}),e.jsx(a,{width:98,height:35,children:e.jsx("use",{href:n+"#icon-Line"})})]}),e.jsxs(x,{children:[e.jsx(p,{to:"/signin",children:" Sign ip "}),e.jsx(h,{to:"/signup",children:" Sign up "})]}),e.jsxs(g,{children:[e.jsx(t,{children:e.jsx(d,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-play"})})}),e.jsxs(b,{children:[e.jsx(w,{children:"350+"}),e.jsx(v,{children:"Video tutorial"})]})]}),e.jsxs(f,{children:[e.jsx(t,{children:e.jsx(c,{width:12,height:12,children:e.jsx("use",{href:n+"#icon-running"})})}),e.jsxs(u,{children:[e.jsx(j,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]})});export{k as default};
+`,S=()=>i.jsx(i.Fragment,{children:i.jsxs(s,{children:[i.jsxs(C,{children:[i.jsx(l,{children:"Transforming your body shape with Power Pulse"}),i.jsx(a,{width:98,height:35,children:i.jsx("use",{href:n+"#icon-Line"})})]}),i.jsxs(x,{children:[i.jsx(p,{to:"/signin",children:" Sign ip "}),i.jsx(h,{to:"/signup",children:" Sign up "})]}),i.jsxs(g,{children:[i.jsx(t,{children:i.jsx(d,{width:12,height:12,children:i.jsx("use",{href:n+"#icon-play"})})}),i.jsxs(b,{children:[i.jsx(w,{children:"350+"}),i.jsx(v,{children:"Video tutorial"})]})]}),i.jsxs(f,{children:[i.jsx(t,{children:i.jsx(c,{width:12,height:12,children:i.jsx("use",{href:n+"#icon-running"})})}),i.jsxs(u,{children:[i.jsx(j,{children:"500"}),i.jsx(m,{children:"cal"})]})]})]})});export{S as default};
