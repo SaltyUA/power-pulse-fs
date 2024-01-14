@@ -7,6 +7,10 @@ export const WelcomeContainer = styled.div`
   height: 812px;
   padding: 0px 20px;
   margin: 0 auto;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -19,6 +23,9 @@ export const Title = styled.h1`
   margin-top: 90px;
   position: relative;
   z-index: 2;
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
 `;
 
 export const Svgline = styled.svg`
