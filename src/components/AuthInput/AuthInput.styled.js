@@ -11,7 +11,9 @@ export const StyledInput = styled.input`
 
   background-color: transparent;
 
-  &:is(:hover, :focus) {
+  position: relative;
+
+  &:is(:hover) {
     border-color: ${styleGuide.orangeColor};
     outline: none;
   }
@@ -22,5 +24,21 @@ export const StyledInput = styled.input`
 
   &.error {
     border-color: ${styleGuide.errorColor};
+
+    & ::before {
+      content: ${(props) => props.message};
+      color: ${styleGuide.errorColor};
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 364px;
   }
 `;

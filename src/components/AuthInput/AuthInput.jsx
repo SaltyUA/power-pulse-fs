@@ -8,6 +8,9 @@ const FormInput = ({
   pattern,
   onChange,
   value,
+  error,
+  message,
+  className,
 }) => {
   return (
     <StyledInput
@@ -18,7 +21,10 @@ const FormInput = ({
       pattern={pattern}
       onChange={onChange}
       value={value}
+      error={error}
+      message={message}
       required
+      className={className}
     />
   );
 };
