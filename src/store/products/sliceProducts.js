@@ -18,7 +18,7 @@ const productsSlice = createSlice({
       state.isSuccessPopUpShown = action.payload;
     },
     setPageStore(state, action) {
-       state.pageStore = action.payload;
+      state.pageStore = action.payload;
     },
   },
   extraReducers: (builder) =>
@@ -28,7 +28,7 @@ const productsSlice = createSlice({
       })
       .addCase(getProductsThunk.fulfilled, (state, action) => {
         state.totalPages = action.payload.data.data.pages;
-     
+
         if (action.payload.params.page === 1) {
           state.products = action.payload.data.data.products;
         } else {
@@ -64,7 +64,3 @@ const productsSlice = createSlice({
 
 export const productsReducer = productsSlice.reducer;
 export const { setIsSuccessPopUpShown, setPageStore } = productsSlice.actions;
-=======
-              }),
-});
-
