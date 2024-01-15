@@ -18,10 +18,9 @@ export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-
-  const { products, isLoading, pageStore, totalPages } = useSelector((state) => state.products);
+  const { products, isLoading, pageStore, totalPages } = useSelector(state => state.products);
   const { ref, inView } = useInView();
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export const ProductsList = () => {
     [searchParams]
   );
   const { search, category, recommended } = params;
-     if (search) {
+  if (search) {
     queryParams.q = search;
   } else {
     delete queryParams.q;
@@ -61,42 +60,53 @@ export const ProductsList = () => {
     delete queryParams.rec;
   }
 
- 
-useEffect(() => {
-  if (isLoading) return;
+  useEffect(() => {
+    if (isLoading) return;
+    
+    if (pageStore >= totalPages  && totalPages !== 1) return console.log('enough');
 
-  if (pageStore >= totalPages) return console.log('enough');
- 
-  if (inView) {
-    dispatch(setPageStore(pageStore + 1));
-          queryParams.page = pageStore;
-  }
-}, [inView, pageStore, isLoading, dispatch, totalPages]);
+    if (inView) {
+      dispatch(setPageStore(pageStore + 1));
+      queryParams.page = pageStore;
+    }
+  }, [inView, pageStore, isLoading, dispatch, totalPages]);
 
   useEffect(() => {
-queryParams.page = pageStore;
+    queryParams.page = pageStore;
     dispatch(getProductsThunk(queryParams));
   }, [category, recommended, search, dispatch, pageStore, totalPages]);
 
   return products.length > 0 ? (
     <>
       <StyledList>
-        {products.map((item) => (
-          isLoading ? <StyledLiItem style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} key={item._id}>
-           <div className="loader"></div></StyledLiItem> : <ProductsListItem
-            handleOpenModal={handleOpenModal}
-            key={item._id}
-            data={item}
-          /> 
-        ))}
-        < div ref = { ref } /> 
+        {products.map((item) =>
+          isLoading ? (
+            <StyledLiItem
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              key={item._id}
+            >
+              <div className="loader"></div>
+            </StyledLiItem>
+          ) : (
+            <ProductsListItem
+              handleOpenModal={handleOpenModal}
+              key={item._id}
+              data={item}
+            />
+          )
+        )}
+        <div ref={ref} />
       </StyledList>
       <AddProductModal
         showModal={showModal}
         closeModal={handleCloseModal}
         data={modalData}
       />
-      <SuccessPopUp/>
+      <SuccessPopUp />
     </>
   ) : (
     <ProductsPlaceholder />
