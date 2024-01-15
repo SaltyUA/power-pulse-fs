@@ -4,10 +4,12 @@ import { useSearchParams } from 'react-router-dom';
 import { SelectCategory } from '../FormSelects/CategoriesSelect';
 import { SelectRecommended } from '../FormSelects/RecommendedSelect';
 import { StyledForm, StyledSearchSvg, StyledxSvg } from './ProductsFrom.styled';
-
+import { useDispatch } from 'react-redux';
+import { setPageStore } from '../../../store/products/sliceProducts';
 export const ProductsForm = () => {
   const [isCrossShown, setIsCrossShown] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
   const params = useMemo(
     () => Object.fromEntries([...searchParams]),
     [searchParams]
@@ -38,6 +40,7 @@ export const ProductsForm = () => {
     onSubmit: (values) => {
       const { search } = values;
       if (search) {
+        dispatch(setPageStore(1))
         setSearchParams((prevSearchParams) => {
           const updatedParams = new URLSearchParams(prevSearchParams);
           updatedParams.set('q', search);
@@ -89,7 +92,7 @@ export const ProductsForm = () => {
           name="category"
           dataFunc={(option) => {
             formik.setFieldValue('category', option.value);
-            //  formik.handleSubmit()
+            dispatch(setPageStore(1))
             setSearchParams((prevSearchParams) => {
               const updatedParams = new URLSearchParams(prevSearchParams);
               updatedParams.set('category', option.value);
@@ -102,7 +105,7 @@ export const ProductsForm = () => {
           name="recommended"
           currentValue={formik.values.recommended}
           dataFunc={(option) => {
-            //  formik.handleSubmit()
+           dispatch(setPageStore(1))
             formik.setFieldValue('recommended', option.value);
             setSearchParams((prevSearchParams) => {
               const updatedParams = new URLSearchParams(prevSearchParams);
