@@ -7,13 +7,11 @@ export const getProductsThunk = createAsyncThunk(
      'products/getProducts',
   async (params, thunkAPI) => {
       try {
-      console.log(params)
         const { data } = await axios.get('/products', { params });
-        console.log(data)
-        return { data, params }
+                return { data, params }
 
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      } catch (e) {
+             return thunkAPI.rejectWithValue(e.message);
     }
   }
 )
