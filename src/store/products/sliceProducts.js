@@ -64,3 +64,7 @@ const productsSlice = createSlice({
 
 export const productsReducer = productsSlice.reducer;
 export const { setIsSuccessPopUpShown, setPageStore } = productsSlice.actions;
+=======
+              }),
+});
+

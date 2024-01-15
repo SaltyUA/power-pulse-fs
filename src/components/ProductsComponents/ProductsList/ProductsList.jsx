@@ -10,6 +10,7 @@ import { useInView } from 'react-intersection-observer';
 import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
 import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
 import { setPageStore } from '../../../store/products/sliceProducts';
+
 const queryParams = {
   bloodType: '1',
 };
@@ -17,11 +18,12 @@ export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
+
   const { products, isLoading, pageStore, totalPages } = useSelector((state) => state.products);
   const { ref, inView } = useInView();
   
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     if (showModal) {
       document.body.style.overflowY = 'hidden';
@@ -62,6 +64,7 @@ export const ProductsList = () => {
  
 useEffect(() => {
   if (isLoading) return;
+
   if (pageStore >= totalPages) return console.log('enough');
  
   if (inView) {
@@ -74,6 +77,7 @@ useEffect(() => {
 queryParams.page = pageStore;
     dispatch(getProductsThunk(queryParams));
   }, [category, recommended, search, dispatch, pageStore, totalPages]);
+
   return products.length > 0 ? (
     <>
       <StyledList>
