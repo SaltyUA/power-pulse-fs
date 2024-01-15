@@ -4,41 +4,46 @@ import { ProductsListItem } from './ProductsListItem/ProductsListItem';
 import { AddProductModal } from '../AddProductModal/AddProductModal';
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsThunk } from '../../../store/products/operations';
+import { useInView } from 'react-intersection-observer';
+import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
+import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
 
-const BASE_URL = 'https://power-4vwy.onrender.com/api/v1/';
 const queryParams = {
   bloodType: '1',
 };
 export const ProductsList = () => {
-  const [products, setProducts] = useState([]);
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-
-    useEffect(() => {
+  const { products, isLoading } = useSelector((state) => state.products);
+  const [page, setPage] = useState(1);
+  const { ref, inView } = useInView();
+//  console.log(products)
+  const dispatch = useDispatch();
+  useEffect(() => {
     if (showModal) {
       document.body.style.overflowY = 'hidden';
     } else {
       document.body.style.overflowY = 'auto';
     }
-    }, [showModal]);
-  
-  const handleOpenModal = data => {
-    setModalData(data)
-    setShowModal(true)
-     }
-   const handleCloseModal = () => {
-       setShowModal(false)
-  }
+  }, [showModal]);
+
+  const handleOpenModal = (data) => {
+    setModalData(data);
+    setShowModal(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const params = useMemo(
     () => Object.fromEntries([...searchParams]),
     [searchParams]
   );
   const { search, category, recommended } = params;
-
-  if (search) {
+     if (search) {
     queryParams.q = search;
   } else {
     delete queryParams.q;
@@ -54,34 +59,42 @@ export const ProductsList = () => {
     delete queryParams.rec;
   }
 
+ 
+useEffect(() => {
+  if (isLoading) return;
+
+ 
+  if (inView) {
+      setPage(page + 1);
+      queryParams.page = page;
+  }
+}, [inView, page, isLoading, search, category, recommended]);
+
   useEffect(() => {
-    const FetchData = async () => {
-      try {
-        const { data } = await axios.get(`${BASE_URL}products`, {
-          params: queryParams,
-        });
-                setProducts(data);
-      } catch (error) {
-        console.log(error.message);
-        setProducts([]);
-      }
-    };
-    FetchData();
-  }, [category, recommended, search]);
-  return (
-      products.length > 0 ? (
-        <>
-          
-        <StyledList>
-          {products.map((item) => (
-            <ProductsListItem handleOpenModal={handleOpenModal} key={item._id} data={item} />
-          ))}
-                  </StyledList>
-          <AddProductModal showModal={showModal} closeModal={handleCloseModal} data={modalData} />
-          </>
-      ) : (
-        <ProductsPlaceholder />
-      )
-  
+
+    dispatch(getProductsThunk(queryParams));
+  }, [category, recommended, search, dispatch,page]);
+  return products.length > 0 ? (
+    <>
+      <StyledList>
+        {products.map((item) => (
+          isLoading ? <StyledLiItem style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} key={item._id}>
+           <div className="loader"></div></StyledLiItem> : <ProductsListItem
+            handleOpenModal={handleOpenModal}
+            key={item._id}
+            data={item}
+          /> 
+        ))}
+        < div ref = { ref } /> 
+      </StyledList>
+      <AddProductModal
+        showModal={showModal}
+        closeModal={handleCloseModal}
+        data={modalData}
+      />
+      <SuccessPopUp/>
+    </>
+  ) : (
+    <ProductsPlaceholder />
   );
-}
+};
