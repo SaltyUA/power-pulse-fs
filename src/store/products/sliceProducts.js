@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProductsThunk } from './operations';
+import { getProductsThunk, addProductThunk } from './operations';
 
 const initialState = {
   error: null,
   isLoading: null,
   products: [],
   isSuccessPopUpShown: false,
+  page: 1
 };
 
 const productsSlice = createSlice({
@@ -15,6 +16,9 @@ const productsSlice = createSlice({
     setIsSuccessPopUpShown(state, action) {
       state.isSuccessPopUpShown = action.payload;
     },
+     setPage(state,) {
+      state.page = 1;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -22,7 +26,16 @@ const productsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getProductsThunk.fulfilled, (state, action) => {
-        state.products = action.payload;
+        
+                if (action.payload.params.pages === 1 || !action.payload.params.pages) {
+          state.products = action.payload.data.data.products;
+        } else {
+       const uniqueProducts = action.payload.data.data.products.filter(
+  (newProduct) => !state.products.some((existingProduct) => existingProduct._id === newProduct._id)
+          );
+           state.products = [...state.products, ...uniqueProducts];
+        }
+        // state.products = action.payload.data.products;
         state.isLoading = false;
         state.error = null;
       })
@@ -30,8 +43,19 @@ const productsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
         state.products = [];
-      }),
+      })
+   .addCase(addProductThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(addProductThunk.fulfilled, (state) => {
+                state.isLoading = false;
+                state.error = null;
+      })
+      .addCase(addProductThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+              }),
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { setIsSuccessPopUpShown } = productsSlice.actions;
+export const { setIsSuccessPopUpShown, setPage } = productsSlice.actions;

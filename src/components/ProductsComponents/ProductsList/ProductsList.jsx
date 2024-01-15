@@ -6,6 +6,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsThunk } from '../../../store/products/operations';
+import { useInView } from 'react-intersection-observer';
 import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
 import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
 
@@ -16,8 +17,10 @@ export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-  const { products,isLoading } = useSelector((state) => state.products);
-
+  const { products, isLoading } = useSelector((state) => state.products);
+  const [page, setPage] = useState(1);
+  const { ref, inView } = useInView();
+//  console.log(products)
   const dispatch = useDispatch();
   useEffect(() => {
     if (showModal) {
@@ -40,8 +43,7 @@ export const ProductsList = () => {
     [searchParams]
   );
   const { search, category, recommended } = params;
-
-  if (search) {
+     if (search) {
     queryParams.q = search;
   } else {
     delete queryParams.q;
@@ -57,9 +59,21 @@ export const ProductsList = () => {
     delete queryParams.rec;
   }
 
+ 
+useEffect(() => {
+  if (isLoading) return;
+
+ 
+  if (inView) {
+      setPage(page + 1);
+      queryParams.page = page;
+  }
+}, [inView, page, isLoading, search, category, recommended]);
+
   useEffect(() => {
+
     dispatch(getProductsThunk(queryParams));
-  }, [category, recommended, search, dispatch]);
+  }, [category, recommended, search, dispatch,page]);
   return products.length > 0 ? (
     <>
       <StyledList>
@@ -71,6 +85,7 @@ export const ProductsList = () => {
             data={item}
           /> 
         ))}
+        < div ref = { ref } /> 
       </StyledList>
       <AddProductModal
         showModal={showModal}

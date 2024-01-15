@@ -2,13 +2,15 @@ import { useFormik } from 'formik';
 import { StyledForm } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { setIsSuccessPopUpShown } from '../../../store/products/sliceProducts';
+import { addProductThunk } from '../../../store/products/operations';
+// import { setIsSuccessPopUpShown } from '../../../store/products/sliceProducts';
+
 function Data() {
   const currentDate = new Date();
   const day = currentDate.getDate();
   const month = String(currentDate.getMonth() + 1).padStart(2, '0');
   const year = currentDate.getFullYear();
-  return `${day}/${month}/${year}`;
+  return `${day}-${month}-${year}`;
 }
 
 export const AddProductFrom = ({ data, closeModal }) => {
@@ -25,14 +27,14 @@ export const AddProductFrom = ({ data, closeModal }) => {
       const { weight, calories } = values;
 
       const newProduct = {
-        _id,
         date: Data(),
-        weight,
+        product: _id,
+        amount: weight,
         calories,
       };
       console.log(newProduct);
-      closeModal();
-      dispatch(setIsSuccessPopUpShown(true));
+      dispatch(addProductThunk(newProduct))
+      // dispatch(setIsSuccessPopUpShown(true));
     },
   });
 
