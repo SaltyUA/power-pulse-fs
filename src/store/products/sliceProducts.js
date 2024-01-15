@@ -7,7 +7,7 @@ const initialState = {
   products: [],
   isSuccessPopUpShown: false,
   pageStore: 1,
-  totalPages: null,
+  totalPages: 1,
 };
 
 const productsSlice = createSlice({
