@@ -39,28 +39,17 @@ const userFormSchema = Yup.object().shape({
     .required('Activity level is required'),
 });
 
-// const initialValues = {
-//   name: user.name ?? '',
-//   height: 170,
-//   currentWeight: 70,
-//   desiredWeight: 60,
-//   birthday: '1990-01-01',
-//   blood: 1,
-//   sex: 'male',
-//   levelActivity: 3,
-// };
-
 const UserForm = () => {
-  const initialValues = {
-    name: user.name ?? '',
-    height: user.height ?? 150,
-    currentWeight: user.currentWeight ?? 70,
-    desiredWeight: user.desiredWeight ?? 60,
-    birthday: user.birthday ?? '1990-01-01',
-    blood: user.blood ?? 1,
-    sex: user.sex ?? 'male',
-    levelActivity: user.levelActivity ?? 1,
-  };
+//   const initialValues = {
+//     name: user.name ?? '',
+//     height: user.height ?? 150,
+//     currentWeight: user.currentWeight ?? 70,
+//     desiredWeight: user.desiredWeight ?? 60,
+//     birthday: user.birthday ?? '1990-01-01',
+//     blood: user.blood ?? 1,
+//     sex: user.sex ?? 'male',
+//     levelActivity: user.levelActivity ?? 1,
+//   };
 
   return <Formik></Formik>;
 };
