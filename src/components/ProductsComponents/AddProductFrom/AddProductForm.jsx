@@ -1,7 +1,6 @@
 import { useFormik } from 'formik';
 import { StyledForm,StyledWeightInput } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { addProductThunk } from '../../../store/products/operations';
 
 function Data() {
@@ -13,14 +12,15 @@ function Data() {
 }
 
 export const AddProductFrom = ({ data, closeModal }) => {
-  const { title, weight, calories, _id } = data || {};
+  const { title, calories, _id } = data || {};
   const dispatch = useDispatch();
-
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
       title,
-      weight,
-      calories,
+      weight: 0,
+      calories: 0,
+
     },
     onSubmit: (values) => {
       const { weight, calories } = values;
@@ -33,15 +33,6 @@ export const AddProductFrom = ({ data, closeModal }) => {
       dispatch(addProductThunk(newProduct));
     },
   });
-
-  useEffect(() => {
-    if (!data) return;
-    formik.setValues({
-      title,
-      weight,
-      calories,
-    });
-  }, [title, weight, calories]);
 
   const handleInputChange = (event) => {
     if (isNaN(event.target.value) && event.target.value !== '') return;
@@ -69,7 +60,7 @@ export const AddProductFrom = ({ data, closeModal }) => {
           id="title"
           name="title"
           type="text"
-          value={formik.values.title}
+          defaultValue={formik.values.title}
           disabled
           className="title-input"
         />
