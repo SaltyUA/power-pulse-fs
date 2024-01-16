@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
   
 const Products = () => {
   const { addProductFalse } = useSelector(state => state.products)
- 
+
   useEffect(() => {
     if (addProductFalse) {
     toast.error('Enter correct data!', {
@@ -25,7 +25,7 @@ transition: Bounce,
 }); 
     }
   }, [addProductFalse])
-  
+
   return (
     <StyledSection>
       <StyledWrapper>

@@ -12,6 +12,7 @@ import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
 import { setPageStore, setAddProductFalse } from '../../../store/products/sliceProducts';
  import { toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const queryParams = {
   bloodType: '1',
   page: 1
@@ -24,6 +25,7 @@ export const ProductsList = () => {
   const [enableInView, setEnableInView] = useState(true);
   const listRef = useRef(null);
   const { ref, inView } = useInView({skip: !enableInView, threshold: 0.7});
+
   const dispatch = useDispatch();
 
   useEffect(() => { 

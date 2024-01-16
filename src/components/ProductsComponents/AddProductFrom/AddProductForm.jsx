@@ -14,13 +14,13 @@ function Data() {
 export const AddProductFrom = ({ data, closeModal }) => {
   const { title, calories, _id } = data || {};
   const dispatch = useDispatch();
-
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
       title,
       weight: 0,
       calories: 0,
+
     },
     onSubmit: (values) => {
       const { weight, calories } = values;

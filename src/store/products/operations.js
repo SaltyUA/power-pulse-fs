@@ -8,6 +8,7 @@ export const getProductsThunk = createAsyncThunk(
       // const {auth: {token}} = thunkAPI.getState();
       const { data } = await getProducts(params);
             return { data, params };
+
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
