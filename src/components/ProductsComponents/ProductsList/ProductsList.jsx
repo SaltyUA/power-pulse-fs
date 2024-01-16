@@ -9,29 +9,33 @@ import { getProductsThunk } from '../../../store/products/operations';
 import { useInView } from 'react-intersection-observer';
 import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
 import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
-import { setPageStore, setAddProductFalse } from '../../../store/products/sliceProducts';
- import { toast, Bounce } from 'react-toastify';
+import {
+  setPageStore,
+  setAddProductFalse,
+} from '../../../store/products/sliceProducts';
+import { toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const queryParams = {
   bloodType: '1',
-  page: 1
+  page: 1,
 };
 export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-  const { products, isLoading, pageStore, totalPages,isSuccessPopUpShown } = useSelector(state => state.products);
+  const { products, isLoading, pageStore, totalPages, isSuccessPopUpShown } =
+    useSelector((state) => state.products);
   const [enableInView, setEnableInView] = useState(true);
   const listRef = useRef(null);
-  const { ref, inView } = useInView({skip: !enableInView, threshold: 0.7});
+  const { ref, inView } = useInView({ skip: !enableInView, threshold: 0.7 });
 
   const dispatch = useDispatch();
 
-  useEffect(() => { 
+  useEffect(() => {
     if (!isSuccessPopUpShown) return;
-    setShowModal(false)
-  },[isSuccessPopUpShown])
+    setShowModal(false);
+  }, [isSuccessPopUpShown]);
   useEffect(() => {
     if (showModal) {
       document.body.style.overflowY = 'hidden';
@@ -45,9 +49,8 @@ export const ProductsList = () => {
     setShowModal(true);
   };
   const handleCloseModal = () => {
-    dispatch(setAddProductFalse(false))
+    dispatch(setAddProductFalse(false));
     setShowModal(false);
-    
   };
   const params = useMemo(
     () => Object.fromEntries([...searchParams]),
@@ -55,57 +58,56 @@ export const ProductsList = () => {
   );
   const { search, category, recommended } = params;
   if (search) {
-       queryParams.q = search;
-      } else {
+    queryParams.q = search;
+  } else {
     delete queryParams.q;
   }
   if (category) {
-       queryParams.cat = category.toLowerCase();
-      }
+    queryParams.cat = category.toLowerCase();
+  }
   if (recommended && recommended !== 'All') {
     queryParams.rec = recommended;
-      } else {
+  } else {
     delete queryParams.rec;
   }
 
-  useEffect(() => { 
-    if (pageStore === 1 && products) {
-  listRef.current.scrollTop = 0;
-      setEnableInView(true)
-    }
-  },[pageStore, products])
   useEffect(() => {
-    if (isLoading || (pageStore === 1 & totalPages === 1) ) return;
-      
+    if (pageStore === 1 && products && listRef.current) {
+      listRef.current.scrollTop = 0;
+      setEnableInView(true);
+    }
+  }, [pageStore, products]);
+  useEffect(() => {
+    if (isLoading || (pageStore === 1) & (totalPages === 1)) return;
+
     if (pageStore >= totalPages && enableInView) {
-                       toast.info('You have reached the end of search results', {
-        position: "top-center",
+      toast.info('You have reached the end of search results', {
+        position: 'top-center',
         autoClose: 2500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: 'light',
         transition: Bounce,
-               });
-                        return setEnableInView(false)  
+      });
+      return setEnableInView(false);
     }
-         if (inView) {
-        if (pageStore === totalPages) return;
-            dispatch(setPageStore(pageStore + 1));
-                }
+    if (inView) {
+      if (pageStore === totalPages) return;
+      dispatch(setPageStore(pageStore + 1));
+    }
   }, [inView, pageStore, isLoading, dispatch, totalPages, enableInView]);
 
   useEffect(() => {
-            queryParams.page = pageStore;
-        dispatch(getProductsThunk(queryParams));
+    queryParams.page = pageStore;
+    dispatch(getProductsThunk(queryParams));
   }, [category, recommended, search, dispatch, pageStore, totalPages]);
 
-  return isLoading && products === null ?
-    <StyledLoader className="loader-1"/>
-    :
-   products && products.length > 0 ? (
+  return isLoading && products === null ? (
+    <StyledLoader className="loader-1" />
+  ) : products && products.length > 0 ? (
     <>
       <StyledList ref={listRef}>
         {products.map((item) =>
@@ -124,8 +126,8 @@ export const ProductsList = () => {
             <ProductsListItem
               handleOpenModal={handleOpenModal}
               key={item._id}
-                data={item}
-                           />
+              data={item}
+            />
           )
         )}
         <div ref={ref} />
