@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { StyledForm } from './AddProductForm.styled';
+import { StyledForm,StyledWeightInput } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { addProductThunk } from '../../../store/products/operations';
@@ -13,7 +13,7 @@ function Data() {
 }
 
 export const AddProductFrom = ({ data, closeModal }) => {
-  const { title, weight, calories, _id } = data;
+  const { title, weight, calories, _id } = data || {};
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -74,7 +74,7 @@ export const AddProductFrom = ({ data, closeModal }) => {
           className="title-input"
         />
         <div className="weight-input-block">
-          <input
+          <StyledWeightInput
             id="weight"
             name="weight"
             type="text"
@@ -82,8 +82,7 @@ export const AddProductFrom = ({ data, closeModal }) => {
             pattern="\d*\.?\d*"
             onChange={handleInputChange}
             value={formik.values.weight}
-            className="weight-input"
-          />
+            />
           <span className="grams-span">grams</span>
         </div>
       </div>

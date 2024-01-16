@@ -5,6 +5,8 @@ export const getProductsThunk = createAsyncThunk(
   'products/getProducts',
   async (params, thunkAPI) => {
     try {
+      const {auth: {token}} = thunkAPI.getState();
+      console.log(token)
       const { data } = await getProducts(params);
       return { data, params };
     } catch (e) {
