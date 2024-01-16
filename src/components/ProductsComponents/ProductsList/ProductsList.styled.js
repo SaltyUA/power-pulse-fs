@@ -1,4 +1,26 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
+
+export const StyledLoader = styled.div`
+margin: 0 auto;
+margin-top: 100px;
+  width: 50px;
+  aspect-ratio: 1;
+  --_c:no-repeat linear-gradient(orange 0 0) 50%; 
+  background: 
+    var(--_c)/100% 50%,
+    var(--_c)/50% 100%;
+  border-radius: 50%;
+  animation: l29 2s infinite linear;
+
+@keyframes l29 {
+  100% {transform: rotate(1turn)}
+}
+@media screen and (min-width:768px) {
+   width: 400px;
+    max-height: 400px;
+}
+
+`
 
 export const StyledList = styled.ul`
 display: flex;

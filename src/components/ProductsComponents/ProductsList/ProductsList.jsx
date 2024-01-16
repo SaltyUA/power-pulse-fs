@@ -1,4 +1,4 @@
-import { StyledList } from './ProductsList.styled';
+import { StyledList, StyledLoader } from './ProductsList.styled';
 import { ProductsPlaceholder } from './ProductsPlaceholder/ProductsPlaceholder';
 import { ProductsListItem } from './ProductsListItem/ProductsListItem';
 import { AddProductModal } from '../AddProductModal/AddProductModal';
@@ -9,7 +9,7 @@ import { getProductsThunk } from '../../../store/products/operations';
 import { useInView } from 'react-intersection-observer';
 import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
 import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
-import { setPageStore } from '../../../store/products/sliceProducts';
+import { setPageStore, setAddProductFalse } from '../../../store/products/sliceProducts';
 
 const queryParams = {
   bloodType: '1',
@@ -18,11 +18,14 @@ export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-  const { products, isLoading, pageStore, totalPages } = useSelector(state => state.products);
+  const { products, isLoading, pageStore, totalPages,isSuccessPopUpShown } = useSelector(state => state.products);
   const { ref, inView } = useInView();
-
   const dispatch = useDispatch();
 
+  useEffect(() => { 
+    if (!isSuccessPopUpShown) return;
+    setShowModal(false)
+  },[isSuccessPopUpShown])
   useEffect(() => {
     if (showModal) {
       document.body.style.overflowY = 'hidden';
@@ -36,7 +39,9 @@ export const ProductsList = () => {
     setShowModal(true);
   };
   const handleCloseModal = () => {
+    dispatch(setAddProductFalse(false))
     setShowModal(false);
+    
   };
 
   const params = useMemo(
@@ -72,11 +77,14 @@ export const ProductsList = () => {
   }, [inView, pageStore, isLoading, dispatch, totalPages]);
 
   useEffect(() => {
-    queryParams.page = pageStore;
+     queryParams.page = pageStore;
     dispatch(getProductsThunk(queryParams));
   }, [category, recommended, search, dispatch, pageStore, totalPages]);
 
-  return products.length > 0 ? (
+  return isLoading && products === null ?
+    <StyledLoader className="loader-1"/>
+    :
+   products && products.length > 0 ? (
     <>
       <StyledList>
         {products.map((item) =>
@@ -95,8 +103,8 @@ export const ProductsList = () => {
             <ProductsListItem
               handleOpenModal={handleOpenModal}
               key={item._id}
-              data={item}
-            />
+                data={item}
+                           />
           )
         )}
         <div ref={ref} />
