@@ -4,10 +4,11 @@ import { getProductsThunk, addProductThunk } from './operations';
 const initialState = {
   error: null,
   isLoading: null,
-  products: [],
+  products: null,
   isSuccessPopUpShown: false,
   pageStore: 1,
-  totalPages: null,
+  totalPages: 1,
+  addProductFalse: false,
 };
 
 const productsSlice = createSlice({
@@ -20,27 +21,31 @@ const productsSlice = createSlice({
     setPageStore(state, action) {
       state.pageStore = action.payload;
     },
+    setAddProductFalse(state, action) {
+      state.addProductFalse = action.payload;
+    },
   },
   extraReducers: (builder) =>
     builder
       .addCase(getProductsThunk.pending, (state) => {
-        state.isLoading = true;
+              state.isLoading = true;
+                    
+       
       })
       .addCase(getProductsThunk.fulfilled, (state, action) => {
-        state.totalPages = action.payload.data.data.pages;
-
-        if (action.payload.params.page === 1) {
-          state.products = action.payload.data.data.products;
+        state.totalPages = action.payload.data.pages;
+                    if (action.payload.params.page === 1) {
+          state.products = action.payload.data.products;
         } else {
-          const uniqueProducts = action.payload.data.data.products.filter(
-            (newProduct) =>
+          const uniqueProducts = action.payload.data.products.filter(
+            (newProduct) => state.products && 
               !state.products.some(
                 (existingProduct) => existingProduct._id === newProduct._id
               )
           );
-          state.products = [...state.products, ...uniqueProducts];
+          state.products = [...state.products , ...uniqueProducts];
         }
-
+      
         state.isLoading = false;
         state.error = null;
       })
@@ -49,18 +54,17 @@ const productsSlice = createSlice({
         state.error = action.payload;
         state.products = [];
       })
-      .addCase(addProductThunk.pending, (state) => {
-        state.isLoading = true;
-      })
       .addCase(addProductThunk.fulfilled, (state) => {
-        state.isLoading = false;
         state.error = null;
+        state.addProductFalse = false;
+        state.isSuccessPopUpShown = true;
       })
       .addCase(addProductThunk.rejected, (state, action) => {
-        state.isLoading = false;
         state.error = action.payload;
+        state.addProductFalse = true;
       }),
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { setIsSuccessPopUpShown, setPageStore } = productsSlice.actions;
+export const { setIsSuccessPopUpShown, setPageStore, setAddProductFalse } =
+  productsSlice.actions;

@@ -1,6 +1,25 @@
 import styled from 'styled-components';
 import { styleGuide } from '../../../constants/styleGuide';
 
+export const StyledWeightInput = styled.input`
+
+    width: 287px;
+    height: 34px;
+    border-radius: 12px;
+    border: 1px solid ${styleGuide.orangeColor};
+    background-color: inherit;
+    padding-left: 8px;
+    padding-right: 48px;
+    color: ${styleGuide.whiteColor};
+    line-height: 1.29;
+ 
+    @media screen and (min-width: 768px) {
+      width: 155px;
+      height: 40px;
+    }
+
+  `
+
 export const StyledForm = styled.form`
   .inputs-block {
     display: flex;
@@ -49,22 +68,7 @@ export const StyledForm = styled.form`
       right: 11px;
     }
   }
-  .weight-input {
-    width: 287px;
-    height: 34px;
-    border-radius: 12px;
-    border: 1px solid ${styleGuide.orangeColor};
-    background-color: inherit;
-    padding-left: 8px;
-    padding-right: 48px;
-    color: ${styleGuide.whiteColor};
-    line-height: 1.29;
-
-    @media screen and (min-width: 768px) {
-      width: 155px;
-      height: 40px;
-    }
-  }
+  
 
   .calories-block {
     margin-bottom: 24px;

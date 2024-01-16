@@ -1,9 +1,7 @@
 import { useFormik } from 'formik';
-import { StyledForm } from './AddProductForm.styled';
+import { StyledForm,StyledWeightInput } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { addProductThunk } from '../../../store/products/operations';
-// import { setIsSuccessPopUpShown } from '../../../store/products/sliceProducts';
 
 function Data() {
   const currentDate = new Date();
@@ -14,38 +12,28 @@ function Data() {
 }
 
 export const AddProductFrom = ({ data, closeModal }) => {
-  const { title, weight, calories, _id } = data || {};
-  
+  const { title, calories, _id } = data || {};
   const dispatch = useDispatch();
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
-      title: '',
-      weight: '',
-      calories: '',
+      title,
+      weight: 0,
+      calories: 0,
+
     },
     onSubmit: (values) => {
       const { weight, calories } = values;
-
       const newProduct = {
         date: Data(),
         product: _id,
         amount: weight,
         calories,
       };
-      console.log(newProduct);
-      dispatch(addProductThunk(newProduct))
-      // dispatch(setIsSuccessPopUpShown(true));
+      dispatch(addProductThunk(newProduct));
     },
   });
 
-  useEffect(() => {
-    if (!data) return;
-    formik.setValues({
-     title,
-      weight,
-      calories,
-    });
-  }, [title, weight, calories]);
   const handleInputChange = (event) => {
     if (isNaN(event.target.value) && event.target.value !== '') return;
     if (event.target.value === '') {
@@ -72,12 +60,12 @@ export const AddProductFrom = ({ data, closeModal }) => {
           id="title"
           name="title"
           type="text"
-          value={formik.values.title}
+          defaultValue={formik.values.title}
           disabled
           className="title-input"
         />
         <div className="weight-input-block">
-          <input
+          <StyledWeightInput
             id="weight"
             name="weight"
             type="text"
@@ -85,8 +73,7 @@ export const AddProductFrom = ({ data, closeModal }) => {
             pattern="\d*\.?\d*"
             onChange={handleInputChange}
             value={formik.values.weight}
-            className="weight-input"
-          />
+            />
           <span className="grams-span">grams</span>
         </div>
       </div>
