@@ -62,7 +62,6 @@ const DayProducts = () => {
     weightConsumed={100}
     groupBloodNotAllowed={true}
     />
-
     </List>
 
     </DayProductsArea>
