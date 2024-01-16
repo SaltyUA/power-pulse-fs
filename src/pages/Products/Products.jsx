@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { ProductsForm } from '../../components/ProductsComponents/ProductsForm/ProductsForm';
 import { ProductsList } from '../../components/ProductsComponents/ProductsList/ProductsList';
@@ -8,9 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
   
 const Products = () => {
- const {addProductFalse} = useSelector(state=>state.products)
-
-
+  const { addProductFalse } = useSelector(state => state.products)
+ 
   useEffect(() => {
     if (addProductFalse) {
     toast.error('Enter correct data!', {
@@ -25,7 +24,8 @@ theme: "light",
 transition: Bounce,
 }); 
     }
-  },[addProductFalse])
+  }, [addProductFalse])
+  
   return (
     <StyledSection>
       <StyledWrapper>

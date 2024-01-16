@@ -34,17 +34,16 @@ const productsSlice = createSlice({
       })
       .addCase(getProductsThunk.fulfilled, (state, action) => {
         state.totalPages = action.payload.data.pages;
-
-        if (action.payload.params.page === 1) {
+                    if (action.payload.params.page === 1) {
           state.products = action.payload.data.products;
         } else {
           const uniqueProducts = action.payload.data.products.filter(
-            (newProduct) =>
+            (newProduct) => state.products && 
               !state.products.some(
                 (existingProduct) => existingProduct._id === newProduct._id
               )
           );
-          state.products = [...state.products, ...uniqueProducts];
+          state.products = [...state.products , ...uniqueProducts];
         }
       
         state.isLoading = false;
