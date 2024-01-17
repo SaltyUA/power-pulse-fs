@@ -1,4 +1,4 @@
-import LogoutButton from '../LogOutButton/LogOutButton';
+import LogoutButton from '../LogoutButton/LogoutButton';
 import UserNav from '../UserNav/UserNav';
 import {
   BurgerContainer,
