@@ -23,13 +23,12 @@ export const AddProductFrom = ({ data, closeModal }) => {
     }),
     onSubmit: (values) => {
       const { weight, calories } = values;
-      const newProduct = {
+        const newProduct = {
         date: getCurrentDate(),
-        product: _id,
         amount: weight,
         calories: Math.ceil(calories),
       };
-      dispatch(addProductThunk(newProduct));
+      dispatch(addProductThunk({ newProduct, _id}));
     },
   });
 

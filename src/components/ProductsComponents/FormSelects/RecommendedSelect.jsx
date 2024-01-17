@@ -1,5 +1,6 @@
 import Select, { components } from 'react-select';
-import { ReactComponent as SelectArrow } from '../img/selectArrow.svg';
+import { StyledSelectArrow } from './selects.styled';
+import sprite from '../../../assets/images/sprite.svg';
 import { styleGuide } from "../../../constants/styleGuide";
 
 const options = [
@@ -10,7 +11,9 @@ const options = [
   const DropdownIndicator = (props) => {
   return (
     <components.DropdownIndicator {...props}>
-      <SelectArrow />
+      <StyledSelectArrow>
+            <use href={sprite + '#selectArrow'}></use>
+          </StyledSelectArrow>
     </components.DropdownIndicator>
   );
 };
@@ -22,6 +25,7 @@ const customStyles = {
         height: '46px',
         '@media (min-width: 768px)': {
                    width: '204px',
+                   height: '52px',
     },
         '@media (max-width: 374px)': {
                    width: '160px', 
@@ -46,6 +50,7 @@ const customStyles = {
           },
            '@media (min-width: 768px)': {
                    width: '204px', 
+                   height: '52px',
         },
             '@media (max-width: 374px)': {
                    width: '160px',
