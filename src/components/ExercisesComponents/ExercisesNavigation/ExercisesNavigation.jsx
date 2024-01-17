@@ -19,13 +19,13 @@ import {
           Body parts
         </FilterBtn>
       </ExercisesFilter>
-      <ExercisesFilter className={activeFilter === 'Muscules' ? 'active' : ''}>
+      <ExercisesFilter className={activeFilter === 'Muscles' ? 'active' : ''}>
         <FilterBtn
           type="button"
-          onClick={() => handleFilterClick('Muscules')}
-          className={activeFilter === 'Muscules' ? 'active' : ''}
+          onClick={() => handleFilterClick('Muscles')}
+          className={activeFilter === 'Muscles' ? 'active' : ''}
         >
-          Muscules
+          Muscles
         </FilterBtn>
       </ExercisesFilter>
       <ExercisesFilter className={activeFilter === 'Equipment' ? 'active' : ''}>

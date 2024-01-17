@@ -3,36 +3,48 @@ import * as exercisesAPI from './exercises-api';
 
 export const fetchBodyParts = createAsyncThunk(
     'exercises/fetchBodyParts',
-    async (_, {rejectWithValue}) => {
-       try{
-        const bodyParts = await exercisesAPI.fetchBodyParts();
-        return bodyParts;
-       }catch(error){
-        return rejectWithValue(error);
-       }
-    }
-);
-
-export const fetchMuscules = createAsyncThunk(
-    'exercises/fetchMuscules',
-    async (_, {rejectWithValue}) => {
+    async (_, thunkAPI) => {
       try {
-        const muscules = await exercisesAPI.fetchMuscules();
-        return muscules;
+        const bodyParts = await exercisesAPI.fetchBodyParts('/exercises');
+        return bodyParts;
       } catch (error) {
-        return rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    },
+  );
+
+// export const fetchBodyParts = createAsyncThunk(
+//     'filters/fetchBodyParts',
+//     async (_, {rejectWithValue}) => {
+//        try{
+//         const bodyParts = await exercisesAPI.fetchBodyParts('/filters');
+//         return bodyParts;
+//        }catch(error){
+//         return rejectWithValue(error);
+//        }
+//     }
+// );
+
+export const fetchMuscles = createAsyncThunk(
+    'exercises/fetchMuscles',
+    async (params, thunkAPI) => {
+      try {
+        const muscles = await exercisesAPI.fetchMuscles(params);
+        return muscles;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
       }
     },
   );
   
-  export const fetchEquipments = createAsyncThunk(
+  export const fetchEquipment = createAsyncThunk(
     'exercises/fetchEquipments',
-    async (_, {rejectWithValue}) => {
+    async (params, thunkAPI) => {
       try {
-        const equipments = await exercisesAPI.fetchEquipments();
+        const equipments = await exercisesAPI.fetchEquipment(params);
         return equipments;
       } catch (error) {
-        return rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(error.message);
       }
     },
   );

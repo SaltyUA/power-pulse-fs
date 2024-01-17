@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ExercisesNavigation } from '../../components/ExercisesComponents/ExercisesNavigation/ExercisesNavigation';
 import { BodyParts } from '../../components/ExercisesComponents/ExercisesCategories/BodyParts';
-import { Muscules } from '../../components/ExercisesComponents/ExercisesCategories/Muscules'; 
+import { Muscles } from '../../components/ExercisesComponents/ExercisesCategories/Muscles'; 
 import { Equipment } from '../../components/ExercisesComponents/ExercisesCategories/Equipment';
 import {
   ExercisesTitle,
@@ -46,8 +46,8 @@ import {
            handleSetExName={handleSetExName}
          />
       )}   
-       {activeFilter === 'Muscules' && (
-         <Muscules
+       {activeFilter === 'Muscles' && (
+         <Muscles
            handleFilterClick={handleFilterClick}
            handleSetExName={handleSetExName}
          />

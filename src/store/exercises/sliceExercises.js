@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchBodyParts,
-  fetchEquipments,
-  fetchMuscules,
+  fetchEquipment,
+  fetchMuscles,
 } from './operationExercises';
 
 const handlePending = state => {
@@ -12,15 +12,15 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  console.log('state.items', state.items);
+  // console.log('state.items', state.items);
 };
 
 const exercisesSlice = createSlice({
   name: 'exercises',
   initialState: {
     bodyParts: [],
-    muscules: [],
-    equipments: [],
+    muscles: [],
+    equipment: [],
     isLoading: false,
     error: null,
   },
@@ -33,20 +33,22 @@ const exercisesSlice = createSlice({
         state.bodyParts = action.payload;
       })
       .addCase(fetchBodyParts.rejected, handleRejected)
-      .addCase(fetchMuscules.pending, handlePending)
-      .addCase(fetchMuscules.fulfilled, (state, action) => {
+      .addCase(fetchMuscles.pending, handlePending)
+      .addCase(fetchMuscles.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.muscules = action.payload;
+        console.log(action.payload);
+        state.muscles = action.payload;
       })
-      .addCase(fetchMuscules.rejected, handleRejected)
-      .addCase(fetchEquipments.pending, handlePending)
-      .addCase(fetchEquipments.fulfilled, (state, action) => {
+      .addCase(fetchMuscles.rejected, handleRejected)
+      .addCase(fetchEquipment.pending, handlePending)
+      .addCase(fetchEquipment.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+
         state.equipment = action.payload;
       })
-      .addCase(fetchEquipments.rejected, handleRejected),
+      .addCase(fetchEquipment.rejected, handleRejected),
   // .addCase(addExercise.pending, handlePending)
   // .addCase(addExercise.fulfilled, state => {
   //   state.isLoading = false;

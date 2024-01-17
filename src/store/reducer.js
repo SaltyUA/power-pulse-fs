@@ -3,7 +3,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
 import { persistReducer } from 'redux-persist';
 import { productsReducer } from './products/sliceProducts';
-import { exercisesReducer } from './exercises/sliseExercises';
+import { exercisesReducer } from './exercises/sliceExercises';
 const authPersistConfig = {
   key: 'auth',
   storage,
