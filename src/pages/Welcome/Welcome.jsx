@@ -1,9 +1,6 @@
-//import Button from '../../components/Button/Button';
 import {
   Title,
   ContainerBtn,
-  TransparentButton,
-  FullfilledButton,
   Svgline,
   WelcomeContainer,
   TitleWrapper,
@@ -11,6 +8,8 @@ import {
 } from './Welcome.styled';
 import sprite from '../../assets/images/sprite.svg';
 import { Statistics } from '../../components/Statistics/statistics';
+import Button from '../../components/Button/Button';
+import { Link } from 'react-router-dom';
 
 const Welcome = () => {
   return (
@@ -24,9 +23,12 @@ const Welcome = () => {
             </Svgline>
           </TitleWrapper>
           <ContainerBtn>
-            {/* <Button to={'/signin'} title="SignIn" /> */}
-            <FullfilledButton to={'/signin'}> Sign in </FullfilledButton>
-            <TransparentButton to={'/signup'}> Sign up </TransparentButton>
+            <Button to={'/signin'} as={Link}>
+              Sign in
+            </Button>
+            <Button to={'/signup'} as={Link} transparent={true}>
+              Sign up
+            </Button>
           </ContainerBtn>
         </ContainerWelcome>
         <Statistics />

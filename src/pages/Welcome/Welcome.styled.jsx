@@ -1,46 +1,56 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 import { styleGuide } from '../../constants/styleGuide';
+import training from '../../assets/images/side-view-people-training-gym-1x.jpg';
+import trainingTablet from '../../assets/images/side-view-people-training-gym-2x.jpg';
+import trainingDesctop from '../../assets/images/side-view-people-training-gym-3x.jpg';
 
 export const WelcomeContainer = styled.div`
+  overflow: hidden;
   width: 320px;
-  height: 812px;
   padding: 0px 20px;
   margin: 0 auto;
+  background-image: url(${training});
+  background-position: bottom right;
+  background-repeat: no-repeat;
 
   @media screen and (min-width: 375px) {
     width: 375px;
   }
 
   @media screen and (min-width: 768px) {
+    padding: 0px 32px;
+    background-image: url(${trainingTablet});
     width: 768px;
-    height: 1024px;
   }
 
   @media screen and (min-width: 1440px) {
+    background-image: url(${trainingDesctop});
+    padding: 0px 32px;
     width: 1440px;
-    height: 800px;
     display: flex;
   }
 `;
 
 export const StatisticsContainer = styled.div`
+  padding-bottom: 43px;
+
   @media screen and (min-width: 1440px) {
-    margin-top: 335px;
+    width: 670px;
+    padding-top: 335px;
   }
 `;
 
 export const ContainerWelcome = styled.div`
-  margin-top: 90px;
-  margin-bottom: 230px;
+  padding-top: 91px;
+  padding-bottom: 230px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 140px;
-    margin-bottom: 171px;
+    padding-top: 140px;
+    padding-bottom: 171px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-top: 152px;
+    padding: 152px 85px 246px 59px;
   }
 `;
 
@@ -121,60 +131,6 @@ export const ContainerBtn = styled.div`
   }
 `;
 
-export const FullfilledButton = styled(Link)`
-  padding: 12px 40px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.12;
-  justify-content: center;
-  color: ${styleGuide.whiteColor};
-  background-color: ${styleGuide.orangeColor};
-  border-radius: 12px;
-  transition: color ${styleGuide.animation};
-
-  &:is(:hover, .base-btn:focus) {
-    background-color: ${styleGuide.orange2Color};
-    outline: none;
-  }
-
-  &.disabled {
-    color: #efede899;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 16px 60px;
-    font-size: 20px;
-    line-height: 1.2;
-  }
-`;
-
-export const TransparentButton = styled(Link)`
-  padding: 12px 40px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.12;
-  justify-content: center;
-  color: ${styleGuide.whiteColor};
-  background-color: transparent;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  transition: color ${styleGuide.animation};
-  border-radius: 12px;
-  &:is(:hover, .base-btn:focus) {
-    border-color: ${styleGuide.orangeColor};
-    outline: none;
-  }
-
-  &.disabled {
-    color: #efede899;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 16px 60px;
-    font-size: 20px;
-    line-height: 1.2;
-  }
-`;
-
 export const StatisticsVideo = styled.div`
   width: 146px;
   height: 66px;
@@ -184,7 +140,7 @@ export const StatisticsVideo = styled.div`
   display: flex;
   flex-direction: row;
   padding: 14px 18px;
-  margin-left: 80px;
+  margin-left: 60px;
   justify-content: center;
   align-items: center;
 
@@ -199,7 +155,7 @@ export const StatisticsVideo = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    margin-left: 76px;
+    margin-left: 0px;
   }
 `;
 
@@ -222,12 +178,11 @@ export const StatisticsCalories = styled.div`
   @media screen and (min-width: 768px) {
     width: 180px;
     height: 110px;
-    margin-left: 299px;
     margin-left: 524px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-left: 463px;
+    margin-left: 458px;
   }
 `;
 
