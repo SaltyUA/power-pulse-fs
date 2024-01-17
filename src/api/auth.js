@@ -19,9 +19,11 @@ export async function signUp(body) {
 }
 
 export async function signIn(body) {
-  const { data } = await auth.post('/login', body);
-  setToken(data.token);
-  return data;
+  const {
+    data: { user },
+  } = await auth.post('/login', body);
+  setToken(user.token);
+  return user;
 }
 
 export async function signOut() {
@@ -32,8 +34,10 @@ export async function signOut() {
 
 export async function refresh(token) {
   setToken(token);
-  const { data } = await auth('/current');
-  return data;
+  const {
+    data: { user },
+  } = await auth('/current');
+  return user;
 }
 
 export async function patchUser(body) {
