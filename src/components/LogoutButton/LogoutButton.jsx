@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import sprite from '../../assets/images/sprite.svg';
-import { LogoutIcon, LogoutWrap } from './LogOutButton.styled';
+import { LogoutIcon, LogoutWrap } from './LogoutButton.styled';
 import { logOut } from '../../store/auth/thunk';
 
 const LogoutButton = ({ setBurgerIsActive }) => {
