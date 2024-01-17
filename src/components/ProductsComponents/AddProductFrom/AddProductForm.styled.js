@@ -51,6 +51,12 @@ export const StyledForm = styled.form`
   .weight-input-block {
     position: relative;
   }
+  .error-message{
+position: absolute;
+bottom: -50px;
+height: 36px;
+color: ${styleGuide.errorColor};
+  }
   .grams-span {
     position: absolute;
     top: 8px;
@@ -128,6 +134,11 @@ export const StyledForm = styled.form`
     &:focus {
       background: ${styleGuide.orange2Color};
     }
+     &:disabled {
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+    cursor: not-allowed;
+  }
   }
 
   .cancel-button {

@@ -4,7 +4,7 @@ export const products = axios.create({
   baseURL: 'https://power-4vwy.onrender.com/api/v1/',
 });
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTVjMDk0OTMxNTg5MjQyNGM2YzgzOCIsImlhdCI6MTcwNTQwMDk1NSwiZXhwIjoxNzA1NDgzNzU1fQ.tjkJ9TvfrSdOohsn7IhOYP6ICvZC4tGgE0pntpYjqkA';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTVjMDk0OTMxNTg5MjQyNGM2YzgzOCIsImlhdCI6MTcwNTQyODAwMCwiZXhwIjoxNzA1NTEwODAwfQ.fbibZy8tavk14n6cmLSU74olb2XtNq1XMdADZE0X7pk';
 products.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 export async function getProducts(params) {

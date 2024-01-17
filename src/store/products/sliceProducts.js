@@ -6,7 +6,6 @@ const initialState = {
   isLoading: null,
   products: null,
   isSuccessPopUpShown: false,
-  pageStore: 1,
   totalPages: 1,
   addProductFalse: false,
 };
@@ -18,9 +17,6 @@ const productsSlice = createSlice({
     setIsSuccessPopUpShown(state, action) {
       state.isSuccessPopUpShown = action.payload;
     },
-    setPageStore(state, action) {
-      state.pageStore = action.payload;
-    },
     setAddProductFalse(state, action) {
       state.addProductFalse = action.payload;
     },
@@ -28,24 +24,24 @@ const productsSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(getProductsThunk.pending, (state) => {
-              state.isLoading = true;
-                    
-       
+        state.isLoading = true;
       })
       .addCase(getProductsThunk.fulfilled, (state, action) => {
-        state.totalPages = action.payload.data.pages;
-                    if (action.payload.params.page === 1) {
+        if (action.payload.page === 1) {
           state.products = action.payload.data.products;
         } else {
           const uniqueProducts = action.payload.data.products.filter(
-            (newProduct) => state.products && 
+            (newProduct) =>
+              state.products &&
               !state.products.some(
                 (existingProduct) => existingProduct._id === newProduct._id
               )
           );
-          state.products = [...state.products , ...uniqueProducts];
+          state.products = state.products
+            ? [...state.products, ...uniqueProducts]
+            : uniqueProducts;
         }
-      
+        state.totalPages = action.payload.data.pages;
         state.isLoading = false;
         state.error = null;
       })
@@ -53,6 +49,9 @@ const productsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
         state.products = [];
+      })
+      .addCase(addProductThunk.pending, (state) => {
+        state.addProductFalse = false;
       })
       .addCase(addProductThunk.fulfilled, (state) => {
         state.error = null;
@@ -66,5 +65,5 @@ const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { setIsSuccessPopUpShown, setPageStore, setAddProductFalse } =
+export const { setIsSuccessPopUpShown, setAddProductFalse } =
   productsSlice.actions;

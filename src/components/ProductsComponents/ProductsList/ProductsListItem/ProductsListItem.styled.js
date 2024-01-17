@@ -8,6 +8,7 @@ export const StyledAddBtn = styled.button`
   align-items: center;
   gap: 8px;
 `;
+
 export const StyledBtnSpan = styled.span`
   color: #e6533c;
   font-family: Roboto;
@@ -41,7 +42,18 @@ export const StyledArrowSvg = styled(ArrowSvg)`
     }
   }
 `;
-
+// export const StyledArrowSvg23 = styled.svg`
+// width: 16px;
+//   height: 16px;
+//   @media screen and (min-width: 768px) {
+//     ${StyledAddBtn}:hover & {
+//       animation: ${moveRight} 1000ms linear infinite;
+//       > path {
+//         stroke: ${styleGuide.successColor};
+//     }
+//          }
+//   }
+// `
 export const StyledRunManSvg = styled(RunManSvg)`
   width: 24px;
   height: 24px;

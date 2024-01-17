@@ -1,4 +1,8 @@
-import { StyledList, StyledLoader } from './ProductsList.styled';
+import {
+  StyledList,
+  StyledLoader,
+  StyledListLoader,
+} from './ProductsList.styled';
 import { ProductsPlaceholder } from './ProductsPlaceholder/ProductsPlaceholder';
 import { ProductsListItem } from './ProductsListItem/ProductsListItem';
 import { AddProductModal } from '../AddProductModal/AddProductModal';
@@ -6,16 +10,10 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsThunk } from '../../../store/products/operations';
-import { useInView } from 'react-intersection-observer';
 import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
 import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
-import {
-  setPageStore,
-  setAddProductFalse,
-} from '../../../store/products/sliceProducts';
-import { toast, Bounce } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { setAddProductFalse } from '../../../store/products/sliceProducts';
+import { notify } from '../../../hooks/tostify';
 const queryParams = {
   bloodType: '1',
   page: 1,
@@ -24,14 +22,13 @@ export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
-  const { products, isLoading, pageStore, totalPages, isSuccessPopUpShown } =
-    useSelector((state) => state.products);
-  const [enableInView, setEnableInView] = useState(true);
+  const { products, isLoading, isSuccessPopUpShown, totalPages } = useSelector(
+    (state) => state.products
+  );
   const listRef = useRef(null);
-  const { ref, inView } = useInView({ skip: !enableInView, threshold: 0.7 });
-
+  const ref = useRef(null);
   const dispatch = useDispatch();
-
+  const [page, setPage] = useState(1);
   useEffect(() => {
     if (!isSuccessPopUpShown) return;
     setShowModal(false);
@@ -43,7 +40,6 @@ export const ProductsList = () => {
       document.body.style.overflowY = 'auto';
     }
   }, [showModal]);
-
   const handleOpenModal = (data) => {
     setModalData(data);
     setShowModal(true);
@@ -56,9 +52,10 @@ export const ProductsList = () => {
     () => Object.fromEntries([...searchParams]),
     [searchParams]
   );
-  const { search, category, recommended } = params;
-  if (search) {
-    queryParams.q = search;
+  const { q, category, recommended } = params;
+ 
+  if (q) {
+    queryParams.q = q;
   } else {
     delete queryParams.q;
   }
@@ -72,38 +69,48 @@ export const ProductsList = () => {
   }
 
   useEffect(() => {
-    if (pageStore === 1 && products && listRef.current) {
+    setPage(1);
+    if (listRef.current) {
       listRef.current.scrollTop = 0;
-      setEnableInView(true);
     }
-  }, [pageStore, products]);
-  useEffect(() => {
-    if (isLoading || (pageStore === 1) & (totalPages === 1)) return;
-
-    if (pageStore >= totalPages && enableInView) {
-      toast.info('You have reached the end of search results', {
-        position: 'top-center',
-        autoClose: 2500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-        transition: Bounce,
-      });
-      return setEnableInView(false);
-    }
-    if (inView) {
-      if (pageStore === totalPages) return;
-      dispatch(setPageStore(pageStore + 1));
-    }
-  }, [inView, pageStore, isLoading, dispatch, totalPages, enableInView]);
+  }, [recommended, q, category]);
 
   useEffect(() => {
-    queryParams.page = pageStore;
-    dispatch(getProductsThunk(queryParams));
-  }, [category, recommended, search, dispatch, pageStore, totalPages]);
+    
+    if (
+      page === totalPages ||
+      (page === totalPages && page > 1 && totalPages > 1)
+    )
+      return ;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !isLoading) {
+          setPage(page + 1);
+          if (listRef.current) {
+            listRef.current.scrollTop = listRef.current.scrollTop - 200;
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      const currentRef = ref.current;
+      if (ref.current) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (page === totalPages && page !==1 ) {
+      notify('info', 'You have reached the end of search results')
+    }
+    if (page > totalPages)return ;
+    dispatch(getProductsThunk({ queryParams, page }));
+  }, [recommended, q, category, dispatch, page, totalPages]);
 
   return isLoading && products === null ? (
     <StyledLoader className="loader-1" />
@@ -130,7 +137,12 @@ export const ProductsList = () => {
             />
           )
         )}
-        <div ref={ref} />
+        <div style={{ width: '100%', height: '1px' }}>
+          {isLoading && <StyledListLoader></StyledListLoader>}
+        </div>
+        <div ref={ref} style={{ opacity: 0 }}>
+          refdiv
+        </div>
       </StyledList>
       <AddProductModal
         showModal={showModal}

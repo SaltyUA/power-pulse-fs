@@ -1,15 +1,9 @@
 import { useFormik } from 'formik';
-import { StyledForm,StyledWeightInput } from './AddProductForm.styled';
+import { StyledForm, StyledWeightInput } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
 import { addProductThunk } from '../../../store/products/operations';
-
-function Data() {
-  const currentDate = new Date();
-  const day = currentDate.getDate();
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-  const year = currentDate.getFullYear();
-  return `${day}-${month}-${year}`;
-}
+import { getCurrentDate } from '../../../hooks/productsHelpers';
+import { object, string } from 'yup';
 
 export const AddProductFrom = ({ data, closeModal }) => {
   const { title, calories, _id } = data || {};
@@ -20,15 +14,20 @@ export const AddProductFrom = ({ data, closeModal }) => {
       title,
       weight: 0,
       calories: 0,
-
     },
+    validationSchema: object().shape({
+      weight: string()
+        .required('Please enter weight')
+        .min(2, 'Weight must be at least 2 characters')
+        .max(4, 'Weight cannot be more than 4 characters'),
+    }),
     onSubmit: (values) => {
       const { weight, calories } = values;
       const newProduct = {
-        date: Data(),
+        date: getCurrentDate(),
         product: _id,
         amount: weight,
-        calories,
+        calories: Math.ceil(calories),
       };
       dispatch(addProductThunk(newProduct));
     },
@@ -38,6 +37,7 @@ export const AddProductFrom = ({ data, closeModal }) => {
     if (isNaN(event.target.value) && event.target.value !== '') return;
     if (event.target.value === '') {
       formik.setValues({
+        ...formik.values,
         calories: '',
       });
     }
@@ -73,7 +73,8 @@ export const AddProductFrom = ({ data, closeModal }) => {
             pattern="\d*\.?\d*"
             onChange={handleInputChange}
             value={formik.values.weight}
-            />
+          />
+          <p className="error-message">{formik.errors.weight}</p>
           <span className="grams-span">grams</span>
         </div>
       </div>
@@ -90,7 +91,13 @@ export const AddProductFrom = ({ data, closeModal }) => {
         />
       </div>
       <div className="button-block">
-        <button className="add-button" type="submit">
+        <button
+          className="add-button"
+          type="submit"
+          disabled={
+            formik.errors.weight || formik.values.weight === 0 ? true : false
+          }
+        >
           Add to diary
         </button>
         <button onClick={closeModal} className="cancel-button" type="button">
