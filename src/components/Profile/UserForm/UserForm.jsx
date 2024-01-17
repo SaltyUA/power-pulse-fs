@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 
-import { updateUserInfo } from 'redux/operations';
+// import { updateUserInfo } from 'redux/operations';
 
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -43,22 +43,34 @@ const userFormSchema = Yup.object().shape({
 });
 
 const UserForm = () => {
-  const dispatch = useDispatch();
-  const user = useSelector();
+  // const dispatch = useDispatch();
+  // const user = useSelector();
+
+  // const initialValues = {
+  //   name: user.name ?? '',
+  //   height: user.height ?? 150,
+  //   currentWeight: user.currentWeight ?? 35,
+  //   desiredWeight: user.desiredWeight ?? 35,
+  //   birthday: user.birthday ?? '1990-01-01',
+  //   blood: user.blood ?? 1,
+  //   sex: user.sex ?? 'male',
+  //   levelActivity: user.levelActivity ?? 1,
+  // };
 
   const initialValues = {
-    name: user.name ?? '',
-    height: user.height ?? 150,
-    currentWeight: user.currentWeight ?? 35,
-    desiredWeight: user.desiredWeight ?? 35,
-    birthday: user.birthday ?? '1990-01-01',
-    blood: user.blood ?? 1,
-    sex: user.sex ?? 'male',
-    levelActivity: user.levelActivity ?? 1,
+    name: 'Misha',
+    height: 150,
+    currentWeight: 35,
+    desiredWeight: 35,
+    birthday: '1990-01-01',
+    blood: 1,
+    sex: 'male',
+    levelActivity: 1,
   };
 
   const handleSubmit = (values) => {
-    dispatch(updateUserInfo(values)); // updateUserInfo - майбутня фукнція в redux/operations
+    console.log(values);
+    // dispatch(updateUserInfo(values)); // updateUserInfo - майбутня фукнція в redux/operations
   };
 
   return (
@@ -69,61 +81,168 @@ const UserForm = () => {
     >
       {({ handleChange, values }) => (
         <Form>
-          <label>
-            Name
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={values.name}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Email
-            <input
-              type="text"
-              id="email"
-              name="email"
-              defaultValue={user.email}
-              readOnly
-              disabled
-            />
-          </label>
-          <label>
-            Height
-            <input
-              type="number"
-              id="height"
-              name="height"
-              value={values.height}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Current Weight
-            <input
-              type="number"
-              id="currentWeight"
-              name="currentWeight"
-              value={values.currentWeight}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Desired Weight
-            <input
-              type="number"
-              id="desiredWeight"
-              name="desiredWeight"
-              value={values.desiredWeight}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Date of birth
-            <input type="date" />
-          </label>
+          <div className="name_email">
+            <label>
+              Name
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={values.name}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              Email
+              <input
+                type="text"
+                id="email"
+                name="email"
+                // defaultValue={user.email}
+                readOnly
+                disabled
+              />
+            </label>
+          </div>
+
+          <div className="full_height_weight">
+            <div className="height_currentWeight">
+              <label>
+                Height
+                <input
+                  type="number"
+                  id="height"
+                  name="height"
+                  value={values.height}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Current Weight
+                <input
+                  type="number"
+                  id="currentWeight"
+                  name="currentWeight"
+                  value={values.currentWeight}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            <div className="desiredWeight_birthday">
+              <label>
+                Desired Weight
+                <input
+                  type="number"
+                  id="desiredWeight"
+                  name="desiredWeight"
+                  value={values.desiredWeight}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Date of birth
+                <input type="date" />
+              </label>
+            </div>
+          </div>
+
+          <p>Blood</p>
+          <div className="blood_sex">
+            <div className="blood">
+              <label>
+                <input type="radio" name="blood" />1
+              </label>
+              <label>
+                <input type="radio" name="blood" />2
+              </label>
+              <label>
+                <input type="radio" name="blood" />3
+              </label>
+              <label>
+                <input type="radio" name="blood" />4
+              </label>
+            </div>
+
+            <div className="sex">
+              <label>
+                <input
+                  type="radio"
+                  name="sex"
+                  value="male"
+                  checked={values.gender === 'male'}
+                  onChange={handleChange}
+                />
+                Male
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="sex"
+                  value="female"
+                  checked={values.gender === 'female'}
+                  onChange={handleChange}
+                />
+                Female
+              </label>
+            </div>
+          </div>
+
+          <div className="activity">
+            <label>
+              <input
+                type="radio"
+                name="activity"
+                value="1"
+                checked={values.activity === '1'}
+                onChange={handleChange}
+              />
+              Sedentary lifestyle (little or no physical activity)
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="activity"
+                value="2"
+                checked={values.activity === '2'}
+                onChange={handleChange}
+              />
+              Light activity (light exercises/sports 1-3 days per week)
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="activity"
+                value="3"
+                checked={values.activity === '3'}
+                onChange={handleChange}
+              />
+              Moderately active (moderate exercises/sports 3-5 days per week)
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="activity"
+                value="4"
+                checked={values.activity === '4'}
+                onChange={handleChange}
+              />
+              Very active (intense exercises/sports 6-7 days per week)
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="activity"
+                value="5"
+                checked={values.activity === '5'}
+                onChange={handleChange}
+              />
+              Extremely active (very strenuous exercises/sports and physical
+              work)
+            </label>
+          </div>
+
+          <button type="submit">Save</button>
         </Form>
       )}
     </Formik>
