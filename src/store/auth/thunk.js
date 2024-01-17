@@ -6,7 +6,13 @@ export const register = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const response = await signUp(body);
-      return response;
+      if (response) {
+        const data = await signIn({
+          email: body.email,
+          password: body.password,
+        });
+        return data;
+      }
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
