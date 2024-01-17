@@ -1,4 +1,4 @@
-import{j as y,g as Or,a as $,b as Oa,e as v,c as Po}from"./index-643e852d.js";import{n as T}from"./emotion-styled.browser.esm-899a0bfa.js";import{s as ge}from"./sprite-fd06f3ef.js";import{_ as Yt,a as _o,b as W,c as F,d as R,e as M,f as S,g as L,h as Eo,G as No}from"./defineProperty-e3ecab2c.js";import"./hoist-non-react-statics.cjs-3f8ebaa8.js";const Yo=T.div`
+import{j as y,d as ge,i as Or,r as $,k as Oa,m as v,n as Po}from"./index-26215cd7.js";import{n as T}from"./emotion-styled.browser.esm-13f51baa.js";import{_ as Yt,a as _o,b as W,c as F,d as R,e as M,f as S,g as L,h as Eo,G as No}from"./defineProperty-7016e58f.js";import"./hoist-non-react-statics.cjs-3f8ebaa8.js";const Yo=T.div`
   width: 100%;
   margin-inline: auto;
   padding-inline: 20px;
@@ -763,4 +763,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
-`,To=({notice:a})=>y.jsxs(Kp,{children:[y.jsx(Vp,{children:y.jsx("svg",{width:"18",height:"18",fill:"#efede8",children:y.jsx("use",{href:`${ge}#icon-warning`})})}),y.jsx(Gp,{children:a})]});To.propTypes={notice:_e.string.isRequired};const tf=()=>y.jsx(Io,{children:y.jsxs(Up,{children:[y.jsx(Mo,{title:"Diary"}),y.jsx($p,{}),y.jsxs(Bp,{children:[y.jsxs(qp,{children:[y.jsx(Fi,{}),y.jsx(ai,{})]}),y.jsxs(Qp,{children:[y.jsx(Fo,{}),y.jsx(To,{notice:"Record all your meals in the calorie diary every day. This will help you be aware of your nutrition and make informed choices."})]})]})]})});export{tf as default};
+`,To=({notice:a})=>y.jsxs(Kp,{children:[y.jsx(Vp,{children:y.jsx("svg",{width:"18",height:"18",fill:"#efede8",children:y.jsx("use",{href:`${ge}#icon-warning`})})}),y.jsx(Gp,{children:a})]});To.propTypes={notice:_e.string.isRequired};const ef=()=>y.jsx(Io,{children:y.jsxs(Up,{children:[y.jsx(Mo,{title:"Diary"}),y.jsx($p,{}),y.jsxs(Bp,{children:[y.jsxs(qp,{children:[y.jsx(Fi,{}),y.jsx(ai,{})]}),y.jsxs(Qp,{children:[y.jsx(Fo,{}),y.jsx(To,{notice:"Record all your meals in the calorie diary every day. This will help you be aware of your nutrition and make informed choices."})]})]})]})});export{ef as default};

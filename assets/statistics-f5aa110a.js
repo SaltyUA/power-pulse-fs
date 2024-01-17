@@ -1,40 +1,48 @@
-import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styled.browser.esm-899a0bfa.js";import{s as n}from"./styleGuide-7c616dce.js";import{s as t}from"./sprite-fd06f3ef.js";const o=e.div`
+import{s as n,j as e,d as t}from"./index-26215cd7.js";import{n as i}from"./emotion-styled.browser.esm-13f51baa.js";import{t as d,a,b as p}from"./side-view-people-training-gym-3x-98657c57.js";const y=i.div`
+  overflow: hidden;
   width: 320px;
-  height: 812px;
   padding: 0px 20px;
   margin: 0 auto;
+  background-image: url(${d});
+  background-position: bottom right;
+  background-repeat: no-repeat;
 
   @media screen and (min-width: 375px) {
     width: 375px;
   }
 
   @media screen and (min-width: 768px) {
+    padding: 0px 32px;
+    background-image: url(${a});
     width: 768px;
-    height: 1024px;
   }
 
   @media screen and (min-width: 1440px) {
+    background-image: url(${p});
+    padding: 0px 32px;
     width: 1440px;
-    height: 800px;
     display: flex;
   }
-`,d=e.div`
+`,r=i.div`
+  padding-bottom: 43px;
+
   @media screen and (min-width: 1440px) {
-    margin-top: 335px;
+    width: 670px;
+    padding-top: 335px;
   }
-`,a=e.div`
-  margin-top: 90px;
-  margin-bottom: 230px;
+`,z=i.div`
+  padding-top: 91px;
+  padding-bottom: 230px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 140px;
-    margin-bottom: 171px;
+    padding-top: 140px;
+    padding-bottom: 171px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-top: 152px;
+    padding: 152px 85px 246px 59px;
   }
-`,s=e.h1`
+`,k=i.h1`
   color: ${n.whiteColor};
   font-size: 38px;
   font-weight: 500;
@@ -51,7 +59,7 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     line-height: 1.11;
     width: 598px;
   }
-`,p=e.svg`
+`,S=i.svg`
   stroke: ${n.orangeColor};
   position: absolute;
   stroke-width: 2px;
@@ -76,7 +84,7 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     top: 86px;
     left: 13%;
   }
-`,x=e.svg`
+`,o=i.svg`
   fill: ${n.whiteColor};
   align-items: center;
   margin-left: 2px;
@@ -86,7 +94,7 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     width: 20px;
     margin-left: 4px;
   }
-`,h=e.svg`
+`,x=i.svg`
   fill: ${n.whiteColor};
   margin-right: 1px;
 
@@ -94,64 +102,14 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     height: 16px;
     width: 16px;
   }
-`,l=e.div`
+`,$=i.div`
   display: flex;
   gap: 0px 14px;
 
   @media screen and (min-width: 768px) {
     gap: 0px 20px;
   }
-`,c=e(r)`
-  padding: 12px 40px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.12;
-  justify-content: center;
-  color: ${n.whiteColor};
-  background-color: ${n.orangeColor};
-  border-radius: 12px;
-  transition: color ${n.animation};
-
-  &:is(:hover, .base-btn:focus) {
-    background-color: ${n.orange2Color};
-    outline: none;
-  }
-
-  &.disabled {
-    color: #efede899;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 16px 60px;
-    font-size: 20px;
-    line-height: 1.2;
-  }
-`,m=e(r)`
-  padding: 12px 40px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.12;
-  justify-content: center;
-  color: ${n.whiteColor};
-  background-color: transparent;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  transition: color ${n.animation};
-  border-radius: 12px;
-  &:is(:hover, .base-btn:focus) {
-    border-color: ${n.orangeColor};
-    outline: none;
-  }
-
-  &.disabled {
-    color: #efede899;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 16px 60px;
-    font-size: 20px;
-    line-height: 1.2;
-  }
-`,g=e.div`
+`,s=i.div`
   width: 146px;
   height: 66px;
   border-radius: 12px;
@@ -160,7 +118,7 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
   display: flex;
   flex-direction: row;
   padding: 14px 18px;
-  margin-left: 80px;
+  margin-left: 60px;
   justify-content: center;
   align-items: center;
 
@@ -175,9 +133,9 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
   }
 
   @media screen and (min-width: 1440px) {
-    margin-left: 76px;
+    margin-left: 0px;
   }
-`,f=e.div`
+`,h=i.div`
   display: flex;
   gap: 4px;
   flex-direction: column;
@@ -196,18 +154,17 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
   @media screen and (min-width: 768px) {
     width: 180px;
     height: 110px;
-    margin-left: 299px;
     margin-left: 524px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-left: 463px;
+    margin-left: 458px;
   }
-`,w=e.div`
+`,c=i.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-`,u=e.div`
+`,m=i.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 700;
@@ -218,7 +175,7 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     font-size: 16px;
     line-height: 1.5;
   }
-`,j=e.div`
+`,l=i.div`
   color: #efede8;
   font-size: 24px;
   font-weight: 700;
@@ -231,13 +188,13 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     line-height: 1.04;
     margin-right: 11px;
   }
-`,b=e.div`
+`,g=i.div`
   margin-left: 8px;
 
   @media screen and (min-width: 768px) {
     margin-left: 12px;
   }
-`,v=e.div`
+`,f=i.div`
   color: #efede8;
   font-size: 16px;
   font-weight: 700;
@@ -249,7 +206,7 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     line-height: 1;
     margin-bottom: 8px;
   }
-`,C=e.div`
+`,w=i.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 400;
@@ -259,7 +216,7 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     font-size: 16px;
     line-height: 1.5;
   }
-`,y=e.div`
+`,u=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,7 +229,7 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     height: 40px;
     width: 40px;
   }
-`,z=e.div`
+`,b=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,11 +242,11 @@ import{L as r,j as i}from"./index-643e852d.js";import{n as e}from"./emotion-styl
     height: 24px;
     width: 24px;
   }
-`,$=e.div`
+`,T=i.div`
   margin-bottom: 40px;
   position: relative;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 64px;
   }
-`,k=()=>i.jsxs(d,{children:[i.jsxs(g,{children:[i.jsx(y,{children:i.jsx(x,{width:12,height:12,children:i.jsx("use",{href:t+"#icon-play"})})}),i.jsxs(b,{children:[i.jsx(v,{children:"350+"}),i.jsx(C,{children:"Video tutorial"})]})]}),i.jsxs(f,{children:[i.jsx(z,{children:i.jsx(h,{width:12,height:12,children:i.jsx("use",{href:t+"#icon-running"})})}),i.jsxs(w,{children:[i.jsx(j,{children:"500"}),i.jsx(u,{children:"cal"})]})]})]}),B=()=>i.jsx(i.Fragment,{children:i.jsxs(o,{children:[i.jsxs(a,{children:[i.jsxs($,{children:[i.jsx(s,{children:"Transforming your body shape with Power Pulse"}),i.jsx(p,{width:98,height:35,children:i.jsx("use",{href:t+"#icon-line"})})]}),i.jsxs(l,{children:[i.jsx(c,{to:"/signin",children:" Sign in "}),i.jsx(m,{to:"/signup",children:" Sign up "})]})]}),i.jsx(k,{})]})});export{B as default};
+`,W=()=>e.jsxs(r,{children:[e.jsxs(s,{children:[e.jsx(u,{children:e.jsx(o,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-play"})})}),e.jsxs(g,{children:[e.jsx(f,{children:"350+"}),e.jsx(w,{children:"Video tutorial"})]})]}),e.jsxs(h,{children:[e.jsx(b,{children:e.jsx(x,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-running"})})}),e.jsxs(c,{children:[e.jsx(l,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]});export{z as C,S,T,y as W,k as a,$ as b,W as c};
