@@ -1,3 +1,3 @@
 export { setBodyOverflow } from './productsHelpers';
-export { toastify } from './tostify'
+export { notify } from './tostify'
 export { getCurrentDate } from './productsHelpers'
