@@ -12,5 +12,5 @@ const authPersistConfig = {
 
 export const reducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
-  products: productsReducer
+  products: productsReducer,
 });
