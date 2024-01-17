@@ -10,8 +10,22 @@ import sprite from '../../assets/images/sprite.svg';
 import { Statistics } from '../../components/Statistics/statistics';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selesctIsLoggedIn, selectUser } from '../../store/selectors';
+import { useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
+  const isLoggedIn = useSelector(selesctIsLoggedIn);
+  const user = useSelector(selectUser);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      user.height ? navigate('/diary') : navigate('/profile');
+    }
+  }, [isLoggedIn, navigate, user.height]);
+
   return (
     <>
       <WelcomeContainer>
