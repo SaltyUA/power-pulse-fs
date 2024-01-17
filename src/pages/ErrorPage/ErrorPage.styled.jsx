@@ -90,6 +90,10 @@ export const NotFoundBtn = styled(Link)`
   text-align: center;
   white-space: nowrap;
 
+  &:is(:hover, :focus) {
+    background-color: #ef8964;
+  }
+
   @media (min-width: 768px) {
     padding: 16px 60px;
     font-size: 20px;

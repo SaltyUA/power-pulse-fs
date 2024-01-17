@@ -17,7 +17,7 @@ const ErrorPage = () => {
           Perhaps this page went on vacation or decided to disappear into
           another dimension. We apologize for this inconvenience.
         </NotFoundText>
-        <NotFoundBtn>Go Home</NotFoundBtn>
+        <NotFoundBtn to={'/'}>Go Home</NotFoundBtn>
       </NotFoundContainer>
       <ImgContainer></ImgContainer>
     </Container>
