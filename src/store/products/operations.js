@@ -3,12 +3,11 @@ import { getProducts, addProduct } from '../../api/products';
 
 export const getProductsThunk = createAsyncThunk(
   'products/getProducts',
-  async (params, thunkAPI) => {
+  async ({ queryParams, page }, thunkAPI) => {
     try {
       // const {auth: {token}} = thunkAPI.getState();
-      const { data } = await getProducts(params);
-            return { data, params };
-
+      const { data } = await getProducts({ ...queryParams, page });
+      return { data, page };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -22,7 +21,7 @@ export const addProductThunk = createAsyncThunk(
       const response = await addProduct(body);
       return response;
     } catch (e) {
-      console.log(e.message)
+      console.log(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
