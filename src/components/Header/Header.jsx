@@ -1,13 +1,96 @@
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo-mob-1x.webp';
-import { Container } from '../../App.styled';
+import sprite from '../../assets/images/sprite.svg';
+import {
+  AvatarFrame,
+  BurgerIcon,
+  HeaderContainer,
+  HeaderLogo,
+  HeaderWrap,
+  IconLogo,
+  IconText,
+  SettingsIcon,
+  UserAvatar,
+  UserContainer,
+} from './Header.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectIsLoggedIn,
+  selectToken,
+  selectUser,
+} from '../../store/selectors';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import { useEffect, useState } from 'react';
+import { refreshUser } from '../../store/auth/thunk';
+import LogoutButton from '../LogOutButton/LogOutButton';
 
 export const Header = () => {
+  const isLogged = useSelector(selectIsLoggedIn);
+  const token = useSelector(selectToken);
+  const dispatch = useDispatch();
+  const [burgerIsActive, setBurgerIsActive] = useState(false);
+
+  useEffect(() => {
+    !isLogged && token && dispatch(refreshUser());
+  }, [dispatch, isLogged, token]);
+
+  useEffect(() => {
+    setBurgerIsActive(false);
+  }, []);
+
+  const { avatarURL } = useSelector(selectUser);
+  const width = window.innerWidth;
   return (
-    <Container>
-      <Link to={'/'}>
-        <img src={logo} alt="main logo" />
-      </Link>
-    </Container>
+    <HeaderContainer>
+      <HeaderWrap>
+        <HeaderLogo to={'/'}>
+          <IconLogo>
+            {width > 767 ? (
+              <use href={sprite + '#icon-logo'} />
+            ) : (
+              <use href={sprite + '#icon-logo-mob'} />
+            )}
+          </IconLogo>
+          <IconText>
+            {width > 767 ? (
+              <use href={sprite + '#icon-logo-text'} />
+            ) : (
+              <use href={sprite + '#icon-logo-text-mob'} />
+            )}
+          </IconText>
+        </HeaderLogo>
+        {isLogged && (
+          <UserContainer>
+            <Link to={'/profile'}>
+              <SettingsIcon>
+                <use href={sprite + '#icon-settings'} />
+              </SettingsIcon>
+            </Link>
+            <AvatarFrame>
+              <UserAvatar src={avatarURL} />
+            </AvatarFrame>
+            {width < 1439 ? (
+              <button
+                type="button"
+                onClick={() => {
+                  setBurgerIsActive(true);
+                }}
+              >
+                <BurgerIcon>
+                  <use href={sprite + '#icon-menu'} />
+                </BurgerIcon>
+              </button>
+            ) : (
+              <LogoutButton />
+            )}
+          </UserContainer>
+        )}
+      </HeaderWrap>
+      {width < 1439 && isLogged && (
+        <BurgerMenu
+          setBurgerIsActive={setBurgerIsActive}
+          isActive={burgerIsActive}
+        />
+      )}
+    </HeaderContainer>
   );
 };
