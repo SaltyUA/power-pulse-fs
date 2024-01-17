@@ -1,5 +1,6 @@
 // import { useDispatch, useSelector } from 'react-redux';
 
+// import { selectUser } from 'redux/selectors';
 // import { updateUserInfo } from 'redux/operations';
 
 import { Formik, Form } from 'formik';
@@ -44,7 +45,7 @@ const userFormSchema = Yup.object().shape({
 
 const UserForm = () => {
   // const dispatch = useDispatch();
-  // const user = useSelector();
+  // const user = useSelector(selectUser);
 
   // const initialValues = {
   //   name: user.name ?? '',
