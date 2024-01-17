@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 import { lazy } from 'react';
+import PublicGuard from './guards/publicGuard';
+import PrivateGuard from './guards/privateGuard';
 
 const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 const Welcome = lazy(() => import('./pages/Welcome/Welcome'));
@@ -17,12 +19,54 @@ function App() {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Welcome />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="signin" element={<SignIn />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="diary" element={<Diary />} />
-        <Route path="products" element={<Products />} />
-        <Route path="exercises" element={<Exercises />} />
+        <Route
+          path="signup"
+          element={
+            <PublicGuard>
+              <SignUp />
+            </PublicGuard>
+          }
+        />
+        <Route
+          path="signin"
+          element={
+            <PublicGuard>
+              <SignIn />
+            </PublicGuard>
+          }
+        />
+        <Route
+          path="profile"
+          element={
+            <PrivateGuard>
+              <Profile />
+            </PrivateGuard>
+          }
+        />
+        <Route
+          path="diary"
+          element={
+            <PrivateGuard>
+              <Diary />
+            </PrivateGuard>
+          }
+        />
+        <Route
+          path="products"
+          element={
+            <PrivateGuard>
+              <Products />
+            </PrivateGuard>
+          }
+        />
+        <Route
+          path="exercises"
+          element={
+            <PrivateGuard>
+              <Exercises />
+            </PrivateGuard>
+          }
+        />
 
         <Route path="*" element={<ErrorPage />} />
       </Route>
