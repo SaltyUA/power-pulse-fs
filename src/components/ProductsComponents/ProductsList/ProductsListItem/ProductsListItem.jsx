@@ -5,7 +5,10 @@ import {
   StyledRunManSvg,
   StyledAddBtn,
   StyledBtnSpan,
+  // StyledArrowSvg23
 } from './ProductsListItem.styled';
+// import sprite from '../../../../assets/images/sprite.svg';
+
 const bloodType = '1';
 
 export const ProductsListItem = ({ data, handleOpenModal}) => {
@@ -24,6 +27,9 @@ export const ProductsListItem = ({ data, handleOpenModal}) => {
         </StyledRecommendedSpan>
         <StyledAddBtn onClick={() => handleOpenModal({calories,title,weight, _id}) } type="button" className="add-btn">
           <StyledBtnSpan className="add-btn-span">Add</StyledBtnSpan>
+          {/* <StyledArrowSvg23>
+            <use href={sprite + '#locationarrow'}></use>
+          </StyledArrowSvg23> */}
           <StyledArrowSvg />
         </StyledAddBtn>
       </div>

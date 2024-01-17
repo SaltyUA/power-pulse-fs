@@ -3,7 +3,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
 import { persistReducer } from 'redux-persist';
 import { productsReducer } from './products/sliceProducts';
-
+import { exercisesReducer } from './exercises/sliceExercises';
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -13,4 +13,5 @@ const authPersistConfig = {
 export const reducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   products: productsReducer,
+  exercises: exercisesReducer,
 });
