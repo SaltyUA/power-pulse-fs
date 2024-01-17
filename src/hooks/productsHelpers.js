@@ -5,3 +5,11 @@ export const getCurrentDate = () => {
   const year = currentDate.getFullYear();
   return `${day}-${month}-${year}`;
 }
+
+export const setBodyOverflow = (showModal) => {
+  if (showModal) {
+    document.body.style.overflowY = 'hidden';
+  } else {
+    document.body.style.overflowY = 'auto';
+  }
+};

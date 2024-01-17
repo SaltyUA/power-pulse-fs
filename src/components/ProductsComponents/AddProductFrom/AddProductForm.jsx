@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { StyledForm, StyledWeightInput } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
 import { addProductThunk } from '../../../store/products/operations';
-import { getCurrentDate } from '../../../hooks/productsHelpers';
+import { getCurrentDate } from '../../../hooks';
 import { object, string } from 'yup';
 
 export const AddProductFrom = ({ data, closeModal }) => {

@@ -1,19 +1,17 @@
+import { useState, useEffect, useMemo, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { ProductsListItem, AddProductModal, SuccessPopUp,ProductsPlaceholder } from '../../ProductsComponents';
+import { getProductsThunk } from '../../../store/products/operations';
+import { setAddProductFalse } from '../../../store/products/sliceProducts';
+import { notify, setBodyOverflow } from '../../../hooks';
+import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
 import {
   StyledList,
   StyledLoader,
   StyledListLoader,
 } from './ProductsList.styled';
-import { ProductsPlaceholder } from './ProductsPlaceholder/ProductsPlaceholder';
-import { ProductsListItem } from './ProductsListItem/ProductsListItem';
-import { AddProductModal } from '../AddProductModal/AddProductModal';
-import { useState, useEffect, useMemo, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProductsThunk } from '../../../store/products/operations';
-import { SuccessPopUp } from '../SuccessPopUp/SuccessPopUp';
-import { StyledLiItem } from './ProductsListItem/ProductsListItem.styled';
-import { setAddProductFalse } from '../../../store/products/sliceProducts';
-import { notify } from '../../../hooks/tostify';
+
 const queryParams = {
   bloodType: '1',
   page: 1,
@@ -34,11 +32,7 @@ export const ProductsList = () => {
     setShowModal(false);
   }, [isSuccessPopUpShown]);
   useEffect(() => {
-    if (showModal) {
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'auto';
-    }
+    setBodyOverflow(showModal);
   }, [showModal]);
   const handleOpenModal = (data) => {
     setModalData(data);
@@ -76,8 +70,7 @@ export const ProductsList = () => {
   }, [recommended, q, category]);
 
   useEffect(() => {
-    
-    if (
+        if (
       page === totalPages ||
       (page === totalPages && page > 1 && totalPages > 1)
     )

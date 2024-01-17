@@ -49,9 +49,9 @@ export const StyledArrowSvg = styled(ArrowSvg)`
 //     ${StyledAddBtn}:hover & {
 //       animation: ${moveRight} 1000ms linear infinite;
 //       > path {
-//         stroke: ${styleGuide.successColor};
-//     }
-//          }
+// stroke: ${styleGuide.successColor} !important;
+//       } 
+//            }
 //   }
 // `
 export const StyledRunManSvg = styled(RunManSvg)`

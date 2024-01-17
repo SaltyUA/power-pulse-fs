@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react';
-import { useFormik } from 'formik';
 import { useSearchParams } from 'react-router-dom';
-import { SelectCategory } from '../FormSelects/CategoriesSelect';
-import { SelectRecommended } from '../FormSelects/RecommendedSelect';
+import { useFormik } from 'formik';
+import { SelectCategory, SelectRecommended } from '../../ProductsComponents';
 import { StyledForm, StyledSearchSvg, StyledxSvg } from './ProductsFrom.styled';
 
 export const ProductsForm = () => {
