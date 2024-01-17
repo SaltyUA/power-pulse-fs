@@ -27,14 +27,14 @@ export const AuthText = styled.p`
 `;
 
 export const FormContainer = styled.div`
-  padding: 90px 20px 0;
+  padding-top: 90px;
 
   @media screen and (min-width: 768px) {
-    padding: 140px 32px 0px;
+    padding-top: 140px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 151px 96px 0;
+    padding-top: 151px;
   }
 `;
 
