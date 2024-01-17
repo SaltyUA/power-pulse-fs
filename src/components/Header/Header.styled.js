@@ -3,16 +3,9 @@ import { styleGuide } from '../../constants/styleGuide';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
-  z-index: 90;
   width: 100vw;
-  position: fixed;
 
-  top: 0;
   background-color: ${styleGuide.blackColor};
-
-  @media screen and (min-width: 1440px) {
-    position: absolute;
-  }
 `;
 
 export const HeaderWrap = styled.div`
@@ -33,7 +26,7 @@ export const HeaderWrap = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    padding: 96px 32px;
+    padding: 32px 96px;
   }
 `;
 

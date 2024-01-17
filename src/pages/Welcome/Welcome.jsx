@@ -12,11 +12,11 @@ import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selesctIsLoggedIn, selectUser } from '../../store/selectors';
+import { selectIsLoggedIn, selectUser } from '../../store/selectors';
 import { useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
-  const isLoggedIn = useSelector(selesctIsLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const user = useSelector(selectUser);
   const navigate = useNavigate();
 

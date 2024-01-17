@@ -7,7 +7,7 @@ const LogoutButton = ({ setBurgerIsActive }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    setBurgerIsActive(false);
+    if (setBurgerIsActive) setBurgerIsActive(false);
     dispatch(logOut());
   };
 

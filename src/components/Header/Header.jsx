@@ -21,7 +21,7 @@ import {
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { useEffect, useState } from 'react';
 import { refreshUser } from '../../store/auth/thunk';
-import LogoutButton from '../LogOutButton/LogOutButton';
+import LogoutButton from '../LogoutButton/LogoutButton';
 
 export const Header = () => {
   const isLogged = useSelector(selectIsLoggedIn);
