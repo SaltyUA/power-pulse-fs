@@ -75,3 +75,13 @@ export const InputWrap = styled.div`
     gap: 20px;
   }
 `;
+
+export const SignInWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 121px;
+
+  background: ${styleGuide.backgroundImage};
+  background-repeat: no-repeat;
+  background-position: right bottom;
+`;
