@@ -12,26 +12,16 @@ import {
   UserAvatar,
   UserContainer,
 } from './Header.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectIsLoggedIn,
-  selectToken,
-  selectUser,
-} from '../../store/selectors';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn, selectUser } from '../../store/selectors';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { useEffect, useState } from 'react';
-import { refreshUser } from '../../store/auth/thunk';
 import LogoutButton from '../LogoutButton/LogoutButton';
 
 export const Header = () => {
   const isLogged = useSelector(selectIsLoggedIn);
-  const token = useSelector(selectToken);
-  const dispatch = useDispatch();
-  const [burgerIsActive, setBurgerIsActive] = useState(false);
 
-  useEffect(() => {
-    !isLogged && token && dispatch(refreshUser());
-  }, [dispatch, isLogged, token]);
+  const [burgerIsActive, setBurgerIsActive] = useState(false);
 
   useEffect(() => {
     setBurgerIsActive(false);
