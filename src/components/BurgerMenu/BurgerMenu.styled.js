@@ -5,7 +5,7 @@ export const BurgerContainer = styled.div`
   width: 200px;
   height: 100vh;
   padding: 44.5px;
-
+  z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { auth } from './auth';
 export const products = axios.create({
   baseURL: 'https://power-4vwy.onrender.com/api/v1/',
 });
@@ -11,6 +11,7 @@ export const tokenControl = {
         products.defaults.headers.common.Authorization = '';
     }
 }
+
 
 export async function getProducts(params) {
   const { data } = await products.get('/products', { params });
