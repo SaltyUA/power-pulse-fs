@@ -1,19 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { ProductsForm } from '../../components/ProductsComponents/ProductsForm/ProductsForm';
-import { ProductsList } from '../../components/ProductsComponents/ProductsList/ProductsList';
+import { ProductsForm, ProductsList } from '../../components/ProductsComponents';
+import { getCategoriesList } from '../../store/products/operations';
 import { StyledSection, StyledWrapper, Title } from './Products.styled';
 import { ToastContainer } from 'react-toastify';
 import { notify } from '../../hooks/tostify';
 
 const Products = () => {
   const { addProductFalse } = useSelector((state) => state.products);
-
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(getCategoriesList());
     if (addProductFalse) {
       notify('error', 'Enter correct data!');
     }
-  }, [addProductFalse]);
+  }, [addProductFalse, dispatch]);
 
   return (
     <StyledSection>

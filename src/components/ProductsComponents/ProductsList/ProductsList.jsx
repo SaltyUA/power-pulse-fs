@@ -47,14 +47,16 @@ export const ProductsList = () => {
     [searchParams]
   );
   const { q, category, recommended } = params;
- 
+
   if (q) {
     queryParams.q = q;
   } else {
     delete queryParams.q;
   }
-  if (category) {
+  if (category && category !== 'Categories') {
     queryParams.cat = category.toLowerCase();
+  }  else {
+    delete queryParams.cat;
   }
   if (recommended && recommended !== 'All') {
     queryParams.rec = recommended;

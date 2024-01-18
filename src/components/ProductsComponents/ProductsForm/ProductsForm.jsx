@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { SelectCategory, SelectRecommended } from '../../ProductsComponents';
 import { StyledForm, StyledSearchSvg, StyledxSvg } from './ProductsFrom.styled';
-
+import sprite from '../../../assets/images/sprite.svg'
 export const ProductsForm = () => {
   const [isCrossShown, setIsCrossShown] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -61,11 +61,15 @@ export const ProductsForm = () => {
                 formik.values.search = '';
               }}
             >
-              <StyledxSvg />
+              <StyledxSvg>
+            <use href={sprite + '#icon-close'}></use>
+          </StyledxSvg>
             </button>
           )}
           <button type="submit">
-            <StyledSearchSvg />
+             <StyledSearchSvg>
+            <use href={sprite + '#searchSvg'}></use>
+          </StyledSearchSvg>
           </button>
         </div>
       </div>
@@ -77,6 +81,10 @@ export const ProductsForm = () => {
             formik.setFieldValue('category', option.value);
             setSearchParams((prevSearchParams) => {
               const updatedParams = new URLSearchParams(prevSearchParams);
+              if (option.value === 'Categories') {
+                updatedParams.delete('category')
+                return
+              }
               updatedParams.set('category', option.value);
               return updatedParams;
             });

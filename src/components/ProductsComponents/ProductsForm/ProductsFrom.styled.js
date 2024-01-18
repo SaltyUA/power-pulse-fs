@@ -1,15 +1,14 @@
 import styled from '@emotion/styled';
 import { styleGuide } from '../../../constants/styleGuide';
-import { ReactComponent as SearchSvg } from '../img/searchSvg.svg';
-import { ReactComponent as xSvg } from '../img/xSvg.svg';
 
-export const StyledSearchSvg = styled(SearchSvg)`
+export const StyledSearchSvg = styled.svg`
   width: 18px;
   height: 18px;
 `;
-export const StyledxSvg = styled(xSvg)`
+export const StyledxSvg = styled.svg`
   width: 20px;
   height: 20px;
+  stroke: ${styleGuide.orangeColor};
 `;
 export const StyledForm = styled.form`
   margin-top: 40px;
@@ -37,6 +36,7 @@ export const StyledForm = styled.form`
     }
     @media screen and (min-width: 768px) {
       width: 236px;
+      height:52px;
     }
   }
 

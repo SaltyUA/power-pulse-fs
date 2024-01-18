@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as CloseSvg } from '../img/xSvg.svg';
-import { ReactComponent as ArrowSvg } from '../img/arrow.svg';
-import bgPhoto from '../img/bgFood.png'
-import bgPhoto2x from '../img/bgFood2x.png'
+import bgPhoto from '../../../assets/images/bgFood.png'
+import bgPhoto2x from '../../../assets/images/bgFood2x.png'
 import { styleGuide } from '../../../constants/styleGuide'
 import { NavLink } from "react-router-dom";
 
@@ -21,43 +19,35 @@ line-height: 1.29;
       }
 `
 
-export const StyledArrowSvg = styled(ArrowSvg)`
+export const StyledArrowSvg = styled.svg`
 width:16px;
 height: 16px;
-> path {
-        stroke: ${styleGuide.greyTextColor};
-      }
-      transition: all ${styleGuide.animation};
+  stroke: ${styleGuide.greyTextColor};
+         transition: all ${styleGuide.animation};
         @media screen and (min-width: 768px) {
     ${StyledNavLink}:hover &, ${StyledNavLink}:focus & {
-      > path {
-        stroke: ${styleGuide.orangeColor};
-      }
-    }
+              stroke: ${styleGuide.orangeColor};
+         }
     ${StyledNavLink}:hover &, ${StyledNavLink}:focus & {
       transform: translateX(10px);
     }
   }
 `
 
-export const StyledCloseSvg = styled(CloseSvg)`
+export const StyledCloseSvg = styled.svg`
 position: absolute;
 top: 14px;
 right: 14px;
 width: 22px;
 height: 22px;
 cursor: pointer;
- > path {
         stroke: ${styleGuide.whiteColor};
-      }
-      transition: stroke ${styleGuide.animation},
+       transition: stroke ${styleGuide.animation},
     scale 500ms cubic-bezier(0.4, 0, 0.2, 1),
     transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
     &:hover {
-      > path {
         stroke: ${styleGuide.orangeColor};
-      }
     }
     &:hover {
       scale: 1.25;

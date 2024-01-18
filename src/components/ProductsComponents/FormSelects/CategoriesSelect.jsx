@@ -1,6 +1,8 @@
 import Select, { components } from 'react-select';
-import { ReactComponent as SelectArrow } from '../img/selectArrow.svg';
+import { useSelector} from 'react-redux';
+import { StyledSelectArrow } from './selects.styled';
 import { styleGuide } from "../../../constants/styleGuide";
+import sprite from '../../../assets/images/sprite.svg';
 
 const options = [
   { value: 'Alcoholic drinks', label: 'Alcoholic drinks' },
@@ -16,7 +18,9 @@ const options = [
 const DropdownIndicator = (props) => {
   return (
     <components.DropdownIndicator {...props}>
-      <SelectArrow />
+        <StyledSelectArrow>
+            <use href={sprite + '#selectArrow'}></use>
+          </StyledSelectArrow>
     </components.DropdownIndicator>
   );
 };
@@ -31,6 +35,7 @@ const customStyles = {
     },
     '@media (min-width: 768px)': {
       width: '192px',
+      height: '52px',
     },
   }),
   control: (provided, state) => ({
@@ -52,6 +57,7 @@ const customStyles = {
     },
     '@media (min-width: 768px)': {
       width: '192px', 
+      height: '52px',
     },
   }),
   dropdownIndicator: (base, state) => ({
@@ -109,10 +115,16 @@ const customStyles = {
   }),
 };
 export const SelectCategory = ({ dataFunc, currentValue }) => {
+  const { categories } = useSelector(state => state.products);
+  const updatedOptions = categories && categories.map(item => ({ value: item, label: item }));
+  const optionsWithDefault = [
+    { value: 'Categories', label: 'Categories' },
+    ...updatedOptions
+  ];
   return (
     <Select
       onChange={dataFunc}
-      options={options}
+      options={optionsWithDefault}
       components={{ DropdownIndicator }}
       styles={customStyles}
       value={

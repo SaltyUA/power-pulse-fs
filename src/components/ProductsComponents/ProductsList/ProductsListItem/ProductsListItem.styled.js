@@ -1,7 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 import { styleGuide } from '../../../../constants/styleGuide';
-import { ReactComponent as ArrowSvg } from '../../img/arrow.svg';
-import { ReactComponent as RunManSvg } from '../../img/runningman.svg';
 
 export const StyledAddBtn = styled.button`
   display: flex;
@@ -30,31 +28,20 @@ const moveRight = keyframes`
     transform: translateX(10px);
   }
 `;
-export const StyledArrowSvg = styled(ArrowSvg)`
-  width: 16px;
+
+export const StyledArrowSvg23 = styled.svg`
+width: 16px;
   height: 16px;
+  stroke: ${styleGuide.orangeColor};
   @media screen and (min-width: 768px) {
     ${StyledAddBtn}:hover & {
       animation: ${moveRight} 1000ms linear infinite;
-      > path {
-        stroke: ${styleGuide.successColor};
-      }
-    }
+    stroke: ${styleGuide.successColor};
+             }
   }
-`;
-// export const StyledArrowSvg23 = styled.svg`
-// width: 16px;
-//   height: 16px;
-//   @media screen and (min-width: 768px) {
-//     ${StyledAddBtn}:hover & {
-//       animation: ${moveRight} 1000ms linear infinite;
-//       > path {
-// stroke: ${styleGuide.successColor} !important;
-//       } 
-//            }
-//   }
-// `
-export const StyledRunManSvg = styled(RunManSvg)`
+`
+
+export const StyledRunManSvg = styled.svg`
   width: 24px;
   height: 24px;
 `;
