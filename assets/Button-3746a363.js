@@ -1,4 +1,4 @@
-import{g as l,s as e,j as p}from"./index-26215cd7.js";const{animation:r,orangeColor:t,orange2Color:n}=e,c=l.button`
+import{b as l,s as e,j as p}from"./index-e78a3f75.js";const{animation:r,orangeColor:t,orange2Color:n}=e,c=l.button`
   padding: 12px 40px;
   width: ${o=>o.$width};
 
@@ -23,4 +23,4 @@ import{g as l,s as e,j as p}from"./index-26215cd7.js";const{animation:r,orangeCo
   &:disabled {
     color: #efede899;
   }
-`,x=({children:o,transparent:a,width:s,as:i,type:d,to:$})=>p.jsx(c,{type:d,as:i,to:$,$width:s,$transparent:a,children:o});export{x as B};
+`,b=({children:o,transparent:a,width:s,as:i,type:d,to:$})=>p.jsx(c,{type:d,as:i,to:$,$width:s,$transparent:a,children:o});export{b as B};

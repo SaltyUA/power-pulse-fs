@@ -1,4 +1,4 @@
-import{g as o,s as i,j as n,d as c}from"./index-26215cd7.js";import{n as e}from"./emotion-styled.browser.esm-13f51baa.js";const m=o.input`
+import{b as o,s as i,j as n,a as c}from"./index-e78a3f75.js";import{n as e}from"./emotion-styled.browser.esm-71dbf967.js";const m=o.input`
   padding: 14px;
   width: 100%;
   color: ${i.whiteColor};
@@ -67,7 +67,7 @@ import{g as o,s as i,j as n,d as c}from"./index-26215cd7.js";import{n as e}from"
     width: 16px;
     height: 16px;
   }
-`,b=({placeholder:d,name:a,type:p,onChange:s,value:x,className:r,message:t})=>n.jsxs(l,{children:[n.jsx(m,{placeholder:d,name:a,type:p,onChange:s,value:x,required:!0,className:r,$message:t}),t&&n.jsxs(h,{className:r,children:[n.jsx(g,{children:n.jsx("use",{href:c+"#icon-checkbox"})}),t]})]}),f=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,C=e.h2`
+`,b=({placeholder:a,name:d,type:p,onChange:s,value:x,className:r,message:t})=>n.jsxs(l,{children:[n.jsx(m,{placeholder:a,name:d,type:p,onChange:s,value:x,required:!0,className:r,$message:t}),t&&n.jsxs(h,{className:r,children:[n.jsx(g,{children:n.jsx("use",{href:c+"#icon-checkbox"})}),t]})]}),f=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,C=e.h2`
   font-size: 24px;
   line-height: 1.17;
   margin-bottom: 14px;
