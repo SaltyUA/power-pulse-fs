@@ -1,10 +1,19 @@
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-// import { selectUser } from 'redux/selectors';
-// import { updateUserInfo } from 'redux/operations';
+import { selectUser } from '../../../store/selectors';
+import { updateUserData } from '../../../store/auth/thunk';
 
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+
+import {
+  FormLabel,
+  FormLabelSecond,
+  FormInput,
+  BloodTitle,
+  ContainerParams,
+  FormSaveBtn,
+} from './UserForm.styled';
 
 const userFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -44,34 +53,22 @@ const userFormSchema = Yup.object().shape({
 });
 
 const UserForm = () => {
-  // const dispatch = useDispatch();
-  // const user = useSelector(selectUser);
-
-  // const initialValues = {
-  //   name: user.name ?? '',
-  //   height: user.height ?? 150,
-  //   currentWeight: user.currentWeight ?? 35,
-  //   desiredWeight: user.desiredWeight ?? 35,
-  //   birthday: user.birthday ?? '1990-01-01',
-  //   blood: user.blood ?? 1,
-  //   sex: user.sex ?? 'male',
-  //   levelActivity: user.levelActivity ?? 1,
-  // };
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   const initialValues = {
-    name: 'Misha',
-    height: 150,
-    currentWeight: 35,
-    desiredWeight: 35,
-    birthday: '1990-01-01',
-    blood: 1,
-    sex: 'male',
-    levelActivity: 1,
+    name: user.name ?? '',
+    height: user.height ?? 150,
+    currentWeight: user.currentWeight ?? 35,
+    desiredWeight: user.desiredWeight ?? 35,
+    birthday: user.birthday ?? '1990-01-01',
+    blood: user.blood ?? '1',
+    sex: user.sex ?? 'male',
+    levelActivity: user.levelActivity ?? '1',
   };
 
   const handleSubmit = (values) => {
-    console.log(values);
-    // dispatch(updateUserInfo(values)); // updateUserInfo - майбутня фукнція в redux/operations
+    dispatch(updateUserData(values));
   };
 
   return (
@@ -83,85 +80,119 @@ const UserForm = () => {
       {({ handleChange, values }) => (
         <Form>
           <div className="name_email">
-            <label>
+            <FormLabel>
               Name
-              <input
+              <FormInput
                 type="text"
                 id="name"
                 name="name"
                 value={values.name}
                 onChange={handleChange}
               />
-            </label>
-            <label>
+            </FormLabel>
+            <FormLabel>
               Email
-              <input
+              <FormInput
                 type="text"
                 id="email"
                 name="email"
-                // defaultValue={user.email}
+                defaultValue={user.email}
                 readOnly
                 disabled
               />
-            </label>
+            </FormLabel>
           </div>
 
           <div className="full_height_weight">
-            <div className="height_currentWeight">
-              <label>
+            <ContainerParams>
+              <FormLabelSecond>
                 Height
-                <input
+                <FormInput
                   type="number"
                   id="height"
                   name="height"
                   value={values.height}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
+              </FormLabelSecond>
+              <FormLabelSecond>
                 Current Weight
-                <input
+                <FormInput
                   type="number"
                   id="currentWeight"
                   name="currentWeight"
                   value={values.currentWeight}
                   onChange={handleChange}
                 />
-              </label>
-            </div>
+              </FormLabelSecond>
+            </ContainerParams>
 
-            <div className="desiredWeight_birthday">
-              <label>
+            <ContainerParams>
+              <FormLabelSecond>
                 Desired Weight
-                <input
+                <FormInput
                   type="number"
                   id="desiredWeight"
                   name="desiredWeight"
                   value={values.desiredWeight}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
+              </FormLabelSecond>
+              <FormLabelSecond>
                 Date of birth
-                <input type="date" />
-              </label>
-            </div>
+                <FormInput
+                  type="date"
+                  id="birthday"
+                  name="birthday"
+                  value={values.birthday}
+                  onChange={handleChange}
+                />
+              </FormLabelSecond>
+            </ContainerParams>
           </div>
 
-          <p>Blood</p>
+          <BloodTitle>Blood</BloodTitle>
           <div className="blood_sex">
             <div className="blood">
               <label>
-                <input type="radio" name="blood" />1
+                <input
+                  type="radio"
+                  name="blood"
+                  value="1"
+                  checked={values.blood === '1'}
+                  onChange={handleChange}
+                />
+                1
               </label>
               <label>
-                <input type="radio" name="blood" />2
+                <input
+                  type="radio"
+                  name="blood"
+                  value="2"
+                  checked={values.blood === '2'}
+                  onChange={handleChange}
+                />
+                2
               </label>
               <label>
-                <input type="radio" name="blood" />3
+                <input
+                  type="radio"
+                  name="blood"
+                  value="3"
+                  checked={values.blood === '3'}
+                  onChange={handleChange}
+                />
+                3
               </label>
               <label>
-                <input type="radio" name="blood" />4
+                <input
+                  type="radio"
+                  name="blood"
+                  value="4"
+                  checked={values.blood === '4'}
+                  onChange={handleChange}
+                />
+                4
               </label>
             </div>
 
@@ -171,7 +202,7 @@ const UserForm = () => {
                   type="radio"
                   name="sex"
                   value="male"
-                  checked={values.gender === 'male'}
+                  checked={values.sex === 'male'}
                   onChange={handleChange}
                 />
                 Male
@@ -181,7 +212,7 @@ const UserForm = () => {
                   type="radio"
                   name="sex"
                   value="female"
-                  checked={values.gender === 'female'}
+                  checked={values.sex === 'female'}
                   onChange={handleChange}
                 />
                 Female
@@ -193,9 +224,9 @@ const UserForm = () => {
             <label>
               <input
                 type="radio"
-                name="activity"
+                name="levelActivity"
                 value="1"
-                checked={values.activity === '1'}
+                checked={values.levelActivity === '1'}
                 onChange={handleChange}
               />
               Sedentary lifestyle (little or no physical activity)
@@ -203,9 +234,9 @@ const UserForm = () => {
             <label>
               <input
                 type="radio"
-                name="activity"
+                name="levelActivity"
                 value="2"
-                checked={values.activity === '2'}
+                checked={values.levelActivity === '2'}
                 onChange={handleChange}
               />
               Light activity (light exercises/sports 1-3 days per week)
@@ -213,9 +244,9 @@ const UserForm = () => {
             <label>
               <input
                 type="radio"
-                name="activity"
+                name="levelActivity"
                 value="3"
-                checked={values.activity === '3'}
+                checked={values.levelActivity === '3'}
                 onChange={handleChange}
               />
               Moderately active (moderate exercises/sports 3-5 days per week)
@@ -223,9 +254,9 @@ const UserForm = () => {
             <label>
               <input
                 type="radio"
-                name="activity"
+                name="levelActivity"
                 value="4"
-                checked={values.activity === '4'}
+                checked={values.levelActivity === '4'}
                 onChange={handleChange}
               />
               Very active (intense exercises/sports 6-7 days per week)
@@ -233,9 +264,9 @@ const UserForm = () => {
             <label>
               <input
                 type="radio"
-                name="activity"
+                name="levelActivity"
                 value="5"
-                checked={values.activity === '5'}
+                checked={values.levelActivity === '5'}
                 onChange={handleChange}
               />
               Extremely active (very strenuous exercises/sports and physical
@@ -243,7 +274,7 @@ const UserForm = () => {
             </label>
           </div>
 
-          <button type="submit">Save</button>
+          <FormSaveBtn type="submit">Save</FormSaveBtn>
         </Form>
       )}
     </Formik>
