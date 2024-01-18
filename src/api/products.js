@@ -1,10 +1,10 @@
 import axios from 'axios';
-
+import { auth } from './auth';
 export const products = axios.create({
   baseURL: 'https://power-4vwy.onrender.com/api/v1/',
 });
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTVjMDk0OTMxNTg5MjQyNGM2YzgzOCIsImlhdCI6MTcwNTUxMDkzMCwiZXhwIjoxNzA1NTkzNzMwfQ.5b5_Vq5hpu0fOfBSZ1xiTrcZlChEukozK1ws4zeuYik';
+const token = auth.defaults.headers.common['Authorization'];
+
 products.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 export async function getProducts(params) {
