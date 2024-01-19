@@ -17,7 +17,6 @@ export const initialState = {
   },
   token: null,
   isLoggedIn: false,
-  isRefreshing: false,
-  isLoading: false,
+  isRefreshing: true,
   error: null,
 };

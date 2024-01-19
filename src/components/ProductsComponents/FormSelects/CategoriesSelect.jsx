@@ -4,6 +4,17 @@ import { StyledSelectArrow } from './selects.styled';
 import { styleGuide } from "../../../constants/styleGuide";
 import sprite from '../../../assets/images/sprite.svg';
 
+const options = [
+  { value: 'Alcoholic drinks', label: 'Alcoholic drinks' },
+  { value: 'Berries', label: 'Berries' },
+  { value: 'Cereals', label: 'Cereals' },
+  { value: 'Dairy', label: 'Dairy' },
+  { value: 'Dried fruits', label: 'Dried fruits' },
+  { value: 'Eggs', label: 'Eggs' },
+  { value: 'Fish', label: 'Fish' },
+  { value: 'Flour', label: 'Flour' },
+  { value: 'Meat', label: 'Meat' },
+];
 const DropdownIndicator = (props) => {
   return (
     <components.DropdownIndicator {...props}>
@@ -110,7 +121,6 @@ export const SelectCategory = ({ dataFunc, currentValue }) => {
     { value: 'Categories', label: 'Categories' },
     ...updatedOptions
   ];
-  
   return (
     <Select
       onChange={dataFunc}
@@ -120,7 +130,7 @@ export const SelectCategory = ({ dataFunc, currentValue }) => {
       value={
         currentValue === ''
           ? { value: 'Categories', label: 'Categories' }
-          : optionsWithDefault.find((option) => option.value === currentValue)
+          : options.find((option) => option.value === currentValue)
       }
     />
   );

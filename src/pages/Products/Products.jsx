@@ -5,7 +5,7 @@ import { getCategoriesList } from '../../store/products/operations';
 import { StyledSection, StyledWrapper, Title } from './Products.styled';
 import { ToastContainer } from 'react-toastify';
 import { notify } from '../../hooks/tostify';
-import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
+
 const Products = () => {
   const { addProductFalse } = useSelector((state) => state.products);
   const dispatch = useDispatch();
@@ -17,7 +17,6 @@ const Products = () => {
   }, [addProductFalse, dispatch]);
 
   return (
-    <PageAnimatedWrapper direction='X'>
     <StyledSection>
       <StyledWrapper>
         <div className="title-form-block">
@@ -27,8 +26,7 @@ const Products = () => {
         <ProductsList />
         <ToastContainer />
       </StyledWrapper>
-      </StyledSection>
-      </PageAnimatedWrapper>
+    </StyledSection>
   );
 };
 

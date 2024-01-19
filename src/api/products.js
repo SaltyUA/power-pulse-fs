@@ -1,9 +1,8 @@
 import axios from 'axios';
-
+import { auth } from './auth';
 export const products = axios.create({
   baseURL: 'https://power-4vwy.onrender.com/api/v1/',
 });
-
 export const tokenControl = {
     set(token) {
          products.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -25,6 +24,6 @@ export async function addProduct(body, _id) {
 }
 
 export async function getCategories() {
-  const data = await products.get('/products/categories');
+  const data = await products.get('/categories');
   return data;
 }
