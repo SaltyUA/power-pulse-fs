@@ -3,16 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../store/selectors';
 import { updateUserData } from '../../../store/auth/thunk';
 
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import {
+  FormStyle,
+  ContainerNameEmail,
+  ContainerFullParams,
+  ContainerParams,
+  ContainerActivity,
   FormLabel,
   FormLabelSecond,
   FormInput,
   BloodTitle,
-  ContainerParams,
-  FormSaveBtn,
+  RadioLabelBlood,
+  RadioLabelActivity,
+  RadioBtn,
+  FormSaveBtn
 } from './UserForm.styled';
 
 const userFormSchema = Yup.object().shape({
@@ -78,8 +85,8 @@ const UserForm = () => {
       onSubmit={handleSubmit}
     >
       {({ handleChange, values }) => (
-        <Form>
-          <div className="name_email">
+        <FormStyle>
+          <ContainerNameEmail>
             <FormLabel>
               Name
               <FormInput
@@ -101,9 +108,9 @@ const UserForm = () => {
                 disabled
               />
             </FormLabel>
-          </div>
+          </ContainerNameEmail>
 
-          <div className="full_height_weight">
+          <ContainerFullParams>
             <ContainerParams>
               <FormLabelSecond>
                 Height
@@ -149,80 +156,82 @@ const UserForm = () => {
                 />
               </FormLabelSecond>
             </ContainerParams>
+          </ContainerFullParams>
+
+          <div style={{ marginBottom: '40px' }}>
+            <BloodTitle>Blood</BloodTitle>
+            <div style={{ display: 'flex', gap: '20px' }}>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <RadioLabelBlood>
+                  <RadioBtn
+                    type="radio"
+                    name="blood"
+                    value="1"
+                    checked={values.blood === '1'}
+                    onChange={handleChange}
+                  />
+                  1
+                </RadioLabelBlood>
+                <RadioLabelBlood>
+                  <RadioBtn
+                    type="radio"
+                    name="blood"
+                    value="2"
+                    checked={values.blood === '2'}
+                    onChange={handleChange}
+                  />
+                  2
+                </RadioLabelBlood>
+                <RadioLabelBlood>
+                  <RadioBtn
+                    type="radio"
+                    name="blood"
+                    value="3"
+                    checked={values.blood === '3'}
+                    onChange={handleChange}
+                  />
+                  3
+                </RadioLabelBlood>
+                <RadioLabelBlood>
+                  <RadioBtn
+                    type="radio"
+                    name="blood"
+                    value="4"
+                    checked={values.blood === '4'}
+                    onChange={handleChange}
+                  />
+                  4
+                </RadioLabelBlood>
+              </div>
+
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <RadioLabelBlood>
+                  <RadioBtn
+                    type="radio"
+                    name="sex"
+                    value="male"
+                    checked={values.sex === 'male'}
+                    onChange={handleChange}
+                  />
+                  Male
+                </RadioLabelBlood>
+                <RadioLabelBlood>
+                  <RadioBtn
+                    type="radio"
+                    name="sex"
+                    value="female"
+                    checked={values.sex === 'female'}
+                    onChange={handleChange}
+                  />
+                  Female
+                </RadioLabelBlood>
+              </div>
+            </div>
           </div>
 
-          <BloodTitle>Blood</BloodTitle>
-          <div className="blood_sex">
-            <div className="blood">
-              <label>
-                <input
-                  type="radio"
-                  name="blood"
-                  value="1"
-                  checked={values.blood === '1'}
-                  onChange={handleChange}
-                />
-                1
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="blood"
-                  value="2"
-                  checked={values.blood === '2'}
-                  onChange={handleChange}
-                />
-                2
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="blood"
-                  value="3"
-                  checked={values.blood === '3'}
-                  onChange={handleChange}
-                />
-                3
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="blood"
-                  value="4"
-                  checked={values.blood === '4'}
-                  onChange={handleChange}
-                />
-                4
-              </label>
-            </div>
-
-            <div className="sex">
-              <label>
-                <input
-                  type="radio"
-                  name="sex"
-                  value="male"
-                  checked={values.sex === 'male'}
-                  onChange={handleChange}
-                />
-                Male
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="sex"
-                  value="female"
-                  checked={values.sex === 'female'}
-                  onChange={handleChange}
-                />
-                Female
-              </label>
-            </div>
-          </div>
-
-          <div className="activity">
-            <label>
-              <input
+          <ContainerActivity>
+            <RadioLabelActivity>
+              <RadioBtn
                 type="radio"
                 name="levelActivity"
                 value="1"
@@ -230,9 +239,9 @@ const UserForm = () => {
                 onChange={handleChange}
               />
               Sedentary lifestyle (little or no physical activity)
-            </label>
-            <label>
-              <input
+            </RadioLabelActivity>
+            <RadioLabelActivity>
+              <RadioBtn
                 type="radio"
                 name="levelActivity"
                 value="2"
@@ -240,9 +249,9 @@ const UserForm = () => {
                 onChange={handleChange}
               />
               Light activity (light exercises/sports 1-3 days per week)
-            </label>
-            <label>
-              <input
+            </RadioLabelActivity>
+            <RadioLabelActivity>
+              <RadioBtn
                 type="radio"
                 name="levelActivity"
                 value="3"
@@ -250,9 +259,9 @@ const UserForm = () => {
                 onChange={handleChange}
               />
               Moderately active (moderate exercises/sports 3-5 days per week)
-            </label>
-            <label>
-              <input
+            </RadioLabelActivity>
+            <RadioLabelActivity>
+              <RadioBtn
                 type="radio"
                 name="levelActivity"
                 value="4"
@@ -260,22 +269,22 @@ const UserForm = () => {
                 onChange={handleChange}
               />
               Very active (intense exercises/sports 6-7 days per week)
-            </label>
-            <label>
-              <input
+            </RadioLabelActivity>
+            <RadioLabelActivity>
+              <RadioBtn
                 type="radio"
                 name="levelActivity"
                 value="5"
                 checked={values.levelActivity === '5'}
                 onChange={handleChange}
               />
-              Extremely active (very strenuous exercises/sports and physical
+              Extremely active (very strenuous exercises/ sports and physical
               work)
-            </label>
-          </div>
+            </RadioLabelActivity>
+          </ContainerActivity>
 
           <FormSaveBtn type="submit">Save</FormSaveBtn>
-        </Form>
+        </FormStyle>
       )}
     </Formik>
   );
