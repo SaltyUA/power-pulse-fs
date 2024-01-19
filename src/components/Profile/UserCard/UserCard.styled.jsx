@@ -1,21 +1,22 @@
 import styled from '@emotion/styled';
+import { styleGuide } from '../../../constants/styleGuide';
 
 export const UserCardContainer = styled.div`
-  width: 281px;
+  min-width: 281px;
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
   justify-content: center;
   padding-top: 40px;
-  margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    width: 440px;
     padding-top: 64px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding-top: 27px;
+    min-width: 439px;
+    padding-top: 0;
     justify-content: flex-start;
   }
 `;
@@ -59,8 +60,16 @@ export const AddAvatarButton = styled.button`
   background: transparent;
   border: none;
   border-radius: 50%;
+
   & svg {
-    color: green;
+    fill: ${styleGuide.orangeColor};
+    transition: fill 250ms linear;
+  }
+  & svg {
+    &:hover,
+    &:focus {
+      fill: ${styleGuide.orange2Color};
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -105,9 +114,9 @@ export const EmailContainer = styled.p`
 
 export const InformationContainer = styled.div`
   display: flex;
+  justify-content: center;
   gap: 14px;
   margin-top: 40px;
-  width: auto;
 
   @media screen and (min-width: 768px) {
     gap: 16px;
@@ -120,7 +129,7 @@ export const InformationCard = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  min-width: 129px;
+  max-width: 157px;
   height: 96px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
@@ -129,8 +138,11 @@ export const InformationCard = styled.div`
 
   @media screen and (min-width: 768px) {
     padding-inline: 18px;
-    width: 214px;
+    min-width: 214px;
     height: 108px;
+  }
+  @media screen and (min-width: 1440px) {
+    min-width: 210px;
   }
 `;
 
@@ -157,7 +169,6 @@ export const InformationCounter = styled.span`
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: calc(32 / 24);
-
     bottom: 14px;
     left: 18px;
   }
@@ -176,12 +187,23 @@ export const NoticeContainer = styled.div`
 export const LogoutContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  position: static;
   align-items: center;
   margin-left: auto;
   margin-top: 40px;
+  & svg {
+    fill: ${styleGuide.orangeColor};
+    transition: fill 250ms linear;
+  }
+  & svg {
+    &:hover,
+    &:focus {
+      fill: ${styleGuide.orange2Color};
+    }
+  }
 
   @media screen and (min-width: 768px) {
     margin-top: 32px;
+    width: 439px;
+    margin-left: 0;
   }
 `;

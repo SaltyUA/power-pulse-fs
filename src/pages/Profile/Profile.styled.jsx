@@ -3,6 +3,7 @@ import { styleGuide } from '../../constants/styleGuide';
 
 export const TitlePage = styled.h1`
   color: ${styleGuide.whiteColor};
+  line-height: 1;
 `;
 
 export const ProfilerWrapper = styled.div`
