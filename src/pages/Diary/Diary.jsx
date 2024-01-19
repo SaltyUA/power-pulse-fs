@@ -7,12 +7,22 @@ import TitlePage from '../../components/TitlePage';
 import { DiaryContainer, Left, Right, ForPosition } from './Diary.styled';
 import Notice from '../../components/Notice';
 
+
+
 const Diary = () => {
+
+  const onChoiceDate = (choiceDate) => {
+   
+      
+    console.log(choiceDate)
+    
+
+  }
   return (
     <Container>
       <ForPosition>
         <TitlePage title="Diary" />
-        <DaySwitch />
+        <DaySwitch onChoiceDate={onChoiceDate } />
         <DiaryContainer>
           <Left>
             <DayProducts />

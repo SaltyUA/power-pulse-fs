@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useState, useEffect} from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import {
@@ -10,9 +10,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../../assets/images/sprite.svg';
 import { Global } from '@emotion/react';
 
-const StyledDatepicker = () => {
+const StyledDatepicker = ({onChoiceDate}) => {
 
-    const [selectedDate, setSelectedDate] = useState(Date.now());
+  const [selectedDate, setSelectedDate] = useState(Date.now());
+  useEffect(() => {
+    onChoiceDate(format(selectedDate, 'dd-MM-yyyy'));
+  });
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (

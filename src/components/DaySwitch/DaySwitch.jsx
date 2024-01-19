@@ -21,10 +21,10 @@ import StyledDatepicker from './Datepicker/Datepicker';
 import sprite from '../../assets/images/sprite.svg';
 //import { useState } from 'react';
 
-const DaySwitch = () => {
+const DaySwitch = ({ onChoiceDate }) => {
   return (
     <DaySwitchArea>
-      <StyledDatepicker />
+      <StyledDatepicker onChoiceDate={onChoiceDate} />
       <ArrowArea>
         <Button type="button">
           <ArrowIcon iconColor="#efede8">
