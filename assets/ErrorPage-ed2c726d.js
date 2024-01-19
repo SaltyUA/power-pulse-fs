@@ -1,9 +1,9 @@
-import{L as o,s as e,u as d,j as i,r as a}from"./index-71e91b31.js";import{n as t}from"./emotion-styled.browser.esm-cac331d4.js";import{t as p,a as r,b as x}from"./side-view-people-training-gym-3x-98657c57.js";const h=t.div`
+import{L as e,s as n,j as i}from"./index-b8328b10.js";import{n as t}from"./emotion-styled.browser.esm-6bf9ed3b.js";import{t as o,a as d,b as a}from"./side-view-people-training-gym-3x-98657c57.js";const p=t.div`
   overflow: hidden;
   display: flex;
   width: 100%;
   margin: 0 auto;
-`,s=t.div`
+`,r=t.div`
   width: 200px;
   background: #e6533c;
   display: flex;
@@ -25,7 +25,7 @@ import{L as o,s as e,u as d,j as i,r as a}from"./index-71e91b31.js";import{n as 
     padding: 172px 96px 221px 96px;
     width: 669px;
   }
-`,m=t.h1`
+`,x=t.h1`
   font-size: 66px;
   font-weight: 500;
   line-height: 1;
@@ -38,7 +38,7 @@ import{L as o,s as e,u as d,j as i,r as a}from"./index-71e91b31.js";import{n as 
     line-height: 0.93;
     margin-bottom: 28px;
   }
-`,c=t.p`
+`,h=t.p`
   width: 180px;
   color: #efede8;
   font-size: 14px;
@@ -60,9 +60,9 @@ import{L as o,s as e,u as d,j as i,r as a}from"./index-71e91b31.js";import{n as 
   @media (min-width: 1440px) {
     width: 477px;
   }
-`,g=t(o)`
+`,s=t(e)`
   display: inline-block;
-  color: ${e.whiteColor};
+  color: ${n.whiteColor};
   font-size: 16px;
   font-weight: 500;
   line-height: 1.12;
@@ -71,7 +71,7 @@ import{L as o,s as e,u as d,j as i,r as a}from"./index-71e91b31.js";import{n as 
   border: 1px solid rgba(239, 237, 232, 0.3);
   background-color: transparent;
   width: 147px;
-  transition: color ${e.animation};
+  transition: color ${n.animation};
   text-align: center;
   white-space: nowrap;
 
@@ -85,8 +85,8 @@ import{L as o,s as e,u as d,j as i,r as a}from"./index-71e91b31.js";import{n as 
     line-height: 1.2;
     width: 204px;
   }
-`,l=t.div`
-  background-image: url(${p});
+`,m=t.div`
+  background-image: url(${o});
   background-position: bottom right;
   width: 200px;
   background-repeat: no-repeat;
@@ -96,12 +96,12 @@ import{L as o,s as e,u as d,j as i,r as a}from"./index-71e91b31.js";import{n as 
   }
 
   @media (min-width: 767px) {
-    background-image: url(${r});
+    background-image: url(${d});
     width: 446px;
   }
 
   @media (min-width: 1440px) {
-    background-image: url(${x});
+    background-image: url(${a});
     width: 771px;
   }
-`,b=()=>{const n=d();return i.jsxs(h,{children:[i.jsxs(s,{children:[i.jsx(m,{children:"404"}),i.jsx(c,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(g,{to:"/",onClick:()=>n(a()),children:"Go Home"})]}),i.jsx(l,{})]})};export{b as default};
+`,w=()=>i.jsxs(p,{children:[i.jsxs(r,{children:[i.jsx(x,{children:"404"}),i.jsx(h,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(s,{to:"/",children:"Go Home"})]}),i.jsx(m,{})]});export{w as default};
