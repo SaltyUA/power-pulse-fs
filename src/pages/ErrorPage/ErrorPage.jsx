@@ -6,10 +6,7 @@ import {
   NotFoundBtn,
   ImgContainer,
 } from './ErrorPage.styled';
-import { useDispatch } from 'react-redux';
-import { refreshError } from '../../store/auth/slice';
 const ErrorPage = () => {
-  const dispatch = useDispatch();
   return (
     <Container>
       <NotFoundContainer>
@@ -20,7 +17,7 @@ const ErrorPage = () => {
           Perhaps this page went on vacation or decided to disappear into
           another dimension. We apologize for this inconvenience.
         </NotFoundText>
-        <NotFoundBtn to={'/'} onClick={()=>dispatch(refreshError())}>Go Home</NotFoundBtn>
+        <NotFoundBtn to={'/'}>Go Home</NotFoundBtn>
       </NotFoundContainer>
       <ImgContainer></ImgContainer>
     </Container>

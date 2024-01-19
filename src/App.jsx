@@ -2,12 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { refreshUser } from './store/auth/thunk';
 import { PublicGuard } from './guards/publicGuard';
 import { PrivateGuard } from './guards/privateGuard';
 import { selectIsLoggedIn, selectToken, selectUser } from './store/selectors';
-import { PageLoader } from './components/AnimatedPage/PageLoader';
+
 const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 const Welcome = lazy(() => import('./pages/Welcome/Welcome'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -23,21 +22,12 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const publicRedirect = user.height ? '/diary' : '/profile';
-  const { isLoading, isRefreshing, error } = useSelector(state => state.auth);
-  const navigate = useNavigate()
-  useEffect(() => {
-    if (!error) return;
-     navigate('/notfound')
-    }, [error, navigate]);
-  
-  useEffect(() => {
-dispatch(refreshUser());
-  }, [dispatch, token, isLoggedIn]);
 
-  return  isLoading ||  isRefreshing ? (
-   <PageLoader/>
-  ) :
-    (
+  useEffect(() => {
+    !isLoggedIn && token && dispatch(refreshUser());
+  }, [dispatch, isLoggedIn, token]);
+
+  return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route

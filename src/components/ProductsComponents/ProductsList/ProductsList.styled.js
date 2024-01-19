@@ -1,30 +1,20 @@
-import styled, { keyframes } from 'styled-components';
-const spin = keyframes`
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-`;
-export const StyledLogoSvg = styled.svg`
-width: 80%;
-height: 80%;
-margin: 0 auto;
-animation: ${spin} 1s linear infinite;
-`
+import styled, {keyframes} from 'styled-components';
 
 export const StyledLoader = styled.div`
 margin: 0 auto;
 margin-top: 100px;
   width: 50px;
-//   aspect-ratio: 1;
-//   --_c:no-repeat linear-gradient(orange 0 0) 50%; 
-//   background: 
-//     var(--_c)/100% 50%,
-//     var(--_c)/50% 100%;
-//   border-radius: 50%;
-//   animation: l29 2s infinite linear;
+  aspect-ratio: 1;
+  --_c:no-repeat linear-gradient(orange 0 0) 50%; 
+  background: 
+    var(--_c)/100% 50%,
+    var(--_c)/50% 100%;
+  border-radius: 50%;
+  animation: l29 2s infinite linear;
 
-// @keyframes l29 {
-//   100% {transform: rotate(1turn)}
-// }
+@keyframes l29 {
+  100% {transform: rotate(1turn)}
+}
 @media screen and (min-width:768px) {
    width: 400px;
     max-height: 400px;
