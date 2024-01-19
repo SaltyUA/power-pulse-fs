@@ -17,7 +17,7 @@ import { Container } from '../../App.styled';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../store/auth/thunk';
 import { Statistics } from '../../components/Statistics/statistics';
-
+import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 const SignIn = () => {
   const dispatch = useDispatch();
 
@@ -40,6 +40,7 @@ const SignIn = () => {
   });
 
   return (
+    <PageAnimatedWrapper direction='Y'>
     <Container>
       <SignInWrap>
         <FormContainer>
@@ -102,7 +103,8 @@ const SignIn = () => {
         </FormContainer>
         <Statistics />
       </SignInWrap>
-    </Container>
+      </Container>
+      </PageAnimatedWrapper>
   );
 };
 

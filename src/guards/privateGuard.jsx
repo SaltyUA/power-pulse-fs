@@ -5,7 +5,9 @@ import { selectIsLoggedIn, selectIsRefreshing } from '../store/selectors';
 export const PrivateGuard = ({ component: Component, redirectTo = '/' }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
-  const shouldRedirect = !isLoggedIn && !isRefreshing;
+  const { token } = useSelector(state => state.auth);
+  
+  const shouldRedirect = !isLoggedIn && !isRefreshing && !token;
 
   return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 };

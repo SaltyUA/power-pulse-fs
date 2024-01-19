@@ -1,22 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './initialState';
 import { register, logIn, logOut, refreshUser } from './thunk';
-import { handleFullfilled, handlePending, handleRejected } from '../helpers';
+// import { handleFullfilled, handlePending, handleRejected } from '../helpers';
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: (builder) => {
+  reducers: {
+    refreshError(state) {
+      state.error = null;
+    },
+     },
+  extraReducers: (builder) => 
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.token = payload.token;
         state.isLoggedIn = true;
       })
+       .addCase(register.rejected, (state, { payload }) => {
+        state.isLoading = false;
+  state.error = payload;
+      })
+      .addCase(logIn.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(logIn.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.token = payload.token;
+        state.isLoading = false;
+        state.error = null;
         state.isLoggedIn = true;
+      })
+      .addCase(logIn.rejected, (state, {payload}) => {
+        state.isLoading = false;
+        state.error = payload;
       })
       .addCase(logOut.fulfilled, (state) => {
         state.user = initialState.user;
@@ -31,13 +49,17 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
-      .addMatcher((action) => action.type.endsWith('/rejected'), handleRejected)
-      .addMatcher(
-        (action) => action.type.endsWith('/fulfilled'),
-        handleFullfilled
-      );
-  },
+      .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
+      }),
+      // .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
+      // .addMatcher((action) => action.type.endsWith('/rejected'), handleRejected)
+      // .addMatcher(
+      //   (action) => action.type.endsWith('/fulfilled'),
+      //   handleFullfilled
+      // );
+    
 });
 
 export const authReducer = authSlice.reducer;
+export const { refreshError } = authSlice.actions;

@@ -18,10 +18,10 @@ export const StyledNavLink = styled(NavLink)`
   border-radius: 12px;
   padding: 10px 27px;
 
-  &:is(:active, :hover) {
+  &:is(.active, :hover) {
     border-color: ${styleGuide.whiteColor};
   }
-
+ 
   @media screen and (min-width: 768px) {
   }
 `;

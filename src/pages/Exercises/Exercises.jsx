@@ -8,7 +8,7 @@ import {
   ExercisesWrapper,
   ExercisesBox,
 } from './Exercises.styled';
-
+import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 
  const ExercisesWrap = () => {
 
@@ -28,7 +28,8 @@ import {
     return newString;
   };
 
-  return (
+   return (
+    <PageAnimatedWrapper direction='X'>
     <ExercisesWrapper>
       <ExercisesBox>
       
@@ -58,7 +59,8 @@ import {
            handleSetExName={handleSetExName}
          />
       )} 
-    </ExercisesWrapper>
+       </ExercisesWrapper>
+       </PageAnimatedWrapper>
   );
 };
 
