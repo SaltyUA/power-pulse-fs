@@ -14,7 +14,7 @@ import {
         <FilterBtn
           type="button"
           onClick={() => handleFilterClick('Body parts')}
-          className={activeFilter === 'Body parts' ? 'active' : ''}
+          className={activeFilter === 'Body parts' ? 'selected' : ''}
         >
           Body parts
         </FilterBtn>

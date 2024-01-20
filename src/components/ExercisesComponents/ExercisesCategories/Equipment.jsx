@@ -16,7 +16,6 @@ export const Equipment = ({ handleSetExName, handleFilterClick }) =>{
 
     
       const equipment = useSelector(getEquipment);
-      console.log(equipment);
 
       const [currentPage, setCurrentPage] = useState(1);
         

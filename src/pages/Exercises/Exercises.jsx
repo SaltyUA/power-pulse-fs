@@ -3,6 +3,7 @@ import { ExercisesNavigation } from '../../components/ExercisesComponents/Exerci
 import { BodyParts } from '../../components/ExercisesComponents/ExercisesCategories/BodyParts';
 import { Muscles } from '../../components/ExercisesComponents/ExercisesCategories/Muscles'; 
 import { Equipment } from '../../components/ExercisesComponents/ExercisesCategories/Equipment';
+import { WaistList } from '../../components/ExercisesComponents/ExercisesWaist/WaistList/WaistList';
 import {
   ExercisesTitle,
   ExercisesWrapper,
@@ -31,10 +32,11 @@ import {
   return (
     <ExercisesWrapper>
       <ExercisesBox>
-      
-           <ExercisesTitle>Exercises</ExercisesTitle>
-           <ExercisesTitle>{capitalizeFirstLeter(exerciseName)}</ExercisesTitle>
-
+      {activeFilter !== 'Waist' ? (
+          <ExercisesTitle>Exercises</ExercisesTitle>
+        ) : (
+          <ExercisesTitle>{capitalizeFirstLeter(exerciseName)}</ExercisesTitle>
+        )}
            <ExercisesNavigation
           activeFilter={activeFilter}
           handleFilterClick={handleFilterClick}
@@ -58,6 +60,7 @@ import {
            handleSetExName={handleSetExName}
          />
       )} 
+        {activeFilter === 'Waist' && <WaistList exerciseName={exerciseName} />}
     </ExercisesWrapper>
   );
 };

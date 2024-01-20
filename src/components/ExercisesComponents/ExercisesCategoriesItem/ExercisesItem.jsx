@@ -14,7 +14,7 @@ export const ExercisesItem = ({
 }) => {
   const { name, filter, imgURL } = exercisesItem;
   const onClick = name => {
-    handleFilterClick('Waist');
+    handleFilterClick(filter);
     handleSetExName(name);
   };
 //  великими літерими назву

@@ -16,7 +16,6 @@ export const Muscles = ({ handleSetExName, handleFilterClick }) => {
 
     
       const muscles = useSelector(getMuscles);
-      console.log(muscles);
 
       const [currentPage, setCurrentPage] = useState(1);
         

@@ -16,7 +16,6 @@ export const BodyParts = ({ handleSetExName, handleFilterClick }) => {
 
     
       const bodyParts = useSelector(getBodyParts);
-      console.log(bodyParts);
 
       const [currentPage, setCurrentPage] = useState(1);
         
@@ -53,7 +52,7 @@ export const BodyParts = ({ handleSetExName, handleFilterClick }) => {
           const indexOfLastItem = currentPage * itemsPerPage;
           const indexOfFirstItem = indexOfLastItem - itemsPerPage;
           const currentItems = bodyParts.slice(indexOfFirstItem, indexOfLastItem);
-          console.log(currentItems);
+    
         
 
   return (
