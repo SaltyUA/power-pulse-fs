@@ -6,6 +6,7 @@ import {
   logOut,
   refreshUser,
   updateUserData,
+  updateUserAvatar,
   resendEmail,
 } from './thunk';
 
@@ -102,6 +103,17 @@ const authSlice = createSlice({
       .addCase(resendEmail.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+      })
+      .addCase(updateUserAvatar.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
+        state.user = payload;
+        state.isLoggedIn = true;
+        state.goToParams = false;
+        state.token = payload.token;
+        state.isLoading = false;
+        state.error = null;
       }),
 });
 

@@ -19,7 +19,8 @@ import {
   RadioLabelBlood,
   RadioLabelActivity,
   RadioBtn,
-  FormSaveBtn
+  FormSaveBtn,
+  FormInputEmail
 } from './UserForm.styled';
 
 const userFormSchema = Yup.object().shape({
@@ -99,7 +100,7 @@ const UserForm = () => {
             </FormLabel>
             <FormLabel>
               Email
-              <FormInput
+              <FormInputEmail
                 type="text"
                 id="email"
                 name="email"

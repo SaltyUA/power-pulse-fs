@@ -72,6 +72,7 @@ export const FormLabelSecond = styled.label`
 
   gap: 4px;
 `;
+
 export const FormInput = styled.input`
   padding: 14px;
 
@@ -94,6 +95,25 @@ export const FormInput = styled.input`
     background-color: transparent;
     outline: none;
   }
+
+  @media (min-width: 834px) {
+  }
+`;
+
+export const FormInputEmail = styled.input`
+  padding: 14px;
+
+  width: 100%;
+
+  color: ${styleGuide.greyTextColor};
+
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.43;
+
+  border-radius: 12px;
+  border: 1px solid ${styleGuide.greyTextColor};
+  background: transparent;
 
   @media (min-width: 834px) {
   }
