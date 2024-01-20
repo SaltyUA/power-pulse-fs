@@ -6,11 +6,6 @@ import { register, logIn, logOut, refreshUser } from './thunk';
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    refreshError(state) {
-      state.error = null;
-    },
-     },
   extraReducers: (builder) => 
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
@@ -62,4 +57,3 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const { refreshError } = authSlice.actions;

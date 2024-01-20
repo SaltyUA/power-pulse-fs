@@ -6,7 +6,7 @@ import {
   NotFoundBtn,
   ImgContainer,
 } from './ErrorPage.styled';
-import { refreshError } from '../../store/auth/slice';
+
 const ErrorPage = () => {
   return (
     <Container>
