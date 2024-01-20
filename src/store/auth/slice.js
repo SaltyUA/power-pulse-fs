@@ -103,14 +103,6 @@ const authSlice = createSlice({
       .addCase(resendEmail.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
-      })
-      .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
-        state.user = payload;
-        state.isLoggedIn = true;
-        state.goToParams = false;
-        state.token = payload.token;
-        state.isLoading = false;
-        state.error = null;
       }),
 });
 
