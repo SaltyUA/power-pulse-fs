@@ -13,23 +13,12 @@ const authSlice = createSlice({
         state.token = payload.token;
         state.isLoggedIn = true;
       })
-       .addCase(register.rejected, (state, { payload }) => {
-        state.isLoading = false;
-  state.error = payload;
-      })
-      .addCase(logIn.pending, (state) => {
-        state.isLoading = true;
-      })
       .addCase(logIn.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.token = payload.token;
         state.isLoading = false;
         state.error = null;
         state.isLoggedIn = true;
-      })
-      .addCase(logIn.rejected, (state, {payload}) => {
-        state.isLoading = false;
-        state.error = payload;
       })
       .addCase(logOut.fulfilled, (state) => {
         state.user = initialState.user;
