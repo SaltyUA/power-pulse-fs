@@ -1,4 +1,4 @@
-import{b as l,s as e,j as p}from"./index-28991626.js";const{animation:r,orangeColor:t,orange2Color:n}=e,c=l.button`
+import{b as l,s as e,j as p}from"./index-77ed2c97.js";const{animation:r,orangeColor:t,orange2Color:n}=e,c=l.button`
   padding: 12px 40px;
   width: ${o=>o.$width};
 

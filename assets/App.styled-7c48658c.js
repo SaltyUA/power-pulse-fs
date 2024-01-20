@@ -1,4 +1,4 @@
-import{b as o,s as i,j as n,a as c}from"./index-28991626.js";import{n as e}from"./emotion-styled.browser.esm-994a50bb.js";const m=o.input`
+import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"./emotion-styled.browser.esm-8b0d78ad.js";const m=o.input`
   padding: 14px;
   width: 100%;
   color: ${i.whiteColor};
@@ -67,7 +67,7 @@ import{b as o,s as i,j as n,a as c}from"./index-28991626.js";import{n as e}from"
     width: 16px;
     height: 16px;
   }
-`,b=({placeholder:a,name:d,type:p,onChange:s,value:x,className:r,message:t})=>n.jsxs(l,{children:[n.jsx(m,{placeholder:a,name:d,type:p,onChange:s,value:x,required:!0,className:r,$message:t}),t&&n.jsxs(h,{className:r,children:[n.jsx(g,{children:n.jsx("use",{href:c+"#icon-checkbox"})}),t]})]}),f=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,C=e.h2`
+`,b=({placeholder:a,name:d,type:p,onChange:s,value:x,className:r,message:t})=>n.jsxs(l,{children:[n.jsx(m,{placeholder:a,name:d,type:p,onChange:s,value:x,required:!0,className:r,$message:t}),t&&n.jsxs(h,{className:r,children:[n.jsx(g,{children:n.jsx("use",{href:c+"#icon-checkbox"})}),t]})]}),f=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,C=e.h2`
   font-size: 24px;
   line-height: 1.17;
   margin-bottom: 14px;
@@ -78,7 +78,7 @@ import{b as o,s as i,j as n,a as c}from"./index-28991626.js";import{n as e}from"
     line-height: 1.38;
     margin-bottom: 16px;
   }
-`,$=e.p`
+`,z=e.p`
   @media screen and (min-width: 375px) {
     width: 335px;
   }
@@ -88,7 +88,7 @@ import{b as o,s as i,j as n,a as c}from"./index-28991626.js";import{n as e}from"
     line-height: 1.5;
     width: 496px;
   }
-`,z=e.div`
+`,$=e.div`
   padding-top: 90px 20px 0;
 
   @media screen and (min-width: 768px) {
@@ -153,4 +153,4 @@ import{b as o,s as i,j as n,a as c}from"./index-28991626.js";import{n as e}from"
   @media screen and (min-width: 1440px) {
     width: 1440px;
   }
-`;export{$ as A,y as C,z as F,j as I,I as R,k as S,C as a,v as b,b as c,f as e};
+`;export{z as A,y as C,$ as F,j as I,I as R,k as S,C as a,v as b,b as c,f as e};
