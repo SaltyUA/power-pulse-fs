@@ -1,22 +1,18 @@
 import { TitlePage } from './Profile.styled';
-import UserCard from '../../components/Profile/UserCard';
+import UserCard  from '../../components/Profile/UserCard';
 import UserForm from '../../components/Profile/UserForm';
-import { ContainerWrapper } from '../../components/Container/Container.styled';
-import { ProfilerWrapper, WrapperContent, WrapperForm } from './Profile.styled';
+import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 
 const Profile = () => {
   return (
-    <ContainerWrapper>
-      <ProfilerWrapper>
-        <TitlePage>Profile Settings</TitlePage>
-        <WrapperContent>
-          <UserCard />
-          <WrapperForm>
-            <UserForm />
-          </WrapperForm>
-        </WrapperContent>
-      </ProfilerWrapper>
-    </ContainerWrapper>
+    <PageAnimatedWrapper direction='X'>
+    <div>
+      <TitlePage>Profile Settings</TitlePage>
+      <UserCard />
+      <UserForm />
+    </div>
+    </PageAnimatedWrapper>
+
   );
 };
 

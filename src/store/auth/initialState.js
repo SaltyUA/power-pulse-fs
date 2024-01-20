@@ -18,5 +18,6 @@ export const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: true,
+  isLoading: false,
   error: null,
 };

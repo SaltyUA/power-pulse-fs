@@ -6,9 +6,10 @@ import DaySwitch from '../../components/DaySwitch';
 import TitlePage from '../../components/TitlePage';
 import { DiaryContainer, Left, Right, ForPosition } from './Diary.styled';
 import Notice from '../../components/Notice';
-
+import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 const Diary = () => {
   return (
+    <PageAnimatedWrapper direction='X'>
     <Container>
       <ForPosition>
         <TitlePage title="Diary" />
@@ -24,7 +25,8 @@ const Diary = () => {
           </Right>
         </DiaryContainer>
       </ForPosition>
-    </Container>
+      </Container>
+      </PageAnimatedWrapper>
   );
 };
 

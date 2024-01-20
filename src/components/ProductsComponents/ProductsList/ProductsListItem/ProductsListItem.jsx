@@ -7,7 +7,6 @@ import {
   StyledArrowSvg23
 } from './ProductsListItem.styled';
 import sprite from '../../../../assets/images/sprite.svg';
-
 const bloodType = '1';
 
 export const ProductsListItem = ({ data, handleOpenModal}) => {
@@ -29,8 +28,7 @@ export const ProductsListItem = ({ data, handleOpenModal}) => {
           <StyledArrowSvg23>
             <use href={sprite + '#locationarrow'}></use>
           </StyledArrowSvg23>
-         
-        </StyledAddBtn>
+                 </StyledAddBtn>
       </div>
       <div className="product-info-div">
         <div className="title-svg-div">
