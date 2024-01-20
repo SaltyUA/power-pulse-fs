@@ -6,7 +6,6 @@ import {
   logOut,
   refreshUser,
   updateUserData,
-  updateUserAvatar,
   resendEmail,
 } from './thunk';
 
