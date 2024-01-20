@@ -55,3 +55,9 @@ export const CloseButtonIcon = styled.svg`
     height: 32px;
   }
 `;
+
+export const BurgerLogout = styled.div`
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+`;

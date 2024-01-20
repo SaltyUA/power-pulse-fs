@@ -191,7 +191,7 @@ export const LogoutContainer = styled.div`
   margin-left: auto;
   margin-top: 40px;
   & svg {
-    fill: ${styleGuide.orangeColor};
+    stroke: ${styleGuide.orangeColor};
     transition: fill 250ms linear;
   }
   & svg {

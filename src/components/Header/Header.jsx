@@ -17,6 +17,7 @@ import { selectIsLoggedIn, selectUser } from '../../store/selectors';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { useEffect, useState } from 'react';
 import LogoutButton from '../LogoutButton/LogoutButton';
+import UserNav from '../UserNav/UserNav';
 
 export const Header = () => {
   const isLogged = useSelector(selectIsLoggedIn);
@@ -50,6 +51,7 @@ export const Header = () => {
         </HeaderLogo>
         {isLogged && (
           <UserContainer>
+            {width >= 1440 && <UserNav />}
             <Link to={'/profile'}>
               <SettingsIcon>
                 <use href={sprite + '#icon-settings'} />
