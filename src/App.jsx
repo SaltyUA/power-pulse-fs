@@ -25,7 +25,7 @@ function App() {
   const { isLoading, isRefreshing } = useSelector(state => state.auth);
       
   useEffect(() => {
-dispatch(refreshUser());
+!isLoggedIn && token && dispatch(refreshUser());
   }, [dispatch, token, isLoggedIn]);
 
   return  isLoading ||  isRefreshing ? (
