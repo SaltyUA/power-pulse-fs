@@ -12,6 +12,7 @@ const Profile = () => {
       <UserForm />
     </div>
     </PageAnimatedWrapper>
+
   );
 };
 

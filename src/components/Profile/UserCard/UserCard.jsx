@@ -4,6 +4,23 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { selectUser } from 'redux/selectors';
 // import { updateAvatar } from 'redux/operations';
 import { logOut } from '../../../store/auth/thunk';
+import LogoutButton from '../../../components/LogoutButton/LogoutButton';
+import Notice from '../../Notice/Notice';
+
+import sprite from '../../../assets/images/sprite.svg';
+import {
+  UserCardContainer,
+  NameContainer,
+  EmailContainer,
+  InformationContainer,
+  InformationText,
+  NoticeContainer,
+  UserAvatar,
+  LogoutContainer,
+  AddAvatarButton,
+  InformationCard,
+  InformationCounter,
+} from './UserCard.styled';
 
 const UserCard = () => {
   const avatarURL = '';
@@ -39,70 +56,67 @@ const UserCard = () => {
   const handleLogOut = () => dispatch(logOut());
 
   return (
-    <div className="containerSection">
-      <div className="containerAvatar">
+    <UserCardContainer>
+      <UserAvatar>
         {avatarURL ? (
           <img src={avatarURL} alt="User Avatar" />
         ) : (
-          <svg>
-            <use href=""></use>
+          <svg width="61" height="62" fill="#efede8">
+            <use href={`${sprite}#user`} />
           </svg>
         )}
-      </div>
 
-      <form>
-        <input
-          type="file"
-          name="avatarURL"
-          accept="image/*"
-          ref={fileInputRef}
-          onChange={handleAvatarChange}
-        />
-        <div className="icon-upload" onClick={handleIconClick}>
-          <svg>
-            <use href=""></use>
-          </svg>
-        </div>
-      </form>
-
+        <form>
+          <input
+            hidden
+            type="file"
+            name="avatarURL"
+            accept="image/*"
+            ref={fileInputRef}
+            onChange={handleAvatarChange}
+          />
+          <AddAvatarButton onClick={handleIconClick}>
+            <svg>
+              <use href={`${sprite}#add`} />
+            </svg>
+          </AddAvatarButton>
+        </form>
+      </UserAvatar>
       {/* <p>{user.name}</p> */}
-      <p>Name</p>
-      <p>User</p>
+      <NameContainer>Name</NameContainer>
+      <EmailContainer>User</EmailContainer>
 
-      <div className="containerStatistic">
-        <div className="daily_calorie">
-          <svg>
-            <use></use>
-          </svg>
-          <p>Daily calorie intake</p>
-          <p>100</p>
-        </div>
-        <div className="daily_physical">
-          <svg>
-            <use></use>
-          </svg>
-          <p>Daily physical activity</p>
-          <p>110 min</p>
-        </div>
-      </div>
+      <InformationContainer>
+        <InformationCard>
+          <InformationText>
+            <svg width="20" height="20" fill="#efede8">
+              <use href={`${sprite}#food`} />
+            </svg>
+            Daily calorie intake
+          </InformationText>
+          <InformationCounter>0</InformationCounter>
+        </InformationCard>
+        <InformationCard>
+          <InformationText>
+            <svg width="20" height="20" fill="#efede8">
+              <use href={`${sprite}#dumbbell`} />
+            </svg>
+            Daily physical activity
+          </InformationText>
+          <InformationCounter>0 min</InformationCounter>
+        </InformationCard>
+      </InformationContainer>
 
-      <div className="text_under_statistic">
-        <svg>
-          <use></use>
-        </svg>
-        <p>
-          We understand that each individual is unique, so the entire approach
-          to diet is relative and tailored to your unique body and goals.
-        </p>
-      </div>
-
-      <button onClick={handleLogOut} style={{ color: 'white' }}>
-        <p>Log out</p>
-        <svg>
-          <use></use>
-        </svg>
-      </button>
-    </div>
+      <NoticeContainer>
+        <Notice
+          notice="We understand that each individual is unique, so the entire approach
+          to diet is relative and tailored to your unique body and goals."
+        />
+      </NoticeContainer>
+      <LogoutContainer onClick={handleLogOut}>
+        <LogoutButton />
+      </LogoutContainer>
+    </UserCardContainer>
   );
 };
 
