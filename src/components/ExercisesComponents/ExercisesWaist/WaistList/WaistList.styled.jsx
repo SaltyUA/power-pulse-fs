@@ -2,15 +2,16 @@ import styled from 'styled-components';
 
 export const WaistListContainer = styled.div`
   display: flex;
+  
+
 `;
 
-export const ImgWaist = styled.img`
+export const ImgWaist = styled.div`
   display: none;
   @media screen and (min-width: 1440px) {
     display: block;
     width: 530px;
     height: 902px;
-    /* margin-top: -100px; */
     z-index: -2;
   }
 `;
@@ -59,3 +60,8 @@ export const NoExercisesTitle = styled.h2`
   line-height: 1.16;
   margin-bottom: 20px;
 `;
+export const BackButton = styled.button`
+  position: absolute;
+  top: 116px;
+  color: white
+`

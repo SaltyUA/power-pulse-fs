@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ExercisesNavigation } from '../../components/ExercisesComponents/ExercisesNavigation/ExercisesNavigation';
 import { BodyParts } from '../../components/ExercisesComponents/ExercisesCategories/BodyParts';
 import { Muscles } from '../../components/ExercisesComponents/ExercisesCategories/Muscles'; 
@@ -9,19 +9,22 @@ import {
   ExercisesWrapper,
   ExercisesBox,
 } from './Exercises.styled';
+import { getCurrentCategorie, getCurrentFilter } from '../../store/exercises/selectorsExercises';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentCategorie } from '../../store/exercises/sliceExercises';
 
 
- const ExercisesWrap = () => {
+const ExercisesWrap = () => {
+  const currentCategorie = useSelector(getCurrentCategorie)
+  const currentFilter = useSelector(getCurrentFilter);
+  const dispatch = useDispatch()
 
-  const [activeFilter, setActiveFilter] = useState('Body parts');
   const [exerciseName, setExerciseName] = useState('');
+
+  useEffect(()=>{dispatch(setCurrentCategorie(null))},[dispatch])
 
     const handleSetExName = name => {
     setExerciseName(name);
-  };
-
-    const handleFilterClick = filter => {
-    setActiveFilter(filter);
   };
 
     const capitalizeFirstLeter = string => {
@@ -30,37 +33,33 @@ import {
   };
 
   return (
-    <ExercisesWrapper>
+    <ExercisesWrapper $isCategorie={currentCategorie}>
       <ExercisesBox>
-      {activeFilter !== 'Waist' ? (
-          <ExercisesTitle>Exercises</ExercisesTitle>
-        ) : (
-          <ExercisesTitle>{capitalizeFirstLeter(exerciseName)}</ExercisesTitle>
-        )}
-           <ExercisesNavigation
-          activeFilter={activeFilter}
-          handleFilterClick={handleFilterClick}
-        />
+          {!currentCategorie ? (
+      <ExercisesTitle>Exercises</ExercisesTitle>
+    ) : (
+      <ExercisesTitle>{capitalizeFirstLeter(currentCategorie)}</ExercisesTitle>
+    )}
+           <ExercisesNavigation />
       </ExercisesBox>
-      {activeFilter === 'Body parts' && (
+      {!currentCategorie ?
+        <>
+      {currentFilter === 'Body parts' && (
          <BodyParts
-           handleFilterClick={handleFilterClick}
            handleSetExName={handleSetExName}
          />
       )}   
-       {activeFilter === 'Muscles' && (
+       {currentFilter === 'Muscles' && (
          <Muscles
-           handleFilterClick={handleFilterClick}
            handleSetExName={handleSetExName}
          />
       )} 
-       {activeFilter === 'Equipment' && (
+       {currentFilter === 'Equipment' && (
          <Equipment
-           handleFilterClick={handleFilterClick}
            handleSetExName={handleSetExName}
          />
-      )} 
-        {activeFilter === 'Waist' && <WaistList exerciseName={exerciseName} />}
+      )} </>
+         : <WaistList exerciseName={exerciseName} />}
     </ExercisesWrapper>
   );
 };

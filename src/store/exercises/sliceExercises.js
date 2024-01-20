@@ -22,8 +22,18 @@ const exercisesSlice = createSlice({
     muscles: [],
     equipment: [],
     exercises: [],
+    currentFilter: 'Body parts',
+    currentCategorie: null,
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    setCurrentFilter(state, {payload}) {
+      state.currentFilter = payload;
+    },
+    setCurrentCategorie(state, {payload}) {
+      state.currentCategorie = payload;
+    }
   },
   extraReducers: builder =>
     builder
@@ -101,3 +111,5 @@ const exercisesSlice = createSlice({
 });
 
 export const exercisesReducer = exercisesSlice.reducer;
+export const { setCurrentCategorie, setCurrentFilter } =
+  exercisesSlice.actions;

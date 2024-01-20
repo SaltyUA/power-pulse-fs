@@ -6,16 +6,19 @@ import {
   TitleContainer,
 } from './ExercisesItem.styled';
 import images from '../../../assets/images/0-default.jpg';
+import { useDispatch } from 'react-redux';
+import { setCurrentCategorie } from '../../../store/exercises/sliceExercises';
 
 export const ExercisesItem = ({
   exercisesItem,
-  handleFilterClick,
   handleSetExName,
 }) => {
   const { name, filter, imgURL } = exercisesItem;
+const dispatch = useDispatch()
+
   const onClick = name => {
-    handleFilterClick(filter);
     handleSetExName(name);
+    dispatch(setCurrentCategorie(name))
   };
 //  великими літерими назву
   const capitalizeFirstLeter = string => {

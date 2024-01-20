@@ -5,11 +5,12 @@ import {
   NoExercisesTitle,
   WaistListContainer,
   ImgWaist,
+  BackButton,
 } from './WaistList.styled';
-import { getExercises } from '../../../../store/exercises/selectorsExercises';
+import { getCurrentCategorie, getCurrentFilter, getExercises } from '../../../../store/exercises/selectorsExercises';
 import { useEffect } from 'react';
 import { fetchExercises} from '../../../../store/exercises/operationExercises';
-import images from '../../../../assets/images/side-view-people-training-gym 1.png';
+import { setCurrentCategorie } from '../../../../store/exercises/sliceExercises';
 // import { string } from 'yup';
 // import { BodyParts } from '../../ExercisesCategories/BodyParts';
 // import { useState } from 'react';
@@ -21,10 +22,25 @@ export const WaistList = ({ exerciseName }) => {
   useEffect(() => {
     dispatch(fetchExercises());
   }, [dispatch]);
+  const currentFilter = useSelector(getCurrentFilter);
+  const currentCategorie = useSelector(getCurrentCategorie);
 
   const exercises = useSelector(getExercises);
-  
-  const visibleExercises = exercises;
+  let visibleExercises = [];
+
+  switch (currentFilter) {
+    case 'Body parts':
+      visibleExercises = exercises.filter(el => el.bodyPart === currentCategorie);
+      break;
+    case 'Muscles':
+      visibleExercises = exercises.filter(el => el.target === currentCategorie);
+      break;
+    case 'Equipment':
+      visibleExercises = exercises.filter(el => el.equipment === currentCategorie);
+      break;
+    default:
+      return;
+  }
 
   // for (const visibleExercise of visibleExercises) {
   //   if (string === 'Body Part'){
@@ -47,6 +63,8 @@ export const WaistList = ({ exerciseName }) => {
  
   return (
     <>
+      <BackButton onClick={()=>dispatch(setCurrentCategorie(null))} >
+        Back</BackButton>
     <WaistListContainer>
         <WaistItemUl>
           {visibleExercises.length ? (
@@ -65,7 +83,7 @@ export const WaistList = ({ exerciseName }) => {
             </NoExercisesTitle>
           )}
         </WaistItemUl>
-        <ImgWaist src={images} alt="image" />
+        <ImgWaist/>
       </WaistListContainer>
     </>
   );

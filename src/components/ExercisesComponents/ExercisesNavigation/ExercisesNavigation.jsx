@@ -1,88 +1,52 @@
 
+import { useDispatch, useSelector } from 'react-redux';
 import {
   ExercisesFilter,
   ExercisesNavList,
-  FilterBtn,
 } from './ExercisesNavigation.styled';
+import { getCurrentFilter } from '../../../store/exercises/selectorsExercises';
+import { setCurrentCategorie, setCurrentFilter } from '../../../store/exercises/sliceExercises';
 
- export const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
+export const ExercisesNavigation = () => {
+  const currentFilter = useSelector(getCurrentFilter);
+  const dispatch = useDispatch()
+
+  const handleClick = ({ target: {innerText} }) => {
+    dispatch(setCurrentFilter(innerText))
+    dispatch(setCurrentCategorie(null))
+  }
+  
   return (
     <ExercisesNavList>
       <ExercisesFilter
-        className={activeFilter === 'Body parts' ? 'active' : ''}
+        className={currentFilter === 'Body parts' ? 'active' : ''}
       >
-        <FilterBtn
+        <button
           type="button"
-          onClick={() => handleFilterClick('Body parts')}
-          className={activeFilter === 'Body parts' ? 'selected' : ''}
+          onClick={handleClick}
         >
           Body parts
-        </FilterBtn>
+        </button>
       </ExercisesFilter>
-      <ExercisesFilter className={activeFilter === 'Muscles' ? 'active' : ''}>
-        <FilterBtn
+      <ExercisesFilter className={currentFilter === 'Muscles' ? 'active' : ''}>
+        <button
           type="button"
-          onClick={() => handleFilterClick('Muscles')}
-          className={activeFilter === 'Muscles' ? 'active' : ''}
+          onClick={handleClick}
         >
           Muscles
-        </FilterBtn>
+        </button>
       </ExercisesFilter>
-      <ExercisesFilter className={activeFilter === 'Equipment' ? 'active' : ''}>
-        <FilterBtn
+      <ExercisesFilter className={currentFilter === 'Equipment' ? 'active' : ''}>
+        <button
           type="button"
-          onClick={() => handleFilterClick('Equipment')}
-          className={activeFilter === 'Equipment' ? 'active' : ''}
+          onClick={handleClick}
+          
         >
           Equipment
-        </FilterBtn>
+        </button>
       </ExercisesFilter>
     </ExercisesNavList>
   );
 };
 
 
-
-// import {
-//   ExercisesFilter,
-//   ExercisesNavList,
-//   FilterBtn,
-// } from './ExercisesNavigation.style';
-
-//  const ExercisesNavigation = ({ activeFilter, handleFilterClick }) => {
-//   return (
-//     <ExercisesNavList>
-//       <ExercisesFilter
-//         className={activeFilter === 'Body parts' ? 'active' : ''}
-//       >
-//         <FilterBtn
-//           type="button"
-//           onClick={() => handleFilterClick('Body parts')}
-//           className={activeFilter === 'Body parts' ? 'active' : ''}
-//         >
-//           Body parts
-//         </FilterBtn>
-//       </ExercisesFilter>
-//       <ExercisesFilter className={activeFilter === 'Muscules' ? 'active' : ''}>
-//         <FilterBtn
-//           type="button"
-//           onClick={() => handleFilterClick('Muscules')}
-//           className={activeFilter === 'Muscules' ? 'active' : ''}
-//         >
-//           Muscules
-//         </FilterBtn>
-//       </ExercisesFilter>
-//       <ExercisesFilter className={activeFilter === 'Equipment' ? 'active' : ''}>
-//         <FilterBtn
-//           type="button"
-//           onClick={() => handleFilterClick('Equipment')}
-//           className={activeFilter === 'Equipment' ? 'active' : ''}
-//         >
-//           Equipment
-//         </FilterBtn>
-//       </ExercisesFilter>
-//     </ExercisesNavList>
-//   );
-// };
-
-// export default ExercisesNavigation
