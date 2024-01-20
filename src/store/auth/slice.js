@@ -6,7 +6,7 @@ import { handleFullfilled, handlePending, handleRejected } from '../helpers';
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: (builder) => 
+  extraReducers: (builder) =>
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
         state.user = payload;
@@ -33,6 +33,12 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
+      .addCase(refreshUser.rejected, (state) => {
+        state.user = initialState.user;
+        state.isLoggedIn = false;
+        state.isRefreshing = false;
+        state.token = null;
+      })
       .addCase(updateUserData.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoggedIn = true;
@@ -44,8 +50,7 @@ const authSlice = createSlice({
       .addMatcher(
         (action) => action.type.endsWith('/fulfilled'),
         handleFullfilled
-      );
-  },
+      ),
 });
 
 export const authReducer = authSlice.reducer;
