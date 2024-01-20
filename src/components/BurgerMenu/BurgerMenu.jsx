@@ -20,7 +20,7 @@ const BurgerMenu = ({ setBurgerIsActive, isActive }) => {
           <use href={sprite + '#icon-close'} />
         </CloseButtonIcon>
       </StyledCloseButton>
-      <UserNav />
+      <UserNav setBurgerIsActive={setBurgerIsActive} />
       <LogoutButton setBurgerIsActive={setBurgerIsActive} />
     </BurgerContainer>
   );

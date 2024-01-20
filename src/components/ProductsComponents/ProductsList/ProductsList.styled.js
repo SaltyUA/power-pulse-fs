@@ -119,7 +119,7 @@ position: realtive;
     flex-wrap: wrap;
     column-gap: 16px;
     row-gap: 32px;
-    max-height: 660px;
+    height: 660px;
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: #EF8964 rgba(239, 237, 232, 0.10);
@@ -140,6 +140,6 @@ position: realtive;
 }
 @media screen and (min-width: 1440px) {
     width: 850px;
-    max-height: 487px;
+    height: 487px;
 }
 `

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { styleGuide } from '../../../constants/styleGuide';
 
 export const StyledWeightInput = styled.input`
-
     width: 287px;
     height: 34px;
     border-radius: 12px;
@@ -53,9 +52,13 @@ export const StyledForm = styled.form`
   }
   .error-message{
 position: absolute;
-bottom: -50px;
+bottom: -40px;
+font-size: 12px;
 height: 36px;
 color: ${styleGuide.errorColor};
+ @media screen and (min-width: 768px) {
+      bottom: -50px;
+    }
   }
   .grams-span {
     position: absolute;

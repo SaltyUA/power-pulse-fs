@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { styleGuide } from '../../../constants/styleGuide';
-import { ReactComponent as CloseSvg } from '../img/xSvg.svg';
 
 export const StyledCloseButton = styled.button`
   position: absolute;
@@ -8,20 +7,19 @@ export const StyledCloseButton = styled.button`
   right: 14px;
 `;
 
-export const StyledCloseSvg = styled(CloseSvg)`
+export const StyledCloseSvg = styled.svg`
+stroke: ${styleGuide.whiteColor};
+width: 26px;
+height: 26px;
   transition:
     stroke ${styleGuide.animation},
     scale 500ms cubic-bezier(0.4, 0, 0.2, 1),
     transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  > path {
-    stroke: white;
-  }
+
   @media screen and (min-width: 768px) {
     ${StyledCloseButton}:hover & {
-      > path {
-        stroke: ${styleGuide.orangeColor};
-      }
-    }
+            stroke: ${styleGuide.orangeColor};
+        }
     ${StyledCloseButton}:hover & {
       scale: 1.25;
       transform: rotate(180deg);

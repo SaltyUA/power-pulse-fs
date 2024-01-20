@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import sidePhoto1x from '../../components/ProductsComponents/img/sideView1x.jpg';
-import sidePhoto2x from '../../components/ProductsComponents/img/sideView2x.jpg';
+import sidePhoto1x from '../../assets/images/sideView1x.jpg';
+import sidePhoto2x from '../../assets/images/sideView2x.jpg';
 
 export const StyledSection = styled.section`
 
