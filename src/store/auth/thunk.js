@@ -1,5 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { signUp, signIn, refresh, signOut, patchUser } from '../../api/auth';
+import {
+  signUp,
+  signIn,
+  refresh,
+  signOut,
+  patchUser,
+  resendVerify,
+  emailVerify,
+} from '../../api/auth';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -67,6 +75,32 @@ export const updateUserData = createAsyncThunk(
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resendEmail = createAsyncThunk(
+  'auth/resend',
+  async (body, thunkAPI) => {
+    try {
+      const data = await resendVerify(body);
+      return data;
+    } catch (error) {
+      console.log(error.response.data);
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const verifyEmail = createAsyncThunk(
+  'auth/verify',
+  async (body, thunkAPI) => {
+    try {
+      const data = await emailVerify(body);
+      return data;
+    } catch (error) {
+      console.log(error.response.data);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );

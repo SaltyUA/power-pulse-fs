@@ -40,6 +40,16 @@ export async function refresh(token) {
   return user;
 }
 
+export async function emailVerify(body) {
+  const { data } = await auth.post('/verify', body);
+  return data;
+}
+
+export async function resendVerify(body) {
+  const { data } = await auth.post('/verifyResend', body);
+  return data;
+}
+
 export async function patchUser(body) {
   const { data } = await auth.patch('/', body);
   return data;

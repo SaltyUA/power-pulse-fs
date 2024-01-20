@@ -20,4 +20,5 @@ export const initialState = {
   isRefreshing: false,
   isLoading: false,
   error: null,
+  isResendShown: false,
 };

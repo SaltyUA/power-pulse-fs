@@ -10,16 +10,27 @@ import {
   RedirectText,
   SignInWrap,
 } from './SignIn.styled';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import { Container } from '../../App.styled';
-import { useDispatch } from 'react-redux';
-import { logIn } from '../../store/auth/thunk';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, verifyEmail } from '../../store/auth/thunk';
 import { Statistics } from '../../components/Statistics/statistics';
 import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
+import { ResendModal } from '../../components/ResendModal/ResendModal';
+import { selectIsResendShown } from '../../store/selectors';
+import { useEffect } from 'react';
+
 const SignIn = () => {
+  const isResendShown = useSelector(selectIsResendShown);
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const verifyToken = searchParams.get('v');
+
+  useEffect(() => {
+    if (verifyToken) dispatch(verifyEmail({ verificationToken: verifyToken }));
+  }, [dispatch, verifyToken]);
 
   const formik = useFormik({
     initialValues: {
@@ -40,8 +51,8 @@ const SignIn = () => {
   });
 
   return (
-    <PageAnimatedWrapper direction='Y'>
     <Container>
+      <PageAnimatedWrapper direction="Y" />
       <SignInWrap>
         <FormContainer>
           <FormTitle>Sign In</FormTitle>
@@ -103,8 +114,8 @@ const SignIn = () => {
         </FormContainer>
         <Statistics />
       </SignInWrap>
-      </Container>
-      </PageAnimatedWrapper>
+      {isResendShown && <ResendModal />}
+    </Container>
   );
 };
 

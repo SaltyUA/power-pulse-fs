@@ -38,8 +38,8 @@ const SignUp = () => {
   });
 
   return (
-    <PageAnimatedWrapper direction='Y'>
     <Container>
+      <PageAnimatedWrapper direction="Y" />
       <FormContainer>
         <FormTitle>Sign Up</FormTitle>
         <AuthText>
@@ -121,8 +121,7 @@ const SignUp = () => {
           </p>
         </FormWrapper>
       </FormContainer>
-      </Container>
-      </PageAnimatedWrapper>
+    </Container>
   );
 };
 
