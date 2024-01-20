@@ -104,9 +104,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = payload;
       })
-      .addCase(updateUserAvatar.pending, (state) => {
-        state.isLoading = true;
-      })
       .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoggedIn = true;
