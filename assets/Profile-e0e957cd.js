@@ -1,4 +1,4 @@
-import{s as t,u as C,e as k,j as e,a as x,i as $,k as W,b as r,c as A,m as q,n as F}from"./index-9afd0cea.js";import{n as o}from"./emotion-styled.browser.esm-41e2c334.js";import{N as z}from"./Notice-18f99aa6.js";import{F as S,c as R,a as f,b as c,d as B,e as D}from"./index.esm-a5c167fc.js";import{P as I}from"./PageAnimatedWrapper-ca2362c4.js";import"./hoist-non-react-statics.cjs-3f8ebaa8.js";const L=o.h1`
+import{s as t,u as C,e as k,j as e,a as x,i as $,k as W,b as r,c as A,m as q,n as F}from"./index-28991626.js";import{n as o}from"./emotion-styled.browser.esm-994a50bb.js";import{N as z}from"./Notice-7fe4feec.js";import{F as S,c as R,a as f,b as c,d as B,e as D}from"./index.esm-d5e7c95c.js";import{P as I}from"./PageAnimatedWrapper-dced23de.js";import"./hoist-non-react-statics.cjs-3f8ebaa8.js";const L=o.h1`
   color: ${t.whiteColor};
   line-height: 1;
 `;o.div`
@@ -208,7 +208,7 @@ import{s as t,u as C,e as k,j as e,a as x,i as $,k as W,b as r,c as A,m as q,n a
   margin-left: auto;
   margin-top: 40px;
   & svg {
-    fill: ${t.orangeColor};
+    stroke: ${t.orangeColor};
     transition: fill 250ms linear;
   }
   & svg {
