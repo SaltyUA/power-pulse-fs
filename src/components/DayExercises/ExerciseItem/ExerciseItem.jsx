@@ -16,60 +16,63 @@ import {
 } from './ExerciseItem.styled';
 import sprite from '../../../assets/images/sprite.svg';
 // import PropTypes from 'prop-types';
-// import { useDispatch } from 'react-redux';
-// import { deleteProduct } from '../../../store/diary/operationsDiary';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { delExercisesDay } from '../../../store/diary/operationDiary';
+import { getDateInfo } from '../../../store/diary/selectorsDiary';
 const ExerciseItem = ({
-  id,
-  // product,
-  // caloriesConsumed,
-  // weightConsumed,
-  // recommendedByGroupBlood,
+  bodyPart,
+  burnedCalories,
+  equipment,
+  name,
+  target,
+  time,
+  _id,
 }) => {
-  // const dispatch = useDispatch();
-  // const isRecommended = recommendedByGroupBlood;
-
-  const handleClick = (id, dateForDelete) => {
-    // dispatch(deleteProduct({ productId: id, date: dateForDelete }));
-    console.log()
+const dateDel = useSelector(getDateInfo)  
+const dispatch = useDispatch()
+  const handleClick = (_id) => {
+    console.log(_id)
+    dispatch(delExercisesDay({ date: dateDel, id: _id }));
+    
   };
-
+  
   return (
-    <ExerciseDiv key={id}>
+    <ExerciseDiv key={_id}>
       <Grid1>
         <Title>Body part</Title>
         <Column>
-          {/* <ShorterTitle>{product.title}</ShorterTitle> */}
-          <ShorterTitle>Waist</ShorterTitle>
+          <ShorterTitle>{bodyPart}</ShorterTitle>
         </Column>
       </Grid1>
       <Grid2>
         <Title>Equipment</Title>
         <Column>
-          {/* <ShorterTitle>{product.category}</ShorterTitle> */}
-          <ShorterTitle>Body weight</ShorterTitle>
+          <ShorterTitle>{equipment}</ShorterTitle>
         </Column>
       </Grid2>
       <Grid3>
         <Title>Name</Title>
-        {/* <Column>{caloriesConsumed}</Column> */}
-        <Column>3/4 sit-up</Column>
+        <Column>
+          <ShorterTitle>{name}</ShorterTitle>
+        </Column>
       </Grid3>
       <Grid4>
         <Title>Target</Title>
-        <Column>Abs</Column>
+        <Column>
+          <ShorterTitle>{target}</ShorterTitle>
+        </Column>
       </Grid4>
       <Grid5>
         <Title>Burned Calories</Title>
-        <Column>220</Column>
+        <Column>{burnedCalories}</Column>
       </Grid5>
       <Grid6>
         <Title>Time</Title>
-        <Column>60</Column>
+        <Column>{time}</Column>
       </Grid6>
       <Grid7>
         <Title></Title>
-        <ButtonEl onClick={() => handleClick(id)}>
+        <ButtonEl onClick={() => handleClick(_id)}>
           <DeleteIcon iconColor="#EF8964">
             <use href={`${sprite}#icon-trash`} />
           </DeleteIcon>
@@ -77,7 +80,7 @@ const ExerciseItem = ({
       </Grid7>
     </ExerciseDiv>
   );
-};
+}
 
 // ExerciseItem.propTypes = {
 //   id: PropTypes.string,

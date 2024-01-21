@@ -9,13 +9,21 @@ import {
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../../assets/images/sprite.svg';
 import { Global } from '@emotion/react';
+import { useDispatch } from 'react-redux';
+import { setDayInfo } from '../../../store/diary/sliceDiary';
 
-const StyledDatepicker = ({onChoiceDate}) => {
+const StyledDatepicker = () => {
+  const dispatch = useDispatch();
+
 
   const [selectedDate, setSelectedDate] = useState(Date.now());
   useEffect(() => {
-    onChoiceDate(format(selectedDate, 'dd-MM-yyyy'));
+    dispatch(setDayInfo(format(selectedDate, 'dd-MM-yyyy')));
+    
   });
+  // useEffect(() => {
+  //   onChoiceDate(format(selectedDate, 'dd-MM-yyyy'));
+  // });
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (

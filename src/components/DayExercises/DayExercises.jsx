@@ -5,7 +5,6 @@ import {
   Button,
   Add,
   ArrowIcon,
-  Message,
   TableArea,
   TableHeader,
   List,
@@ -17,11 +16,16 @@ import {
   Grid6,
   Grid7,
   ShorterTitle,
+  Message,
 } from './DayExercises.styled';
 import sprite from '../../assets/images/sprite.svg';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { getExercises } from '../../store/diary/selectorsDiary';
+import { useEffect } from 'react';
+import { nanoid } from 'nanoid';
 //------------------------------
 import ExerciseItem from './ExerciseItem/ExerciseItem';
+import { fetchExercises } from '../../store/diary/operationDiary';
 // import { useSelector } from 'react-redux';
 // import Loader from '../Loader';
 // import { selectError, selectIsLoading } from '../../store/diary/selectorsDiary';
@@ -31,19 +35,34 @@ import ExerciseItem from './ExerciseItem/ExerciseItem';
 // //------------------------------------------------
 
 
-const DayExercises = () => {
+const DayExercises = ({ consumedExercises }) => {
+  const allExercises = useSelector(getExercises);
+  const dispatch = useDispatch();
+
+   useEffect(() => {
+     dispatch(fetchExercises());
+   }, [dispatch]);
+  
+  const exerciseInfo = []
+  if (consumedExercises && allExercises && consumedExercises.length > 0 && allExercises.length > 0 ) {
+    consumedExercises.forEach((item) => {
+      exerciseInfo.push(
+        allExercises.find((elem) => {
+          if (elem._id === item.exercise) {
+            return { ...elem, ...item };
+          }
+        })
+      );
+    });
+  }
+  // console.log(exerciseInfo);
+
   //-----------------------
   //  const isLoading = useSelector(selectIsLoading);
   //  const error = useSelector(selectError);
   // const location = useLocation();
   //----------------------------
-  // <DayProductsArea
-  //     dimentionArea={
-  //       consumedProducts && consumedProducts.length > 0 ? 'true' : 'false'
-  //     }
-  // ></DayProductsArea>
-  //-----------------------
-
+ 
   return (
     <DayExercisesArea>
       <TitleArea>
@@ -70,43 +89,15 @@ const DayExercises = () => {
         {/* <Message>Not found exercises</Message> */}
       </TableArea>
 
-      <List>
-        <ExerciseItem
-          title={'title'}
-          category={'category'}
-          caloriesConsumed={100}
-          weightConsumed={100}
-          groupBloodNotAllowed={true}
-        />
-        <ExerciseItem
-          title={'title'}
-          category={'category'}
-          caloriesConsumed={100}
-          weightConsumed={100}
-          groupBloodNotAllowed={true}
-        />
-        <ExerciseItem
-          title={'title'}
-          category={'category'}
-          caloriesConsumed={100}
-          weightConsumed={100}
-          groupBloodNotAllowed={true}
-        />
-        <ExerciseItem
-          title={'title'}
-          category={'category'}
-          caloriesConsumed={100}
-          weightConsumed={100}
-          groupBloodNotAllowed={true}
-        />
-        <ExerciseItem
-          title={'title'}
-          category={'category'}
-          caloriesConsumed={100}
-          weightConsumed={100}
-          groupBloodNotAllowed={true}
-        />
-      </List>
+      {exerciseInfo && exerciseInfo.length > 0 ? (
+        <List>
+          {exerciseInfo.map((item) => (
+            <ExerciseItem key={nanoid()} {...item} />
+          ))}
+        </List>
+      ) : (
+        <Message>Not found exercises</Message>
+      )}
     </DayExercisesArea>
   );
 };

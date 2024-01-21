@@ -13,7 +13,7 @@ import {
  const ExercisesWrap = () => {
 
   const [activeFilter, setActiveFilter] = useState('Body parts');
-  const [exerciseName, setExerciseName] = useState('');
+   const [exerciseName, setExerciseName] = useState('');
 
     const handleSetExName = name => {
     setExerciseName(name);
