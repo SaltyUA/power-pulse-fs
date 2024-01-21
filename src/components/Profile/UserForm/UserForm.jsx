@@ -19,7 +19,11 @@ import {
   RadioLabelBlood,
   RadioLabelActivity,
   RadioBtn,
-  FormSaveBtn
+  FormSaveBtn,
+  FormInputEmail,
+  WrapperBloodSex,
+  ContainerBloodSex,
+  FormInputName,
 } from './UserForm.styled';
 
 // const userFormSchema = Yup.object().shape({
@@ -106,7 +110,7 @@ function formatDate(inputDate) {
           <ContainerNameEmail>
             <FormLabel>
               Name
-              <FormInput
+              <FormInputName
                 type="text"
                 id="name"
                 name="name"
@@ -116,7 +120,7 @@ function formatDate(inputDate) {
             </FormLabel>
             <FormLabel>
               Email
-              <FormInput
+              <FormInputEmail
                 type="text"
                 id="email"
                 name="email"
@@ -170,14 +174,15 @@ function formatDate(inputDate) {
                   name="birthday"
                   value={values.birthday}
                   onChange={handleChange}
+                  style={{ pointerEvents: 'none' }}
                 />
               </FormLabelSecond>
             </ContainerParams>
           </ContainerFullParams>
 
-          <div style={{ marginBottom: '40px' }}>
+          <ContainerBloodSex>
             <BloodTitle>Blood</BloodTitle>
-            <div style={{ display: 'flex', gap: '20px' }}>
+            <WrapperBloodSex>
               <div style={{ display: 'flex', gap: '8px' }}>
                 <RadioLabelBlood>
                   <RadioBtn
@@ -243,8 +248,8 @@ function formatDate(inputDate) {
                   Female
                 </RadioLabelBlood>
               </div>
-            </div>
-          </div>
+            </WrapperBloodSex>
+          </ContainerBloodSex>
 
           <ContainerActivity>
             <RadioLabelActivity>

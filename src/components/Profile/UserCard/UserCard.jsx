@@ -1,9 +1,11 @@
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
-// import { selectUser } from 'redux/selectors';
-// import { updateAvatar } from 'redux/operations';
+import { selectUser } from '../../../store/selectors';
+
+import { updateUserAvatar } from '../../../store/auth/thunk';
 import { logOut } from '../../../store/auth/thunk';
+
 import LogoutButton from '../../../components/LogoutButton/LogoutButton';
 import Notice from '../../Notice/Notice';
 
@@ -23,34 +25,34 @@ import {
 } from './UserCard.styled';
 
 const UserCard = () => {
-  const avatarURL = '';
   const dispatch = useDispatch();
-  // const user = useSelector(selectUser);
+  const user = useSelector(selectUser);
 
-  // const [avatarURL, setAvatarURL] = useState(user.avatar);
+  const [avatar, setAvatar] = useState(user.avatarURL);
 
   const fileInputRef = useRef(null);
 
-  const handleIconClick = () => {
+  const handleIconClick = (e) => {
+    e.preventDefault();
+
     console.log();
-    // if (fileInputRef.current) {
-    //   fileInputRef.current.click();
-    // }
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
-  const handleAvatarChange = (event) => {
-    console.log(event);
-    //   const file = event.currentTarget.files[0];
+  const handleAvatarChange = async (event) => {
+    const file = event.currentTarget.files[0];
 
-    //   if (file) {
-    //     setAvatarURL(URL.createObjectURL(file));
-    //   }
+    if (file) {
+      setAvatar(URL.createObjectURL(file));
+    }
 
-    //   try {
-    //     dispatch(updateAvatar(file));
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
+    try {
+      await dispatch(updateUserAvatar(file));
+    } catch (error) {
+      console.log("Error updating avatar:", error);
+    }
   };
 
   const handleLogOut = () => dispatch(logOut());
@@ -58,8 +60,8 @@ const UserCard = () => {
   return (
     <UserCardContainer>
       <UserAvatar>
-        {avatarURL ? (
-          <img src={avatarURL} alt="User Avatar" />
+        {avatar ? (
+          <img src={avatar} alt="User Avatar" />
         ) : (
           <svg width="61" height="62" fill="#efede8">
             <use href={`${sprite}#user`} />
@@ -82,8 +84,7 @@ const UserCard = () => {
           </AddAvatarButton>
         </form>
       </UserAvatar>
-      {/* <p>{user.name}</p> */}
-      <NameContainer>Name</NameContainer>
+      <NameContainer>{user.name}</NameContainer>
       <EmailContainer>User</EmailContainer>
 
       <InformationContainer>
@@ -94,7 +95,7 @@ const UserCard = () => {
             </svg>
             Daily calorie intake
           </InformationText>
-          <InformationCounter>0</InformationCounter>
+          <InformationCounter>{user.dailyCalories}</InformationCounter>
         </InformationCard>
         <InformationCard>
           <InformationText>
@@ -103,7 +104,7 @@ const UserCard = () => {
             </svg>
             Daily physical activity
           </InformationText>
-          <InformationCounter>0 min</InformationCounter>
+          <InformationCounter>{user.dailySportTime} min</InformationCounter>
         </InformationCard>
       </InformationContainer>
 

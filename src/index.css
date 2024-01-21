@@ -112,3 +112,11 @@ img {
     line-height: 1.5;
   }
 }
+
+/* прибирає дефолтну іконку календаря
+
+ input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+} */

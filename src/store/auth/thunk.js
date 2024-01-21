@@ -5,6 +5,7 @@ import {
   refresh,
   signOut,
   patchUser,
+  putAvatar,
   resendVerify,
   emailVerify,
 } from '../../api/auth';
@@ -73,6 +74,21 @@ export const updateUserData = createAsyncThunk(
         try {
             const data = await patchUser(body);
            return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUserAvatar = createAsyncThunk(
+  'auth/avatar',
+  async (body, thunkAPI) => {
+    try {
+      const formData = new FormData();
+      formData.append('image', body);
+
+      const data = await putAvatar(formData);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
