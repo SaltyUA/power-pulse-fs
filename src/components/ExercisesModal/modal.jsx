@@ -1,29 +1,16 @@
 import {
-  Button,
   Modal,
   ModalContent,
-  CloseButton,
   NameContainer,
   ModalSubtext,
   ModalText,
-  Row,
-  Img,
-  Img1,
   ModalSubcontent,
-  Block,
   TimerContainer,
-  TimerSvg,
-  TimerPath,
-  TimerDot,
-  TimeLabel,
-  TimerPathOverlay,
   CaloriesLabel,
   CaloriesTimer,
-  // TextTime,
   DiaryModal,
   DiaryModalContent,
   ToDiaryButton,
-  DiaryClose,
   DiaryImg,
   ModalDiaryText,
   SubtextDiaryModal,
@@ -31,66 +18,123 @@ import {
   DiaryCaloriesTime,
   DiaryCaloriesBurned,
   BtnNextExercise,
+  TopWrap,
+  ImgContainer,
+  RightSide,
+  TimerWrap,
+  ModalButton,
+  PlayIcon,
+  BotWrap,
+  Close,
+  CloseIcon,
 } from './styled-modal';
+import gif from '../../assets/images/f38f17db5480518a62220c817f6bbffe.png';
+import thumb from '../../assets/images/thumb_up_gloss.png';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { useState } from 'react';
+import sprite from '../../assets/images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { setIsShowModal } from '../../store/exercises/sliceExercises';
 
 function ExerciseForm() {
+  const [isPlaying, setisPlaying] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const dispatch = useDispatch();
+  const handleClose = () => dispatch(setIsShowModal());
+  const handleAdd = () => {
+    setIsSuccess(true);
+  };
+  const togglePlay = () => setisPlaying(!isPlaying);
+
   return (
     <>
-      <Button id="openModal">Відкрити вікно</Button>
-
-      <Modal id="myModal">
-        <ModalContent>
-          <CloseButton>&times;</CloseButton>
-          <ModalSubcontent>
-            <Block>
-              <Img>
-                <Img1 src="./img/your-image.png" alt="Illustration" />
-              </Img>
-              <div>
-                <Row>
+      {!isSuccess ? (
+        <Modal>
+          <ModalContent>
+            <Close type="button" onClick={handleClose}>
+              <CloseIcon>
+                <use href={sprite + '#icon-close'} />
+              </CloseIcon>
+            </Close>
+            <ModalSubcontent>
+              <TopWrap>
+                <ImgContainer>
+                  <img src={gif} alt="Illustration" />
+                </ImgContainer>
+                <RightSide>
                   <NameContainer>
                     <ModalSubtext>Name</ModalSubtext>
-                    <ModalText>Aire bike</ModalText>
+                    <ModalText>Exercise Name</ModalText>
                   </NameContainer>
                   <NameContainer>
                     <ModalSubtext>Target</ModalSubtext>
-                    <ModalText>Abs</ModalText>
+                    <ModalText>Target</ModalText>
                   </NameContainer>
-                </Row>
-              </div>
-            </Block>
-            <TimerContainer>
-              <TimerSvg>
-                <TimerPath />
-                <TimerPathOverlay />
-                <TimerDot />
-              </TimerSvg>
-              <TimeLabel>00:00</TimeLabel>
-              <Button className="start-button">▷</Button>
-              <CaloriesLabel>
-                Burned calories: <CaloriesTimer>0</CaloriesTimer>
-              </CaloriesLabel>
-            </TimerContainer>
-            <Button className="btn-diary">Add to diary</Button>
-          </ModalSubcontent>
-        </ModalContent>
-      </Modal>
-
-      <DiaryModal id="diaryModal">
-        <DiaryModalContent>
-          <DiaryClose>&times;</DiaryClose>
-          <DiaryImg src="./img/thumb-up.png" alt="Thumb Up" />
-          <ModalDiaryText>Well done</ModalDiaryText>
-          <SubtextDiaryModal>
-            Your time: <DiaryCaloriesTime>00:00</DiaryCaloriesTime>
-          </SubtextDiaryModal>
-          <BurnedCalories>
-            Burned calories: <DiaryCaloriesBurned>0</DiaryCaloriesBurned>
-          </BurnedCalories>
-          <BtnNextExercise>Next exercise</BtnNextExercise>
-          <ToDiaryButton>To the diary</ToDiaryButton>
-        </DiaryModalContent>
-      </DiaryModal>
+                  <NameContainer>
+                    <ModalSubtext>Body Part</ModalSubtext>
+                    <ModalText>Body Part</ModalText>
+                  </NameContainer>
+                  <NameContainer>
+                    <ModalSubtext>Equipment</ModalSubtext>
+                    <ModalText>Equipment</ModalText>
+                  </NameContainer>
+                </RightSide>
+              </TopWrap>
+              <BotWrap>
+                <TimerContainer>
+                  <TimerWrap>
+                    <CountdownCircleTimer
+                      isPlaying
+                      duration={7}
+                      colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+                      colorsTime={[7, 5, 2, 0]}
+                    >
+                      {({ remainingTime }) => remainingTime}
+                    </CountdownCircleTimer>
+                  </TimerWrap>
+                  <button onClick={togglePlay}>
+                    <PlayIcon>
+                      <use
+                        href={
+                          isPlaying
+                            ? sprite + '#icon-play'
+                            : sprite + '#icon-pause'
+                        }
+                      />
+                    </PlayIcon>
+                  </button>
+                  <CaloriesLabel>
+                    Burned calories: <CaloriesTimer>0</CaloriesTimer>
+                  </CaloriesLabel>
+                </TimerContainer>
+                <ModalButton onClick={handleAdd}>Add to diary</ModalButton>
+              </BotWrap>
+            </ModalSubcontent>
+          </ModalContent>
+        </Modal>
+      ) : (
+        <DiaryModal id="diaryModal">
+          <DiaryModalContent>
+            <Close type="button" onClick={handleClose}>
+              <CloseIcon>
+                <use href={sprite + '#icon-close'} />
+              </CloseIcon>
+            </Close>
+            <DiaryImg src={thumb} alt="Thumb Up" />
+            <ModalDiaryText>Well done</ModalDiaryText>
+            <SubtextDiaryModal>
+              Your time: <DiaryCaloriesTime>00:00</DiaryCaloriesTime>
+            </SubtextDiaryModal>
+            <BurnedCalories>
+              Burned calories: <DiaryCaloriesBurned>0</DiaryCaloriesBurned>
+            </BurnedCalories>
+            <BtnNextExercise onClick={handleClose}>
+              Next exercise
+            </BtnNextExercise>
+            <ToDiaryButton to={'/diary'}>To the diary</ToDiaryButton>
+          </DiaryModalContent>
+        </DiaryModal>
+      )}
     </>
   );
 }

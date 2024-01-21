@@ -1,22 +1,29 @@
 import styled from 'styled-components';
+import Button from '../Button/Button';
+import { styleGuide } from '../../constants/styleGuide';
+import { Link } from 'react-router-dom';
 
-export const Button = styled.button`
-  margin-top: 35px;
-  margin-left: 35px;
+export const ModalButton = styled(Button)`
+  position: absolute;
+  bottom: 48px;
+  right: 32px;
 `;
 
 export const Modal = styled.div`
-  display: none;
+  /* display: none; */
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
+  backdrop-filter: 'blur(5px)';
 `;
 
 export const ModalContent = styled.div`
+  padding-top: 48px;
+  position: relative;
   background-color: #fefefe;
   margin: 15% auto;
   width: 694px;
@@ -26,18 +33,24 @@ export const ModalContent = styled.div`
   background: #10100f;
 `;
 
-export const Close = styled.span`
+export const Close = styled.button`
   position: absolute;
   right: 16px;
   top: 16px;
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  width: 26px;
-  cursor: pointer;
 `;
 
-export const Name = styled.div`
+export const CloseIcon = styled.svg`
+  z-index: 100;
+  width: 26px;
+  height: 26px;
+  stroke: ${styleGuide.whiteColor};
+`;
+
+export const ModalSubcontent = styled.div`
+  position: relative;
+`;
+
+export const NameContainer = styled.div`
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
@@ -64,70 +77,46 @@ export const ModalText = styled.h2`
   line-height: 1.5;
 `;
 
-export const Row = styled.div`
+export const RightSide = styled.div`
   display: flex;
-  justify-content: space-around;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 8px 8px;
 `;
 
-export const Img = styled.div`
+export const ImgContainer = styled.div`
   margin-left: 32px;
   border-radius: 12px;
   margin-right: 16px;
-`;
-
-export const Img1 = styled.img`
   border-radius: 12px;
+  overflow: hidden;
 `;
 
-export const ModalSubcontent = styled.div`
-  position: relative;
-  padding-top: 48px;
-`;
-
-export const Block = styled.div`
+export const TopWrap = styled.div`
   display: flex;
 `;
 
 // Стили таймера
 export const TimerContainer = styled.div`
-  left: 104px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   color: white;
-  width: 124px;
-  height: 124px;
+  width: 270px;
+  height: 196px;
   position: relative;
 `;
 
-export const TimerSvg = styled.svg`
-  transform: rotate(180deg);
+export const TimerWrap = styled.div`
+  width: 125px;
+  height: 125px;
 `;
 
-export const TimerPath = styled.circle`
-  stroke-dasharray: 565.48;
-  stroke-dashoffset: 565.48;
-  transition: stroke-dashoffset 1s linear;
-  stroke: #808080;
-`;
-
-export const TimerDot = styled.circle`
-  transition: transform 1s linear;
-`;
-
-export const TimeLabel = styled.span`
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 24px;
-  color: white;
-`;
-
-export const TimerPathOverlay = styled.circle`
-  transition: stroke-dashoffset 1s linear;
+export const PlayIcon = styled.svg`
+  width: 32px;
+  height: 32px;
+  stroke: ${styleGuide.whiteColor};
+  fill: ${styleGuide.orangeColor};
 `;
 
 export const CaloriesLabel = styled.div`
@@ -146,17 +135,10 @@ export const CaloriesTimer = styled.span`
   margin-top: 8px;
 `;
 
-export const TextTime = styled.p`
-  margin-top: 14px;
-  color: rgba(239, 237, 232, 0.4);
-  font-family: Roboto;
-  font-size: 10px;
-  line-height: 14px;
-`;
+export const BotWrap = styled.div``;
 
 // Стили для модального окна Diary
 export const DiaryModal = styled.div`
-  display: none;
   position: fixed;
   z-index: 2;
   left: 0;
@@ -177,7 +159,7 @@ export const DiaryModalContent = styled.div`
   border-radius: 12px;
 `;
 
-export const ToDiaryButton = styled.button`
+export const ToDiaryButton = styled(Link)`
   color: rgba(239, 237, 232, 0.3);
   font-family: Roboto;
   font-size: 14px;

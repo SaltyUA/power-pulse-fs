@@ -1,6 +1,6 @@
 import { StyledButton } from './Button.styled';
 
-const Button = ({ children, transparent, width, as, type, to }) => {
+const Button = ({ onClick, children, transparent, width, as, type, to }) => {
   return (
     <StyledButton
       type={type}
@@ -8,6 +8,7 @@ const Button = ({ children, transparent, width, as, type, to }) => {
       to={to}
       $width={width}
       $transparent={transparent}
+      onClick={onClick}
     >
       {children}
     </StyledButton>

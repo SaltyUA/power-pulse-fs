@@ -5,7 +5,7 @@ import {
   fetchMuscles,
 } from './operationExercises';
 
-const handlePending = state => {
+const handlePending = (state) => {
   state.isLoading = true;
 };
 
@@ -23,8 +23,15 @@ const exercisesSlice = createSlice({
     equipment: [],
     isLoading: false,
     error: null,
+    isShowModal: false,
   },
-  extraReducers: builder =>
+  reducers: {
+    setIsShowModal(state, { payload }) {
+      console.log(payload);
+      state.isShowModal = payload;
+    },
+  },
+  extraReducers: (builder) =>
     builder
       .addCase(fetchBodyParts.pending, handlePending)
       .addCase(fetchBodyParts.fulfilled, (state, action) => {
@@ -96,3 +103,4 @@ const exercisesSlice = createSlice({
 });
 
 export const exercisesReducer = exercisesSlice.reducer;
+export const { setIsShowModal } = exercisesSlice.actions;

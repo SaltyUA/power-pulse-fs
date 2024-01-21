@@ -6,6 +6,7 @@ import { refreshUser } from './store/auth/thunk';
 import { PublicGuard } from './guards/publicGuard';
 import { PrivateGuard } from './guards/privateGuard';
 import { selectIsLoggedIn, selectToken, selectUser } from './store/selectors';
+import ExerciseForm from './components/ExercisesModal/modal';
 
 const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 const Welcome = lazy(() => import('./pages/Welcome/Welcome'));
@@ -72,6 +73,7 @@ function App() {
             <PrivateGuard component={<Exercises />} redirectTo={'/signin'} />
           }
         />
+        <Route path="exmodal" element={<ExerciseForm />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Route>
