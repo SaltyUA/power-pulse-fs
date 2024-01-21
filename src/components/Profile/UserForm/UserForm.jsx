@@ -73,36 +73,47 @@ const UserForm = () => {
     currentWeight: user.currentWeight ?? 35,
     desiredWeight: user.desiredWeight ?? 35,
     birthday: user.birthday ?? '1990-01-01',
-    blood: user.blood ?? '1',
+    blood: String(user.blood) ?? '1',
     sex: user.sex ?? 'male',
-    levelActivity: user.levelActivity ?? '1',
+    levelActivity: String(user.levelActivity) ?? '1',
   };
-function formatDate(inputDate) {
-  const date = new Date(inputDate);
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
-  const year = date.getFullYear();
+  function formatDate(inputDate) {
+    const date = new Date(inputDate);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+    const year = date.getFullYear();
 
-  return `${day}.${month}.${year}`;
-}
+    return `${day}.${month}.${year}`;
+  }
   const handleSubmit = (values) => {
-        const { birthday, blood, currentWeight, desiredWeight, height, levelActivity, name, sex } = values;
-        dispatch(updateUserData({
-      name,
-      height,
+    const {
+      birthday,
+      blood,
       currentWeight,
       desiredWeight,
-      birthday: formatDate(birthday),
-      blood,
+      height,
+      levelActivity,
+      name,
       sex,
-      levelActivity: Number(levelActivity)
-    }));
+    } = values;
+    dispatch(
+      updateUserData({
+        name,
+        height,
+        currentWeight,
+        desiredWeight,
+        birthday: formatDate(birthday),
+        blood,
+        sex,
+        levelActivity: Number(levelActivity),
+      })
+    );
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={userFormSchema}  
+      // validationSchema={userFormSchema}
       onSubmit={handleSubmit}
     >
       {({ handleChange, values }) => (
