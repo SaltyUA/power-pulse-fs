@@ -99,7 +99,7 @@ height: 362px;
 border: 1px solid rgba(239, 237, 232, 0.20);
 background-color: #10100F;
 transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
- transform:  scale(1);
+ transform: scale(1);
    background-image: url(${bgPhoto});
     background-repeat: no-repeat;
     background-size: 123px 97px;

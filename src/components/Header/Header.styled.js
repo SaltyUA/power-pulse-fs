@@ -3,7 +3,7 @@ import { styleGuide } from '../../constants/styleGuide';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
-  width: 100vw;
+  width: 100%;
 
   background-color: ${styleGuide.blackColor};
 `;

@@ -1,18 +1,17 @@
+import {  useSelector } from 'react-redux';
 import {
   StyledLiItem,
   StyledRecommendedSpan,
-  StyledRunManSvg,
-  StyledAddBtn,
-  StyledBtnSpan,
-  StyledArrowSvg23
+  StyledRunManSvg
 } from './ProductsListItem.styled';
 import sprite from '../../../../assets/images/sprite.svg';
-const bloodType = '1';
+import { AddButton } from '../../../AddButton/AddButton';
 
-export const ProductsListItem = ({ data, handleOpenModal}) => {
+export const ProductsListItem = ({ data, handleOpenModal }) => {
+  const { blood } = useSelector(state => state.auth.user);
   const { calories, category, title, weight, groupBloodNotAllowed, _id } = data;
-  const recommended = groupBloodNotAllowed[bloodType];
- 
+  const recommended = groupBloodNotAllowed[blood];
+  
   return (
     <StyledLiItem>
       <span className="diet-span">diet</span>
@@ -23,12 +22,7 @@ export const ProductsListItem = ({ data, handleOpenModal}) => {
         >
           {recommended ? 'Recommended' : 'Not recommended'}
         </StyledRecommendedSpan>
-        <StyledAddBtn onClick={() => handleOpenModal({calories,title,weight, _id}) } type="button" className="add-btn">
-          <StyledBtnSpan className="add-btn-span">Add</StyledBtnSpan>
-          <StyledArrowSvg23>
-            <use href={sprite + '#locationarrow'}></use>
-          </StyledArrowSvg23>
-                 </StyledAddBtn>
+        <AddButton onClick={() => handleOpenModal({calories,title,weight, _id}) }>Add</AddButton>
       </div>
       <div className="product-info-div">
         <div className="title-svg-div">
