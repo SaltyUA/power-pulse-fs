@@ -3,7 +3,9 @@ import { styleGuide } from '../../constants/styleGuide';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
+
   background-color: transparent;
+
 
   ${(props) =>
     props.$isLoggedIn

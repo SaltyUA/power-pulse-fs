@@ -86,7 +86,6 @@ export const updateUserAvatar = createAsyncThunk(
     try {
       const formData = new FormData();
       formData.append('image', body);
-
       const data = await putAvatar(formData);
       return data;
     } catch (error) {
