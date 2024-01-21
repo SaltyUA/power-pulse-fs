@@ -29,11 +29,7 @@ import {
   };
   
   // {
-  //   modalData && (
-  //     <BasicModalWindow isOpenModalToggle={closeModal}>
-  //
-  //     </BasicModalWindow>
-  //   );
+  //   modal
   // }
   
   export const WaistItem = ({ data }) => {

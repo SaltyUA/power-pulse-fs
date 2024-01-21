@@ -9,15 +9,14 @@ import images from '../../../assets/images/0-default.jpg';
 import { useDispatch } from 'react-redux';
 import { setCurrentCategorie } from '../../../store/exercises/sliceExercises';
 
+
 export const ExercisesItem = ({
   exercisesItem,
-  handleSetExName,
 }) => {
   const { name, filter, imgURL } = exercisesItem;
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
   const onClick = name => {
-    handleSetExName(name);
     dispatch(setCurrentCategorie(name))
   };
 //  великими літерими назву
