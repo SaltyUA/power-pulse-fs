@@ -44,10 +44,10 @@ const SignIn = () => {
       email: string()
         .required('Please enter email')
         .matches(emailPattern, 'Please check is it true email'),
+      password: string()
+        .min(6, 'Must have at least 6 symbols')
+        .required('Please enter password'),
     }),
-    password: string()
-      .min(6, 'Must have at least 6 symbols')
-      .required('Please enter password'),
   });
 
   return (

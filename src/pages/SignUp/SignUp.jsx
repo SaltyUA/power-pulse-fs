@@ -35,8 +35,10 @@ const SignUp = () => {
       email: string()
         .required('Please enter email')
         .matches(emailPattern, 'Please check is it true email'),
+      password: string()
+        .required('Please enter password')
+        .min(6, 'Must have at least 6 symbols'),
     }),
-    password: string().required('Please enter password'),
   });
 
   return (
