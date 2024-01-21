@@ -1,4 +1,4 @@
-import{L as e,s as n,j as i}from"./index-77ed2c97.js";import{n as t}from"./emotion-styled.browser.esm-8b0d78ad.js";import{t as o,a as d,b as a}from"./side-view-people-training-gym-3x-98657c57.js";const p=t.div`
+import{L as o,s as e,j as i}from"./index-b2d7f2e2.js";import{n as t}from"./emotion-styled.browser.esm-468ae805.js";import{b as n,a as d,c as a}from"./side-view-people-training-gym-3x-274ccdad.js";const p=t.div`
   overflow: hidden;
   display: flex;
   width: 100%;
@@ -60,9 +60,9 @@ import{L as e,s as n,j as i}from"./index-77ed2c97.js";import{n as t}from"./emoti
   @media (min-width: 1440px) {
     width: 477px;
   }
-`,s=t(e)`
+`,s=t(o)`
   display: inline-block;
-  color: ${n.whiteColor};
+  color: ${e.whiteColor};
   font-size: 16px;
   font-weight: 500;
   line-height: 1.12;
@@ -71,7 +71,7 @@ import{L as e,s as n,j as i}from"./index-77ed2c97.js";import{n as t}from"./emoti
   border: 1px solid rgba(239, 237, 232, 0.3);
   background-color: transparent;
   width: 147px;
-  transition: color ${n.animation};
+  transition: color ${e.animation};
   text-align: center;
   white-space: nowrap;
 
@@ -86,7 +86,7 @@ import{L as e,s as n,j as i}from"./index-77ed2c97.js";import{n as t}from"./emoti
     width: 204px;
   }
 `,m=t.div`
-  background-image: url(${o});
+  background-image: url(${n});
   background-position: bottom right;
   width: 200px;
   background-repeat: no-repeat;

@@ -1,7 +1,7 @@
-import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"./emotion-styled.browser.esm-8b0d78ad.js";const m=o.input`
+import{b as r,s as e,j as n,a as c}from"./index-b2d7f2e2.js";import{n as i}from"./emotion-styled.browser.esm-468ae805.js";import{b as g,a as m,c as l}from"./side-view-people-training-gym-3x-274ccdad.js";const h=r.input`
   padding: 14px;
   width: 100%;
-  color: ${i.whiteColor};
+  color: ${e.whiteColor};
 
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -11,16 +11,16 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
   position: relative;
 
   &:is(:hover) {
-    border-color: ${i.orangeColor};
+    border-color: ${e.orangeColor};
     outline: none;
   }
 
   &.success {
-    border-color: ${i.successColor};
+    border-color: ${e.successColor};
   }
 
   &.error {
-    border-color: ${i.errorColor};
+    border-color: ${e.errorColor};
   }
 
   @media screen and (min-width: 375px) {
@@ -30,7 +30,7 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
   @media screen and (min-width: 768px) {
     width: 364px;
   }
-`,h=o.p`
+`,b=r.p`
   display: flex;
   align-items: center;
   position: absolute;
@@ -40,11 +40,11 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
   bottom: -14px;
 
   &.error {
-    color: ${i.errorColor};
+    color: ${e.errorColor};
   }
 
   &.success {
-    color: ${i.successColor};
+    color: ${e.successColor};
   }
 
   @media screen and (max-width: 767px) {
@@ -55,9 +55,9 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
     font-size: 12px;
     bottom: -18px;
   }
-`,l=o.div`
+`,u=r.div`
   position: relative;
-`,g=o.svg`
+`,w=r.svg`
   fill: currentColor;
   margin-right: 4px;
   width: 10px;
@@ -67,18 +67,18 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
     width: 16px;
     height: 16px;
   }
-`,b=({placeholder:a,name:d,type:p,onChange:s,value:x,className:r,message:t})=>n.jsxs(l,{children:[n.jsx(m,{placeholder:a,name:d,type:p,onChange:s,value:x,required:!0,className:r,$message:t}),t&&n.jsxs(h,{className:r,children:[n.jsx(g,{children:n.jsx("use",{href:c+"#icon-checkbox"})}),t]})]}),f=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,C=e.h2`
+`,C=({placeholder:a,name:d,type:p,onChange:s,value:x,className:t,message:o})=>n.jsxs(u,{children:[n.jsx(h,{placeholder:a,name:d,type:p,onChange:s,value:x,required:!0,className:t,$message:o}),o&&n.jsxs(b,{className:t,children:[n.jsx(w,{children:n.jsx("use",{href:c+"#icon-checkbox"})}),o]})]}),z=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,v=i.h2`
   font-size: 24px;
   line-height: 1.17;
   margin-bottom: 14px;
-  color: ${i.whiteColor};
+  color: ${e.whiteColor};
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
     line-height: 1.38;
     margin-bottom: 16px;
   }
-`,z=e.p`
+`,I=i.p`
   @media screen and (min-width: 375px) {
     width: 335px;
   }
@@ -88,17 +88,7 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
     line-height: 1.5;
     width: 496px;
   }
-`,$=e.div`
-  padding-top: 90px 20px 0;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 140px 32px 0;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding-top: 151px 96px 0;
-  }
-`,v=e.form`
+`,j=i.div``,y=i.form`
   margin-top: 28px;
 
   & button {
@@ -111,10 +101,10 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
   }
 
   & a {
-    color: ${i.whiteColor};
+    color: ${e.whiteColor};
     text-decoration: underline;
   }
-`,I=e.p`
+`,A=i.p`
   font-size: 12px;
   line-height: 1.5;
   color: rgba(239, 237, 232, 0.6);
@@ -122,7 +112,7 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
-`,j=e.div`
+`,F=i.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -130,15 +120,40 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
   @media screen and (min-width: 768px) {
     gap: 20px;
   }
-`,k=e.div`
+`,S=i.div`
   display: flex;
   flex-direction: column;
   gap: 121px;
 
-  background: ${i.backgroundImage};
+  padding: 90px 20px 0;
+
+  background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${g});
   background-repeat: no-repeat;
   background-position: right bottom;
-`,y=o.div`
+
+  @media screen and (min-width: 768px) {
+    padding: 140px 32px 0;
+
+    background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
+      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+      url(${m});
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 151px 96px 0;
+    flex-direction: row;
+    gap: 172px;
+    background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
+      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+      url(${l});
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+`,T=r.div`
   min-width: 320px;
   margin: 0 auto;
 
@@ -153,4 +168,4 @@ import{b as o,s as i,j as n,a as c}from"./index-77ed2c97.js";import{n as e}from"
   @media screen and (min-width: 1440px) {
     width: 1440px;
   }
-`;export{z as A,y as C,$ as F,j as I,I as R,k as S,C as a,v as b,b as c,f as e};
+`;export{I as A,T as C,j as F,F as I,A as R,S,v as a,y as b,C as c,z as e};

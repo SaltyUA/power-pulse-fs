@@ -1,9 +1,9 @@
-import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emotion-styled.browser.esm-8b0d78ad.js";import{t as d,a,b as p}from"./side-view-people-training-gym-3x-98657c57.js";const y=i.div`
+import{s as t,j as e,a as d,b as l}from"./index-b2d7f2e2.js";import{n as i}from"./emotion-styled.browser.esm-468ae805.js";import{b as m,a as g,c as f}from"./side-view-people-training-gym-3x-274ccdad.js";const D=i.div`
   overflow: hidden;
   width: 320px;
   padding: 0px 20px;
   margin: 0 auto;
-  background-image: url(${d});
+  background-image: url(${m});
   background-position: bottom right;
   background-repeat: no-repeat;
 
@@ -13,24 +13,24 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
 
   @media screen and (min-width: 768px) {
     padding: 0px 32px;
-    background-image: url(${a});
+    background-image: url(${g});
     width: 768px;
   }
 
   @media screen and (min-width: 1440px) {
-    background-image: url(${p});
+    background-image: url(${f});
     padding: 0px 32px;
     width: 1440px;
     display: flex;
   }
-`,r=i.div`
+`,w=i.div`
   padding-bottom: 43px;
 
   @media screen and (min-width: 1440px) {
     width: 670px;
     padding-top: 335px;
   }
-`,z=i.div`
+`,E=i.div`
   padding-top: 91px;
   padding-bottom: 230px;
 
@@ -42,8 +42,8 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
   @media screen and (min-width: 1440px) {
     padding: 152px 85px 246px 59px;
   }
-`,k=i.h1`
-  color: ${n.whiteColor};
+`,G=i.h1`
+  color: ${t.whiteColor};
   font-size: 38px;
   font-weight: 500;
   line-height: 1.05;
@@ -59,8 +59,8 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     line-height: 1.11;
     width: 598px;
   }
-`,S=i.svg`
-  stroke: ${n.orangeColor};
+`,M=i.svg`
+  stroke: ${t.orangeColor};
   position: absolute;
   stroke-width: 2px;
   top: 45px;
@@ -84,8 +84,8 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     top: 86px;
     left: 13%;
   }
-`,o=i.svg`
-  fill: ${n.whiteColor};
+`,u=i.svg`
+  fill: ${t.whiteColor};
   align-items: center;
   margin-left: 2px;
 
@@ -94,22 +94,22 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     width: 20px;
     margin-left: 4px;
   }
-`,x=i.svg`
-  fill: ${n.whiteColor};
+`,b=i.svg`
+  fill: ${t.whiteColor};
   margin-right: 1px;
 
   @media screen and (min-width: 768px) {
     height: 16px;
     width: 16px;
   }
-`,$=i.div`
+`,P=i.div`
   display: flex;
   gap: 0px 14px;
 
   @media screen and (min-width: 768px) {
     gap: 0px 20px;
   }
-`,s=i.div`
+`,v=i.div`
   width: 146px;
   height: 66px;
   border-radius: 12px;
@@ -135,7 +135,7 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
   @media screen and (min-width: 1440px) {
     margin-left: 0px;
   }
-`,h=i.div`
+`,$=i.div`
   display: flex;
   gap: 4px;
   flex-direction: column;
@@ -160,11 +160,11 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
   @media screen and (min-width: 1440px) {
     margin-left: 458px;
   }
-`,c=i.div`
+`,j=i.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-`,m=i.div`
+`,C=i.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 700;
@@ -175,7 +175,7 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     font-size: 16px;
     line-height: 1.5;
   }
-`,l=i.div`
+`,y=i.div`
   color: #efede8;
   font-size: 24px;
   font-weight: 700;
@@ -188,13 +188,13 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     line-height: 1.04;
     margin-right: 11px;
   }
-`,g=i.div`
+`,k=i.div`
   margin-left: 8px;
 
   @media screen and (min-width: 768px) {
     margin-left: 12px;
   }
-`,f=i.div`
+`,z=i.div`
   color: #efede8;
   font-size: 16px;
   font-weight: 700;
@@ -206,7 +206,7 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     line-height: 1;
     margin-bottom: 8px;
   }
-`,w=i.div`
+`,S=i.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 400;
@@ -216,7 +216,7 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     font-size: 16px;
     line-height: 1.5;
   }
-`,u=i.div`
+`,T=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,7 +229,7 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     height: 40px;
     width: 40px;
   }
-`,b=i.div`
+`,W=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -242,11 +242,36 @@ import{s as n,j as e,a as t}from"./index-77ed2c97.js";import{n as i}from"./emoti
     height: 24px;
     width: 24px;
   }
-`,T=i.div`
+`,X=i.div`
   margin-bottom: 40px;
   position: relative;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 64px;
   }
-`,W=()=>e.jsxs(r,{children:[e.jsxs(s,{children:[e.jsx(u,{children:e.jsx(o,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-play"})})}),e.jsxs(g,{children:[e.jsx(f,{children:"350+"}),e.jsx(w,{children:"Video tutorial"})]})]}),e.jsxs(h,{children:[e.jsx(b,{children:e.jsx(x,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-running"})})}),e.jsxs(c,{children:[e.jsx(l,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]});export{z as C,S,T,y as W,k as a,$ as b,W as c};
+`,q=()=>e.jsxs(w,{children:[e.jsxs(v,{children:[e.jsx(T,{children:e.jsx(u,{width:12,height:12,children:e.jsx("use",{href:d+"#icon-play"})})}),e.jsxs(k,{children:[e.jsx(z,{children:"350+"}),e.jsx(S,{children:"Video tutorial"})]})]}),e.jsxs($,{children:[e.jsx(W,{children:e.jsx(b,{width:12,height:12,children:e.jsx("use",{href:d+"#icon-running"})})}),e.jsxs(j,{children:[e.jsx(y,{children:"500"}),e.jsx(C,{children:"cal"})]})]})]}),{animation:a,orangeColor:r,orange2Color:o}=t,I=l.button`
+  padding: 12px 40px;
+  width: ${n=>n.$width};
+
+  color: ${t.whiteColor};
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.13;
+
+  border-radius: 12px;
+
+  border: ${n=>n.$transparent?"1px solid rgba(239, 237, 232, 0.3);":`1px solid ${r}`};
+
+  background-color: ${n=>n.$transparent?"transparent":r};
+
+  transition: ${n=>n.$transparent?`border-color ${a}`:`color ${a}`};
+
+  &:is(:hover, :focus) {
+    ${n=>n.$transparent?`border-color: ${o}`:`background-color: ${o}`};
+    outline: none;
+  }
+
+  &:disabled {
+    color: #efede899;
+  }
+`,A=({children:n,transparent:p,width:s,as:x,type:h,to:c})=>e.jsx(I,{type:h,as:x,to:c,$width:s,$transparent:p,children:n});export{A as B,E as C,M as S,X as T,D as W,G as a,P as b,q as c};
