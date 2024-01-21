@@ -103,7 +103,13 @@ export const NotFoundBtn = styled(Link)`
 `;
 
 export const ImgContainer = styled.div`
-  background-image: url(${training});
+  background-image: linear-gradient(
+      170deg,
+      #040404 3.66%,
+      rgba(4, 4, 4, 0) 19.15%
+    ),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${training});
   background-position: bottom right;
   width: 200px;
   background-repeat: no-repeat;
@@ -118,7 +124,12 @@ export const ImgContainer = styled.div`
   }
 
   @media (min-width: 1440px) {
-    background-image: url(${trainingDesctop});
+    background-image: linear-gradient(
+        80deg,
+        #040404 -2.45%,
+        rgba(4, 4, 4, 0) 68.17%
+      ),
+      url(${trainingDesctop});
     width: 771px;
   }
 `;
