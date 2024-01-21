@@ -1,9 +1,15 @@
-import{s as t,j as e,a as d,b as l}from"./index-4088c233.js";import{n as i}from"./emotion-styled.browser.esm-1b9cbd0f.js";import{b as m,a as g,c as f}from"./side-view-people-training-gym-3x-274ccdad.js";const D=i.div`
+import{s as t,j as e,a as d,b as l}from"./index-e97e41af.js";import{n as i}from"./emotion-styled.browser.esm-c061dcc5.js";import{b as g,a as m,c as f}from"./side-view-people-training-gym-3x-274ccdad.js";const D=i.div`
   overflow: hidden;
   width: 320px;
   padding: 0px 20px;
   margin: 0 auto;
-  background-image: url(${m});
+  background-image: linear-gradient(
+      170deg,
+      #040404 3.66%,
+      rgba(4, 4, 4, 0) 19.15%
+    ),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${g});
   background-position: bottom right;
   background-repeat: no-repeat;
 
@@ -13,22 +19,29 @@ import{s as t,j as e,a as d,b as l}from"./index-4088c233.js";import{n as i}from"
 
   @media screen and (min-width: 768px) {
     padding: 0px 32px;
-    background-image: url(${g});
+    background-image: url(${m});
     width: 768px;
   }
 
   @media screen and (min-width: 1440px) {
-    background-image: url(${f});
+    background-image: linear-gradient(
+        80deg,
+        #040404 -2.45%,
+        rgba(4, 4, 4, 0) 68.17%
+      ),
+      url(${f});
     padding: 0px 32px;
-    width: 1440px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
   }
 `,w=i.div`
   padding-bottom: 43px;
 
   @media screen and (min-width: 1440px) {
     width: 670px;
-    padding-top: 335px;
+    padding-top: 325px;
+    padding-bottom: 170px;
   }
 `,E=i.div`
   padding-top: 91px;
@@ -84,7 +97,7 @@ import{s as t,j as e,a as d,b as l}from"./index-4088c233.js";import{n as i}from"
     top: 86px;
     left: 13%;
   }
-`,u=i.svg`
+`,b=i.svg`
   fill: ${t.whiteColor};
   align-items: center;
   margin-left: 2px;
@@ -94,7 +107,7 @@ import{s as t,j as e,a as d,b as l}from"./index-4088c233.js";import{n as i}from"
     width: 20px;
     margin-left: 4px;
   }
-`,b=i.svg`
+`,u=i.svg`
   fill: ${t.whiteColor};
   margin-right: 1px;
 
@@ -134,6 +147,7 @@ import{s as t,j as e,a as d,b as l}from"./index-4088c233.js";import{n as i}from"
 
   @media screen and (min-width: 1440px) {
     margin-left: 0px;
+    margin-bottom: 40px;
   }
 `,$=i.div`
   display: flex;
@@ -249,7 +263,7 @@ import{s as t,j as e,a as d,b as l}from"./index-4088c233.js";import{n as i}from"
   @media screen and (min-width: 768px) {
     margin-bottom: 64px;
   }
-`,q=()=>e.jsxs(w,{children:[e.jsxs(v,{children:[e.jsx(T,{children:e.jsx(u,{width:12,height:12,children:e.jsx("use",{href:d+"#icon-play"})})}),e.jsxs(k,{children:[e.jsx(z,{children:"350+"}),e.jsx(S,{children:"Video tutorial"})]})]}),e.jsxs($,{children:[e.jsx(W,{children:e.jsx(b,{width:12,height:12,children:e.jsx("use",{href:d+"#icon-running"})})}),e.jsxs(j,{children:[e.jsx(y,{children:"500"}),e.jsx(C,{children:"cal"})]})]})]}),{animation:a,orangeColor:r,orange2Color:o}=t,I=l.button`
+`,q=()=>e.jsxs(w,{children:[e.jsxs(v,{children:[e.jsx(T,{children:e.jsx(b,{width:12,height:12,children:e.jsx("use",{href:d+"#icon-play"})})}),e.jsxs(k,{children:[e.jsx(z,{children:"350+"}),e.jsx(S,{children:"Video tutorial"})]})]}),e.jsxs($,{children:[e.jsx(W,{children:e.jsx(u,{width:12,height:12,children:e.jsx("use",{href:d+"#icon-running"})})}),e.jsxs(j,{children:[e.jsx(y,{children:"500"}),e.jsx(C,{children:"cal"})]})]})]}),{animation:a,orangeColor:r,orange2Color:o}=t,I=l.button`
   padding: 12px 40px;
   width: ${n=>n.$width};
 

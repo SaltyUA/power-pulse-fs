@@ -1,9 +1,9 @@
-import{L as o,s as e,j as i}from"./index-4088c233.js";import{n as t}from"./emotion-styled.browser.esm-1b9cbd0f.js";import{b as n,a as d,c as a}from"./side-view-people-training-gym-3x-274ccdad.js";const p=t.div`
+import{L as n,s as t,j as i}from"./index-e97e41af.js";import{n as e}from"./emotion-styled.browser.esm-c061dcc5.js";import{b as o,a as d,c as a}from"./side-view-people-training-gym-3x-274ccdad.js";const p=e.div`
   overflow: hidden;
   display: flex;
   width: 100%;
   margin: 0 auto;
-`,r=t.div`
+`,r=e.div`
   width: 200px;
   background: #e6533c;
   display: flex;
@@ -25,7 +25,7 @@ import{L as o,s as e,j as i}from"./index-4088c233.js";import{n as t}from"./emoti
     padding: 172px 96px 221px 96px;
     width: 669px;
   }
-`,x=t.h1`
+`,x=e.h1`
   font-size: 66px;
   font-weight: 500;
   line-height: 1;
@@ -38,7 +38,7 @@ import{L as o,s as e,j as i}from"./index-4088c233.js";import{n as t}from"./emoti
     line-height: 0.93;
     margin-bottom: 28px;
   }
-`,h=t.p`
+`,h=e.p`
   width: 180px;
   color: #efede8;
   font-size: 14px;
@@ -60,9 +60,9 @@ import{L as o,s as e,j as i}from"./index-4088c233.js";import{n as t}from"./emoti
   @media (min-width: 1440px) {
     width: 477px;
   }
-`,s=t(o)`
+`,g=e(n)`
   display: inline-block;
-  color: ${e.whiteColor};
+  color: ${t.whiteColor};
   font-size: 16px;
   font-weight: 500;
   line-height: 1.12;
@@ -71,7 +71,7 @@ import{L as o,s as e,j as i}from"./index-4088c233.js";import{n as t}from"./emoti
   border: 1px solid rgba(239, 237, 232, 0.3);
   background-color: transparent;
   width: 147px;
-  transition: color ${e.animation};
+  transition: color ${t.animation};
   text-align: center;
   white-space: nowrap;
 
@@ -85,8 +85,14 @@ import{L as o,s as e,j as i}from"./index-4088c233.js";import{n as t}from"./emoti
     line-height: 1.2;
     width: 204px;
   }
-`,m=t.div`
-  background-image: url(${n});
+`,s=e.div`
+  background-image: linear-gradient(
+      170deg,
+      #040404 3.66%,
+      rgba(4, 4, 4, 0) 19.15%
+    ),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${o});
   background-position: bottom right;
   width: 200px;
   background-repeat: no-repeat;
@@ -101,7 +107,12 @@ import{L as o,s as e,j as i}from"./index-4088c233.js";import{n as t}from"./emoti
   }
 
   @media (min-width: 1440px) {
-    background-image: url(${a});
+    background-image: linear-gradient(
+        80deg,
+        #040404 -2.45%,
+        rgba(4, 4, 4, 0) 68.17%
+      ),
+      url(${a});
     width: 771px;
   }
-`,w=()=>i.jsxs(p,{children:[i.jsxs(r,{children:[i.jsx(x,{children:"404"}),i.jsx(h,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(s,{to:"/",children:"Go Home"})]}),i.jsx(m,{})]});export{w as default};
+`,w=()=>i.jsxs(p,{children:[i.jsxs(r,{children:[i.jsx(x,{children:"404"}),i.jsx(h,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(g,{to:"/",children:"Go Home"})]}),i.jsx(s,{})]});export{w as default};
