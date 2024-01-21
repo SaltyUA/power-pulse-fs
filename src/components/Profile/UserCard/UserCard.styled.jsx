@@ -18,6 +18,11 @@ export const UserCardContainer = styled.div`
     min-width: 439px;
     padding-top: 0;
     justify-content: flex-start;
+
+    padding-left: 49px;
+    padding-bottom: 32px;
+
+    border-left: 1px solid ${styleGuide.navLinkColor};
   }
 `;
 
@@ -116,7 +121,9 @@ export const InformationContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 14px;
+
   margin-top: 40px;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     gap: 16px;
@@ -129,16 +136,21 @@ export const InformationCard = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 157px;
+
+  flex-basis: calc(100% / 2);
+
   height: 96px;
+
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
+
   background: #e6533c;
+
   padding: 14px;
 
   @media screen and (min-width: 768px) {
     padding-inline: 18px;
-    min-width: 214px;
+    max-width: 214px;
     height: 108px;
   }
   @media screen and (min-width: 1440px) {
@@ -197,7 +209,7 @@ export const LogoutContainer = styled.div`
   & svg {
     &:hover,
     &:focus {
-      fill: ${styleGuide.orange2Color};
+      stroke: ${styleGuide.orange2Color};
     }
   }
 

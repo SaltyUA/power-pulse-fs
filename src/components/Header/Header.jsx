@@ -31,7 +31,7 @@ export const Header = () => {
   const { avatarURL } = useSelector(selectUser);
   const width = window.innerWidth;
   return (
-    <HeaderContainer>
+    <HeaderContainer $isLoggedIn={isLogged}>
       <HeaderWrap>
         <HeaderLogo to={'/'}>
           <IconLogo>

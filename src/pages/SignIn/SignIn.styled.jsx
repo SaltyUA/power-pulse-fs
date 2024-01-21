@@ -1,5 +1,8 @@
 import styled from '@emotion/styled';
 import { styleGuide } from '../../constants/styleGuide';
+import bgImageMob from '../../assets/images/side-view-people-training-gym-1x.jpg';
+import bgImageTab from '../../assets/images/side-view-people-training-gym-2x.jpg';
+import bgImageDesk from '../../assets/images/side-view-people-training-gym-3x.jpg';
 
 export const FormTitle = styled.h2`
   font-size: 24px;
@@ -26,17 +29,7 @@ export const AuthText = styled.p`
   }
 `;
 
-export const FormContainer = styled.div`
-  padding-top: 90px 20px 0;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 140px 32px 0;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding-top: 151px 96px 0;
-  }
-`;
+export const FormContainer = styled.div``;
 
 export const FormWrapper = styled.form`
   margin-top: 28px;
@@ -76,12 +69,37 @@ export const InputWrap = styled.div`
   }
 `;
 
-export const SignInWrap = styled.div`
+export const SignWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 121px;
 
-  background: ${styleGuide.backgroundImage};
+  padding: 90px 20px 0;
+
+  background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${bgImageMob});
   background-repeat: no-repeat;
   background-position: right bottom;
+
+  @media screen and (min-width: 768px) {
+    padding: 140px 32px 0;
+
+    background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
+      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+      url(${bgImageTab});
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 151px 96px 0;
+    flex-direction: row;
+    gap: 172px;
+    background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
+      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+      url(${bgImageDesk});
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
 `;
