@@ -2,6 +2,7 @@ import LogoutButton from '../LogoutButton/LogoutButton';
 import UserNav from '../UserNav/UserNav';
 import {
   BurgerContainer,
+  BurgerLogout,
   CloseButtonIcon,
   StyledCloseButton,
 } from './BurgerMenu.styled';
@@ -21,7 +22,9 @@ const BurgerMenu = ({ setBurgerIsActive, isActive }) => {
         </CloseButtonIcon>
       </StyledCloseButton>
       <UserNav setBurgerIsActive={setBurgerIsActive} />
-      <LogoutButton setBurgerIsActive={setBurgerIsActive} />
+      <BurgerLogout>
+        <LogoutButton setBurgerIsActive={setBurgerIsActive} />
+      </BurgerLogout>
     </BurgerContainer>
   );
 };
