@@ -20,7 +20,10 @@ import {
   RadioLabelActivity,
   RadioBtn,
   FormSaveBtn,
-  FormInputEmail
+  FormInputEmail,
+  WrapperBloodSex,
+  ContainerBloodSex,
+  FormInputName,
 } from './UserForm.styled';
 
 const userFormSchema = Yup.object().shape({
@@ -90,7 +93,7 @@ const UserForm = () => {
           <ContainerNameEmail>
             <FormLabel>
               Name
-              <FormInput
+              <FormInputName
                 type="text"
                 id="name"
                 name="name"
@@ -154,14 +157,15 @@ const UserForm = () => {
                   name="birthday"
                   value={values.birthday}
                   onChange={handleChange}
+                  style={{ pointerEvents: 'none' }}
                 />
               </FormLabelSecond>
             </ContainerParams>
           </ContainerFullParams>
 
-          <div style={{ marginBottom: '40px' }}>
+          <ContainerBloodSex>
             <BloodTitle>Blood</BloodTitle>
-            <div style={{ display: 'flex', gap: '20px' }}>
+            <WrapperBloodSex>
               <div style={{ display: 'flex', gap: '8px' }}>
                 <RadioLabelBlood>
                   <RadioBtn
@@ -227,8 +231,8 @@ const UserForm = () => {
                   Female
                 </RadioLabelBlood>
               </div>
-            </div>
-          </div>
+            </WrapperBloodSex>
+          </ContainerBloodSex>
 
           <ContainerActivity>
             <RadioLabelActivity>

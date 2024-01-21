@@ -104,7 +104,7 @@ const UserCard = () => {
             </svg>
             Daily physical activity
           </InformationText>
-          <InformationCounter>{user.dailySportTime}</InformationCounter>
+          <InformationCounter>{user.dailySportTime} min</InformationCounter>
         </InformationCard>
       </InformationContainer>
 
