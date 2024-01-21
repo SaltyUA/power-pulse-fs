@@ -41,11 +41,9 @@ import {
             type="button"
           > 
             {texts.btnLabel}
-            <span>
               <SvgExercise>
                 <use href={`${sprite}#icon-arrow-start`}></use>
               </SvgExercise>
-            </span>
           </BtnLabel>
         </BtnWrapper>
         <ExercisesTitleBox>

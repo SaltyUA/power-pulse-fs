@@ -70,6 +70,13 @@ export const SvgBtnBack = styled.svg`
     width: 16px;
     height: 16px;
   }
+
+  &:hover {
+    stroke: #EFEDE8;
+  }
+  &:focus {
+    stroke: #EFEDE8;
+  }
 `;
 
 export const BackButton = styled.button`
@@ -77,7 +84,17 @@ export const BackButton = styled.button`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  padding-left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
   top: 116px;
   color: rgba(239, 237, 232, 0.40);
+
+  &:hover {
+    color: #EFEDE8;
+  }
+  &:focus {
+    color: #EFEDE8;
+  }
 `

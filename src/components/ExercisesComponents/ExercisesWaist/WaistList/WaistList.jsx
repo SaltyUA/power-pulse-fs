@@ -45,11 +45,9 @@ export const WaistList = ({ exerciseName }) => {
   return (
     <>
       <BackButton onClick={()=>dispatch(setCurrentCategorie(null))} >
-      <span>
       <SvgBtnBack>
-        <use href={`${sprite}#icon-arrow-back`}></use>
+        <use href={` ${sprite}#icon-arrow-back`}></use>
       </SvgBtnBack>
-         </span>
       Back</BackButton>
     <WaistListContainer>
         <WaistItemUl>

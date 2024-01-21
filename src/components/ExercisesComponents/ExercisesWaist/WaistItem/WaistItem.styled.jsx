@@ -69,6 +69,7 @@ export const SvgExercise = styled.svg`
   width: 13px;
   height: 13px;
 
+
   @media screen and (min-width: 768px) {
     width: 16px;
     height: 16px;
