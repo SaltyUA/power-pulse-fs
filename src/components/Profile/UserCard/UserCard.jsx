@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { selectUser } from '../../../store/selectors';
 
@@ -51,7 +51,7 @@ const UserCard = () => {
     try {
       await dispatch(updateUserAvatar(file));
     } catch (error) {
-      console.log("Error updating avatar:", error);
+      console.log('Error updating avatar:', error);
     }
   };
 
