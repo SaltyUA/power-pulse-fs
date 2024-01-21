@@ -21,10 +21,12 @@ export const Container = styled.div`
 `;
 
 export const ContainerProfileSettings = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row-reverse;
 
-  margin-top: 32px;
+    margin-top: 32px;
+  }
 `;
 
 // export const ProfilerWrapper = styled.div`
