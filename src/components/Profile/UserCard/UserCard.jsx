@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
 
 // import { selectUser } from 'redux/selectors';
 // import { updateAvatar } from 'redux/operations';

@@ -3,9 +3,12 @@ import { styleGuide } from '../../constants/styleGuide';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
-  width: 100vw;
+  background-color: transparent;
 
-  background-color: ${styleGuide.blackColor};
+  ${(props) =>
+    props.$isLoggedIn
+      ? 'border-bottom: 1px solid rgba(239, 237, 232, 0.2)'
+      : 'position: absolute;'}
 `;
 
 export const HeaderWrap = styled.div`
@@ -21,12 +24,12 @@ export const HeaderWrap = styled.div`
   }
   @media screen and (min-width: 768px) {
     width: 768px;
-    padding: 32px;
+    padding: 20px 32px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    padding: 32px 96px;
+    padding: 20px 96px;
   }
 `;
 
