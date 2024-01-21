@@ -1,4 +1,4 @@
-import{b as T,s as C,B as Ye,S as nn,u as Ee,w as on,j as p,e as h,p as gt,a as W,c as Se,h as bt,x as we,y as rn,z as an,A as le,C as sn,D as un}from"./index-b2d7f2e2.js";import{u as xt,c as ln,a as cn}from"./index.esm-39dad062.js";import{e as ae,a as Ct,i as dn,k as pn,j as E,_ as fn,h as Et,b as hn,c as mn,d as vn,g as gn}from"./defineProperty-0ef60586.js";import{_ as y,n as ie}from"./emotion-styled.browser.esm-468ae805.js";import{a as bn,S as xn,b as Cn,c as En,d as Sn}from"./SuccessPopUp.styled-db2936c0.js";import{P as wn}from"./PageAnimatedWrapper-7f89698b.js";import"./hoist-non-react-statics.cjs-3f8ebaa8.js";const yn=T.input`
+import{b as T,s as C,B as Ye,S as nn,u as Ee,w as on,j as p,e as h,p as gt,a as W,c as Se,h as bt,x as we,y as rn,z as an,A as le,C as sn,D as un}from"./index-4088c233.js";import{c as ln,a as cn}from"./index.esm-9f8632d2.js";import{u as xt}from"./formik.esm-24c7c4c0.js";import{e as ae,a as Ct,i as dn,k as pn,j as E,_ as fn,h as Et,b as hn,c as mn,d as vn,g as gn}from"./defineProperty-d8499e86.js";import{_ as y,n as ie}from"./emotion-styled.browser.esm-1b9cbd0f.js";import{a as bn,S as xn,b as Cn,c as En,d as Sn}from"./SuccessPopUp.styled-76284a6a.js";import{P as wn}from"./PageAnimatedWrapper-f1abc66f.js";import"./hoist-non-react-statics.cjs-3f8ebaa8.js";const yn=T.input`
     width: 287px;
     height: 34px;
     border-radius: 12px;
@@ -697,4 +697,4 @@ line-height: 1.17;
 font-size: 32px;
 line-height: 1.38;
 }
-`,na=()=>{const{addProductFalse:n}=Se(i=>i.products),t=Ee();return h.useEffect(()=>{t(sn()),n&&St("error","Enter correct data!")},[n,t]),p.jsx(wn,{direction:"X",children:p.jsx(Gr,{children:p.jsxs(Yr,{children:[p.jsxs("div",{className:"title-form-block",children:[p.jsx(qr,{children:"Products"}),p.jsx(Dr,{})]}),p.jsx(Br,{}),p.jsx(un,{})]})})})};export{na as default};
+`,ia=()=>{const{addProductFalse:n}=Se(i=>i.products),t=Ee();return h.useEffect(()=>{t(sn()),n&&St("error","Enter correct data!")},[n,t]),p.jsx(wn,{direction:"X",children:p.jsx(Gr,{children:p.jsxs(Yr,{children:[p.jsxs("div",{className:"title-form-block",children:[p.jsx(qr,{children:"Products"}),p.jsx(Dr,{})]}),p.jsx(Br,{}),p.jsx(un,{})]})})})};export{ia as default};
