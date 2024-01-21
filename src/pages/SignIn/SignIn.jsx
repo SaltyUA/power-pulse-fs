@@ -8,7 +8,7 @@ import {
   FormWrapper,
   InputWrap,
   RedirectText,
-  SignInWrap,
+  SignWrap,
 } from './SignIn.styled';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -53,7 +53,7 @@ const SignIn = () => {
   return (
     <Container>
       <PageAnimatedWrapper direction="Y" />
-      <SignInWrap>
+      <SignWrap>
         <FormContainer>
           <FormTitle>Sign In</FormTitle>
           <AuthText>
@@ -113,7 +113,7 @@ const SignIn = () => {
           </FormWrapper>
         </FormContainer>
         <Statistics />
-      </SignInWrap>
+      </SignWrap>
       {isResendShown && <ResendModal />}
     </Container>
   );
