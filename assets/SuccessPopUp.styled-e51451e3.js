@@ -1,4 +1,4 @@
-import{b as i,s as o,N as t}from"./index-e61c1d3d.js";const r="/power-pulse-fs/assets/bgFood-46dd5bc9.png",n="/power-pulse-fs/assets/bgFood2x-515a5477.png",e=i(t)`
+import{b as i,s as o,N as t}from"./index-3f9e98de.js";const r="/power-pulse-fs/assets/bgFood-46dd5bc9.png",n="/power-pulse-fs/assets/bgFood2x-515a5477.png",e=i(t)`
 display: flex;
 align-items:center;
 gap: 8px;
@@ -85,7 +85,7 @@ height: 362px;
 border: 1px solid rgba(239, 237, 232, 0.20);
 background-color: #10100F;
 transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
- transform:  scale(1);
+ transform: scale(1);
    background-image: url(${r});
     background-repeat: no-repeat;
     background-size: 123px 97px;
