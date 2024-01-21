@@ -7,7 +7,7 @@ import {
     ListItem,
     ListItemValue,
     SpanExerciseRun,
-    // SvgExercise,
+    SvgExercise,
     SvgExerciseRun,
     Title,
     WaistItemLi,
@@ -15,7 +15,7 @@ import {
   import sprite from '../../../../assets/images/sprite.svg';
   const texts = {
     cardLabel: 'Workout',
-    btnLabel: 'Start ➔',
+    btnLabel: 'Start',
     list: {
       burnedCalories: 'Burned calories:',
       bodyPart: 'Body parts:',
@@ -42,15 +42,14 @@ import {
         <BtnWrapper>
           <CardLabel>{texts.cardLabel}</CardLabel>
          <BtnLabel
-    
             type="button"
           > 
             {texts.btnLabel}
-            {/* <span>
+            <span>
               <SvgExercise>
-                <use href={`${sprite}#icon-start-arrow`}></use>
+                <use href={`${sprite}#icon-arrow-start`}></use>
               </SvgExercise>
-            </span> */}
+            </span>
           </BtnLabel>
         </BtnWrapper>
         <ExercisesTitleBox>

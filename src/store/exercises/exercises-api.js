@@ -5,7 +5,7 @@ export const exercises = axios.create({
     baseURL: 'https://power-4vwy.onrender.com/api/v1',
   });
 
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWJiYjEwZjM5YjFiNTUzODhmYmYzMCIsImlhdCI6MTcwNTc1MzQyMCwiZXhwIjoxNzA1ODM2MjIwfQ.D057eTsP1OtjrtuMygmR3BGTMJcsM96NY9auqCXFnBY';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWJiYjEwZjM5YjFiNTUzODhmYmYzMCIsImlhdCI6MTcwNTg1MjUxMiwiZXhwIjoxNzA1OTM1MzEyfQ.1Ms9cmS45sEJNgDlYKZsxjZfVxBTdUWFcC_Y8Q05Btk';
     exercises.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 export async function fetchExercises(){

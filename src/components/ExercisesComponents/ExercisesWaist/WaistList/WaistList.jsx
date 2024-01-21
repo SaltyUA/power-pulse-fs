@@ -6,14 +6,13 @@ import {
   WaistListContainer,
   ImgWaist,
   BackButton,
+  SvgBtnBack,
 } from './WaistList.styled';
 import { getCurrentCategorie, getCurrentFilter, getExercises } from '../../../../store/exercises/selectorsExercises';
 import { useEffect } from 'react';
 import { fetchExercises} from '../../../../store/exercises/operationExercises';
 import { setCurrentCategorie } from '../../../../store/exercises/sliceExercises';
-// import { string } from 'yup';
-// import { BodyParts } from '../../ExercisesCategories/BodyParts';
-// import { useState } from 'react';
+import sprite from '../../../../assets/images/sprite.svg'
 
 export const WaistList = ({ exerciseName }) => {
   console.log(exerciseName);
@@ -42,29 +41,16 @@ export const WaistList = ({ exerciseName }) => {
       return;
   }
 
-  // for (const visibleExercise of visibleExercises) {
-  //   if (string === 'Body Part'){
-  //     visibleExercise.bodyPart === exerciseName;
-  //   }else{
-  //     visibleExercise.target === exerciseName
-  //   }
-  //   console.log(exerciseName);
-
-  // }
-
-  // .filter(
-  //   exercise =>
-  //     exercise.bodyPart ||
-  //     exercise.target ||
-  //     exercise.equipment === exerciseName,
-
-  // );
-
  
   return (
     <>
       <BackButton onClick={()=>dispatch(setCurrentCategorie(null))} >
-        Back</BackButton>
+      <span>
+      <SvgBtnBack>
+        <use href={`${sprite}#icon-arrow-back`}></use>
+      </SvgBtnBack>
+         </span>
+      Back</BackButton>
     <WaistListContainer>
         <WaistItemUl>
           {visibleExercises.length ? (

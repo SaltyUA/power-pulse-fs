@@ -5,14 +5,14 @@ import { css } from '@emotion/react';
 export const ExercisesWrapper = styled.div`
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 10px;
+  padding-top: 106px;
 
   @media screen and (min-width: 1440px) {
     padding-left: 96px;
     width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    ${(props => props.$isCategorie && css`background:linear-gradient(80deg, #040404 -2.45%, rgba(4, 4, 4, 0.00) 68.17%), url(${image}), lightgray 0px -48px / 94.516% 105.335% no-repeat;;
+    ${(props => props.$isCategorie && css`background:linear-gradient(80deg, #040404 -2.45%, rgba(4, 4, 4, 0.00) 68.17%), url(${image});
 
 ;
 background-repeat: no-repeat;

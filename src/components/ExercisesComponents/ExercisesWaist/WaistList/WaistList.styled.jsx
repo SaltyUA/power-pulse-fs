@@ -60,8 +60,24 @@ export const NoExercisesTitle = styled.h2`
   line-height: 1.16;
   margin-bottom: 20px;
 `;
+
+export const SvgBtnBack = styled.svg`
+  width: 13px;
+  height: 13px;
+  stroke: rgba(239, 237, 232, 0.40);
+
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
 export const BackButton = styled.button`
   position: absolute;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-left: 8px;
   top: 116px;
-  color: white
+  color: rgba(239, 237, 232, 0.40);
 `
