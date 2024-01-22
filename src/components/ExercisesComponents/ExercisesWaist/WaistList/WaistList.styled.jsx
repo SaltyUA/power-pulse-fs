@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const WaistListContainer = styled.div`
   display: flex;
-  
-
 `;
 
 export const ImgWaist = styled.div`
@@ -64,18 +62,11 @@ export const NoExercisesTitle = styled.h2`
 export const SvgBtnBack = styled.svg`
   width: 13px;
   height: 13px;
-  stroke: rgba(239, 237, 232, 0.40);
+  stroke: currentColor;
 
   @media screen and (min-width: 768px) {
     width: 16px;
     height: 16px;
-  }
-
-  &:hover {
-    stroke: #EFEDE8;
-  }
-  &:focus {
-    stroke: #EFEDE8;
   }
 `;
 
@@ -88,13 +79,14 @@ export const BackButton = styled.button`
   align-items: center;
   gap: 8px;
   padding: 0;
-  top: 116px;
-  color: rgba(239, 237, 232, 0.40);
+  top: 10px;
+  color: rgba(239, 237, 232, 0.4);
 
-  &:hover {
-    color: #EFEDE8;
+  &:is(:hover, :focus) {
+    color: #efede8;
   }
-  &:focus {
-    color: #EFEDE8;
+
+  @media screen and (min-width: 768px) {
+    top: 32px;
   }
-`
+`;

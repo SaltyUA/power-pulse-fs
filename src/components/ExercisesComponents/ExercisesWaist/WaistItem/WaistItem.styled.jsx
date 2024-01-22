@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const WaistItemLi = styled.li`
-  width: 100%;
+  width: 335px;
   min-height: 141px;
+  max-height: 170px;
   padding: 16px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
@@ -10,6 +11,7 @@ export const WaistItemLi = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: auto;
   @media screen and (max-width: 767px) {
     margin: 0 auto;
   }
@@ -47,7 +49,7 @@ export const CardLabel = styled.p`
 export const BtnLabel = styled.button`
   background: transparent;
   border: none;
-  color: #E6533C;
+  color: #e6533c;
   font-size: 16px;
   line-height: 1.5;
   display: flex;
@@ -58,17 +60,16 @@ export const BtnLabel = styled.button`
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: #EFEDE8;
+    color: #efede8;
   }
   &:focus {
-    color: #EFEDE8;
+    color: #efede8;
   }
 `;
 
 export const SvgExercise = styled.svg`
   width: 13px;
   height: 13px;
-
 
   @media screen and (min-width: 768px) {
     width: 16px;
@@ -84,7 +85,7 @@ export const Title = styled.h3`
   position: relative;
   font-size: 24px;
   line-height: 1.333;
-  color: #EFEDE8;
+  color: #efede8;
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -100,17 +101,17 @@ export const Title = styled.h3`
 export const SvgExerciseRun = styled.svg`
   width: 16px;
   height: 16px;
-  fill: #EFEDE8;
+  fill: #efede8;
 `;
 export const SpanExerciseRun = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #EFA082;
+  background-color: #efa082;
 
   border-radius: 50%;
 
-  width: 24px;
+  min-width: 24px;
   height: 24px;
 `;
 
@@ -130,5 +131,5 @@ export const ListItem = styled.li`
 `;
 
 export const ListItemValue = styled.span`
-  color: #EFEDE8;
+  color: #efede8;
 `;

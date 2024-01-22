@@ -23,8 +23,6 @@ export const register = createAsyncThunk(
         return data;
       }
     } catch (error) {
-      console.log(error.response.data);
-
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -35,7 +33,6 @@ export const logIn = createAsyncThunk('auth/login', async (body, thunkAPI) => {
     const data = await signIn(body);
     return data;
   } catch (error) {
-    console.log(error.response.data);
     return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
@@ -45,7 +42,6 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     const data = await signOut();
     return data;
   } catch (error) {
-    console.log(error.response.data);
     return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
@@ -62,7 +58,6 @@ export const refreshUser = createAsyncThunk(
       const data = await refresh(persistedToken);
       return data;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -71,9 +66,9 @@ export const refreshUser = createAsyncThunk(
 export const updateUserData = createAsyncThunk(
   'auth/data',
   async (body, thunkAPI) => {
-        try {
-            const data = await patchUser(body);
-           return data;
+    try {
+      const data = await patchUser(body);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -101,7 +96,6 @@ export const resendEmail = createAsyncThunk(
       const data = await resendVerify(body);
       return data;
     } catch (error) {
-      console.log(error.response.data);
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -114,7 +108,6 @@ export const verifyEmail = createAsyncThunk(
       const data = await emailVerify(body);
       return data;
     } catch (error) {
-      console.log(error.response.data);
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }

@@ -8,8 +8,8 @@ export const ExercisesLi = styled.li`
 export const Image = styled.img`
   display: block;
   width: 100%;
-  height: 206px;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border: 1px #efede8;
   border-radius: 12px;
 
@@ -44,7 +44,7 @@ export const ExerciseItemTitle = styled.h3`
   font-size: 20px;
   line-height: 1.2;
 
-  color: #EFEDE8;
+  color: #efede8;
 
   @media screen and (min-width: 375px) {
     font-size: 24px;
