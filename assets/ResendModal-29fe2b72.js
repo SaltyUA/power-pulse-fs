@@ -1,7 +1,7 @@
-import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"./emotion-styled.browser.esm-532efc17.js";import{b as g,a as m,c as l}from"./side-view-people-training-gym-3x-274ccdad.js";const h=r.input`
+import{n as o}from"./emotion-styled.browser.esm-a32802f8.js";import{f as r,s as a,j as e,a as x,b as m,c as p,u as h,e as g,g as u,h as b}from"./index-d13ccd4f.js";import{b as w,a as f,c as k}from"./side-view-people-training-gym-3x-274ccdad.js";import{u as j,c as C,a as S}from"./index.esm-cfbf6ca7.js";import{B as y}from"./Button-180b3bd9.js";import{S as v,a as $,b as z}from"./SuccessPopUp.styled-344a142d.js";const I=r.input`
   padding: 14px;
   width: 100%;
-  color: ${e.whiteColor};
+  color: ${a.whiteColor};
 
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -11,16 +11,16 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
   position: relative;
 
   &:is(:hover) {
-    border-color: ${e.orangeColor};
+    border-color: ${a.orangeColor};
     outline: none;
   }
 
   &.success {
-    border-color: ${e.successColor};
+    border-color: ${a.successColor};
   }
 
   &.error {
-    border-color: ${e.errorColor};
+    border-color: ${a.errorColor};
   }
 
   @media screen and (min-width: 375px) {
@@ -30,7 +30,7 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
   @media screen and (min-width: 768px) {
     width: 364px;
   }
-`,b=r.p`
+`,E=r.p`
   display: flex;
   align-items: center;
   position: absolute;
@@ -40,11 +40,11 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
   bottom: -14px;
 
   &.error {
-    color: ${e.errorColor};
+    color: ${a.errorColor};
   }
 
   &.success {
-    color: ${e.successColor};
+    color: ${a.successColor};
   }
 
   @media screen and (max-width: 767px) {
@@ -55,9 +55,9 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
     font-size: 12px;
     bottom: -18px;
   }
-`,u=r.div`
+`,R=r.div`
   position: relative;
-`,w=r.svg`
+`,F=r.svg`
   fill: currentColor;
   margin-right: 4px;
   width: 10px;
@@ -67,18 +67,18 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
     width: 16px;
     height: 16px;
   }
-`,C=({placeholder:a,name:d,type:p,onChange:s,value:x,className:t,message:o})=>n.jsxs(u,{children:[n.jsx(h,{placeholder:a,name:d,type:p,onChange:s,value:x,required:!0,className:t,$message:o}),o&&n.jsxs(b,{className:t,children:[n.jsx(w,{children:n.jsx("use",{href:c+"#icon-checkbox"})}),o]})]}),z=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,v=i.h2`
+`,M=({placeholder:d,name:c,type:t,onChange:l,value:n,className:i,message:s})=>e.jsxs(R,{children:[e.jsx(I,{placeholder:d,name:c,type:t,onChange:l,value:n,required:!0,className:i,$message:s}),s&&e.jsxs(E,{className:i,children:[e.jsx(F,{children:e.jsx("use",{href:x+"#icon-checkbox"})}),s]})]}),A=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,N=o.h2`
   font-size: 24px;
   line-height: 1.17;
   margin-bottom: 14px;
-  color: ${e.whiteColor};
+  color: ${a.whiteColor};
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
     line-height: 1.38;
     margin-bottom: 16px;
   }
-`,I=i.p`
+`,G=o.p`
   @media screen and (min-width: 375px) {
     width: 335px;
   }
@@ -88,7 +88,7 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
     line-height: 1.5;
     width: 496px;
   }
-`,j=i.div``,y=i.form`
+`,K=o.div``,_=o.form`
   margin-top: 28px;
 
   & button {
@@ -101,10 +101,10 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
   }
 
   & a {
-    color: ${e.whiteColor};
+    color: ${a.whiteColor};
     text-decoration: underline;
   }
-`,A=i.p`
+`,H=o.p`
   font-size: 12px;
   line-height: 1.5;
   color: rgba(239, 237, 232, 0.6);
@@ -112,7 +112,7 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
-`,F=i.div`
+`,J=o.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -120,7 +120,7 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
   @media screen and (min-width: 768px) {
     gap: 20px;
   }
-`,S=i.div`
+`,O=o.div`
   display: flex;
   flex-direction: column;
   gap: 121px;
@@ -129,7 +129,7 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
 
   background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
-    url(${g});
+    url(${w});
   background-repeat: no-repeat;
   background-position: right bottom;
 
@@ -138,7 +138,7 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
 
     background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
       linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
-      url(${m});
+      url(${f});
     background-repeat: no-repeat;
     background-position: right bottom;
   }
@@ -149,11 +149,11 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
     gap: 172px;
     background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
       linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
-      url(${l});
+      url(${k});
     background-repeat: no-repeat;
     background-position: right bottom;
   }
-`,T=r.div`
+`,Q=r.div`
   min-width: 320px;
   margin: 0 auto;
 
@@ -168,4 +168,21 @@ import{b as r,s as e,j as n,a as c}from"./index-974bb34b.js";import{n as i}from"
   @media screen and (min-width: 1440px) {
     width: 1440px;
   }
-`;export{I as A,T as C,j as F,F as I,A as R,S,v as a,y as b,C as c,z as e};
+`,T=r(v)`
+  padding: 25px;
+  width: auto;
+  height: auto;
+  gap: 10px;
+  background-image: none;
+`,W=r.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`,B=r.div`
+  padding: 20px 10px;
+  & p {
+    color: ${a.orange2Color};
+  }
+`,U=()=>{const d=m(p),c=m(i=>i.auth.message),t=h();g.useEffect(()=>{if(!d)return;const i=s=>{s.code==="Escape"&&t(p(!1))};return window.addEventListener("keydown",i),()=>{window.removeEventListener("keydown",i)}},[d,t]);const l=i=>{i.target===i.currentTarget&&t(p(!1))},n=j({initialValues:{email:""},onSubmit:i=>{t(u(i))},validationSchema:C().shape({email:S().required("Please enter email").matches(A,"Please check is it true email")})});return e.jsx($,{onClick:l,children:e.jsxs(T,{children:[e.jsx(z,{onClick:()=>t(b(!1)),children:e.jsx("use",{href:x+"#icon-close"})}),c?e.jsx(B,{children:e.jsx("p",{children:c})}):e.jsxs(e.Fragment,{children:[e.jsx("p",{className:"title",children:"Enter your email"}),e.jsx("p",{children:"We will resend it:"}),e.jsxs(W,{onSubmit:n.handleSubmit,children:[e.jsx(M,{value:n.values.email,onChange:n.handleChange,className:n.touched.email?n.errors.email?"error":"success":null,message:n.touched.email?n.errors.email?n.errors.email:"Success email":null,placeholder:"Email",name:"email",type:"email"}),e.jsx(y,{className:"button",type:"submit",children:"Send"})]})]})]})})};export{G as A,Q as C,K as F,J as I,U as R,O as S,N as a,_ as b,M as c,H as d,A as e};
