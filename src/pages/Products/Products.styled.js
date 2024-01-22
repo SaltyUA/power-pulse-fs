@@ -5,7 +5,7 @@ import sidePhoto2x from '../../assets/images/sideView2x.jpg';
 export const StyledSection = styled.section`
 
 @media screen and (min-width: 1440px) {
-  height: 90vh;
+  // height: 90vh;
  background: url(${sidePhoto1x});
  background-repeat: no-repeat;
   background-size: 420px 716px;

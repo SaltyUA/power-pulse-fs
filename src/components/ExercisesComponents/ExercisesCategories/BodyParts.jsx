@@ -6,17 +6,19 @@ import { fetchBodyParts} from '../../../store/exercises/operationExercises';
 import  {getBodyParts} from '../../../store/exercises/selectorsExercises';
 import Pagination from '../ExercisesPagination/ExercisesPagination';
 import { PaginationContainer } from '../ExercisesPagination/ExercisesPagination.styled';
+import { setCurrentCategorie } from '../../../store/exercises/sliceExercises';
 
-export const BodyParts = ({ handleSetExName, handleFilterClick }) => {
+export const BodyParts = ({ handleSetExName }) => {
     const dispatch = useDispatch();
 
       useEffect(() => {
         dispatch(fetchBodyParts());
       }, [dispatch]);
 
-    
+     const handleFilterClick = filter => {
+    dispatch(setCurrentCategorie(filter));
+  };
       const bodyParts = useSelector(getBodyParts);
-      console.log(bodyParts);
 
       const [currentPage, setCurrentPage] = useState(1);
         
@@ -53,7 +55,7 @@ export const BodyParts = ({ handleSetExName, handleFilterClick }) => {
           const indexOfLastItem = currentPage * itemsPerPage;
           const indexOfFirstItem = indexOfLastItem - itemsPerPage;
           const currentItems = bodyParts.slice(indexOfFirstItem, indexOfLastItem);
-          console.log(currentItems);
+    
         
 
   return (

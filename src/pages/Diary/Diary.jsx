@@ -8,9 +8,9 @@ import { DiaryContainer, Left, Right, ForPosition } from './Diary.styled';
 import Notice from '../../components/Notice';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDateInfo, getDiaryInfo } from '../../store/diary/selectorsDiary';
-
 import { useEffect } from 'react';
 import { fetchDiaryData } from '../../store/diary/operationDiary';
+import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 
 const Diary = () => {
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ const Diary = () => {
     }, [dateInfo, dispatch]);
   
   return (
+    <PageAnimatedWrapper direction='X'>
     <Container>
       <ForPosition>
         <TitlePage title="Diary" />
@@ -39,7 +40,8 @@ const Diary = () => {
           </Right>
         </DiaryContainer>
       </ForPosition>
-    </Container>
+      </Container>
+      </PageAnimatedWrapper>
   );
 };
 

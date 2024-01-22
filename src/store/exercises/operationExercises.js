@@ -1,11 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as exercisesAPI from './exercises-api';
 
+export const fetchExercises = createAsyncThunk(
+  'exercises/fetchExercises',
+  async (_, thunkAPI) => {
+    try {
+      const exercises = await exercisesAPI.fetchExercises('/exercises');
+      return exercises;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
 export const fetchBodyParts = createAsyncThunk(
-    'exercises/fetchBodyParts',
+    'filters/fetchBodyParts',
     async (_, thunkAPI) => {
       try {
-        const bodyParts = await exercisesAPI.fetchBodyParts('/exercises');
+        const bodyParts = await exercisesAPI.fetchBodyParts('/filters');
         return bodyParts;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -13,17 +25,6 @@ export const fetchBodyParts = createAsyncThunk(
     },
   );
 
-// export const fetchBodyParts = createAsyncThunk(
-//     'filters/fetchBodyParts',
-//     async (_, {rejectWithValue}) => {
-//        try{
-//         const bodyParts = await exercisesAPI.fetchBodyParts('/filters');
-//         return bodyParts;
-//        }catch(error){
-//         return rejectWithValue(error);
-//        }
-//     }
-// );
 
 export const fetchMuscles = createAsyncThunk(
     'exercises/fetchMuscles',

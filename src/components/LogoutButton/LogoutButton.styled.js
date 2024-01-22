@@ -13,9 +13,4 @@ export const LogoutWrap = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
-  @media screen and (max-width: 1439px) {
-    position: absolute;
-    bottom: 21px;
-    left: 20px;
-  }
 `;

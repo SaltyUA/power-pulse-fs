@@ -4,7 +4,7 @@ import { getProducts, addProduct, getCategories, tokenControl } from '../../api/
 export const getProductsThunk = createAsyncThunk(
   'products/getProducts',
   async ({ queryParams, page }, thunkAPI) => {
-    try {
+      try {
       const { auth: { token } } = thunkAPI.getState();
       tokenControl.set(token)
       const { data } = await getProducts({ ...queryParams, page });

@@ -4,17 +4,6 @@ import { StyledSelectArrow } from './selects.styled';
 import { styleGuide } from "../../../constants/styleGuide";
 import sprite from '../../../assets/images/sprite.svg';
 
-const options = [
-  { value: 'Alcoholic drinks', label: 'Alcoholic drinks' },
-  { value: 'Berries', label: 'Berries' },
-  { value: 'Cereals', label: 'Cereals' },
-  { value: 'Dairy', label: 'Dairy' },
-  { value: 'Dried fruits', label: 'Dried fruits' },
-  { value: 'Eggs', label: 'Eggs' },
-  { value: 'Fish', label: 'Fish' },
-  { value: 'Flour', label: 'Flour' },
-  { value: 'Meat', label: 'Meat' },
-];
 const DropdownIndicator = (props) => {
   return (
     <components.DropdownIndicator {...props}>
@@ -101,16 +90,16 @@ const customStyles = {
       height: '0',
     },
     '::-webkit-scrollbar-track': {
-      background: 'transparent',
+      background: `${styleGuide.greyTextColor}`,
     },
     '::-webkit-scrollbar-thumb': {
       borderRadius: '12px',
-      background: 'rgba(239, 237, 232, 0.10)',
+      background: `${styleGuide.orangeColor}`,
       width: '6px',
       height: '147px',
     },
     '::-webkit-scrollbar-thumb:hover': {
-      background: '#555',
+      background: `${styleGuide.whiteColor}`,
     },
   }),
 };
@@ -121,6 +110,7 @@ export const SelectCategory = ({ dataFunc, currentValue }) => {
     { value: 'Categories', label: 'Categories' },
     ...updatedOptions
   ];
+  
   return (
     <Select
       onChange={dataFunc}
@@ -130,7 +120,7 @@ export const SelectCategory = ({ dataFunc, currentValue }) => {
       value={
         currentValue === ''
           ? { value: 'Categories', label: 'Categories' }
-          : options.find((option) => option.value === currentValue)
+          : optionsWithDefault.find((option) => option.value === currentValue)
       }
     />
   );

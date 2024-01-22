@@ -10,12 +10,10 @@ import {
   StyledList,
   StyledLoader,
   StyledListLoader,
+  StyledLogoSvg
 } from './ProductsList.styled';
+import sprite from '../../../assets/images/sprite.svg'
 
-const queryParams = {
-  bloodType: '1',
-  page: 1,
-};
 export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
@@ -23,6 +21,11 @@ export const ProductsList = () => {
   const { products, isLoading, isSuccessPopUpShown, totalPages } = useSelector(
     (state) => state.products
   );
+  const { user } = useSelector(state => state.auth);
+  const queryParams = {
+  bloodType: user.blood,
+  page: 1,
+};
   const listRef = useRef(null);
   const ref = useRef(null);
   const dispatch = useDispatch();
@@ -32,8 +35,12 @@ export const ProductsList = () => {
     setShowModal(false);
   }, [isSuccessPopUpShown]);
   useEffect(() => {
+    if (isSuccessPopUpShown) return;
     setBodyOverflow(showModal);
-  }, [showModal]);
+  }, [showModal,isSuccessPopUpShown]);
+  useEffect(() => {
+    setBodyOverflow(isSuccessPopUpShown)
+      }, [isSuccessPopUpShown]);
   const handleOpenModal = (data) => {
     setModalData(data);
     setShowModal(true);
@@ -108,7 +115,11 @@ export const ProductsList = () => {
   }, [recommended, q, category, dispatch, page, totalPages]);
 
   return isLoading && products === null ? (
-    <StyledLoader className="loader-1" />
+    <StyledLoader>
+  <StyledLogoSvg>
+            <use href={sprite + '#icon-logo'}></use>
+      </StyledLogoSvg>
+      </StyledLoader>
   ) : products && products.length > 0 ? (
     <>
       <StyledList ref={listRef}>
