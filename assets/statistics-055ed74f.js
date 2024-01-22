@@ -1,4 +1,4 @@
-import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"./emotion-styled.browser.esm-b7fda630.js";import{b as g,a as m,c as f}from"./side-view-people-training-gym-3x-274ccdad.js";const D=i.div`
+import{s as n,j as e,a as t}from"./index-8315254f.js";import{n as i}from"./emotion-styled.browser.esm-3ff42e42.js";import{b as d,a,c as p}from"./side-view-people-training-gym-3x-274ccdad.js";const y=i.div`
   overflow: hidden;
   width: 320px;
   padding: 0px 20px;
@@ -9,7 +9,7 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
       rgba(4, 4, 4, 0) 19.15%
     ),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
-    url(${g});
+    url(${d});
   background-position: bottom right;
   background-repeat: no-repeat;
 
@@ -19,7 +19,7 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
 
   @media screen and (min-width: 768px) {
     padding: 0px 32px;
-    background-image: url(${m});
+    background-image: url(${a});
     width: 768px;
   }
 
@@ -29,13 +29,13 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
         #040404 -2.45%,
         rgba(4, 4, 4, 0) 68.17%
       ),
-      url(${f});
+      url(${p});
     padding: 0px 32px;
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
-`,w=i.div`
+`,r=i.div`
   padding-bottom: 43px;
 
   @media screen and (min-width: 1440px) {
@@ -43,7 +43,7 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     padding-top: 325px;
     padding-bottom: 170px;
   }
-`,E=i.div`
+`,k=i.div`
   padding-top: 91px;
   padding-bottom: 230px;
 
@@ -55,8 +55,8 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
   @media screen and (min-width: 1440px) {
     padding: 152px 85px 246px 59px;
   }
-`,G=i.h1`
-  color: ${t.whiteColor};
+`,z=i.h1`
+  color: ${n.whiteColor};
   font-size: 38px;
   font-weight: 500;
   line-height: 1.05;
@@ -72,8 +72,8 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     line-height: 1.11;
     width: 598px;
   }
-`,M=i.svg`
-  stroke: ${t.orangeColor};
+`,S=i.svg`
+  stroke: ${n.orangeColor};
   position: absolute;
   stroke-width: 2px;
   top: 45px;
@@ -97,8 +97,8 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     top: 86px;
     left: 13%;
   }
-`,b=i.svg`
-  fill: ${t.whiteColor};
+`,o=i.svg`
+  fill: ${n.whiteColor};
   align-items: center;
   margin-left: 2px;
 
@@ -107,22 +107,22 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     width: 20px;
     margin-left: 4px;
   }
-`,u=i.svg`
-  fill: ${t.whiteColor};
+`,x=i.svg`
+  fill: ${n.whiteColor};
   margin-right: 1px;
 
   @media screen and (min-width: 768px) {
     height: 16px;
     width: 16px;
   }
-`,P=i.div`
+`,$=i.div`
   display: flex;
   gap: 0px 14px;
 
   @media screen and (min-width: 768px) {
     gap: 0px 20px;
   }
-`,v=i.div`
+`,s=i.div`
   width: 146px;
   height: 66px;
   border-radius: 12px;
@@ -149,7 +149,7 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     margin-left: 0px;
     margin-bottom: 40px;
   }
-`,$=i.div`
+`,h=i.div`
   display: flex;
   gap: 4px;
   flex-direction: column;
@@ -174,11 +174,11 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
   @media screen and (min-width: 1440px) {
     margin-left: 458px;
   }
-`,j=i.div`
+`,g=i.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-`,C=i.div`
+`,m=i.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 700;
@@ -189,7 +189,7 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     font-size: 16px;
     line-height: 1.5;
   }
-`,y=i.div`
+`,c=i.div`
   color: #efede8;
   font-size: 24px;
   font-weight: 700;
@@ -202,13 +202,13 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     line-height: 1.04;
     margin-right: 11px;
   }
-`,k=i.div`
+`,l=i.div`
   margin-left: 8px;
 
   @media screen and (min-width: 768px) {
     margin-left: 12px;
   }
-`,z=i.div`
+`,f=i.div`
   color: #efede8;
   font-size: 16px;
   font-weight: 700;
@@ -220,7 +220,7 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     line-height: 1;
     margin-bottom: 8px;
   }
-`,S=i.div`
+`,w=i.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 400;
@@ -230,7 +230,7 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     font-size: 16px;
     line-height: 1.5;
   }
-`,T=i.div`
+`,b=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,7 +243,7 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     height: 40px;
     width: 40px;
   }
-`,W=i.div`
+`,u=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -256,36 +256,11 @@ import{s as t,j as e,a as d,f as l}from"./index-4cac1460.js";import{n as i}from"
     height: 24px;
     width: 24px;
   }
-`,X=i.div`
+`,T=i.div`
   margin-bottom: 40px;
   position: relative;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 64px;
   }
-`,q=()=>e.jsxs(w,{children:[e.jsxs(v,{children:[e.jsx(T,{children:e.jsx(b,{width:12,height:12,children:e.jsx("use",{href:d+"#icon-play"})})}),e.jsxs(k,{children:[e.jsx(z,{children:"350+"}),e.jsx(S,{children:"Video tutorial"})]})]}),e.jsxs($,{children:[e.jsx(W,{children:e.jsx(u,{width:12,height:12,children:e.jsx("use",{href:d+"#icon-running"})})}),e.jsxs(j,{children:[e.jsx(y,{children:"500"}),e.jsx(C,{children:"cal"})]})]})]}),{animation:a,orangeColor:r,orange2Color:o}=t,I=l.button`
-  padding: 12px 40px;
-  width: ${n=>n.$width};
-
-  color: ${t.whiteColor};
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.13;
-
-  border-radius: 12px;
-
-  border: ${n=>n.$transparent?"1px solid rgba(239, 237, 232, 0.3);":`1px solid ${r}`};
-
-  background-color: ${n=>n.$transparent?"transparent":r};
-
-  transition: ${n=>n.$transparent?`border-color ${a}`:`color ${a}`};
-
-  &:is(:hover, :focus) {
-    ${n=>n.$transparent?`border-color: ${o}`:`background-color: ${o}`};
-    outline: none;
-  }
-
-  &:disabled {
-    color: #efede899;
-  }
-`,A=({children:n,transparent:p,width:s,as:x,type:h,to:c})=>e.jsx(I,{type:h,as:x,to:c,$width:s,$transparent:p,children:n});export{A as B,E as C,M as S,X as T,D as W,G as a,P as b,q as c};
+`,W=()=>e.jsxs(r,{children:[e.jsxs(s,{children:[e.jsx(b,{children:e.jsx(o,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-play"})})}),e.jsxs(l,{children:[e.jsx(f,{children:"350+"}),e.jsx(w,{children:"Video tutorial"})]})]}),e.jsxs(h,{children:[e.jsx(u,{children:e.jsx(x,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-running"})})}),e.jsxs(g,{children:[e.jsx(c,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]});export{k as C,S,T,y as W,z as a,$ as b,W as c};
