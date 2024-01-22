@@ -15,49 +15,45 @@ import {
   ShorterTitle,
 } from './ProductItem.styled';
 import sprite from '../../../assets/images/sprite.svg';
-import PropTypes from 'prop-types';
-// import { useDispatch } from 'react-redux';
-// import { deleteProduct } from 'redux/api/apiOperations';
+import { useDispatch, useSelector } from 'react-redux';
+import { delProductsDay } from '../../../store/diary/operationDiary';
+import { getDateInfo } from '../../../store/diary/selectorsDiary';
 
 const ProductItem = ({
-  // id,
-  // product,
-  caloriesConsumed,
-  weightConsumed,
-  // recommendedByGroupBlood,
-  // dateForDelete,
-  title,
-  category,
-}) => {
-  // const dispatch = useDispatch();
-
+  product,
+  calories,
+  amount,
+}
+) => {
   const isRecommended = true;
-
-  // const handleClick = (id, dateForDelete) => {
-  //   dispatch(deleteProduct({ productId: id, date: dateForDelete }));
-  // };
-
+const dateDel = useSelector(getDateInfo);
+const dispatch = useDispatch();
+const handleClick = (_id) => {
+  
+  dispatch(delProductsDay({ date: dateDel, id: _id }));
+  };
+  
   return (
-    <ProductDiv>
+    <ProductDiv key={product._id}>
       <Grid1>
         <Title>Title</Title>
         <Column>
-          <ShorterTitle>{title}</ShorterTitle>
+          <ShorterTitle>{product.title}</ShorterTitle>
         </Column>
       </Grid1>
       <Grid2>
         <Title>Category</Title>
         <Column>
-          <ShorterTitle>{category}</ShorterTitle>
+          <ShorterTitle>{product.category}</ShorterTitle>
         </Column>
       </Grid2>
       <Grid3>
         <Title>Calories</Title>
-        <Column>{caloriesConsumed}</Column>
+        <Column>{calories}</Column>
       </Grid3>
       <Grid4>
         <Title>Weight</Title>
-        <Column>{weightConsumed}</Column>
+        <Column>{amount}</Column>
       </Grid4>
       <Grid5>
         <Title>Recommend</Title>
@@ -77,26 +73,16 @@ const ProductItem = ({
       </Grid5>
       <Grid6>
         <Title></Title>
-        <ButtonEl>
+        <ButtonEl onClick={() => handleClick(product._id)}>
           <DeleteIcon iconColor="#EF8964">
             <use href={`${sprite}#icon-trash`} />
           </DeleteIcon>
         </ButtonEl>
       </Grid6>
     </ProductDiv>
-  );
-};
 
-ProductItem.propTypes = {
-  id: PropTypes.string,
-  product: PropTypes.shape({
-    title: PropTypes.string,
-    category: PropTypes.string,
-  }),
-  caloriesConsumed: PropTypes.number,
-  weightConsumed: PropTypes.number,
-  dateForDelete: PropTypes.string,
-  recommendedByGroupBlood: PropTypes.bool,
+    
+  );
 };
 
 export default ProductItem;

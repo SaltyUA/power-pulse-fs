@@ -18,7 +18,6 @@ const ExercisesWrap = () => {
   const currentCategorie = useSelector(getCurrentCategorie)
   const currentFilter = useSelector(getCurrentFilter);
   const dispatch = useDispatch()
-
   const [exerciseName, setExerciseName] = useState('');
 
   useEffect(()=>{dispatch(setCurrentCategorie(null))},[dispatch])

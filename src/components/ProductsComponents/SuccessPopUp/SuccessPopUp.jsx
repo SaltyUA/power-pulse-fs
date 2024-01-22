@@ -8,8 +8,8 @@ import sprite from '../../../assets/images/sprite.svg';
 const modal = document.querySelector('#add-product-success');
 
 export const SuccessPopUp = () => {
-    const { isSuccessPopUpShown } = useSelector(state => state.products);
-    const dispatch = useDispatch()
+  const { isSuccessPopUpShown, calories } = useSelector(state => state.products);
+     const dispatch = useDispatch()
     useEffect(() => {
     if (!isSuccessPopUpShown) return;
     const handleKeydown = e => {
@@ -36,7 +36,7 @@ export const SuccessPopUp = () => {
             <use href={sprite + '#icon-close'}></use>
           </StyledCloseSvg>
                 <p className='title'>Well done</p>
-                <p className="calories">Calories: <span className="calories-span">96</span></p>
+          <p className="calories">Calories: <span className="calories-span">{calories}</span></p>
                 <button onClick={()=>dispatch(setIsSuccessPopUpShown(false))} className="button" type='button'>Next product</button>
                 <StyledNavLink to='/diary' onClick={()=>dispatch(setIsSuccessPopUpShown(false))}>To the diary <StyledArrowSvg>
             <use href={sprite + '#locationarrow'}></use>

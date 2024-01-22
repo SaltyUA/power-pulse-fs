@@ -68,7 +68,7 @@ export const ContainerBloodSex = styled.div`
 export const ContainerActivity = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 
   margin-bottom: 40px;
 
@@ -87,6 +87,7 @@ export const WrapperBloodSex = styled.div`
   flex-direction: column;
 
   @media (min-width: 375px) {
+    align-items: flex-start;
     flex-direction: row;
   }
 
