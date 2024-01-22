@@ -90,16 +90,16 @@ const customStyles = {
       height: '0',
     },
     '::-webkit-scrollbar-track': {
-      background: 'transparent',
+      background: `${styleGuide.greyTextColor}`,
     },
     '::-webkit-scrollbar-thumb': {
       borderRadius: '12px',
-      background: 'rgba(239, 237, 232, 0.10)',
+      background: `${styleGuide.orangeColor}`,
       width: '6px',
       height: '147px',
     },
     '::-webkit-scrollbar-thumb:hover': {
-      background: '#555',
+      background: `${styleGuide.whiteColor}`,
     },
   }),
 };

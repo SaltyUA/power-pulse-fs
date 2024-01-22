@@ -51,6 +51,13 @@ export async function resendVerify(body) {
 }
 
 export async function patchUser(body) {
-  const { data } = await auth.patch('/', body);
+  const { data } = await auth.patch('/current/update', body);
+  return data;
+}
+
+export async function putAvatar(formData) {
+  const { data } = await auth.put('/upload', formData, {
+    headers: { 'content-type': 'multipart/form-data' },
+  });
   return data;
 }

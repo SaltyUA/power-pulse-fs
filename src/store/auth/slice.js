@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './initialState';
+
 import {
   register,
   logIn,
@@ -8,6 +9,7 @@ import {
   updateUserData,
   resendEmail,
 } from './thunk';
+
 
 const authSlice = createSlice({
   name: 'auth',
@@ -105,6 +107,7 @@ const authSlice = createSlice({
         state.error = payload;
       }),
 });
+
 
 export const authReducer = authSlice.reducer;
 export const { setResendShown } = authSlice.actions;

@@ -19,9 +19,15 @@ import {
   RadioLabelBlood,
   RadioLabelActivity,
   RadioBtn,
-  FormSaveBtn
+  FormSaveBtn,
+  FormInputEmail,
+  WrapperBloodSex,
+  ContainerBloodSex,
+  FormInputName,
+  ContainerErrorValidation,
 } from './UserForm.styled';
 
+<<<<<<< HEAD
 // const userFormSchema = Yup.object().shape({
 //   name: Yup.string()
 //     .min(2, 'Too Short!')
@@ -58,6 +64,45 @@ import {
 //     .oneOf([1, 2, 3, 4, 5], 'Invalid activity level')
 //     .required('Activity level is required'),
 // });
+=======
+const userFormSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, 'Name is too short!')
+    .max(50, 'Name is too long!')
+    .required('Name is required'),
+  height: Yup.number()
+    .positive('Must be a positive number')
+    .min(150, 'Must be >150')
+    .max(300, 'Must be <300')
+    .required('Height is required'),
+  currentWeight: Yup.number()
+    .positive('Must be a positive number')
+    .min(35, 'Must be >35')
+    .max(500, 'Must be <500')
+    .required('Current weight is required'),
+  desiredWeight: Yup.number()
+    .positive('Must be a positive number')
+    .min(35, 'Must be >35')
+    .max(500, 'Must be <500')
+    .required('Desired weight is required'),
+  birthday: Yup.date()
+    .max(new Date(), 'Invalid date')
+    .test('age', 'You must be over 18 years old', function (value) {
+      const cutoffDate = new Date();
+      cutoffDate.setFullYear(cutoffDate.getFullYear() - 18);
+      return value <= cutoffDate;
+    }),
+  blood: Yup.number()
+    .oneOf([1, 2, 3, 4], 'Invalid blood type')
+    .required('Blood type is required'),
+  sex: Yup.string()
+    .oneOf(['male', 'female'], 'Invalid gender')
+    .required('Sex is required'),
+  levelActivity: Yup.number()
+    .oneOf([1, 2, 3, 4, 5], 'Invalid activity level')
+    .required('Activity level is required'),
+});
+>>>>>>> 2da1d2dae37f03228550594142d4b7d00f64003c
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -68,10 +113,10 @@ const UserForm = () => {
     height: user.height ?? 150,
     currentWeight: user.currentWeight ?? 35,
     desiredWeight: user.desiredWeight ?? 35,
-    birthday: user.birthday ?? '1990-01-01',
-    blood: user.blood ?? '1',
+    birthday: formatDate(user.birthday) ?? '1990-01-01',
+    blood: String(user.blood) ?? '1',
     sex: user.sex ?? 'male',
-    levelActivity: user.levelActivity ?? '1',
+    levelActivity: String(user.levelActivity) ?? '1',
   };
 function formatDate(inputDate) {
   const date = new Date(inputDate);
@@ -79,6 +124,7 @@ function formatDate(inputDate) {
   const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
   const year = date.getFullYear();
 
+<<<<<<< HEAD
   return `${day}.${month}.${year}`;
 }
   const handleSubmit = (values) => {
@@ -93,6 +139,43 @@ function formatDate(inputDate) {
       sex,
       levelActivity: Number(levelActivity)
     }));
+=======
+  function formatDate(inputDate) {
+    const date = new Date(inputDate);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${year}-${month}-${day}`;
+  }
+
+  const handleSubmit = (values, { setSubmitting }) => {
+    const {
+      birthday,
+      blood,
+      currentWeight,
+      desiredWeight,
+      height,
+      levelActivity,
+      name,
+      sex,
+    } = values;
+
+    dispatch(
+      updateUserData({
+        name,
+        height,
+        currentWeight,
+        desiredWeight,
+        birthday: formatDate(birthday),
+        blood: Number(blood),
+        sex,
+        levelActivity: Number(levelActivity),
+      })
+    );
+
+    setSubmitting(false);
+>>>>>>> 2da1d2dae37f03228550594142d4b7d00f64003c
   };
 
   return (
@@ -101,22 +184,27 @@ function formatDate(inputDate) {
       // validationSchema={userFormSchema}  
       onSubmit={handleSubmit}
     >
-      {({ handleChange, values }) => (
+      {({ handleChange, values, errors, touched }) => (
         <FormStyle>
           <ContainerNameEmail>
             <FormLabel>
               Name
-              <FormInput
+              <FormInputName
                 type="text"
                 id="name"
                 name="name"
                 value={values.name}
                 onChange={handleChange}
               />
+              {errors.name && touched.name ? (
+                <ContainerErrorValidation>
+                  {errors.name}
+                </ContainerErrorValidation>
+              ) : null}
             </FormLabel>
             <FormLabel>
               Email
-              <FormInput
+              <FormInputEmail
                 type="text"
                 id="email"
                 name="email"
@@ -138,6 +226,11 @@ function formatDate(inputDate) {
                   value={values.height}
                   onChange={handleChange}
                 />
+                {errors.height && touched.height ? (
+                  <ContainerErrorValidation>
+                    {errors.height}
+                  </ContainerErrorValidation>
+                ) : null}
               </FormLabelSecond>
               <FormLabelSecond>
                 Current Weight
@@ -148,6 +241,11 @@ function formatDate(inputDate) {
                   value={values.currentWeight}
                   onChange={handleChange}
                 />
+                {errors.currentWeight && touched.currentWeight ? (
+                  <ContainerErrorValidation>
+                    {errors.currentWeight}
+                  </ContainerErrorValidation>
+                ) : null}
               </FormLabelSecond>
             </ContainerParams>
 
@@ -161,6 +259,11 @@ function formatDate(inputDate) {
                   value={values.desiredWeight}
                   onChange={handleChange}
                 />
+                {errors.desiredWeight && touched.desiredWeight ? (
+                  <ContainerErrorValidation>
+                    {errors.desiredWeight}
+                  </ContainerErrorValidation>
+                ) : null}
               </FormLabelSecond>
               <FormLabelSecond>
                 Date of birth
@@ -170,14 +273,20 @@ function formatDate(inputDate) {
                   name="birthday"
                   value={values.birthday}
                   onChange={handleChange}
+                  style={{ pointerEvents: 'none' }}
                 />
+                {errors.birthday && touched.birthday ? (
+                  <ContainerErrorValidation>
+                    {errors.birthday}
+                  </ContainerErrorValidation>
+                ) : null}
               </FormLabelSecond>
             </ContainerParams>
           </ContainerFullParams>
 
-          <div style={{ marginBottom: '40px' }}>
+          <ContainerBloodSex>
             <BloodTitle>Blood</BloodTitle>
-            <div style={{ display: 'flex', gap: '20px' }}>
+            <WrapperBloodSex>
               <div style={{ display: 'flex', gap: '8px' }}>
                 <RadioLabelBlood>
                   <RadioBtn
@@ -243,8 +352,8 @@ function formatDate(inputDate) {
                   Female
                 </RadioLabelBlood>
               </div>
-            </div>
-          </div>
+            </WrapperBloodSex>
+          </ContainerBloodSex>
 
           <ContainerActivity>
             <RadioLabelActivity>
