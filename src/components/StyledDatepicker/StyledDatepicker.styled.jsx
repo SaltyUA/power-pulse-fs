@@ -17,7 +17,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translate(-1%, 0%);
+    transform: translate(-30%, 0%);
     display: flex;
     flex-direction: column;
     align-items: center;
