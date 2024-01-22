@@ -4,7 +4,7 @@ import { selectUser } from '../../../store/selectors';
 import { updateUserData } from '../../../store/auth/thunk';
 
 import { Formik } from 'formik';
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 
 import {
   FormStyle,
@@ -24,44 +24,46 @@ import {
   WrapperBloodSex,
   ContainerBloodSex,
   FormInputName,
+  ContainerErrorValidation,
 } from './UserForm.styled';
 
-// const userFormSchema = Yup.object().shape({
-//   name: Yup.string()
-//     .min(2, 'Too Short!')
-//     .max(50, 'Too Long!')
-//     .required('Name is required'),
-//   height: Yup.number()
-//     .positive('Height must be a positive number')
-//     .min(150, 'Must be a number from 150 to 300')
-//     .max(300, 'Must be a number from 150 to 300')
-//     .required('Height is required'),
-//   currentWeight: Yup.number()
-//     .positive('Weight must be a positive number')
-//     .min(35, 'Weight must be a number from 35 to 500')
-//     .max(500, 'Weight must be a number from 35 to 500')
-//     .required('Current weight is required'),
-//   desiredWeight: Yup.number()
-//     .positive('Weight must be a positive number')
-//     .min(35, 'Weight must be a number from 35 to 500')
-//     .max(500, 'Weight must be a number from 35 to 500')
-//     .required('Desired weight is required'),
-//   birthday: Yup.date()
-//     .min(
-//       new Date(new Date().setFullYear(new Date().getFullYear() - 18)),
-//       'You must be at least 18 years old'
-//     )
-//     .required('Birthday is required'),
-//   blood: Yup.number()
-//     .oneOf([1, 2, 3, 4], 'Invalid blood type')
-//     .required('Blood type is required'),
-//   sex: Yup.string()
-//     .oneOf(['male', 'female'], 'Invalid gender')
-//     .required('Gender is required'),
-//   levelActivity: Yup.number()
-//     .oneOf([1, 2, 3, 4, 5], 'Invalid activity level')
-//     .required('Activity level is required'),
-// });
+const userFormSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, 'Name is too short!')
+    .max(50, 'Name is too long!')
+    .required('Name is required'),
+  height: Yup.number()
+    .positive('Must be a positive number')
+    .min(150, 'Must be >150')
+    .max(300, 'Must be <300')
+    .required('Height is required'),
+  currentWeight: Yup.number()
+    .positive('Must be a positive number')
+    .min(35, 'Must be >35')
+    .max(500, 'Must be <500')
+    .required('Current weight is required'),
+  desiredWeight: Yup.number()
+    .positive('Must be a positive number')
+    .min(35, 'Must be >35')
+    .max(500, 'Must be <500')
+    .required('Desired weight is required'),
+  birthday: Yup.date()
+    .max(new Date(), 'Invalid date')
+    .test('age', 'You must be over 18 years old', function (value) {
+      const cutoffDate = new Date();
+      cutoffDate.setFullYear(cutoffDate.getFullYear() - 18);
+      return value <= cutoffDate;
+    }),
+  blood: Yup.number()
+    .oneOf([1, 2, 3, 4], 'Invalid blood type')
+    .required('Blood type is required'),
+  sex: Yup.string()
+    .oneOf(['male', 'female'], 'Invalid gender')
+    .required('Sex is required'),
+  levelActivity: Yup.number()
+    .oneOf([1, 2, 3, 4, 5], 'Invalid activity level')
+    .required('Activity level is required'),
+});
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -72,20 +74,22 @@ const UserForm = () => {
     height: user.height ?? 150,
     currentWeight: user.currentWeight ?? 35,
     desiredWeight: user.desiredWeight ?? 35,
-    birthday: user.birthday ?? '1990-01-01',
+    birthday: formatDate(user.birthday) ?? '1990-01-01',
     blood: String(user.blood) ?? '1',
     sex: user.sex ?? 'male',
     levelActivity: String(user.levelActivity) ?? '1',
   };
+
   function formatDate(inputDate) {
     const date = new Date(inputDate);
     const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
 
-    return `${day}.${month}.${year}`;
+    return `${year}-${month}-${day}`;
   }
-  const handleSubmit = (values) => {
+
+  const handleSubmit = (values, { setSubmitting }) => {
     const {
       birthday,
       blood,
@@ -96,6 +100,7 @@ const UserForm = () => {
       name,
       sex,
     } = values;
+
     dispatch(
       updateUserData({
         name,
@@ -103,20 +108,22 @@ const UserForm = () => {
         currentWeight,
         desiredWeight,
         birthday: formatDate(birthday),
-        blood,
+        blood: Number(blood),
         sex,
         levelActivity: Number(levelActivity),
       })
     );
+
+    setSubmitting(false);
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={userFormSchema}
+      validationSchema={userFormSchema}
       onSubmit={handleSubmit}
     >
-      {({ handleChange, values }) => (
+      {({ handleChange, values, errors, touched }) => (
         <FormStyle>
           <ContainerNameEmail>
             <FormLabel>
@@ -128,6 +135,11 @@ const UserForm = () => {
                 value={values.name}
                 onChange={handleChange}
               />
+              {errors.name && touched.name ? (
+                <ContainerErrorValidation>
+                  {errors.name}
+                </ContainerErrorValidation>
+              ) : null}
             </FormLabel>
             <FormLabel>
               Email
@@ -153,6 +165,11 @@ const UserForm = () => {
                   value={values.height}
                   onChange={handleChange}
                 />
+                {errors.height && touched.height ? (
+                  <ContainerErrorValidation>
+                    {errors.height}
+                  </ContainerErrorValidation>
+                ) : null}
               </FormLabelSecond>
               <FormLabelSecond>
                 Current Weight
@@ -163,6 +180,11 @@ const UserForm = () => {
                   value={values.currentWeight}
                   onChange={handleChange}
                 />
+                {errors.currentWeight && touched.currentWeight ? (
+                  <ContainerErrorValidation>
+                    {errors.currentWeight}
+                  </ContainerErrorValidation>
+                ) : null}
               </FormLabelSecond>
             </ContainerParams>
 
@@ -176,6 +198,11 @@ const UserForm = () => {
                   value={values.desiredWeight}
                   onChange={handleChange}
                 />
+                {errors.desiredWeight && touched.desiredWeight ? (
+                  <ContainerErrorValidation>
+                    {errors.desiredWeight}
+                  </ContainerErrorValidation>
+                ) : null}
               </FormLabelSecond>
               <FormLabelSecond>
                 Date of birth
@@ -187,6 +214,11 @@ const UserForm = () => {
                   onChange={handleChange}
                   style={{ pointerEvents: 'none' }}
                 />
+                {errors.birthday && touched.birthday ? (
+                  <ContainerErrorValidation>
+                    {errors.birthday}
+                  </ContainerErrorValidation>
+                ) : null}
               </FormLabelSecond>
             </ContainerParams>
           </ContainerFullParams>

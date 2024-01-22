@@ -38,9 +38,11 @@ export const UserAvatar = styled.div`
   border-radius: 50%;
 
   & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
     border-radius: 50%;
-    width: 90px;
-    height: 90px;
 
     @media screen and (min-width: 768px) {
       width: 150px;
