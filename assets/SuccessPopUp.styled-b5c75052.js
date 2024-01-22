@@ -1,4 +1,4 @@
-import{f as i,s as o,O as t}from"./index-34ea576b.js";const r="/power-pulse-fs/assets/bgFood-46dd5bc9.png",n="/power-pulse-fs/assets/bgFood2x-515a5477.png",e=i(t)`
+import{f as i,s as o,O as t}from"./index-4cac1460.js";const r="/power-pulse-fs/assets/bgFood-46dd5bc9.png",n="/power-pulse-fs/assets/bgFood2x-515a5477.png",e=i(t)`
 display: flex;
 align-items:center;
 gap: 8px;
