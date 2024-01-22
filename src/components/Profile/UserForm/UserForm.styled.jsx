@@ -95,6 +95,19 @@ export const WrapperBloodSex = styled.div`
   }
 `;
 
+export const ContainerErrorValidation = styled.div`
+  margin-top: -4px;
+
+  color: ${styleGuide.errorColor};
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.12px;
+
+  @media (min-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
 export const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
