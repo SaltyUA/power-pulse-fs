@@ -82,6 +82,9 @@ export const updateUserAvatar = createAsyncThunk(
       const formData = new FormData();
       formData.append('image', body);
       const data = await putAvatar(formData);
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+      await refresh(token);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
