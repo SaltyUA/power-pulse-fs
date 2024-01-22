@@ -1,4 +1,4 @@
-import{b as $,s as C,B as Ge,S as nn,u as Ee,x as on,j as p,e as f,q as Le,a as W,c as oe,h as bt,y as Se,z as rn,A as an,C as re,D as sn,E as un}from"./index-120d2f3d.js";import{c as ln,a as cn}from"./index.esm-4b0efc81.js";import{u as xt}from"./formik.esm-1dac4ba3.js";import{e as se,a as Ct,h as dn,_ as pn,b as fn,c as hn,d as mn,g as vn}from"./defineProperty-4681ad55.js";import{_ as w,n as ne}from"./emotion-styled.browser.esm-c5904ded.js";import{k as gn,j as E,c as Et}from"./emotion-react.browser.esm-7d0a3dcb.js";import{a as bn,S as xn,b as Cn,c as En,d as Sn}from"./SuccessPopUp.styled-44d37c25.js";import{P as wn}from"./PageAnimatedWrapper-c0c695e1.js";const yn=$.input`
+import{b as $,s as C,B as Ge,S as nn,u as Ee,x as on,j as p,e as f,q as Le,a as W,c as oe,h as bt,y as Se,z as rn,A as an,C as re,D as sn,E as un}from"./index-974bb34b.js";import{u as xt,c as ln,a as cn}from"./index.esm-90c346b4.js";import{e as se,a as Ct,h as dn,_ as pn,b as fn,c as hn,d as mn,g as vn}from"./defineProperty-4681ad55.js";import{_ as w,n as ne}from"./emotion-styled.browser.esm-532efc17.js";import{k as gn,j as E,c as Et}from"./emotion-react.browser.esm-134d8168.js";import{a as bn,S as xn,b as Cn,c as En,d as Sn}from"./SuccessPopUp.styled-88fe4930.js";import{P as wn}from"./PageAnimatedWrapper-1d4da293.js";const yn=$.input`
     width: 287px;
     height: 34px;
     border-radius: 12px;
@@ -687,4 +687,4 @@ line-height: 1.17;
 font-size: 32px;
 line-height: 1.38;
 }
-`,ia=()=>{const{addProductFalse:n}=oe(i=>i.products),e=Ee();return f.useEffect(()=>{e(sn()),n&&St("error","Enter correct data!")},[n,e]),p.jsx(wn,{direction:"X",children:p.jsx(qr,{children:p.jsxs(Gr,{children:[p.jsxs("div",{className:"title-form-block",children:[p.jsx(Yr,{children:"Products"}),p.jsx(Or,{})]}),p.jsx(Rr,{}),p.jsx(un,{})]})})})};export{ia as default};
+`,na=()=>{const{addProductFalse:n}=oe(i=>i.products),e=Ee();return f.useEffect(()=>{e(sn()),n&&St("error","Enter correct data!")},[n,e]),p.jsx(wn,{direction:"X",children:p.jsx(qr,{children:p.jsxs(Gr,{children:[p.jsxs("div",{className:"title-form-block",children:[p.jsx(Yr,{children:"Products"}),p.jsx(Or,{})]}),p.jsx(Rr,{}),p.jsx(un,{})]})})})};export{na as default};
