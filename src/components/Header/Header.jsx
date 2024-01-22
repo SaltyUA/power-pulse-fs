@@ -13,7 +13,7 @@ import {
   UserContainer,
 } from './Header.styled';
 import { useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectAvatarURL } from '../../store/selectors';
+import { selectIsLoggedIn, selectUser } from '../../store/selectors';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { useEffect, useState } from 'react';
 import LogoutButton from '../LogoutButton/LogoutButton';
@@ -28,7 +28,7 @@ export const Header = () => {
     setBurgerIsActive(false);
   }, []);
 
-  const avatarURL = useSelector(selectAvatarURL);
+  const { avatarURL } = useSelector(selectUser);
 
   const width = window.innerWidth;
 
