@@ -19,14 +19,7 @@ export const tokenControl = {
 
 
 export async function fetchDiary(date) {
-   const res = await diary.get(`/diary-records/${date}`);
- 
-  return res.data;
-}
-
-export async function fetchAllExercises() {
-  const res = await diary.get(`/exercises`);
-
+   const res = await diary.get(`/diary-records/${date}`); 
   return res.data;
 }
 
@@ -34,6 +27,13 @@ export async function fetchExerciseRemove({ date, id }) {
   const res = await diary.delete(
     `/diary-records/${date}/remove-exercise/${id}`
   );
-
   return res.data;
 }
+
+export async function fetchProductRemove({ date, id }) {
+  const res = await diary.delete(
+    `/diary-records/${date}/remove-product/${id}`
+  );
+  return res.data;
+}
+

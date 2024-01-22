@@ -23,12 +23,10 @@ const Diary = () => {
    
     }, [dateInfo, dispatch]);
   
-  
   return (
     <Container>
       <ForPosition>
         <TitlePage title="Diary" />
-        {/* <DaySwitch onChoiceDate={onChoiceDate } /> */}
         <DaySwitch />
         <DiaryContainer>
           <Left>

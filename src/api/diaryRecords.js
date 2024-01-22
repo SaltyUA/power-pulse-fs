@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { auth } from './auth';
 export const exercises = axios.create({
   baseURL: 'https://power-4vwy.onrender.com/api/v1/',
 });

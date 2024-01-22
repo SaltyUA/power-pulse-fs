@@ -17,7 +17,6 @@ export async function fetchBodyParts(){
 
 export async function fetchMuscles(params){
     const res = await exercises.get('/filters?filter=Muscles',{params});
-    console.log(res);
     return res.data;
 }
 

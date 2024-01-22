@@ -3,21 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   fetchDiary,
   tokenControl,
-  fetchAllExercises,
   fetchExerciseRemove,
+  fetchProductRemove,
 } from './diary-api';
 
-// export const fetchDiaryData = createAsyncThunk(
-//   'diary/fetchDiaryData',
-//   async (_, thunkAPI) => {
-//     try {
-//       const diaryInfo = await diaryAPI.fetchDiaryData('/diary-records');
-//       return diaryInfo;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const fetchDiaryData = createAsyncThunk(
   'diary/fetchDiaryData',
@@ -31,28 +20,11 @@ export const fetchDiaryData = createAsyncThunk(
 
       return data;
     } catch (e) {
-      console.log(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
-export const fetchExercises = createAsyncThunk(
-  'diary/fetchExercises',
-  async (params, thunkAPI) => {
-    try {
-      const {
-        auth: { token },
-      } = thunkAPI.getState();
-      tokenControl.set(token);
-      const data = await fetchAllExercises(params);
 
-      return data;
-    } catch (e) {
-      console.log(e.message);
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
 export const delExercisesDay = createAsyncThunk(
   'diary/delExercisesDay',
   async (params, thunkAPI) => {
@@ -65,7 +37,23 @@ export const delExercisesDay = createAsyncThunk(
 
       return data;
     } catch (e) {
-      console.log(e.message);
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const delProductsDay = createAsyncThunk(
+  'diary/delProductsDay',
+  async (params, thunkAPI) => {
+    try {
+      const {
+        auth: { token },
+      } = thunkAPI.getState();
+      tokenControl.set(token);
+      const data = await fetchProductRemove(params);
+
+      return data;
+    } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }

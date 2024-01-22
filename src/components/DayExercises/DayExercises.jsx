@@ -18,14 +18,14 @@ import {
   ShorterTitle,
   Message,
 } from './DayExercises.styled';
-import sprite from '../../assets/images/sprite.svg';
-import { useSelector, useDispatch } from 'react-redux';
-import { getExercises } from '../../store/diary/selectorsDiary';
-import { useEffect } from 'react';
+import sprite from '../../assets/images/sprite.svg'; // ?
+// import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
 //------------------------------
 import ExerciseItem from './ExerciseItem/ExerciseItem';
-import { fetchExercises } from '../../store/diary/operationDiary';
+// import { fetchExercises } from '../../store/diary/operationDiary';
+import { useNavigate } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 // import Loader from '../Loader';
 // import { selectError, selectIsLoading } from '../../store/diary/selectorsDiary';
@@ -36,38 +36,29 @@ import { fetchExercises } from '../../store/diary/operationDiary';
 
 
 const DayExercises = ({ consumedExercises }) => {
-  const allExercises = useSelector(getExercises);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-   useEffect(() => {
-     dispatch(fetchExercises());
-   }, [dispatch]);
+  //  useEffect(() => {
+  //    dispatch(fetchExercises());
+  //  }, [dispatch]);
   
-  const exerciseInfo = []
-  if (consumedExercises && allExercises && consumedExercises.length > 0 && allExercises.length > 0 ) {
-    consumedExercises.forEach((item) => {
-      exerciseInfo.push(
-        allExercises.find((elem) => {
-          if (elem._id === item.exercise) {
-            return { ...elem, ...item };
-          }
-        })
-      );
-    });
-  }
-  // console.log(exerciseInfo);
-
+ 
   //-----------------------
   //  const isLoading = useSelector(selectIsLoading);
   //  const error = useSelector(selectError);
   // const location = useLocation();
   //----------------------------
- 
+   const navigate = useNavigate();
+   const handleClick = () => {
+     
+     navigate('/exercises');
+   };
+    
   return (
     <DayExercisesArea>
       <TitleArea>
         <Title>Execrcises</Title>
-        <Button>
+        <Button onClick={() => handleClick()}>
           <Add>Add exercise</Add>
           <ArrowIcon iconColor="#E6533C">
             <use href={`${sprite}#icon-start-arrow`} />
@@ -86,12 +77,11 @@ const DayExercises = ({ consumedExercises }) => {
           <Grid6>Time</Grid6>
           <Grid7 />
         </TableHeader>
-        {/* <Message>Not found exercises</Message> */}
       </TableArea>
 
-      {exerciseInfo && exerciseInfo.length > 0 ? (
+      {consumedExercises && consumedExercises.length > 0 ? (
         <List>
-          {exerciseInfo.map((item) => (
+          {consumedExercises.map((item) => (
             <ExerciseItem key={nanoid()} {...item} />
           ))}
         </List>
