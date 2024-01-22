@@ -28,7 +28,7 @@ const Pagination = ({
             {i}
             {i === currentPage && (
               <svg>
-                <use href={`${sprite}#pagination-btn`} />
+                <use href={`${sprite}#icon-block`} />
               </svg>
             )}
           </button>

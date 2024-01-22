@@ -1,26 +1,15 @@
 import Select, { components } from 'react-select';
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { StyledSelectArrow } from './selects.styled';
-import { styleGuide } from "../../../constants/styleGuide";
+import { styleGuide } from '../../../constants/styleGuide';
 import sprite from '../../../assets/images/sprite.svg';
 
-const options = [
-  { value: 'Alcoholic drinks', label: 'Alcoholic drinks' },
-  { value: 'Berries', label: 'Berries' },
-  { value: 'Cereals', label: 'Cereals' },
-  { value: 'Dairy', label: 'Dairy' },
-  { value: 'Dried fruits', label: 'Dried fruits' },
-  { value: 'Eggs', label: 'Eggs' },
-  { value: 'Fish', label: 'Fish' },
-  { value: 'Flour', label: 'Flour' },
-  { value: 'Meat', label: 'Meat' },
-];
 const DropdownIndicator = (props) => {
   return (
     <components.DropdownIndicator {...props}>
-        <StyledSelectArrow>
-            <use href={sprite + '#selectArrow'}></use>
-          </StyledSelectArrow>
+      <StyledSelectArrow>
+        <use href={sprite + '#selectArrow'}></use>
+      </StyledSelectArrow>
     </components.DropdownIndicator>
   );
 };
@@ -53,17 +42,17 @@ const customStyles = {
       borderColor: `${styleGuide.orangeColor}`,
     },
     '@media (max-width: 374px)': {
-      width: '120px', 
+      width: '120px',
     },
     '@media (min-width: 768px)': {
-      width: '192px', 
+      width: '192px',
       height: '52px',
     },
   }),
   dropdownIndicator: (base, state) => ({
     ...base,
     transition: `all ${styleGuide.animation}`,
-    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null
+    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
   }),
   indicatorSeparator: (provided) => ({
     ...provided,
@@ -84,14 +73,16 @@ const customStyles = {
     cursor: 'pointer',
     borderRadius: '12px',
     backgroundColor: 'inherit',
-    color: state.isSelected ? `${styleGuide.successColor}` : `${styleGuide.whiteColor}`,
-      fontSize: '16px',
+    color: state.isSelected
+      ? `${styleGuide.successColor}`
+      : `${styleGuide.whiteColor}`,
+    fontSize: '16px',
     '&:hover': {
       backgroundColor: `${styleGuide.orangeColor}`,
       color: `${styleGuide.whiteColor}`,
     },
   }),
-  
+
   menuList: (base) => ({
     ...base,
 
@@ -101,26 +92,38 @@ const customStyles = {
       height: '0',
     },
     '::-webkit-scrollbar-track': {
-      background: 'transparent',
+      background: `${styleGuide.greyTextColor}`,
     },
     '::-webkit-scrollbar-thumb': {
       borderRadius: '12px',
-      background: 'rgba(239, 237, 232, 0.10)',
+      background: `${styleGuide.orangeColor}`,
       width: '6px',
       height: '147px',
     },
     '::-webkit-scrollbar-thumb:hover': {
-      background: '#555',
+      background: `${styleGuide.whiteColor}`,
     },
   }),
 };
 export const SelectCategory = ({ dataFunc, currentValue }) => {
-  const { categories } = useSelector(state => state.products);
-  const updatedOptions = categories && categories.map(item => ({ value: item, label: item }));
+  const { categories } = useSelector((state) => state.products);
+
+  const capitalizeFirstLeter = (string) => {
+    const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
+    return newString;
+  };
+
+  const updatedOptions =
+    categories &&
+    categories.map((item) => ({
+      value: item,
+      label: capitalizeFirstLeter(item),
+    }));
   const optionsWithDefault = [
     { value: 'Categories', label: 'Categories' },
-    ...updatedOptions
+    ...updatedOptions,
   ];
+
   return (
     <Select
       onChange={dataFunc}
@@ -130,7 +133,7 @@ export const SelectCategory = ({ dataFunc, currentValue }) => {
       value={
         currentValue === ''
           ? { value: 'Categories', label: 'Categories' }
-          : options.find((option) => option.value === currentValue)
+          : optionsWithDefault.find((option) => option.value === currentValue)
       }
     />
   );

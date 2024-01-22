@@ -1,108 +1,123 @@
 import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import { selectUser } from 'redux/selectors';
-// import { updateAvatar } from 'redux/operations';
+import { selectUser } from '../../../store/selectors';
+
+import { updateUserAvatar } from '../../../store/auth/thunk';
 import { logOut } from '../../../store/auth/thunk';
 
-const UserCard = () => {
-  const avatarURL = '';
-  const dispatch = useDispatch();
-  // const user = useSelector(selectUser);
+import LogoutButton from '../../../components/LogoutButton/LogoutButton';
+import Notice from '../../Notice/Notice';
 
-  // const [avatarURL, setAvatarURL] = useState(user.avatar);
+import sprite from '../../../assets/images/sprite.svg';
+import {
+  UserCardContainer,
+  NameContainer,
+  EmailContainer,
+  InformationContainer,
+  InformationText,
+  NoticeContainer,
+  UserAvatar,
+  LogoutContainer,
+  AddAvatarButton,
+  InformationCard,
+  InformationCounter,
+} from './UserCard.styled';
+
+const UserCard = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+  const [avatar, setAvatar] = useState(user.avatarURL);
 
   const fileInputRef = useRef(null);
 
-  const handleIconClick = () => {
+  const handleIconClick = (e) => {
+    e.preventDefault();
+
     console.log();
-    // if (fileInputRef.current) {
-    //   fileInputRef.current.click();
-    // }
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
-  const handleAvatarChange = (event) => {
-    console.log(event);
-    //   const file = event.currentTarget.files[0];
+  const handleAvatarChange = async (event) => {
+    const file = event.currentTarget.files[0];
 
-    //   if (file) {
-    //     setAvatarURL(URL.createObjectURL(file));
-    //   }
+    if (file) {
+      setAvatar(URL.createObjectURL(file));
+    }
 
-    //   try {
-    //     dispatch(updateAvatar(file));
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
+    try {
+      await dispatch(updateUserAvatar(file));
+    } catch (error) {
+      console.log('Error updating avatar:', error);
+    }
   };
 
   const handleLogOut = () => dispatch(logOut());
 
   return (
-    <div className="containerSection">
-      <div className="containerAvatar">
-        {avatarURL ? (
-          <img src={avatarURL} alt="User Avatar" />
+    <UserCardContainer>
+      <UserAvatar>
+        {avatar ? (
+          <img src={avatar} alt="User Avatar" />
         ) : (
-          <svg>
-            <use href=""></use>
+          <svg width="61" height="62" fill="#efede8">
+            <use href={`${sprite}#user`} />
           </svg>
         )}
-      </div>
 
-      <form>
-        <input
-          type="file"
-          name="avatarURL"
-          accept="image/*"
-          ref={fileInputRef}
-          onChange={handleAvatarChange}
+        <form>
+          <input
+            hidden
+            type="file"
+            name="avatarURL"
+            accept="image/*"
+            ref={fileInputRef}
+            onChange={handleAvatarChange}
+          />
+          <AddAvatarButton onClick={handleIconClick}>
+            <svg>
+              <use href={`${sprite}#add`} />
+            </svg>
+          </AddAvatarButton>
+        </form>
+      </UserAvatar>
+      <NameContainer>{user.name}</NameContainer>
+      <EmailContainer>User</EmailContainer>
+
+      <InformationContainer>
+        <InformationCard>
+          <InformationText>
+            <svg width="20" height="20" fill="#efede8">
+              <use href={`${sprite}#food`} />
+            </svg>
+            Daily calorie intake
+          </InformationText>
+          <InformationCounter>{user.dailyCalories}</InformationCounter>
+        </InformationCard>
+        <InformationCard>
+          <InformationText>
+            <svg width="20" height="20" fill="#efede8">
+              <use href={`${sprite}#dumbbell`} />
+            </svg>
+            Daily physical activity
+          </InformationText>
+          <InformationCounter>{user.dailySportTime} min</InformationCounter>
+        </InformationCard>
+      </InformationContainer>
+
+      <NoticeContainer>
+        <Notice
+          notice="We understand that each individual is unique, so the entire approach
+          to diet is relative and tailored to your unique body and goals."
         />
-        <div className="icon-upload" onClick={handleIconClick}>
-          <svg>
-            <use href=""></use>
-          </svg>
-        </div>
-      </form>
-
-      {/* <p>{user.name}</p> */}
-      <p>Name</p>
-      <p>User</p>
-
-      <div className="containerStatistic">
-        <div className="daily_calorie">
-          <svg>
-            <use></use>
-          </svg>
-          <p>Daily calorie intake</p>
-          <p>100</p>
-        </div>
-        <div className="daily_physical">
-          <svg>
-            <use></use>
-          </svg>
-          <p>Daily physical activity</p>
-          <p>110 min</p>
-        </div>
-      </div>
-
-      <div className="text_under_statistic">
-        <svg>
-          <use></use>
-        </svg>
-        <p>
-          We understand that each individual is unique, so the entire approach
-          to diet is relative and tailored to your unique body and goals.
-        </p>
-      </div>
-
-      <button onClick={handleLogOut} style={{ color: 'white' }}>
-        <p>Log out</p>
-        <svg>
-          <use></use>
-        </svg>
-      </button>
-    </div>
+      </NoticeContainer>
+      <LogoutContainer onClick={handleLogOut}>
+        <LogoutButton />
+      </LogoutContainer>
+    </UserCardContainer>
   );
 };
 

@@ -5,12 +5,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { selectAuthError } from '../../store/selectors';
 import { useSelector } from 'react-redux';
+import Verificationpopup from '../VerificationPopup/Verificationpopup';
 
 const SharedLayout = () => {
   const error = useSelector(selectAuthError);
 
   useEffect(() => {
-    error && toast.warning(error);
+    if (error)
+      error === 'Email not verified'
+        ? toast.success(<Verificationpopup />)
+        : toast.warning(error);
   }, [error]);
 
   return (

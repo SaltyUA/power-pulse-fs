@@ -1,7 +1,12 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ProductsListItem, AddProductModal, SuccessPopUp,ProductsPlaceholder } from '../../ProductsComponents';
+import {
+  ProductsListItem,
+  AddProductModal,
+  SuccessPopUp,
+  ProductsPlaceholder,
+} from '../../ProductsComponents';
 import { getProductsThunk } from '../../../store/products/operations';
 import { setAddProductFalse } from '../../../store/products/sliceProducts';
 import { notify, setBodyOverflow } from '../../../hooks';
@@ -10,12 +15,10 @@ import {
   StyledList,
   StyledLoader,
   StyledListLoader,
+  StyledLogoSvg,
 } from './ProductsList.styled';
+import sprite from '../../../assets/images/sprite.svg';
 
-const queryParams = {
-  bloodType: '1',
-  page: 1,
-};
 export const ProductsList = () => {
   const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
@@ -23,6 +26,9 @@ export const ProductsList = () => {
   const { products, isLoading, isSuccessPopUpShown, totalPages } = useSelector(
     (state) => state.products
   );
+  const queryParams = {
+    page: 1,
+  };
   const listRef = useRef(null);
   const ref = useRef(null);
   const dispatch = useDispatch();
@@ -32,8 +38,12 @@ export const ProductsList = () => {
     setShowModal(false);
   }, [isSuccessPopUpShown]);
   useEffect(() => {
+    if (isSuccessPopUpShown) return;
     setBodyOverflow(showModal);
-  }, [showModal]);
+  }, [showModal, isSuccessPopUpShown]);
+  useEffect(() => {
+    setBodyOverflow(isSuccessPopUpShown);
+  }, [isSuccessPopUpShown]);
   const handleOpenModal = (data) => {
     setModalData(data);
     setShowModal(true);
@@ -55,7 +65,7 @@ export const ProductsList = () => {
   }
   if (category && category !== 'Categories') {
     queryParams.cat = category.toLowerCase();
-  }  else {
+  } else {
     delete queryParams.cat;
   }
   if (recommended && recommended !== 'All') {
@@ -72,11 +82,11 @@ export const ProductsList = () => {
   }, [recommended, q, category]);
 
   useEffect(() => {
-        if (
+    if (
       page === totalPages ||
       (page === totalPages && page > 1 && totalPages > 1)
     )
-      return ;
+      return;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !isLoading) {
@@ -100,15 +110,19 @@ export const ProductsList = () => {
   }, [isLoading]);
 
   useEffect(() => {
-    if (page === totalPages && page !==1 ) {
-      notify('info', 'You have reached the end of search results')
+    if (page === totalPages && page !== 1) {
+      notify('info', 'You have reached the end of search results');
     }
-    if (page > totalPages)return ;
+    if (page > totalPages) return;
     dispatch(getProductsThunk({ queryParams, page }));
   }, [recommended, q, category, dispatch, page, totalPages]);
 
-  return isLoading && products === null ? (
-    <StyledLoader className="loader-1" />
+  return products === null ? (
+    <StyledLoader>
+      <StyledLogoSvg>
+        <use href={sprite + '#icon-logo'}></use>
+      </StyledLogoSvg>
+    </StyledLoader>
   ) : products && products.length > 0 ? (
     <>
       <StyledList ref={listRef}>

@@ -1,23 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ExercisesNavigation } from '../../components/ExercisesComponents/ExercisesNavigation/ExercisesNavigation';
 import { BodyParts } from '../../components/ExercisesComponents/ExercisesCategories/BodyParts';
 import { Muscles } from '../../components/ExercisesComponents/ExercisesCategories/Muscles';
 import { Equipment } from '../../components/ExercisesComponents/ExercisesCategories/Equipment';
+import { WaistList } from '../../components/ExercisesComponents/ExercisesWaist/WaistList/WaistList';
 import {
   ExercisesTitle,
   ExercisesWrapper,
   ExercisesBox,
 } from './Exercises.styled';
+import {
+  getCurrentCategorie,
+  getCurrentFilter,
+} from '../../store/exercises/selectorsExercises';
 import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentCategorie } from '../../store/exercises/sliceExercises';
 import { setIsShowModal } from '../../store/exercises/sliceExercises';
-import ExerciseForm from '../../components/ExercisesModal/modal';
-import { getIsShowModal } from '../../store/exercises/selectorsExercises';
+import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 import Button from '../../components/Button/Button';
 
 const ExercisesWrap = () => {
+  const currentCategorie = useSelector(getCurrentCategorie);
+  const currentFilter = useSelector(getCurrentFilter);
   const dispatch = useDispatch();
-  const [activeFilter, setActiveFilter] = useState('Body parts');
   const [exerciseName, setExerciseName] = useState('');
+
+  useEffect(() => {
+    dispatch(setCurrentCategorie(null));
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(setCurrentCategorie(null));
+  }, [dispatch]);
 
   const handleModal = () => dispatch(setIsShowModal(true));
 
@@ -37,39 +51,35 @@ const ExercisesWrap = () => {
   };
 
   return (
-    <>
-      <ExercisesWrapper>
+    <PageAnimatedWrapper direction="X">
+      <ExercisesWrapper $isCategorie={currentCategorie}>
         <ExercisesBox>
-          <Button onClick={handleModal}>Show Modal</Button>
-          <ExercisesTitle>Exercises</ExercisesTitle>
-          <ExercisesTitle>{capitalizeFirstLeter(exerciseName)}</ExercisesTitle>
-
-          <ExercisesNavigation
-            activeFilter={activeFilter}
-            handleFilterClick={handleFilterClick}
-          />
+          {!currentCategorie ? (
+            <ExercisesTitle>Exercises</ExercisesTitle>
+          ) : (
+            <ExercisesTitle>
+              {capitalizeFirstLeter(currentCategorie)}
+            </ExercisesTitle>
+          )}
         </ExercisesBox>
-        {activeFilter === 'Body parts' && (
-          <BodyParts
-            handleFilterClick={handleFilterClick}
-            handleSetExName={handleSetExName}
-          />
-        )}
-        {activeFilter === 'Muscles' && (
-          <Muscles
-            handleFilterClick={handleFilterClick}
-            handleSetExName={handleSetExName}
-          />
-        )}
-        {activeFilter === 'Equipment' && (
-          <Equipment
-            handleFilterClick={handleFilterClick}
-            handleSetExName={handleSetExName}
-          />
+        {!currentCategorie ? (
+          <>
+            {currentFilter === 'Body parts' && (
+              <BodyParts handleSetExName={handleSetExName} />
+            )}
+            {currentFilter === 'Muscles' && (
+              <Muscles handleSetExName={handleSetExName} />
+            )}
+            {currentFilter === 'Equipment' && (
+              <Equipment handleSetExName={handleSetExName} />
+            )}{' '}
+          </>
+        ) : (
+          <WaistList exerciseName={exerciseName} />
         )}
       </ExercisesWrapper>
       {isShowModal && <ExerciseForm />}
-    </>
+    </PageAnimatedWrapper>
   );
 };
 

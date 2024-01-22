@@ -1,14 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProductsThunk, addProductThunk, getCategoriesList } from './operations';
+import {
+  getProductsThunk,
+  addProductThunk,
+  getCategoriesList,
+} from './operations';
 
 const initialState = {
   error: null,
-  isLoading: null,
+  isLoading: false,
   products: null,
   isSuccessPopUpShown: false,
   totalPages: 1,
   addProductFalse: false,
-  categories:[],
+  categories: [],
+  calories: null
 };
 
 const productsSlice = createSlice({
@@ -21,6 +26,9 @@ const productsSlice = createSlice({
     setAddProductFalse(state, action) {
       state.addProductFalse = action.payload;
     },
+    setCalories(state, { payload }) {
+      state.calories = payload;
+    }
   },
   extraReducers: (builder) =>
     builder
@@ -63,11 +71,12 @@ const productsSlice = createSlice({
         state.error = action.payload;
         state.addProductFalse = true;
       })
-   .addCase(getCategoriesList.fulfilled, (state, action) => {
-     state.categories = action.payload;
+      .addCase(getCategoriesList.fulfilled, (state, action) => {
+        state.categories = action.payload;
+        state.isLoading = false;
       }),
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { setIsSuccessPopUpShown, setAddProductFalse } =
+export const { setIsSuccessPopUpShown, setAddProductFalse, setCalories } =
   productsSlice.actions;

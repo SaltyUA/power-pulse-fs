@@ -1,15 +1,3 @@
-// import StyledDatepicker from "./Datepicker/Datepicker";
-
-// import { DaySwitchArea } from './DaySwitch.styled';
-
-// const DaySwitch = () => {
-//     return (<DaySwitchArea>
-      
-//         <StyledDatepicker />
-//   </DaySwitchArea>);
-// };
-
-// export default DaySwitch;
 
 import {
   DaySwitchArea,
@@ -19,7 +7,6 @@ import {
 } from './DaySwitch.styled';
 import StyledDatepicker from './Datepicker/Datepicker';
 import sprite from '../../assets/images/sprite.svg';
-//import { useState } from 'react';
 
 const DaySwitch = () => {
   return (

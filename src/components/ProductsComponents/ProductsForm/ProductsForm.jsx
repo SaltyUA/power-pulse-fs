@@ -3,7 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { SelectCategory, SelectRecommended } from '../../ProductsComponents';
 import { StyledForm, StyledSearchSvg, StyledxSvg } from './ProductsFrom.styled';
-import sprite from '../../../assets/images/sprite.svg'
+import sprite from '../../../assets/images/sprite.svg';
+
 export const ProductsForm = () => {
   const [isCrossShown, setIsCrossShown] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,10 +22,16 @@ export const ProductsForm = () => {
     },
     onSubmit: (values) => {
       const { search } = values;
-           if (search) {
+      if (search) {
         setSearchParams((prevSearchParams) => {
           const updatedParams = new URLSearchParams(prevSearchParams);
           updatedParams.set('q', search);
+          return updatedParams;
+        });
+      } else {
+        setSearchParams((prevSearchParams) => {
+          const updatedParams = new URLSearchParams(prevSearchParams);
+          updatedParams.delete('q');
           return updatedParams;
         });
       }
@@ -62,14 +69,14 @@ export const ProductsForm = () => {
               }}
             >
               <StyledxSvg>
-            <use href={sprite + '#icon-close'}></use>
-          </StyledxSvg>
+                <use href={sprite + '#icon-close'}></use>
+              </StyledxSvg>
             </button>
           )}
           <button type="submit">
-             <StyledSearchSvg>
-            <use href={sprite + '#searchSvg'}></use>
-          </StyledSearchSvg>
+            <StyledSearchSvg>
+              <use href={sprite + '#searchSvg'}></use>
+            </StyledSearchSvg>
           </button>
         </div>
       </div>
@@ -82,8 +89,8 @@ export const ProductsForm = () => {
             setSearchParams((prevSearchParams) => {
               const updatedParams = new URLSearchParams(prevSearchParams);
               if (option.value === 'Categories') {
-                updatedParams.delete('category')
-                return
+                updatedParams.delete('category');
+                return updatedParams;
               }
               updatedParams.set('category', option.value);
               return updatedParams;
@@ -98,6 +105,10 @@ export const ProductsForm = () => {
             formik.setFieldValue('recommended', option.value);
             setSearchParams((prevSearchParams) => {
               const updatedParams = new URLSearchParams(prevSearchParams);
+              if (option.value === 'All') {
+                updatedParams.delete('recommended');
+                return updatedParams;
+              }
               updatedParams.set('recommended', option.value);
               return updatedParams;
             });

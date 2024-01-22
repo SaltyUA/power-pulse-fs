@@ -6,17 +6,19 @@ import { fetchEquipment} from '../../../store/exercises/operationExercises';
 import  {getEquipment} from '../../../store/exercises/selectorsExercises';
 import Pagination from '../ExercisesPagination/ExercisesPagination';
 import { PaginationContainer } from '../ExercisesPagination/ExercisesPagination.styled';
+import { setCurrentCategorie } from '../../../store/exercises/sliceExercises';
 
-export const Equipment = ({ handleSetExName, handleFilterClick }) =>{
+export const Equipment = ({ handleSetExName }) =>{
     const dispatch = useDispatch();
 
       useEffect(() => {
         dispatch(fetchEquipment());
       }, [dispatch]);
 
-    
+     const handleFilterClick = filter => {
+    dispatch(setCurrentCategorie(filter));
+  };
       const equipment = useSelector(getEquipment);
-      console.log(equipment);
 
       const [currentPage, setCurrentPage] = useState(1);
         

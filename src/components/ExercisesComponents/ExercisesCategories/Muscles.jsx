@@ -7,7 +7,7 @@ import  {getMuscles} from '../../../store/exercises/selectorsExercises';
 import Pagination from '../ExercisesPagination/ExercisesPagination';
 import { PaginationContainer } from '../ExercisesPagination/ExercisesPagination.styled';
 
-export const Muscles = ({ handleSetExName, handleFilterClick }) => {
+export const Muscles = ({ handleSetExName }) => {
   const dispatch = useDispatch();
 
       useEffect(() => {
@@ -16,7 +16,6 @@ export const Muscles = ({ handleSetExName, handleFilterClick }) => {
 
     
       const muscles = useSelector(getMuscles);
-      console.log(muscles);
 
       const [currentPage, setCurrentPage] = useState(1);
         
@@ -62,7 +61,6 @@ export const Muscles = ({ handleSetExName, handleFilterClick }) => {
           <ExercisesItem
             key={item._id}
             exercisesItem={item}
-            handleFilterClick={handleFilterClick}
             handleSetExName={handleSetExName}
           />
         ))}

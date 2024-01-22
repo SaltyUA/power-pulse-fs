@@ -3,6 +3,7 @@ import {
   fetchBodyParts,
   fetchEquipment,
   fetchMuscles,
+  fetchExercises,
 } from './operationExercises';
 
 const handlePending = (state) => {
@@ -12,7 +13,6 @@ const handlePending = (state) => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  // console.log('state.items', state.items);
 };
 
 const exercisesSlice = createSlice({
@@ -21,6 +21,9 @@ const exercisesSlice = createSlice({
     bodyParts: [],
     muscles: [],
     equipment: [],
+    exercises: [],
+    currentFilter: 'Body parts',
+    currentCategorie: null,
     isLoading: false,
     error: null,
     isShowModal: false,
@@ -33,6 +36,12 @@ const exercisesSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
+      .addCase(fetchExercises.pending, handlePending)
+      .addCase(fetchExercises.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.exercises = action.payload;
+      })
       .addCase(fetchBodyParts.pending, handlePending)
       .addCase(fetchBodyParts.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -44,7 +53,6 @@ const exercisesSlice = createSlice({
       .addCase(fetchMuscles.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        console.log(action.payload);
         state.muscles = action.payload;
       })
       .addCase(fetchMuscles.rejected, handleRejected)
@@ -52,7 +60,6 @@ const exercisesSlice = createSlice({
       .addCase(fetchEquipment.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-
         state.equipment = action.payload;
       })
       .addCase(fetchEquipment.rejected, handleRejected),
@@ -103,4 +110,5 @@ const exercisesSlice = createSlice({
 });
 
 export const exercisesReducer = exercisesSlice.reducer;
-export const { setIsShowModal } = exercisesSlice.actions;
+export const { setCurrentCategorie, setCurrentFilter, setIsShowModal } =
+  exercisesSlice.actions;
