@@ -35,6 +35,7 @@ const UserCard = () => {
   const handleIconClick = (e) => {
     e.preventDefault();
 
+    console.log();
     if (fileInputRef.current) {
       fileInputRef.current.click();
     }
@@ -48,7 +49,7 @@ const UserCard = () => {
     }
 
     try {
-      dispatch(updateUserAvatar(file));
+      await dispatch(updateUserAvatar(file));
     } catch (error) {
       console.log('Error updating avatar:', error);
     }
