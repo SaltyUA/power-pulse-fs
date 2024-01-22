@@ -13,6 +13,12 @@ import {
   WaistItemLi,
 } from './WaistItem.styled';
 import sprite from '../../../../assets/images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import {
+  setIsShowModal,
+  setCurrentExercise,
+} from '../../../../store/exercises/sliceExercises';
+
 const texts = {
   cardLabel: 'Workout',
   btnLabel: 'Start',
@@ -28,16 +34,19 @@ const capitalizeFirstLeter = (string) => {
   return newString;
 };
 
-// {
-//   modal
-// }
-
 export const WaistItem = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleModal = () => {
+    dispatch(setIsShowModal(true));
+    dispatch(setCurrentExercise(data));
+  };
+
   return (
     <WaistItemLi>
       <BtnWrapper>
         <CardLabel>{texts.cardLabel}</CardLabel>
-        <BtnLabel type="button">
+        <BtnLabel type="button" onClick={handleModal}>
           {texts.btnLabel}
           <SvgExercise>
             <use href={`${sprite}#icon-arrow-start`}></use>

@@ -36,3 +36,11 @@ export async function fetchEquipment(params) {
   });
   return data;
 }
+
+export async function addExercise(body, id) {
+  const { data } = await exercises.post(
+    `/diary-records/add-exercise/${id}`,
+    body
+  );
+  return data;
+}

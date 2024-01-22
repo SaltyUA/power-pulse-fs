@@ -139,6 +139,7 @@ export const ImgContainer = styled.div`
   overflow: hidden;
   width: 270px;
   height: 226px;
+  object-fit: cover;
 
   @media (max-width: 767px) {
   }

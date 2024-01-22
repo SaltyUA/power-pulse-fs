@@ -33,22 +33,45 @@ import {
   ButtonActive,
   TimerContainerWrapper,
 } from './styled-modal';
-import gif from '../../assets/images/f38f17db5480518a62220c817f6bbffe.png';
 import thumb from '../../assets/images/thumb_up_gloss.png';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { useState } from 'react';
 import sprite from '../../assets/images/sprite.svg';
-import { useDispatch } from 'react-redux';
-import { setIsShowModal } from '../../store/exercises/sliceExercises';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setCurrentExercise,
+  setIsShowModal,
+} from '../../store/exercises/sliceExercises';
+import { getCurrentExercise } from '../../store/exercises/selectorsExercises';
+import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter';
+import timeFormat from '../../utils/timeFormat';
+import { addExerciseThunk } from '../../store/exercises/operationExercises';
+import { getCurrentDate } from '../../hooks';
 
 function ExerciseForm() {
+  const dispatch = useDispatch();
   const [isPlaying, setisPlaying] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const dispatch = useDispatch();
+  const [exerciseDuration, setExerciseDuration] = useState(0);
+  const [burnedCalories, setBurnedCalories] = useState(0);
+  const currentExercise = useSelector(getCurrentExercise);
+
   const handleClose = () => dispatch(setIsShowModal());
+
   const handleAdd = () => {
+    const dispatchData = {
+      body: {
+        date: getCurrentDate(),
+        calories: burnedCalories ?? 1,
+        time: Math.round(exerciseDuration),
+      },
+      id: currentExercise._id,
+    };
+    dispatch(addExerciseThunk(dispatchData));
+    dispatch(setCurrentExercise(null));
     setIsSuccess(true);
   };
+
   const togglePlay = () => setisPlaying(!isPlaying);
 
   return (
@@ -64,27 +87,35 @@ function ExerciseForm() {
             <ModalSubcontent>
               <TopWrap>
                 <ImgContainer>
-                  <img src={gif} alt="Illustration" />
+                  <img src={currentExercise.gifUrl} alt="Illustration" />
                 </ImgContainer>
                 <RightSide>
                   <RowUp>
                     <NameContainer>
                       <ModalSubtext>Name</ModalSubtext>
-                      <ModalText>Exercise Name</ModalText>
+                      <ModalText>
+                        {capitalizeFirstLetter(currentExercise.name)}
+                      </ModalText>
                     </NameContainer>
                     <NameContainer>
                       <ModalSubtext>Target</ModalSubtext>
-                      <ModalText>Target</ModalText>
+                      <ModalText>
+                        {capitalizeFirstLetter(currentExercise.target)}
+                      </ModalText>
                     </NameContainer>
                   </RowUp>
                   <Row>
                     <NameContainer>
                       <ModalSubtext>Body Part</ModalSubtext>
-                      <ModalText>Body Part</ModalText>
+                      <ModalText>
+                        {capitalizeFirstLetter(currentExercise.bodyPart)}
+                      </ModalText>
                     </NameContainer>
                     <NameContainer>
                       <ModalSubtext>Equipment</ModalSubtext>
-                      <ModalText>Equipment</ModalText>
+                      <ModalText>
+                        {capitalizeFirstLetter(currentExercise.equipment)}
+                      </ModalText>
                     </NameContainer>
                   </Row>
                 </RightSide>
@@ -96,11 +127,23 @@ function ExerciseForm() {
                   <TimerWrap>
                     <CountdownCircleTimer
                       isPlaying={isPlaying} // Использование переменной состояния
-                      duration={9}
+                      duration={currentExercise.time * 60}
                       colors={'#E6533C'}
                       size={125}
+                      onUpdate={(remainingTime) => {
+                        setExerciseDuration(
+                          currentExercise.time * 60 - remainingTime
+                        );
+                        setBurnedCalories(
+                          Math.round(
+                            (currentExercise.burnedCalories /
+                              (currentExercise.time * 60)) *
+                              exerciseDuration
+                          )
+                        );
+                      }}
                     >
-                      {({ remainingTime }) => remainingTime}
+                      {({ remainingTime }) => timeFormat(remainingTime)}
                     </CountdownCircleTimer>
                   </TimerWrap>
                 </TimerContainer>
@@ -118,10 +161,17 @@ function ExerciseForm() {
               </button>
             </ButtonActive>
             <CaloriesLabel>
-              Burned calories: <CaloriesTimer>0</CaloriesTimer>
+              Burned calories: <CaloriesTimer>{burnedCalories}</CaloriesTimer>
             </CaloriesLabel>
             <BtnAddToDiary>
-              <ModalButton onClick={handleAdd}>Add to diary</ModalButton>
+              <ModalButton
+                disabled={isPlaying || exerciseDuration < 60}
+                onClick={handleAdd}
+              >
+                {exerciseDuration < 60
+                  ? 'Unless 1 minute for training'
+                  : 'Add to diary'}
+              </ModalButton>
             </BtnAddToDiary>
           </ModalContent>
         </Modal>
@@ -136,10 +186,14 @@ function ExerciseForm() {
             <DiaryImg src={thumb} alt="Thumb Up" />
             <ModalDiaryText>Well done</ModalDiaryText>
             <SubtextDiaryModal>
-              Your time: <DiaryCaloriesTime>00:00</DiaryCaloriesTime>
+              Your time:
+              <DiaryCaloriesTime>
+                {timeFormat(exerciseDuration)}
+              </DiaryCaloriesTime>
             </SubtextDiaryModal>
             <BurnedCalories>
-              Burned calories: <DiaryCaloriesBurned>0</DiaryCaloriesBurned>
+              Burned calories:
+              <DiaryCaloriesBurned>{burnedCalories}</DiaryCaloriesBurned>
             </BurnedCalories>
             <BtnNextExercise onClick={handleClose}>
               Next exercise

@@ -1,6 +1,15 @@
 import { StyledButton } from './Button.styled';
 
-const Button = ({ onClick, children, transparent, width, as, type, to }) => {
+const Button = ({
+  disabled,
+  onClick,
+  children,
+  transparent,
+  width,
+  as,
+  type,
+  to,
+}) => {
   return (
     <StyledButton
       type={type}
@@ -9,6 +18,7 @@ const Button = ({ onClick, children, transparent, width, as, type, to }) => {
       $width={width}
       $transparent={transparent}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </StyledButton>

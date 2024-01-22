@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ExercisesNavigation } from '../../components/ExercisesComponents/ExercisesNavigation/ExercisesNavigation';
 import { BodyParts } from '../../components/ExercisesComponents/ExercisesCategories/BodyParts';
 import { Muscles } from '../../components/ExercisesComponents/ExercisesCategories/Muscles';
@@ -12,38 +12,23 @@ import {
 import {
   getCurrentCategorie,
   getCurrentFilter,
+  getIsShowModal,
 } from '../../store/exercises/selectorsExercises';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentCategorie } from '../../store/exercises/sliceExercises';
-import { setIsShowModal } from '../../store/exercises/sliceExercises';
 import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
-import Button from '../../components/Button/Button';
+import ExerciseForm from '../../components/ExercisesModal/modal';
 
 const ExercisesWrap = () => {
   const currentCategorie = useSelector(getCurrentCategorie);
   const currentFilter = useSelector(getCurrentFilter);
   const dispatch = useDispatch();
-  const [exerciseName, setExerciseName] = useState('');
 
   useEffect(() => {
     dispatch(setCurrentCategorie(null));
   }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(setCurrentCategorie(null));
-  }, [dispatch]);
-
-  const handleModal = () => dispatch(setIsShowModal(true));
 
   const isShowModal = useSelector(getIsShowModal);
-
-  const handleSetExName = (name) => {
-    setExerciseName(name);
-  };
-
-  const handleFilterClick = (filter) => {
-    setActiveFilter(filter);
-  };
 
   const capitalizeFirstLeter = (string) => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
@@ -61,21 +46,16 @@ const ExercisesWrap = () => {
               {capitalizeFirstLeter(currentCategorie)}
             </ExercisesTitle>
           )}
+          <ExercisesNavigation />
         </ExercisesBox>
         {!currentCategorie ? (
           <>
-            {currentFilter === 'Body parts' && (
-              <BodyParts handleSetExName={handleSetExName} />
-            )}
-            {currentFilter === 'Muscles' && (
-              <Muscles handleSetExName={handleSetExName} />
-            )}
-            {currentFilter === 'Equipment' && (
-              <Equipment handleSetExName={handleSetExName} />
-            )}{' '}
+            {currentFilter === 'Body parts' && <BodyParts />}
+            {currentFilter === 'Muscles' && <Muscles />}
+            {currentFilter === 'Equipment' && <Equipment />}{' '}
           </>
         ) : (
-          <WaistList exerciseName={exerciseName} />
+          <WaistList />
         )}
       </ExercisesWrapper>
       {isShowModal && <ExerciseForm />}
