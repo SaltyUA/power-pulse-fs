@@ -6,6 +6,8 @@ import { updateUserData } from '../../../store/auth/thunk';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+import StyledDatepicker from '../../StyledDatepicker';
+
 import {
   FormStyle,
   ContainerNameEmail,
@@ -74,7 +76,7 @@ const UserForm = () => {
     height: user.height ?? 150,
     currentWeight: user.currentWeight ?? 35,
     desiredWeight: user.desiredWeight ?? 35,
-    birthday: formatDate(user.birthday) ?? '1990-01-01',
+    birthday: user.birthday ? new Date(user.birthday) : new Date('1990-01-01'),
     blood: String(user.blood) ?? '1',
     sex: user.sex ?? 'male',
     levelActivity: String(user.levelActivity) ?? '1',
@@ -206,13 +208,19 @@ const UserForm = () => {
               </FormLabelSecond>
               <FormLabelSecond>
                 Date of birth
-                <FormInput
+                {/* <FormInput
                   type="date"
                   id="birthday"
                   name="birthday"
                   value={values.birthday}
                   onChange={handleChange}
                   style={{ pointerEvents: 'none' }}
+                /> */}
+                <StyledDatepicker
+                  selectedDate={values.birthday}
+                  setSelectedDate={(date) =>
+                    handleChange({ target: { name: 'birthday', value: date } })
+                  }
                 />
                 {errors.birthday && touched.birthday ? (
                   <ContainerErrorValidation>
@@ -226,47 +234,56 @@ const UserForm = () => {
           <ContainerBloodSex>
             <BloodTitle>Blood</BloodTitle>
             <WrapperBloodSex>
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <RadioLabelBlood>
-                  <RadioBtn
-                    type="radio"
-                    name="blood"
-                    value="1"
-                    checked={values.blood === '1'}
-                    onChange={handleChange}
-                  />
-                  1
-                </RadioLabelBlood>
-                <RadioLabelBlood>
-                  <RadioBtn
-                    type="radio"
-                    name="blood"
-                    value="2"
-                    checked={values.blood === '2'}
-                    onChange={handleChange}
-                  />
-                  2
-                </RadioLabelBlood>
-                <RadioLabelBlood>
-                  <RadioBtn
-                    type="radio"
-                    name="blood"
-                    value="3"
-                    checked={values.blood === '3'}
-                    onChange={handleChange}
-                  />
-                  3
-                </RadioLabelBlood>
-                <RadioLabelBlood>
-                  <RadioBtn
-                    type="radio"
-                    name="blood"
-                    value="4"
-                    checked={values.blood === '4'}
-                    onChange={handleChange}
-                  />
-                  4
-                </RadioLabelBlood>
+              <div
+                style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}
+              >
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <RadioLabelBlood>
+                    <RadioBtn
+                      type="radio"
+                      name="blood"
+                      value="1"
+                      checked={values.blood === '1'}
+                      onChange={handleChange}
+                    />
+                    1
+                  </RadioLabelBlood>
+                  <RadioLabelBlood>
+                    <RadioBtn
+                      type="radio"
+                      name="blood"
+                      value="2"
+                      checked={values.blood === '2'}
+                      onChange={handleChange}
+                    />
+                    2
+                  </RadioLabelBlood>
+                  <RadioLabelBlood>
+                    <RadioBtn
+                      type="radio"
+                      name="blood"
+                      value="3"
+                      checked={values.blood === '3'}
+                      onChange={handleChange}
+                    />
+                    3
+                  </RadioLabelBlood>
+                  <RadioLabelBlood>
+                    <RadioBtn
+                      type="radio"
+                      name="blood"
+                      value="4"
+                      checked={values.blood === '4'}
+                      onChange={handleChange}
+                    />
+                    4
+                  </RadioLabelBlood>
+                </div>
+                {errors.blood && touched.blood ? (
+                  <ContainerErrorValidation>
+                    Blood type is required
+                  </ContainerErrorValidation>
+                ) : null}
               </div>
 
               <div style={{ display: 'flex', gap: '8px' }}>
@@ -295,57 +312,66 @@ const UserForm = () => {
           </ContainerBloodSex>
 
           <ContainerActivity>
-            <RadioLabelActivity>
-              <RadioBtn
-                type="radio"
-                name="levelActivity"
-                value="1"
-                checked={values.levelActivity === '1'}
-                onChange={handleChange}
-              />
-              Sedentary lifestyle (little or no physical activity)
-            </RadioLabelActivity>
-            <RadioLabelActivity>
-              <RadioBtn
-                type="radio"
-                name="levelActivity"
-                value="2"
-                checked={values.levelActivity === '2'}
-                onChange={handleChange}
-              />
-              Light activity (light exercises/sports 1-3 days per week)
-            </RadioLabelActivity>
-            <RadioLabelActivity>
-              <RadioBtn
-                type="radio"
-                name="levelActivity"
-                value="3"
-                checked={values.levelActivity === '3'}
-                onChange={handleChange}
-              />
-              Moderately active (moderate exercises/sports 3-5 days per week)
-            </RadioLabelActivity>
-            <RadioLabelActivity>
-              <RadioBtn
-                type="radio"
-                name="levelActivity"
-                value="4"
-                checked={values.levelActivity === '4'}
-                onChange={handleChange}
-              />
-              Very active (intense exercises/sports 6-7 days per week)
-            </RadioLabelActivity>
-            <RadioLabelActivity>
-              <RadioBtn
-                type="radio"
-                name="levelActivity"
-                value="5"
-                checked={values.levelActivity === '5'}
-                onChange={handleChange}
-              />
-              Extremely active (very strenuous exercises/ sports and physical
-              work)
-            </RadioLabelActivity>
+            <div
+              style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
+            >
+              <RadioLabelActivity>
+                <RadioBtn
+                  type="radio"
+                  name="levelActivity"
+                  value="1"
+                  checked={values.levelActivity === '1'}
+                  onChange={handleChange}
+                />
+                Sedentary lifestyle (little or no physical activity)
+              </RadioLabelActivity>
+              <RadioLabelActivity>
+                <RadioBtn
+                  type="radio"
+                  name="levelActivity"
+                  value="2"
+                  checked={values.levelActivity === '2'}
+                  onChange={handleChange}
+                />
+                Light activity (light exercises/sports 1-3 days per week)
+              </RadioLabelActivity>
+              <RadioLabelActivity>
+                <RadioBtn
+                  type="radio"
+                  name="levelActivity"
+                  value="3"
+                  checked={values.levelActivity === '3'}
+                  onChange={handleChange}
+                />
+                Moderately active (moderate exercises/sports 3-5 days per week)
+              </RadioLabelActivity>
+              <RadioLabelActivity>
+                <RadioBtn
+                  type="radio"
+                  name="levelActivity"
+                  value="4"
+                  checked={values.levelActivity === '4'}
+                  onChange={handleChange}
+                />
+                Very active (intense exercises/sports 6-7 days per week)
+              </RadioLabelActivity>
+              <RadioLabelActivity>
+                <RadioBtn
+                  type="radio"
+                  name="levelActivity"
+                  value="5"
+                  checked={values.levelActivity === '5'}
+                  onChange={handleChange}
+                />
+                Extremely active (very strenuous exercises/ sports and physical
+                work)
+              </RadioLabelActivity>
+            </div>
+            {errors.levelActivity && touched.levelActivity ? (
+              <ContainerErrorValidation>
+                Activity level is required
+              </ContainerErrorValidation>
+            ) : null}
           </ContainerActivity>
 
           <FormSaveBtn type="submit">Save</FormSaveBtn>
