@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect} from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import {
@@ -15,17 +15,16 @@ import { setDayInfo } from '../../../store/diary/sliceDiary';
 const StyledDatepicker = () => {
   const dispatch = useDispatch();
 
-
   const [selectedDate, setSelectedDate] = useState(Date.now());
   useEffect(() => {
     dispatch(setDayInfo(format(selectedDate, 'dd-MM-yyyy')));
-    
   });
   // useEffect(() => {
   //   onChoiceDate(format(selectedDate, 'dd-MM-yyyy'));
   // });
 
-  const CustomInput = forwardRef(({ value, onClick }, ref) => {
+  // eslint-disable-next-line react/display-name
+  const CustomInput = forwardRef(({ onClick }, ref) => {
     return (
       <TitleWrapper onClick={onClick} ref={ref}>
         {format(selectedDate, 'dd/MM/yyyy')}
@@ -45,9 +44,9 @@ const StyledDatepicker = () => {
           setSelectedDate(date);
         }}
         customInput={<CustomInput />}
-        dateFormat={"dd MM yyyy"}
+        dateFormat={'dd MM yyyy'}
         calendarStartDay={1}
-        formatWeekDay={(day) => day.substr(0, 1)}
+        formatWeekDay={(day) => day.substring(0, 1)}
         // minDate={user.createdAt ? createdDate : Date.now()}
         maxDate={Date.now()}
       />
