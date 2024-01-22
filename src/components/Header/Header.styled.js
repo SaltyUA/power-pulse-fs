@@ -3,21 +3,20 @@ import { styleGuide } from '../../constants/styleGuide';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
-
+  z-index: 10;
   background-color: transparent;
-
 
   ${(props) =>
     props.$isLoggedIn
       ? 'border-bottom: 1px solid rgba(239, 237, 232, 0.2)'
-      : 'position: absolute;'}
+      : 'position: absolute;  @media screen and (max-width:1439px) {left: 50%; transform: translatex(-50%);}'}
 `;
 
 export const HeaderWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  min-width: 320px;
   padding: 24px 20px;
   margin: 0 auto;
 
