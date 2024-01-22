@@ -1,4 +1,4 @@
-import{s as i,u as A,c as R,i as S,e as j,j as e,a as f,k as L,m as U,n as D,b as o,o as B}from"./index-ec9fdf17.js";import{N as E,T as I}from"./TitlePage.styled-13ce34d2.js";import{n as a}from"./emotion-styled.browser.esm-46f93cb9.js";import{F as N,a as P}from"./formik.esm-cbe7e4e5.js";import{P as O}from"./PageAnimatedWrapper-b38db8d0.js";import"./hoist-non-react-statics.cjs-3f8ebaa8.js";const M=a.div`
+import{s as i,u as A,c as R,i as S,e as j,j as e,a as f,k as L,m as U,n as D,b as o,o as B}from"./index-120d2f3d.js";import{N as E,T as I}from"./TitlePage.styled-ff854963.js";import{n as a}from"./emotion-styled.browser.esm-c5904ded.js";import{F as N,a as P}from"./formik.esm-1dac4ba3.js";import{P as O}from"./PageAnimatedWrapper-c0c695e1.js";const M=a.div`
   min-width: 281px;
   display: flex;
   flex-direction: column;
@@ -544,4 +544,4 @@ import{s as i,u as A,c as R,i as S,e as j,j as e,a as f,k as L,m as U,n as D,b a
 
     margin-top: 32px;
   }
-`,fe=()=>e.jsx(O,{direction:"X",children:e.jsxs(se,{children:[e.jsx(I,{children:"Profile Settings"}),e.jsxs(le,{children:[e.jsx(K,{}),e.jsx(de,{})]})]})});export{fe as default};
+`,ge=()=>e.jsx(O,{direction:"X",children:e.jsxs(se,{children:[e.jsx(I,{children:"Profile Settings"}),e.jsxs(le,{children:[e.jsx(K,{}),e.jsx(de,{})]})]})});export{ge as default};
