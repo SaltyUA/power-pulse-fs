@@ -8,6 +8,11 @@ export const NavContainer = styled.nav`
   justify-content: center;
   align-content: center;
   gap: 16px;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    margin-right: 32px;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -18,8 +23,15 @@ export const StyledNavLink = styled(NavLink)`
   border-radius: 12px;
   padding: 10px 27px;
 
-  &:is(:active, :hover) {
+  &:is(:hover, .active) {
     border-color: ${styleGuide.whiteColor};
+  }
+
+  @media screen and (min-width: 1440px) {
+    &:is(:hover, .active) {
+      background-color: ${styleGuide.orangeColor};
+      border-color: ${styleGuide.navLinkColor};
+    }
   }
 
   @media screen and (min-width: 768px) {

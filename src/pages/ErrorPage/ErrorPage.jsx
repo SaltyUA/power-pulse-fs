@@ -6,6 +6,7 @@ import {
   NotFoundBtn,
   ImgContainer,
 } from './ErrorPage.styled';
+
 const ErrorPage = () => {
   return (
     <Container>

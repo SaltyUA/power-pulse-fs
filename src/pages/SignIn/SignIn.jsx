@@ -8,18 +8,29 @@ import {
   FormWrapper,
   InputWrap,
   RedirectText,
-  SignInWrap,
+  SignWrap,
 } from './SignIn.styled';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import { Container } from '../../App.styled';
-import { useDispatch } from 'react-redux';
-import { logIn } from '../../store/auth/thunk';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, verifyEmail } from '../../store/auth/thunk';
 import { Statistics } from '../../components/Statistics/statistics';
+import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
+import { ResendModal } from '../../components/ResendModal/ResendModal';
+import { selectIsResendShown } from '../../store/selectors';
+import { useEffect } from 'react';
 
 const SignIn = () => {
+  const isResendShown = useSelector(selectIsResendShown);
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const verifyToken = searchParams.get('v');
+
+  useEffect(() => {
+    if (verifyToken) dispatch(verifyEmail({ verificationToken: verifyToken }));
+  }, [dispatch, verifyToken]);
 
   const formik = useFormik({
     initialValues: {
@@ -33,15 +44,16 @@ const SignIn = () => {
       email: string()
         .required('Please enter email')
         .matches(emailPattern, 'Please check is it true email'),
+      password: string()
+        .min(6, 'Must have at least 6 symbols')
+        .required('Please enter password'),
     }),
-    password: string()
-      .min(6, 'Must have at least 6 symbols')
-      .required('Please enter password'),
   });
 
   return (
     <Container>
-      <SignInWrap>
+      <PageAnimatedWrapper direction="Y" />
+      <SignWrap>
         <FormContainer>
           <FormTitle>Sign In</FormTitle>
           <AuthText>
@@ -101,7 +113,8 @@ const SignIn = () => {
           </FormWrapper>
         </FormContainer>
         <Statistics />
-      </SignInWrap>
+      </SignWrap>
+      {isResendShown && <ResendModal />}
     </Container>
   );
 };

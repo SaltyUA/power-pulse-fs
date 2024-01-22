@@ -1,14 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProductsThunk, addProductThunk, getCategoriesList } from './operations';
+import {
+  getProductsThunk,
+  addProductThunk,
+  getCategoriesList,
+} from './operations';
 
 const initialState = {
   error: null,
-  isLoading: null,
+  isLoading: false,
   products: null,
   isSuccessPopUpShown: false,
   totalPages: 1,
   addProductFalse: false,
-  categories:[],
+  categories: [],
 };
 
 const productsSlice = createSlice({
@@ -63,8 +67,9 @@ const productsSlice = createSlice({
         state.error = action.payload;
         state.addProductFalse = true;
       })
-   .addCase(getCategoriesList.fulfilled, (state, action) => {
-     state.categories = action.payload;
+      .addCase(getCategoriesList.fulfilled, (state, action) => {
+        state.categories = action.payload;
+        state.isLoading = false;
       }),
 });
 

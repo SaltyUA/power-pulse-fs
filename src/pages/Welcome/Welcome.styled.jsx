@@ -9,7 +9,13 @@ export const WelcomeContainer = styled.div`
   width: 320px;
   padding: 0px 20px;
   margin: 0 auto;
-  background-image: url(${training});
+  background-image: linear-gradient(
+      170deg,
+      #040404 3.66%,
+      rgba(4, 4, 4, 0) 19.15%
+    ),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${training});
   background-position: bottom right;
   background-repeat: no-repeat;
 
@@ -24,10 +30,16 @@ export const WelcomeContainer = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    background-image: url(${trainingDesctop});
+    background-image: linear-gradient(
+        80deg,
+        #040404 -2.45%,
+        rgba(4, 4, 4, 0) 68.17%
+      ),
+      url(${trainingDesctop});
     padding: 0px 32px;
-    width: 1440px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -36,7 +48,8 @@ export const StatisticsContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 670px;
-    padding-top: 335px;
+    padding-top: 325px;
+    padding-bottom: 170px;
   }
 `;
 
@@ -156,6 +169,7 @@ export const StatisticsVideo = styled.div`
 
   @media screen and (min-width: 1440px) {
     margin-left: 0px;
+    margin-bottom: 40px;
   }
 `;
 

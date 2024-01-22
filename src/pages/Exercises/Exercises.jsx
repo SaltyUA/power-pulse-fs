@@ -12,7 +12,7 @@ import {
 import { getCurrentCategorie, getCurrentFilter } from '../../store/exercises/selectorsExercises';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentCategorie } from '../../store/exercises/sliceExercises';
-
+import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 
 const ExercisesWrap = () => {
   const currentCategorie = useSelector(getCurrentCategorie)
@@ -33,6 +33,7 @@ const ExercisesWrap = () => {
   };
 
   return (
+    <PageAnimatedWrapper direction='X'>
     <ExercisesWrapper $isCategorie={currentCategorie}>
       <ExercisesBox>
           {!currentCategorie ? (
@@ -61,6 +62,9 @@ const ExercisesWrap = () => {
       )} </>
          : <WaistList exerciseName={exerciseName} />}
     </ExercisesWrapper>
+
+       </PageAnimatedWrapper>
+
   );
 };
 
