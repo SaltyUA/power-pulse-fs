@@ -13,13 +13,16 @@ import {
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import { Container } from '../../App.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../store/auth/thunk';
 import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 import { Statistics } from '../../components/Statistics/statistics';
+import { selectIsResendShown } from '../../store/selectors';
+import { ResendModal } from '../../components/ResendModal/ResendModal';
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const isResendShown = useSelector(selectIsResendShown);
 
   const formik = useFormik({
     initialValues: {
@@ -128,6 +131,7 @@ const SignUp = () => {
         </FormContainer>
         <Statistics />
       </SignWrap>
+      {isResendShown && <ResendModal />}
     </Container>
   );
 };
