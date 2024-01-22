@@ -6,8 +6,23 @@ import DaySwitch from '../../components/DaySwitch';
 import TitlePage from '../../components/TitlePage';
 import { DiaryContainer, Left, Right, ForPosition } from './Diary.styled';
 import Notice from '../../components/Notice';
+import { useSelector, useDispatch } from 'react-redux';
+import { getDateInfo, getDiaryInfo } from '../../store/diary/selectorsDiary';
+import { useEffect } from 'react';
+import { fetchDiaryData } from '../../store/diary/operationDiary';
 import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
+
 const Diary = () => {
+  const dispatch = useDispatch();
+  const dateInfo = useSelector(getDateInfo);
+  const dayInfo = useSelector(getDiaryInfo);
+
+
+  useEffect(() => {
+    dispatch(fetchDiaryData(dateInfo));   
+   
+    }, [dateInfo, dispatch]);
+  
   return (
     <PageAnimatedWrapper direction='X'>
     <Container>
@@ -16,8 +31,8 @@ const Diary = () => {
         <DaySwitch />
         <DiaryContainer>
           <Left>
-            <DayProducts />
-            <DayExercises />
+            <DayProducts consumedProducts={dayInfo.products} />
+            <DayExercises consumedExercises={dayInfo.exercises} />
           </Left>
           <Right>
             <DayDashboard />
