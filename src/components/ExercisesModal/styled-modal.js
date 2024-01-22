@@ -4,13 +4,17 @@ import { styleGuide } from '../../constants/styleGuide';
 import { Link } from 'react-router-dom';
 
 export const ModalButton = styled(Button)`
+  // position: absolute;
+  // bottom: 48px;
+  // right: 32px;
+`;
+
+export const BtnAddToDiary = styled.div`
   position: absolute;
-  bottom: 48px;
   right: 32px;
 `;
 
 export const Modal = styled.div`
-  /* display: none; */
   position: fixed;
   z-index: 99;
   left: 0;
@@ -60,6 +64,7 @@ export const NameContainer = styled.div`
   width: 168px;
   height: 70px;
   margin: 0;
+  margin-bottom: 8px;
 `;
 
 export const ModalSubtext = styled.p`
@@ -79,24 +84,32 @@ export const ModalText = styled.h2`
 
 export const RightSide = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 8px;
+  // flex-wrap: wrap;
+  gap: 8px;
 `;
 
 export const ImgContainer = styled.div`
   margin-left: 32px;
   border-radius: 12px;
   margin-right: 16px;
-  border-radius: 12px;
   overflow: hidden;
+  width: 270px;
+  height: 226px;
 `;
 
 export const TopWrap = styled.div`
   display: flex;
 `;
 
+export const RowUp = styled.div``;
+
+export const Row = styled.div`
+  margin-right: 31px;
+`;
+
 // Стили таймера
 export const TimerContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -104,7 +117,6 @@ export const TimerContainer = styled.div`
   color: white;
   width: 270px;
   height: 196px;
-  position: relative;
 `;
 
 export const TimerWrap = styled.div`

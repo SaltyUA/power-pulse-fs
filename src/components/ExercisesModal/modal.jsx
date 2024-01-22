@@ -27,6 +27,9 @@ import {
   BotWrap,
   Close,
   CloseIcon,
+  Row,
+  RowUp,
+  BtnAddToDiary,
 } from './styled-modal';
 import gif from '../../assets/images/f38f17db5480518a62220c817f6bbffe.png';
 import thumb from '../../assets/images/thumb_up_gloss.png';
@@ -62,22 +65,26 @@ function ExerciseForm() {
                   <img src={gif} alt="Illustration" />
                 </ImgContainer>
                 <RightSide>
-                  <NameContainer>
-                    <ModalSubtext>Name</ModalSubtext>
-                    <ModalText>Exercise Name</ModalText>
-                  </NameContainer>
-                  <NameContainer>
-                    <ModalSubtext>Target</ModalSubtext>
-                    <ModalText>Target</ModalText>
-                  </NameContainer>
-                  <NameContainer>
-                    <ModalSubtext>Body Part</ModalSubtext>
-                    <ModalText>Body Part</ModalText>
-                  </NameContainer>
-                  <NameContainer>
-                    <ModalSubtext>Equipment</ModalSubtext>
-                    <ModalText>Equipment</ModalText>
-                  </NameContainer>
+                  <RowUp>
+                    <NameContainer>
+                      <ModalSubtext>Name</ModalSubtext>
+                      <ModalText>Exercise Name</ModalText>
+                    </NameContainer>
+                    <NameContainer>
+                      <ModalSubtext>Target</ModalSubtext>
+                      <ModalText>Target</ModalText>
+                    </NameContainer>
+                  </RowUp>
+                  <Row>
+                    <NameContainer>
+                      <ModalSubtext>Body Part</ModalSubtext>
+                      <ModalText>Body Part</ModalText>
+                    </NameContainer>
+                    <NameContainer>
+                      <ModalSubtext>Equipment</ModalSubtext>
+                      <ModalText>Equipment</ModalText>
+                    </NameContainer>
+                  </Row>
                 </RightSide>
               </TopWrap>
               <BotWrap>
@@ -85,9 +92,8 @@ function ExerciseForm() {
                   <TimerWrap>
                     <CountdownCircleTimer
                       isPlaying
-                      duration={7}
-                      colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-                      colorsTime={[7, 5, 2, 0]}
+                      duration={9}
+                      colors={'#E6533C'}
                     >
                       {({ remainingTime }) => remainingTime}
                     </CountdownCircleTimer>
@@ -103,11 +109,14 @@ function ExerciseForm() {
                       />
                     </PlayIcon>
                   </button>
+
                   <CaloriesLabel>
                     Burned calories: <CaloriesTimer>0</CaloriesTimer>
                   </CaloriesLabel>
                 </TimerContainer>
-                <ModalButton onClick={handleAdd}>Add to diary</ModalButton>
+                <BtnAddToDiary>
+                  <ModalButton onClick={handleAdd}>Add to diary</ModalButton>
+                </BtnAddToDiary>
               </BotWrap>
             </ModalSubcontent>
           </ModalContent>
