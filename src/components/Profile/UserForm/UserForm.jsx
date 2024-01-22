@@ -4,7 +4,7 @@ import { selectUser } from '../../../store/selectors';
 import { updateUserData } from '../../../store/auth/thunk';
 
 import { Formik } from 'formik';
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 
 import {
   FormStyle,
@@ -27,44 +27,6 @@ import {
   ContainerErrorValidation,
 } from './UserForm.styled';
 
-<<<<<<< HEAD
-// const userFormSchema = Yup.object().shape({
-//   name: Yup.string()
-//     .min(2, 'Too Short!')
-//     .max(50, 'Too Long!')
-//     .required('Name is required'),
-//   height: Yup.number()
-//     .positive('Height must be a positive number')
-//     .min(150, 'Must be a number from 150 to 300')
-//     .max(300, 'Must be a number from 150 to 300')
-//     .required('Height is required'),
-//   currentWeight: Yup.number()
-//     .positive('Weight must be a positive number')
-//     .min(35, 'Weight must be a number from 35 to 500')
-//     .max(500, 'Weight must be a number from 35 to 500')
-//     .required('Current weight is required'),
-//   desiredWeight: Yup.number()
-//     .positive('Weight must be a positive number')
-//     .min(35, 'Weight must be a number from 35 to 500')
-//     .max(500, 'Weight must be a number from 35 to 500')
-//     .required('Desired weight is required'),
-//   birthday: Yup.date()
-//     .min(
-//       new Date(new Date().setFullYear(new Date().getFullYear() - 18)),
-//       'You must be at least 18 years old'
-//     )
-//     .required('Birthday is required'),
-//   blood: Yup.number()
-//     .oneOf([1, 2, 3, 4], 'Invalid blood type')
-//     .required('Blood type is required'),
-//   sex: Yup.string()
-//     .oneOf(['male', 'female'], 'Invalid gender')
-//     .required('Gender is required'),
-//   levelActivity: Yup.number()
-//     .oneOf([1, 2, 3, 4, 5], 'Invalid activity level')
-//     .required('Activity level is required'),
-// });
-=======
 const userFormSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Name is too short!')
@@ -102,7 +64,6 @@ const userFormSchema = Yup.object().shape({
     .oneOf([1, 2, 3, 4, 5], 'Invalid activity level')
     .required('Activity level is required'),
 });
->>>>>>> 2da1d2dae37f03228550594142d4b7d00f64003c
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -118,28 +79,7 @@ const UserForm = () => {
     sex: user.sex ?? 'male',
     levelActivity: String(user.levelActivity) ?? '1',
   };
-function formatDate(inputDate) {
-  const date = new Date(inputDate);
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
-  const year = date.getFullYear();
 
-<<<<<<< HEAD
-  return `${day}.${month}.${year}`;
-}
-  const handleSubmit = (values) => {
-        const { birthday, blood, currentWeight, desiredWeight, height, levelActivity, name, sex } = values;
-        dispatch(updateUserData({
-      name,
-      height,
-      currentWeight,
-      desiredWeight,
-      birthday: formatDate(birthday),
-      blood,
-      sex,
-      levelActivity: Number(levelActivity)
-    }));
-=======
   function formatDate(inputDate) {
     const date = new Date(inputDate);
     const day = date.getDate().toString().padStart(2, '0');
@@ -175,13 +115,12 @@ function formatDate(inputDate) {
     );
 
     setSubmitting(false);
->>>>>>> 2da1d2dae37f03228550594142d4b7d00f64003c
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={userFormSchema}  
+      validationSchema={userFormSchema}
       onSubmit={handleSubmit}
     >
       {({ handleChange, values, errors, touched }) => (

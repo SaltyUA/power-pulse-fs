@@ -13,6 +13,7 @@ const initialState = {
   totalPages: 1,
   addProductFalse: false,
   categories: [],
+  calories: null
 };
 
 const productsSlice = createSlice({
@@ -25,6 +26,9 @@ const productsSlice = createSlice({
     setAddProductFalse(state, action) {
       state.addProductFalse = action.payload;
     },
+    setCalories(state, { payload }) {
+      state.calories = payload;
+    }
   },
   extraReducers: (builder) =>
     builder
@@ -74,5 +78,5 @@ const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { setIsSuccessPopUpShown, setAddProductFalse } =
+export const { setIsSuccessPopUpShown, setAddProductFalse, setCalories } =
   productsSlice.actions;

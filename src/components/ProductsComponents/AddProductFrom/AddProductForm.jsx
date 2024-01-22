@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addProductThunk } from '../../../store/products/operations';
 import { getCurrentDate } from '../../../hooks';
 import { object, string } from 'yup';
+import { setCalories } from '../../../store/products/sliceProducts';
 
 export const AddProductFrom = ({ data, closeModal }) => {
   const { title, calories, _id } = data || {};
@@ -28,7 +29,8 @@ export const AddProductFrom = ({ data, closeModal }) => {
         amount: weight,
         calories: Math.ceil(calories),
       };
-      dispatch(addProductThunk({ newProduct, _id}));
+      dispatch(addProductThunk({ newProduct, _id }));
+      dispatch(setCalories(Math.ceil(calories)))
     },
   });
 
