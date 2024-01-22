@@ -34,5 +34,6 @@ export const StyledButton = styled.button`
 
   &:disabled {
     color: #efede899;
+    background-color: ${styleGuide.orange2Color};
   }
 `;

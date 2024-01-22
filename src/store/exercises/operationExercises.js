@@ -64,3 +64,18 @@ export const fetchEquipment = createAsyncThunk(
     }
   }
 );
+
+export const addExerciseThunk = createAsyncThunk(
+  'filters/addExerciseThunk',
+  async (payload, thunkAPI) => {
+    try {
+      const {
+        auth: { token },
+      } = thunkAPI.getState();
+      exercisesAPI.tokenControl.set(token);
+      await exercisesAPI.addExercise(payload.body, payload.id);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
