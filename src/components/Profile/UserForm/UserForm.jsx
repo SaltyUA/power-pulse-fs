@@ -6,6 +6,8 @@ import { updateUserData } from '../../../store/auth/thunk';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+import StyledDatepicker from '../../StyledDatepicker';
+
 import {
   FormStyle,
   ContainerNameEmail,
@@ -74,7 +76,7 @@ const UserForm = () => {
     height: user.height ?? 150,
     currentWeight: user.currentWeight ?? 35,
     desiredWeight: user.desiredWeight ?? 35,
-    birthday: formatDate(user.birthday) ?? '1990-01-01',
+    birthday: user.birthday ? new Date(user.birthday) : new Date('1990-01-01'),
     blood: String(user.blood) ?? '1',
     sex: user.sex ?? 'male',
     levelActivity: String(user.levelActivity) ?? '1',
@@ -206,13 +208,19 @@ const UserForm = () => {
               </FormLabelSecond>
               <FormLabelSecond>
                 Date of birth
-                <FormInput
+                {/* <FormInput
                   type="date"
                   id="birthday"
                   name="birthday"
                   value={values.birthday}
                   onChange={handleChange}
                   style={{ pointerEvents: 'none' }}
+                /> */}
+                <StyledDatepicker
+                  selectedDate={values.birthday}
+                  setSelectedDate={(date) =>
+                    handleChange({ target: { name: 'birthday', value: date } })
+                  }
                 />
                 {errors.birthday && touched.birthday ? (
                   <ContainerErrorValidation>
