@@ -114,7 +114,7 @@ export const ProductsList = () => {
     dispatch(getProductsThunk({ queryParams, page }));
   }, [recommended, q, category, dispatch, page, totalPages]);
 
-  return isLoading && products === null ? (
+  return  products === null ? (
     <StyledLoader>
   <StyledLogoSvg>
             <use href={sprite + '#icon-logo'}></use>
