@@ -21,7 +21,7 @@ export const Statistics = () => {
       <StatisticsVideo>
         <IconWrap>
           <SvgPlay width={12} height={12}>
-            <use href={sprite + '#icon-play-welcome'}></use>
+            <use href={sprite + '#icon-play'}></use>
           </SvgPlay>
         </IconWrap>
         <VideoContainer>

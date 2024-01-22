@@ -13,6 +13,7 @@ import {
 import { Link, useSearchParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
+import { Container } from '../../App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, verifyEmail } from '../../store/auth/thunk';
 import { Statistics } from '../../components/Statistics/statistics';
@@ -50,7 +51,8 @@ const SignIn = () => {
   });
 
   return (
-    <PageAnimatedWrapper direction="Y">
+    <Container>
+      <PageAnimatedWrapper direction="Y" />
       <SignWrap>
         <FormContainer>
           <FormTitle>Sign In</FormTitle>
@@ -113,7 +115,7 @@ const SignIn = () => {
         <Statistics />
       </SignWrap>
       {isResendShown && <ResendModal />}
-    </PageAnimatedWrapper>
+    </Container>
   );
 };
 

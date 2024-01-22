@@ -29,10 +29,7 @@ export const AuthText = styled.p`
   }
 `;
 
-export const FormContainer = styled.div`
-  min-width: 320px;
-  margin: 0 auto;
-`;
+export const FormContainer = styled.div``;
 
 export const FormWrapper = styled.form`
   margin-top: 28px;
@@ -82,7 +79,6 @@ export const SignWrap = styled.div`
   background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
     url(${bgImageMob});
-  background-size: contain;
   background-repeat: no-repeat;
   background-position: right bottom;
 
@@ -92,7 +88,6 @@ export const SignWrap = styled.div`
     background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
       linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
       url(${bgImageTab});
-    background-size: contain;
     background-repeat: no-repeat;
     background-position: right bottom;
   }
@@ -100,12 +95,11 @@ export const SignWrap = styled.div`
   @media screen and (min-width: 1440px) {
     padding: 151px 96px 0;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 172px;
     background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
       linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
       url(${bgImageDesk});
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: right bottom;
   }
 `;
