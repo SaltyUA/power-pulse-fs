@@ -1,4 +1,4 @@
-import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emotion-styled.browser.esm-4728668e.js";import{b as d,a,c as p}from"./side-view-people-training-gym-3x-274ccdad.js";const y=i.div`
+import{s as n,j as e,a as t}from"./index-557524f1.js";import{n as i}from"./emotion-styled.browser.esm-7fe1b3e0.js";import{b as a,a as d,c as r}from"./side-view-people-training-gym-3x-274ccdad.js";const C=i.div`
   overflow: hidden;
   width: 320px;
   padding: 0px 20px;
@@ -9,7 +9,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
       rgba(4, 4, 4, 0) 19.15%
     ),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
-    url(${d});
+    url(${a});
   background-position: bottom right;
   background-repeat: no-repeat;
 
@@ -19,7 +19,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
 
   @media screen and (min-width: 768px) {
     padding: 0px 32px;
-    background-image: url(${a});
+    background-image: url(${d});
     width: 768px;
   }
 
@@ -29,13 +29,13 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
         #040404 -2.45%,
         rgba(4, 4, 4, 0) 68.17%
       ),
-      url(${p});
+      url(${r});
     padding: 0px 32px;
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
-`,r=i.div`
+`,o=i.div`
   padding-bottom: 43px;
 
   @media screen and (min-width: 1440px) {
@@ -43,7 +43,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
     padding-top: 325px;
     padding-bottom: 170px;
   }
-`,k=i.div`
+`,z=i.div`
   padding-top: 91px;
   padding-bottom: 230px;
 
@@ -55,7 +55,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
   @media screen and (min-width: 1440px) {
     padding: 152px 85px 246px 59px;
   }
-`,z=i.h1`
+`,y=i.h1`
   color: ${n.whiteColor};
   font-size: 38px;
   font-weight: 500;
@@ -72,7 +72,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
     line-height: 1.11;
     width: 598px;
   }
-`,S=i.svg`
+`,$=i.svg`
   stroke: ${n.orangeColor};
   position: absolute;
   stroke-width: 2px;
@@ -97,7 +97,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
     top: 86px;
     left: 13%;
   }
-`,o=i.svg`
+`,p=i.svg`
   fill: ${n.whiteColor};
   align-items: center;
   margin-left: 2px;
@@ -115,7 +115,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
     height: 16px;
     width: 16px;
   }
-`,$=i.div`
+`,S=i.div`
   display: flex;
   gap: 0px 14px;
 
@@ -149,7 +149,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
     margin-left: 0px;
     margin-bottom: 40px;
   }
-`,h=i.div`
+`,g=i.div`
   display: flex;
   gap: 4px;
   flex-direction: column;
@@ -174,11 +174,11 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
   @media screen and (min-width: 1440px) {
     margin-left: 458px;
   }
-`,g=i.div`
+`,c=i.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-`,m=i.div`
+`,h=i.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 700;
@@ -189,7 +189,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
     font-size: 16px;
     line-height: 1.5;
   }
-`,c=i.div`
+`,m=i.div`
   color: #efede8;
   font-size: 24px;
   font-weight: 700;
@@ -208,7 +208,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
   @media screen and (min-width: 768px) {
     margin-left: 12px;
   }
-`,f=i.div`
+`,w=i.div`
   color: #efede8;
   font-size: 16px;
   font-weight: 700;
@@ -220,7 +220,7 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
     line-height: 1;
     margin-bottom: 8px;
   }
-`,w=i.div`
+`,f=i.div`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 400;
@@ -263,4 +263,96 @@ import{s as n,j as e,a as t}from"./index-2ed9ae19.js";import{n as i}from"./emoti
   @media screen and (min-width: 768px) {
     margin-bottom: 64px;
   }
-`,W=()=>e.jsxs(r,{children:[e.jsxs(s,{children:[e.jsx(b,{children:e.jsx(o,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-play"})})}),e.jsxs(l,{children:[e.jsx(f,{children:"350+"}),e.jsx(w,{children:"Video tutorial"})]})]}),e.jsxs(h,{children:[e.jsx(u,{children:e.jsx(x,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-running"})})}),e.jsxs(g,{children:[e.jsx(c,{children:"500"}),e.jsx(m,{children:"cal"})]})]})]});export{k as C,S,T,y as W,z as a,$ as b,W as c};
+`,W=()=>e.jsxs(o,{children:[e.jsxs(s,{children:[e.jsx(b,{children:e.jsx(p,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-play-welcome"})})}),e.jsxs(l,{children:[e.jsx(w,{children:"350+"}),e.jsx(f,{children:"Video tutorial"})]})]}),e.jsxs(g,{children:[e.jsx(u,{children:e.jsx(x,{width:12,height:12,children:e.jsx("use",{href:t+"#icon-running"})})}),e.jsxs(c,{children:[e.jsx(m,{children:"500"}),e.jsx(h,{children:"cal"})]})]})]}),I=i.h2`
+  font-size: 24px;
+  line-height: 1.17;
+  margin-bottom: 14px;
+  color: ${n.whiteColor};
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    line-height: 1.38;
+    margin-bottom: 16px;
+  }
+`,V=i.p`
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+    width: 496px;
+  }
+`,F=i.div`
+  min-width: 320px;
+  margin: 0 auto;
+`,R=i.form`
+  margin-top: 28px;
+
+  & button {
+    margin-top: 28px;
+    margin-bottom: 12px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 64px;
+    }
+  }
+
+  & a {
+    color: ${n.whiteColor};
+    text-decoration: underline;
+  }
+`,A=i.p`
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(239, 237, 232, 0.6);
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+`,B=i.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+  }
+`,D=i.div`
+  display: flex;
+  flex-direction: column;
+  gap: 121px;
+
+  padding: 90px 20px 0;
+
+  background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${a});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+  @media screen and (min-width: 768px) {
+    padding: 140px 32px 0;
+
+    background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
+      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+      url(${d});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 151px 96px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    background: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0) 52.97%),
+      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+      url(${r});
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
+  }
+`;export{V as A,z as C,F,B as I,A as R,$ as S,T,C as W,y as a,S as b,W as c,D as d,I as e,R as f};
