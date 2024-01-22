@@ -12,6 +12,7 @@ export const ModalButton = styled(Button)`
 export const BtnAddToDiary = styled.div`
   position: absolute;
   right: 32px;
+  bottom: 48px;
 `;
 
 export const Modal = styled.div`
@@ -26,8 +27,8 @@ export const Modal = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  padding-top: 48px;
   position: relative;
+  padding-top: 48px;
   background-color: #fefefe;
   margin: 15% auto;
   width: 694px;
@@ -35,6 +36,25 @@ export const ModalContent = styled.div`
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: #10100f;
+`;
+
+export const TextTime = styled.button`
+  color: rgba(239, 237, 232, 0.4);
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: 14px;
+  margin-bottom: 4px;
+`;
+
+export const CountdownCircleTimer = styled.div`
+  width: 125px;
+  height: 125px;
 `;
 
 export const Close = styled.button`
@@ -107,7 +127,17 @@ export const Row = styled.div`
   margin-right: 31px;
 `;
 
+export const ButtonActive = styled.div`
+  position: absolute;
+  left: 150px;
+  bottom: 60px;
+`;
+
 // Стили таймера
+export const TimerContainerWrapper = styled.div`
+  position: absolute;
+  left: 105px;
+`;
 export const TimerContainer = styled.div`
   position: relative;
   display: flex;
@@ -115,8 +145,8 @@ export const TimerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   color: white;
-  width: 270px;
-  height: 196px;
+  width: 100%;
+  height: 100%;
 `;
 
 export const TimerWrap = styled.div`
@@ -132,6 +162,9 @@ export const PlayIcon = styled.svg`
 `;
 
 export const CaloriesLabel = styled.div`
+  position: absolute;
+  bottom: 48px;
+  left: 100px;
   color: rgba(239, 237, 232, 0.3);
   font-family: Roboto;
   font-size: 14px;

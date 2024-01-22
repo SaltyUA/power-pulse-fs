@@ -24,12 +24,15 @@ import {
   TimerWrap,
   ModalButton,
   PlayIcon,
-  BotWrap,
+  // BotWrap,
   Close,
   CloseIcon,
   Row,
   RowUp,
   BtnAddToDiary,
+  TextTime,
+  ButtonActive,
+  TimerContainerWrapper,
 } from './styled-modal';
 import gif from '../../assets/images/f38f17db5480518a62220c817f6bbffe.png';
 import thumb from '../../assets/images/thumb_up_gloss.png';
@@ -87,38 +90,40 @@ function ExerciseForm() {
                   </Row>
                 </RightSide>
               </TopWrap>
-              <BotWrap>
+
+              <TimerContainerWrapper>
                 <TimerContainer>
+                  <TextTime>Time</TextTime>
                   <TimerWrap>
                     <CountdownCircleTimer
                       isPlaying
                       duration={9}
                       colors={'#E6533C'}
+                      size={125} // Встановлення розмірів таймера безпосередньо через властивість size
                     >
                       {({ remainingTime }) => remainingTime}
                     </CountdownCircleTimer>
                   </TimerWrap>
-                  <button onClick={togglePlay}>
-                    <PlayIcon>
-                      <use
-                        href={
-                          isPlaying
-                            ? sprite + '#icon-play'
-                            : sprite + '#icon-pause'
-                        }
-                      />
-                    </PlayIcon>
-                  </button>
-
-                  <CaloriesLabel>
-                    Burned calories: <CaloriesTimer>0</CaloriesTimer>
-                  </CaloriesLabel>
                 </TimerContainer>
-                <BtnAddToDiary>
-                  <ModalButton onClick={handleAdd}>Add to diary</ModalButton>
-                </BtnAddToDiary>
-              </BotWrap>
+              </TimerContainerWrapper>
             </ModalSubcontent>
+            <ButtonActive>
+              <button onClick={togglePlay}>
+                <PlayIcon>
+                  <use
+                    href={
+                      isPlaying ? sprite + '#icon-play' : sprite + '#icon-pause'
+                    }
+                  />
+                </PlayIcon>
+              </button>
+            </ButtonActive>
+            <CaloriesLabel>
+              Burned calories: <CaloriesTimer>0</CaloriesTimer>
+            </CaloriesLabel>
+            <BtnAddToDiary>
+              <ModalButton onClick={handleAdd}>Add to diary</ModalButton>
+            </BtnAddToDiary>
           </ModalContent>
         </Modal>
       ) : (
