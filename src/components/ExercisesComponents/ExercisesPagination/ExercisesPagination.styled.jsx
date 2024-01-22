@@ -40,7 +40,8 @@ export const PaginationContainer = styled.div`
 
   li.page-item.active button.page-link {
     padding: 0;
-    background-color: #E6533C;
+    
+    fill: #E6533C;
   }
 
   li.page-item.active button.page-link svg {

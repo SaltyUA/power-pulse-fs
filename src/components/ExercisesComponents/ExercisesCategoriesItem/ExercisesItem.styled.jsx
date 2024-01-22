@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const ExercisesLi = styled.li`
   position: relative;
@@ -44,7 +44,7 @@ export const ExerciseItemTitle = styled.h3`
   font-size: 20px;
   line-height: 1.2;
 
-  color: var(--white-color);
+  color: #EFEDE8;
 
   @media screen and (min-width: 375px) {
     font-size: 24px;
