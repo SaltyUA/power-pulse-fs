@@ -24,7 +24,6 @@ import {
   TimerWrap,
   ModalButton,
   PlayIcon,
-  // BotWrap,
   Close,
   CloseIcon,
   Row,
@@ -96,10 +95,10 @@ function ExerciseForm() {
                   <TextTime>Time</TextTime>
                   <TimerWrap>
                     <CountdownCircleTimer
-                      isPlaying
+                      isPlaying={isPlaying} // Использование переменной состояния
                       duration={9}
                       colors={'#E6533C'}
-                      size={125} // Встановлення розмірів таймера безпосередньо через властивість size
+                      size={125}
                     >
                       {({ remainingTime }) => remainingTime}
                     </CountdownCircleTimer>
@@ -112,7 +111,7 @@ function ExerciseForm() {
                 <PlayIcon>
                   <use
                     href={
-                      isPlaying ? sprite + '#icon-play' : sprite + '#icon-pause'
+                      isPlaying ? sprite + '#icon-pause' : sprite + '#icon-play' // Обновление иконки в зависимости от состояния
                     }
                   />
                 </PlayIcon>

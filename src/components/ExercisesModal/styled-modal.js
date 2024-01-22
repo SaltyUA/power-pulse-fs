@@ -13,6 +13,11 @@ export const BtnAddToDiary = styled.div`
   position: absolute;
   right: 32px;
   bottom: 48px;
+
+  @media (max-width: 767px) {
+    bottom: 48px;
+    left: 16px;
+  }
 `;
 
 export const Modal = styled.div`
@@ -31,11 +36,17 @@ export const ModalContent = styled.div`
   padding-top: 48px;
   background-color: #fefefe;
   margin: 15% auto;
-  width: 694px;
+  max-width: 694px;
   height: 550px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: #10100f;
+
+  @media (max-width: 767px) {
+    position: relative;
+    width: 335px;
+    height: 788px;
+  }
 `;
 
 export const TextTime = styled.button`
@@ -50,6 +61,10 @@ export const TextTime = styled.button`
   line-height: 14px;
   margin-top: 14px;
   margin-bottom: 4px;
+
+  @media (max-width: 767px) {
+    margin-top: 14px;
+  }
 `;
 
 export const CountdownCircleTimer = styled.div`
@@ -85,6 +100,11 @@ export const NameContainer = styled.div`
   height: 70px;
   margin: 0;
   margin-bottom: 8px;
+
+  @media (max-width: 767px) {
+    width: 147px;
+    height: 62px;
+  }
 `;
 
 export const ModalSubtext = styled.p`
@@ -104,8 +124,12 @@ export const ModalText = styled.h2`
 
 export const RightSide = styled.div`
   display: flex;
-  // flex-wrap: wrap;
   gap: 8px;
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 470px;
+    left: 15px;
+  }
 `;
 
 export const ImgContainer = styled.div`
@@ -115,6 +139,9 @@ export const ImgContainer = styled.div`
   overflow: hidden;
   width: 270px;
   height: 226px;
+
+  @media (max-width: 767px) {
+  }
 `;
 
 export const TopWrap = styled.div`
@@ -131,6 +158,11 @@ export const ButtonActive = styled.div`
   position: absolute;
   left: 150px;
   bottom: 60px;
+
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 450px;
+  }
 `;
 
 // Стили таймера
@@ -147,12 +179,12 @@ export const TimerContainer = styled.div`
   color: white;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 767px) {
+  }
 `;
 
-export const TimerWrap = styled.div`
-  width: 125px;
-  height: 125px;
-`;
+export const TimerWrap = styled.div``;
 
 export const PlayIcon = styled.svg`
   width: 32px;
@@ -170,6 +202,11 @@ export const CaloriesLabel = styled.div`
   font-size: 14px;
   line-height: 18px;
   margin-top: 8px;
+
+  @media (max-width: 767px) {
+    position: absolute;
+    bottom: 280px;
+  }
 `;
 
 export const CaloriesTimer = styled.span`
@@ -212,7 +249,7 @@ export const ToDiaryButton = styled(Link)`
   border: none;
   cursor: pointer;
   display: flex;
-  margin: 0 auto;
+  justify-content: center;
   margin-top: 16px;
 `;
 
