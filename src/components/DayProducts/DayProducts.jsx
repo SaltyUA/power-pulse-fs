@@ -36,7 +36,7 @@ const DayProducts = ({ consumedProducts }) => {
     >
       <TitleArea>
         <Title>Products</Title>
-        <AddButton onClick={() => handleClick()}>Add</AddButton>
+        <AddButton onClick={() => handleClick()}>Add product</AddButton>
       </TitleArea>
       <TableArea>
         {consumedProducts && consumedProducts.length > 0 ? (

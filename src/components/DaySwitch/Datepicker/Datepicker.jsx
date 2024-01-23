@@ -1,4 +1,4 @@
-import { useState, useEffect, forwardRef } from 'react';
+import { useEffect, forwardRef } from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import {
@@ -12,16 +12,12 @@ import { Global } from '@emotion/react';
 import { useDispatch } from 'react-redux';
 import { setDayInfo } from '../../../store/diary/sliceDiary';
 
-const StyledDatepicker = () => {
+const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
   const dispatch = useDispatch();
-
-  const [selectedDate, setSelectedDate] = useState(Date.now());
+ 
   useEffect(() => {
     dispatch(setDayInfo(format(selectedDate, 'dd-MM-yyyy')));
-  });
-  // useEffect(() => {
-  //   onChoiceDate(format(selectedDate, 'dd-MM-yyyy'));
-  // });
+  });  
 
   // eslint-disable-next-line react/display-name
   const CustomInput = forwardRef(({ onClick }, ref) => {
@@ -29,7 +25,7 @@ const StyledDatepicker = () => {
       <TitleWrapper onClick={onClick} ref={ref}>
         {format(selectedDate, 'dd/MM/yyyy')}
         <CalendarIcon iconColor="#EF8964">
-          <use href={`${sprite}#icon-calendar`} />
+          <use href={`${sprite}#calendar`} />
         </CalendarIcon>
       </TitleWrapper>
     );
