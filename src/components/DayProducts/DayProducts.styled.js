@@ -44,46 +44,6 @@ export const Title = styled.h3`
   color: rgba(239, 237, 232, 0.5);
 `;
 
-export const Button = styled.button`
-  background-color: inherit;
-  border: none;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-`;
-
-export const Add = styled.p`
-  font-weight: 500;
-  color: #e6533c;
-
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  font-size: 14px;
-
-  &:hover,
-  &:focus {
-    color: #efede8;
-  }
-
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-  }
-  &:hover {
-    color: #efede8;
-  }
-`;
-
-export const ArrowIcon = styled.svg(
-  {
-    width: '16px',
-    height: '16px',
-  },
-  ({ iconColor = '#e6533c' }) => ({
-    fill: iconColor,
-    stroke: iconColor,
-  })
-);
-
 export const Message = styled.p`
   font-weight: 400;
   color: rgba(239, 237, 232, 0.3);

@@ -84,6 +84,7 @@ export const ButtonEl = styled.button`
   padding-inline: 0;
 `;
 
+
 export const DeleteIcon = styled.svg(
   {
     width: '20px',
