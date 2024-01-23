@@ -64,7 +64,7 @@ It is designed for active and motivated people who strive for a healthy lifestyl
 - timer for keeping track of the time of the exercise
 - dynamic calculation of calories burned during the exercise
 
-***Calculation of calories consumed***
+***Accounting for consumed products***
 
 - name of the product you are consuming
 - enter the amount of the consumed product in grams
