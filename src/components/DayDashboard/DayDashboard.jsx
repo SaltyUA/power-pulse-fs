@@ -49,7 +49,7 @@ const DayDashboard = () => {
           </Icon>
           <Title accent="true">Daily physical activity</Title>
         </TitleArea>
-        <Value>{user.dailySportTime}</Value>
+        <Value>{user.dailySportTime} min</Value>
       </DashboardItem>
       <DashboardItem accent="false">
         <TitleArea>
@@ -58,7 +58,7 @@ const DayDashboard = () => {
           </Icon>
           <Title accent="false">Calories consumed</Title>
         </TitleArea>
-        <Value>{dayInfo.caloriesConsumed}</Value>
+        <Value>{dayInfo.caloriesConsumed || 0}</Value>
       </DashboardItem>
 
       <DashboardItem accent="false">
@@ -68,7 +68,7 @@ const DayDashboard = () => {
           </Icon>
           <Title accent="false">Calories burned</Title>
         </TitleArea>
-        <Value>{dayInfo.caloriesBurned}</Value>
+        <Value>{dayInfo.caloriesBurned || 0}</Value>
       </DashboardItem>
 
       <DashboardItem accent="false" rest={restRed}>
@@ -88,7 +88,7 @@ const DayDashboard = () => {
           </Icon>
           <Title accent="false">Sports remaining</Title>
         </TitleArea>
-        <Value>{sportsRemaining}</Value>
+        <Value>{sportsRemaining} min</Value>
       </DashboardItem>
     </DayDashboardArea>
   );
