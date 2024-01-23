@@ -7,8 +7,30 @@ import {
   Icon,
 } from './DayDashboard.styled';
 import sprite from '../../assets/images/sprite.svg';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../store/selectors';
+import { getDiaryInfo } from '../../store/diary/selectorsDiary';
+
+
 
 const DayDashboard = () => {
+  const user = useSelector(selectUser);
+  const dayInfo = useSelector(getDiaryInfo);
+
+  const caloriesRemaining =
+    user.dailyCalories && dayInfo.caloriesConsumed
+      ? user.dailyCalories - dayInfo.caloriesConsumed
+      : 0;
+  
+  const sportsRemaining =
+    user.dailySportTime && dayInfo.activity
+      ? Math.trunc(user.dailySportTime - dayInfo.activity / 60)
+      : 0;
+  
+  const restRed = caloriesRemaining < 0 ? 'red' : ''
+  const restGreen = caloriesRemaining < 0 ? 'green' : '';
+  
+
   return (
     <DayDashboardArea>
       <DashboardItem accent="true">
@@ -18,7 +40,7 @@ const DayDashboard = () => {
           </Icon>
           <Title accent="true">Daily calorie intake</Title>
         </TitleArea>
-        <Value>...</Value>
+        <Value>{user.dailyCalories}</Value>
       </DashboardItem>
       <DashboardItem accent="true">
         <TitleArea>
@@ -27,7 +49,7 @@ const DayDashboard = () => {
           </Icon>
           <Title accent="true">Daily physical activity</Title>
         </TitleArea>
-        <Value>...</Value>
+        <Value>{user.dailySportTime}</Value>
       </DashboardItem>
       <DashboardItem accent="false">
         <TitleArea>
@@ -36,8 +58,9 @@ const DayDashboard = () => {
           </Icon>
           <Title accent="false">Calories consumed</Title>
         </TitleArea>
-        <Value>...</Value>
+        <Value>{dayInfo.caloriesConsumed}</Value>
       </DashboardItem>
+
       <DashboardItem accent="false">
         <TitleArea>
           <Icon iconColor="#EF8964">
@@ -45,25 +68,27 @@ const DayDashboard = () => {
           </Icon>
           <Title accent="false">Calories burned</Title>
         </TitleArea>
-        <Value>...</Value>
+        <Value>{dayInfo.caloriesBurned}</Value>
       </DashboardItem>
-      <DashboardItem accent="false">
+
+      <DashboardItem accent="false" rest={restRed}>
         <TitleArea>
           <Icon iconColor="#EF8964">
             <use href={`${sprite}#icon-bubble`} />
           </Icon>
           <Title accent="false">Calories remaining</Title>
         </TitleArea>
-        <Value>...</Value>
+        <Value>{caloriesRemaining}</Value>
       </DashboardItem>
-      <DashboardItem accent="false">
+
+      <DashboardItem accent="false" rest={restGreen}>
         <TitleArea>
           <Icon iconColor="#EF8964">
             <use href={`${sprite}#icon-running`} />
           </Icon>
           <Title accent="false">Sports remaining</Title>
         </TitleArea>
-        <Value>...</Value>
+        <Value>{sportsRemaining}</Value>
       </DashboardItem>
     </DayDashboardArea>
   );

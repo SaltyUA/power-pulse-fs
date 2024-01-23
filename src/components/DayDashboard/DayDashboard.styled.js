@@ -49,7 +49,12 @@ const setRedBorderColor = props => {
 
 export const DashboardItem = styled.li`
   border: 1px solid;
-  border-color: ${setRedBorderColor};
+  border-color: ${(props) =>
+    props.rest === 'green'
+      ? '#3CBF61'
+      : props.rest === 'red'
+      ? '#E9101D'
+      : 'rgba(239, 237, 232, 0.2)'};
   border-radius: 12px;
   background-color: ${setBgColor};
   padding: 18px;
