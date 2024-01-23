@@ -1,4 +1,4 @@
-import{s as n,j as e,a as t}from"./index-557524f1.js";import{n as i}from"./emotion-styled.browser.esm-7fe1b3e0.js";import{b as a,a as d,c as r}from"./side-view-people-training-gym-3x-274ccdad.js";const C=i.div`
+import{s as n,j as e,a as t}from"./index-b27a598b.js";import{n as i}from"./emotion-styled.browser.esm-f2f10d1c.js";import{b as a,a as d,c as r}from"./side-view-people-training-gym-3x-274ccdad.js";const C=i.div`
   overflow: hidden;
   width: 320px;
   padding: 0px 20px;
