@@ -39,18 +39,17 @@ const DayProducts = ({ consumedProducts }) => {
         <AddButton onClick={() => handleClick()}>Add</AddButton>
       </TitleArea>
       <TableArea>
-        <TableHeader>
+        {consumedProducts && consumedProducts.length > 0 ? (
+          <>
+            <TableHeader>
           <Grid1>Title</Grid1>
           <Grid2>Category</Grid2>
           <Grid3>Calories</Grid3>
           <Grid4>Weight</Grid4>
           <Grid5>Recommend</Grid5>
           <Grid6></Grid6>
-        </TableHeader>
-
-      </TableArea>
-      {consumedProducts && consumedProducts.length > 0 ? (
-        <List
+            </TableHeader>
+             <List
           dimentionList={
           consumedProducts && consumedProducts.length > 0
           ? 'true'
@@ -59,10 +58,15 @@ const DayProducts = ({ consumedProducts }) => {
           {consumedProducts.map((item) => (
             <ProductItem key={nanoid()} {...item} />
           ))}
-        </List>
-      ) : (
-        <Message>Not found products</Message>
+            </List>
+
+          </>
+                      ) : (
+              <Message>Not found products</Message>
       )}
+        
+
+      </TableArea>
     </DayProductsArea>
   );
 };

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { styleGuide } from '../../../constants/styleGuide';
 
 export const ProductDiv = styled.div`
   align-items: center;

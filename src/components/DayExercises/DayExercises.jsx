@@ -61,32 +61,33 @@ const DayExercises = ({ consumedExercises }) => {
         <AddButton onClick={() => handleClick()}>Add</AddButton>
       </TitleArea>
       <TableArea>
-        <TableHeader>
-          <Grid1>Body Part</Grid1>
-          <Grid2>Equipment</Grid2>
-          <Grid3>Name</Grid3>
-          <Grid4>Target</Grid4>
-          <Grid5>
-            <ShorterTitle>Burned Calories</ShorterTitle>
-          </Grid5>
-          <Grid6>Time</Grid6>
-          <Grid7 />
-        </TableHeader>
+        {consumedExercises && consumedExercises.length > 0 ? (
+          <>
+            <TableHeader>
+              <Grid1>Body Part</Grid1>
+              <Grid2>Equipment</Grid2>
+              <Grid3>Name</Grid3>
+              <Grid4>Target</Grid4>
+              <Grid5>
+              <ShorterTitle>Burned Calories</ShorterTitle>
+              </Grid5>
+              <Grid6>Time</Grid6>
+              <Grid7 />
+            </TableHeader>
+            <List
+            dimentionList={
+            consumedExercises && consumedExercises.length > 0 ? 'true' : 'false'
+            }
+            >
+              {consumedExercises.map((item) => (
+                <ExerciseItem key={nanoid()} {...item} />
+              ))}
+            </List>
+          </>
+        ) : (
+          <Message>Not found exercises</Message>
+        )}
       </TableArea>
-
-      {consumedExercises && consumedExercises.length > 0 ? (
-        <List
-         dimentionList={
-         consumedExercises && consumedExercises.length > 0 ? 'true' : 'false'
-        }
-        >
-          {consumedExercises.map((item) => (
-            <ExerciseItem key={nanoid()} {...item} />
-          ))}
-        </List>
-      ) : (
-        <Message>Not found exercises</Message>
-      )}
     </DayExercisesArea>
   );
 };
