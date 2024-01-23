@@ -4,16 +4,17 @@ export const ExercisesUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  overflow-y: auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin: 0 auto;
+    gap: 32px 16px;
+    width: 768px;
   }
 
   @media screen and (min-width: 1440px) {
-    flex-wrap: wrap;
     justify-content: start;
-    column-gap: 22px;
+    gap: 32px 16px;
   }
 `;

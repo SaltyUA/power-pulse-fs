@@ -29,7 +29,9 @@ export const Header = () => {
   }, []);
 
   const { avatarURL } = useSelector(selectUser);
+
   const width = window.innerWidth;
+
   return (
     <HeaderContainer $isLoggedIn={isLogged}>
       <HeaderWrap>

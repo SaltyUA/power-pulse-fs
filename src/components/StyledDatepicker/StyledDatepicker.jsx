@@ -12,7 +12,6 @@ const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
         <IconSvg width="18" height="18">
           <use href={`${sprite}#icon-calendar`}></use>
         </IconSvg>
-
         <DatePicker
           selected={selectedDate}
           onChange={(date) => {
@@ -22,6 +21,7 @@ const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
           dateFormat={'dd.MM.yyyy'}
           calendarStartDay={1}
           formatWeekDay={(day) => day.substring(0, 1)}
+          maxDate={Date.now()}
         />
 
         <CalendarGlobalStyles />
