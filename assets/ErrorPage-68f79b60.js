@@ -1,9 +1,9 @@
-import{L as n,s as t,j as i}from"./index-49be5777.js";import{n as e}from"./emotion-styled.browser.esm-82fa0e0e.js";import{b as o,a as d,c as a}from"./side-view-people-training-gym-3x-274ccdad.js";const p=e.div`
+import{L as n,s as e,j as i}from"./index-f020bdc2.js";import{n as t}from"./emotion-styled.browser.esm-879d5059.js";import{t as o,a as d,b as a}from"./side-view-people-training-gym-3x-98657c57.js";const p=t.div`
   overflow: hidden;
   display: flex;
   width: 100%;
   margin: 0 auto;
-`,r=e.div`
+`,r=t.div`
   width: 200px;
   background: #e6533c;
   display: flex;
@@ -25,7 +25,7 @@ import{L as n,s as t,j as i}from"./index-49be5777.js";import{n as e}from"./emoti
     padding: 172px 96px 221px 96px;
     width: 669px;
   }
-`,x=e.h1`
+`,x=t.h1`
   font-size: 66px;
   font-weight: 500;
   line-height: 1;
@@ -38,7 +38,7 @@ import{L as n,s as t,j as i}from"./index-49be5777.js";import{n as e}from"./emoti
     line-height: 0.93;
     margin-bottom: 28px;
   }
-`,h=e.p`
+`,h=t.p`
   width: 180px;
   color: #efede8;
   font-size: 14px;
@@ -60,9 +60,9 @@ import{L as n,s as t,j as i}from"./index-49be5777.js";import{n as e}from"./emoti
   @media (min-width: 1440px) {
     width: 477px;
   }
-`,g=e(n)`
+`,s=t(n)`
   display: inline-block;
-  color: ${t.whiteColor};
+  color: ${e.whiteColor};
   font-size: 16px;
   font-weight: 500;
   line-height: 1.12;
@@ -71,7 +71,7 @@ import{L as n,s as t,j as i}from"./index-49be5777.js";import{n as e}from"./emoti
   border: 1px solid rgba(239, 237, 232, 0.3);
   background-color: transparent;
   width: 147px;
-  transition: color ${t.animation};
+  transition: color ${e.animation};
   text-align: center;
   white-space: nowrap;
 
@@ -85,7 +85,7 @@ import{L as n,s as t,j as i}from"./index-49be5777.js";import{n as e}from"./emoti
     line-height: 1.2;
     width: 204px;
   }
-`,s=e.div`
+`,g=t.div`
   background-image: linear-gradient(
       170deg,
       #040404 3.66%,
@@ -115,4 +115,4 @@ import{L as n,s as t,j as i}from"./index-49be5777.js";import{n as e}from"./emoti
       url(${a});
     width: 771px;
   }
-`,w=()=>i.jsxs(p,{children:[i.jsxs(r,{children:[i.jsx(x,{children:"404"}),i.jsx(h,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(g,{to:"/",children:"Go Home"})]}),i.jsx(s,{})]});export{w as default};
+`,w=()=>i.jsxs(p,{children:[i.jsxs(r,{children:[i.jsx(x,{children:"404"}),i.jsx(h,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(s,{to:"/",children:"Go Home"})]}),i.jsx(g,{})]});export{w as default};
