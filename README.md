@@ -1,30 +1,16 @@
-[UK 🇺🇦](README-uk.md) | [ES 🇪🇸](README-es.md) | [DE 🇩🇪](README-de.md) | [FR 🇫🇷](README-fr.md)
+[UK](README-uk.md) | [ES](README-es.md) | [DE](README-de.md) | [FR](README-fr.md)
 
 # PowerPulse 2.0
 
 ![Welcome Page](./public/Desktop.jpg)
 
-**Power Pulse** - це інноваційний застосунок для будь-якого пристрою, який підтримає Вас у досягненні Ваших здорових цілей та допоможе підтримувати здоровий спосіб життя. 
+**Power Pulse** is an innovative app for any device that will support you in achieving your healthy goals and help you maintain a healthy lifestyle. 
 
-З нашим розширеним функціоналом та зручним інтерфейсом, ми робимо шлях до здорового та енергійного життя цікавим та ефективним.
+With our advanced functionality and user-friendly interface, we make the journey to a healthy and energetic life fun and effective.
 
 ## Review
 
-***Щоденне відстеження:***
-
-- продуктів, які Ви спожили 
-- вправ, які Ви виконали
-
-***Зведена інформація за день щодо***
-
-- добової норми калорій
-- часу для занять спортом
-- кількість спожитих калорій
-- кількість спалених калорій
-
-***Зручна демонстрація правильності виконання вправ і які м'язи задіяні***
-
-Призначений для активних та вмотивованих людей, які прагнуть до здорового способу життя та хочуть контролювати свої харчові та фізичні звички. Застосунок ідеально підійде як для початківців у фітнесі, так і для тренерів з досвідом, особливо для тих, хто шукає зручний інструмент для відстеження своїх досягнень у сфері фітнесу та харчування.
+It is designed for active and motivated people who strive for a healthy lifestyle and want to control their eating and exercise habits. The app is ideal for both fitness beginners and experienced trainers, especially for those looking for a convenient tool to track their fitness and nutrition achievements.
 
 ## Content
 
@@ -33,7 +19,7 @@
   - [Content](#content)
   - [Technologies](#technologies)
   - [Functionality](#functionality)
-  - [Project launch instructions](#project-launch-instructions)
+  - [Installation](#installation)
   - [Development Team](#development-team)
   - [Useful links](#useful-links)
 
@@ -59,10 +45,31 @@
 
 ## Functionality
 
-Опис основного функціоналу та опції проєкту.
+***Daily tracking of***
 
+- foods you have eaten
+- the exercises you have done
 
-## Project launch instructions
+***Summary information for the day on***
+
+- calorie intake
+- time for sports activities
+- number of calories consumed
+- number of calories burned
+
+***Information about the exercise***
+
+- demonstration of correct execution
+- necessary equipment
+- timer for keeping track of the time of the exercise
+- dynamic calculation of calories burned during the exercise
+
+***Calculation of calories consumed***
+
+- name of the product you are consuming
+- enter the amount of the consumed product in grams
+
+## Installation
 
 1. Install the dependencies: `npm install`.
 2. Run the application: `npm run dev`.
@@ -81,7 +88,7 @@
   - **Stanislav Khrebtan** - Front-end developer
 
 - [![Github](https://img.shields.io/badge/pasazhyr99th-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pasazhyr99th)
-  [![LinkedIn](https://img.shields.io/badge/Popyzenko_Mykhailo-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mykhailo-popyzenko/)
+  [![LinkedIn](https://img.shields.io/badge/Mykhailo_Popyzenko-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mykhailo-popyzenko/)
   - **Mykhailo Popyzenko** - Front-end developer
 
 - [![Github](https://img.shields.io/badge/GKristi-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GKristi)
@@ -98,8 +105,8 @@
   - **Valentyn Shumovskyi** - Front-end developer
 
 - [![Github](https://img.shields.io/badge/Stereotype89-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Stereotype89) 
-  [![LinkedIn](https://img.shields.io/badge/-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]()
-  - **Oleksandr** - Front-end developer
+  [![LinkedIn](https://img.shields.io/badge/Oleksandr_Shyshman-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shyshman89/)
+  - **Oleksandr Shyshman** - Front-end developer
 
 - [![Github](https://img.shields.io/badge/OlehKhv-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/OlehKhv) 
   [![LinkedIn](https://img.shields.io/badge/Oleh_Khvostyk-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oleh-khvostyk)
@@ -115,6 +122,6 @@
 
 ## Useful links
 
-[**Figma Layout**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0):
+[**Figma Layout**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0)
 
-[**GitHub Repository - Back-end**](https://github.com/OlehKhv/projectSERV): 
+[**GitHub Repository - Back-end**](https://github.com/OlehKhv/projectSERV)

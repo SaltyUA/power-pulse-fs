@@ -1,4 +1,4 @@
-[EN 🇬🇧](README.md) | [ES 🇪🇸](README-es.md) | [DE 🇩🇪](README-de.md) | [FR 🇫🇷](README-fr.md)
+[EN](README.md) | [ES](README-es.md) | [DE](README-de.md) | [FR](README-fr.md)
 
 # PowerPulse 2.0
 
@@ -19,6 +19,7 @@
   - [Вміст](#вміст)
   - [Технології](#технології)
   - [Функціонал](#функціонал)
+  - [Встановлення](#встановлення)
   - [Команда розробників](#команда-розробників)
   - [Корисні посилання](#корисні-посилання)
 
@@ -63,10 +64,15 @@
 - таймер для ведення відліку часу виконання вправи
 - динамічний розрахунок калорій, що спалюються під час вправи
 
-***Динамічний розрахунок кількість спожитих калорій***
+***Розрахунок кількість спожитих калорій***
 
 - назва продукту, який ви споживаєте
 - введення кількості спожитого продукту в грамах
+
+## Встановлення
+
+1. Встановіть залежності: `npm install`.
+2. Запустити додаток: `npm run dev`.
 
 ## Команда розробників
 
@@ -95,27 +101,27 @@
   - **Лях Михайло** - Front-end developer
 
 - [![Github](https://img.shields.io/badge/Gigapatut-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Gigapatut) 
-  [![LinkedIn](https://img.shields.io/badge/valentyn_shumovskyi-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/valentyn-shumovskyi)
+  [![LinkedIn](https://img.shields.io/badge/Шумовський_Валентин-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/valentyn-shumovskyi)
   - **Шумовський Валентин** - Front-end developer
 
-- [![Github](https://img.shields.io/badge/-181717?style=for-the-badge&logo=github&logoColor=white)]() 
-  [![LinkedIn](https://img.shields.io/badge/-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]()
-  - **** - Front-end developer
+- [![Github](https://img.shields.io/badge/Stereotype89-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Stereotype89) 
+  [![LinkedIn](https://img.shields.io/badge/Шишман_Олександр-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shyshman89/)
+  - **Шишман Олександр** - Front-end developer
 
 - [![Github](https://img.shields.io/badge/OlehKhv-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/OlehKhv) 
-  [![LinkedIn](https://img.shields.io/badge/Oleh_Khvostyk-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oleh-khvostyk)
+  [![LinkedIn](https://img.shields.io/badge/Хвостик_Олег-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oleh-khvostyk)
   - **Хвостик Олег** — Back-end Team Lead
 
 - [![Github](https://img.shields.io/badge/nicksolony-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nicksolony/) 
-  [![LinkedIn](https://img.shields.io/badge/nick_solonyy-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nick-solonyy)
+  [![LinkedIn](https://img.shields.io/badge/Сольоний_Микола-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nick-solonyy)
   - **Сольоний Микола** - Back-end developer
 
 - [![Github](https://img.shields.io/badge/alyonapolova-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/alyonapolova) 
-  [![LinkedIn](https://img.shields.io/badge/alyona_polova-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](http://linkedin.com/in/alyonapolova)
+  [![LinkedIn](https://img.shields.io/badge/Полова_Альона-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](http://linkedin.com/in/alyonapolova)
   - **Полова Альона** - Back-end developer
 
 ## Корисні посилання
 
-[**Макет Figma**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0):
+[**Макет Figma**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0)
 
-[**GitHub Репозиторій - Back-end**](https://github.com/OlehKhv/projectSERV): 
+[**GitHub Репозиторій - Back-end**](https://github.com/OlehKhv/projectSERV)
