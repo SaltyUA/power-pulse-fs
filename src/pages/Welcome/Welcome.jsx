@@ -5,17 +5,17 @@ import {
   WelcomeContainer,
   TitleWrapper,
   ContainerWelcome,
+  BackgroundContainer,
 } from './Welcome.styled';
 import sprite from '../../assets/images/sprite.svg';
 import { Statistics } from '../../components/Statistics/statistics';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
-import { FormContainer } from '../SignIn/SignIn.styled';
 
 const Welcome = () => {
   return (
     <>
-      <FormContainer>
+      <BackgroundContainer>
         <WelcomeContainer>
           <ContainerWelcome>
             <TitleWrapper>
@@ -26,16 +26,16 @@ const Welcome = () => {
             </TitleWrapper>
             <ContainerBtn>
               <Button to={'/signin'} as={Link}>
-                Sign in
+                Sign In
               </Button>
               <Button to={'/signup'} as={Link} transparent={true}>
-                Sign up
+                Sign Up
               </Button>
             </ContainerBtn>
           </ContainerWelcome>
           <Statistics />
         </WelcomeContainer>
-      </FormContainer>
+      </BackgroundContainer>
     </>
   );
 };

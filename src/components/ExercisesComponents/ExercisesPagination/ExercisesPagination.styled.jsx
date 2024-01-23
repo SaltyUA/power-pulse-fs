@@ -5,13 +5,13 @@ export const PaginationContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 90px;
-  height: 100vh;
 
   ul.pagination {
     display: flex;
     list-style: none;
     padding: 0;
     justify-content: center;
+    align-items: center;
     margin-top: 32px;
   }
 
@@ -40,8 +40,8 @@ export const PaginationContainer = styled.div`
 
   li.page-item.active button.page-link {
     padding: 0;
-    
-    fill: #E6533C;
+
+    fill: #e6533c;
   }
 
   li.page-item.active button.page-link svg {

@@ -8,6 +8,7 @@ import {
   ExercisesTitle,
   ExercisesWrapper,
   ExercisesBox,
+  ExerciseBackground,
 } from './Exercises.styled';
 import {
   getCurrentCategorie,
@@ -18,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentCategorie } from '../../store/exercises/sliceExercises';
 import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedWrapper';
 import ExerciseForm from '../../components/ExercisesModal/modal';
+import { Container } from '../../App.styled';
 
 const ExercisesWrap = () => {
   const currentCategorie = useSelector(getCurrentCategorie);
@@ -37,27 +39,31 @@ const ExercisesWrap = () => {
 
   return (
     <PageAnimatedWrapper direction="X">
-      <ExercisesWrapper $isCategorie={currentCategorie}>
-        <ExercisesBox>
-          {!currentCategorie ? (
-            <ExercisesTitle>Exercises</ExercisesTitle>
-          ) : (
-            <ExercisesTitle>
-              {capitalizeFirstLeter(currentCategorie)}
-            </ExercisesTitle>
-          )}
-          <ExercisesNavigation />
-        </ExercisesBox>
-        {!currentCategorie ? (
-          <>
-            {currentFilter === 'Body parts' && <BodyParts />}
-            {currentFilter === 'Muscles' && <Muscles />}
-            {currentFilter === 'Equipment' && <Equipment />}{' '}
-          </>
-        ) : (
-          <WaistList />
-        )}
-      </ExercisesWrapper>
+      <ExerciseBackground $isCategorie={currentCategorie}>
+        <Container>
+          <ExercisesWrapper>
+            <ExercisesBox>
+              {!currentCategorie ? (
+                <ExercisesTitle>Exercises</ExercisesTitle>
+              ) : (
+                <ExercisesTitle>
+                  {capitalizeFirstLeter(currentCategorie)}
+                </ExercisesTitle>
+              )}
+              <ExercisesNavigation />
+            </ExercisesBox>
+            {!currentCategorie ? (
+              <>
+                {currentFilter === 'Body parts' && <BodyParts />}
+                {currentFilter === 'Muscles' && <Muscles />}
+                {currentFilter === 'Equipment' && <Equipment />}
+              </>
+            ) : (
+              <WaistList />
+            )}
+          </ExercisesWrapper>
+        </Container>
+      </ExerciseBackground>
       {isShowModal && <ExerciseForm />}
     </PageAnimatedWrapper>
   );

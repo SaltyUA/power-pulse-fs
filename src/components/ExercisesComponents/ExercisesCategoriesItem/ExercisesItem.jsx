@@ -9,21 +9,17 @@ import images from '../../../assets/images/0-default.jpg';
 import { useDispatch } from 'react-redux';
 import { setCurrentCategorie } from '../../../store/exercises/sliceExercises';
 
-
-export const ExercisesItem = ({
-  exercisesItem,
-}) => {
+export const ExercisesItem = ({ exercisesItem }) => {
   const { name, filter, imgURL } = exercisesItem;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const onClick = name => {
-    dispatch(setCurrentCategorie(name))
+  const onClick = (name) => {
+    dispatch(setCurrentCategorie(name));
   };
-//  великими літерими назву
-  const capitalizeFirstLeter = string => {
+  //  великими літерими назву
+  const capitalizeFirstLeter = (string) => {
     const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
     return newString;
-    
   };
 
   return (
@@ -36,6 +32,3 @@ export const ExercisesItem = ({
     </ExercisesLi>
   );
 };
-
-
-  

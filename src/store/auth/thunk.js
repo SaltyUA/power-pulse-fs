@@ -15,13 +15,8 @@ export const register = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const response = await signUp(body);
-      if (response) {
-        const data = await signIn({
-          email: body.email,
-          password: body.password,
-        });
-        return data;
-      }
+      console.log(response);
+      return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
@@ -82,6 +77,7 @@ export const updateUserAvatar = createAsyncThunk(
       const formData = new FormData();
       formData.append('image', body);
       const data = await putAvatar(formData);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

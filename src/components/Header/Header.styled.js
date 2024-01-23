@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   ${(props) =>
     props.$isLoggedIn
       ? 'border-bottom: 1px solid rgba(239, 237, 232, 0.2)'
-      : 'position: absolute;  @media screen and (max-width:1439px) {left: 50%; transform: translatex(-50%);}'}
+      : 'position: absolute;'}
 `;
 
 export const HeaderWrap = styled.div`
@@ -75,6 +75,12 @@ export const SettingsIcon = styled.svg`
   width: 24px;
   height: 24px;
 
+  transition: scale ${styleGuide.animation};
+
+  &:hover {
+    transform: scale(0.8);
+  }
+
   @media screen and (min-width: 768px) {
     width: 28px;
     height: 28px;
@@ -104,6 +110,13 @@ export const UserAvatar = styled.img`
   @media screen and (min-width: 768px) {
     width: 46px;
     height: 46px;
+  }
+`;
+export const BurgerButton = styled.button`
+  transition: scale ${styleGuide.animation};
+
+  &:hover {
+    transform: scale(0.8);
   }
 `;
 

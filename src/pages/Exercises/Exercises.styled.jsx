@@ -2,6 +2,22 @@ import styled from '@emotion/styled';
 import image from '../../assets/images/side-view-people-training-gym1.png';
 import { css } from '@emotion/react';
 
+export const ExerciseBackground = styled.div`
+  ${(props) =>
+    props.$isCategorie &&
+    css`
+      background: linear-gradient(
+          80deg,
+          #040404 -2.45%,
+          rgba(4, 4, 4, 0) 68.17%
+        ),
+        url(${image});
+
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+    `}
+`;
 export const ExercisesWrapper = styled.div`
   padding-left: 20px;
   padding-right: 20px;
@@ -16,20 +32,6 @@ export const ExercisesWrapper = styled.div`
     width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    ${(props) =>
-      props.$isCategorie &&
-      css`
-        background: linear-gradient(
-            80deg,
-            #040404 -2.45%,
-            rgba(4, 4, 4, 0) 68.17%
-          ),
-          url(${image});
-
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: right;
-      `}
   }
 `;
 

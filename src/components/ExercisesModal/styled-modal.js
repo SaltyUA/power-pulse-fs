@@ -1,13 +1,9 @@
 import styled from 'styled-components';
-import Button from '../Button/Button';
 import { styleGuide } from '../../constants/styleGuide';
 import { Link } from 'react-router-dom';
+import Button from '../Button/Button';
 
-export const ModalButton = styled(Button)`
-  // position: absolute;
-  // bottom: 48px;
-  // right: 32px;
-`;
+export const ModalButton = styled(Button)``;
 
 export const BtnAddToDiary = styled.div`
   position: absolute;
@@ -28,7 +24,7 @@ export const Modal = styled.div`
   width: 100%;
   height: 100%;
   overflow: auto;
-  backdrop-filter: 'blur(5px)';
+  background: rgba(4, 4, 4, 0.4);
 `;
 
 export const ModalContent = styled.div`
@@ -120,6 +116,15 @@ export const ModalText = styled.h2`
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
+  overflow-y: scroll;
+  white-space: nowrap;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const RightSide = styled.div`

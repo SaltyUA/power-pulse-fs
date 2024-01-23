@@ -24,6 +24,11 @@ export const Image = styled.img`
     width: 224px;
     height: 206px;
   }
+
+  @media screen and (min-width: 1440px) {
+    width: 237px;
+    height: 206px;
+  }
 `;
 
 export const TitleContainer = styled.div`
