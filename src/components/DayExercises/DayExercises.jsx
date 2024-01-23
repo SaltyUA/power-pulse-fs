@@ -2,9 +2,6 @@ import {
   DayExercisesArea,
   TitleArea,
   Title,
-  Button,
-  Add,
-  ArrowIcon,
   TableArea,
   TableHeader,
   List,
@@ -18,7 +15,7 @@ import {
   ShorterTitle,
   Message,
 } from './DayExercises.styled';
-import sprite from '../../assets/images/sprite.svg'; // ?
+import { AddButton } from '../AddButton/AddButton';
 // import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
@@ -55,15 +52,13 @@ const DayExercises = ({ consumedExercises }) => {
    };
     
   return (
-    <DayExercisesArea>
+    <DayExercisesArea
+      dimentionArea={
+      consumedExercises && consumedExercises.length > 0 ? 'true' : 'false'
+    }>
       <TitleArea>
         <Title>Execrcises</Title>
-        <Button onClick={() => handleClick()}>
-          <Add>Add exercise</Add>
-          <ArrowIcon iconColor="#E6533C">
-            <use href={`${sprite}#icon-start-arrow`} />
-          </ArrowIcon>
-        </Button>
+        <AddButton onClick={() => handleClick()}>Add</AddButton>
       </TitleArea>
       <TableArea>
         <TableHeader>
@@ -80,7 +75,11 @@ const DayExercises = ({ consumedExercises }) => {
       </TableArea>
 
       {consumedExercises && consumedExercises.length > 0 ? (
-        <List>
+        <List
+         dimentionList={
+         consumedExercises && consumedExercises.length > 0 ? 'true' : 'false'
+        }
+        >
           {consumedExercises.map((item) => (
             <ExerciseItem key={nanoid()} {...item} />
           ))}

@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 
 const setAreaHeight = props => {
-    switch (props.dimentionArea) {
-        case 'true':
-            return '1010px';
-        case 'false':
-            return '335px';
-        default:
-            return '335px';
-    }
+  switch (props.dimentionArea) {
+    case 'true':
+      return '1010px';
+    case 'false':
+      return '335px';
+    default:
+      return '335px';
+  }
 };
 
 export const DayExercisesArea = styled.div`
@@ -44,44 +44,6 @@ export const Title = styled.h3`
   color: rgba(239, 237, 232, 0.5);
 `;
 
-export const Button = styled.button`
-  background-color: inherit;
-  border: none;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-`;
-
-export const Add = styled.p`
-  font-weight: 500;
-  color: #e6533c;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover,
-  &:focus {
-    color: #efede8;
-  }
-
-  &:hover,
-  &:focus {
-    color: #efede8;
-  }
-  font-size: 14px;
-
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-  }
-`;
-
-export const ArrowIcon = styled.svg(
-    {
-        width: '16px',
-        height: '16px',
-    },
-    ({ iconColor = '#e6533c' }) => ({
-        fill: iconColor,
-        stroke: iconColor,
-    })
-);
 
 export const Message = styled.p`
   font-weight: 400;
@@ -172,14 +134,14 @@ export const ShorterTitle = styled.div`
 `;
 
 const setListHeight = props => {
-    switch (props.dimentionList) {
-        case 'true':
-            return '930px';
-        case 'false':
-            return '335px';
-        default:
-            return '300px';
-    }
+  switch (props.dimentionList) {
+    case 'true':
+      return '930px';
+    case 'false':
+      return '335px';
+    default:
+      return '300px';
+  }
 };
 
 export const List = styled.div`

@@ -30,7 +30,7 @@ const StyledDatepicker = () => {
       <TitleWrapper onClick={onClick} ref={ref}>
         {format(selectedDate, 'dd/MM/yyyy')}
         <CalendarIcon iconColor="#EF8964">
-          <use href={`${sprite}#icon-calendar`} />
+          <use href={`${sprite}#calendar`} />
         </CalendarIcon>
       </TitleWrapper>
     );

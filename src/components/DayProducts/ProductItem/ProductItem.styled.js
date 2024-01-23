@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { styleGuide } from '../../../constants/styleGuide';
 
 export const ProductDiv = styled.div`
   align-items: center;
@@ -83,6 +84,7 @@ export const ButtonEl = styled.button`
   border: none;
   padding-inline: 0;
 `;
+
 
 export const DeleteIcon = styled.svg(
   {

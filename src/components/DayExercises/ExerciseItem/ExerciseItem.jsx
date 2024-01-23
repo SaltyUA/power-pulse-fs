@@ -20,7 +20,7 @@ import { getDateInfo } from '../../../store/diary/selectorsDiary';
 const ExerciseItem = ({
   calories,
   time,
-    exercise,
+  exercise,
 }) => {
 const dateDel = useSelector(getDateInfo)  
 const dispatch = useDispatch()
@@ -66,7 +66,7 @@ const dispatch = useDispatch()
       <Grid7>
         <Title></Title>
         <ButtonEl onClick={() => handleClick(exercise._id)}>
-          <DeleteIcon iconColor="#EF8964">
+          <DeleteIcon>
             <use href={`${sprite}#icon-trash`} />
           </DeleteIcon>
         </ButtonEl>
