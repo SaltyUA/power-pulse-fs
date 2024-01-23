@@ -1,31 +1,31 @@
-[UK](README-uk.md) | [ES](README-es.md) | [DE](README-de.md) | [FR](README-fr.md)
+[EN](README.md) | [UK](README-uk.md) | [ES](README-es.md) | [DE](README-de.md)
 
 # PowerPulse 2.0
 
 ![Welcome Page](./public/Desktop.jpg)
 
-**Power Pulse** is an innovative app for any device that will support you in achieving your healthy goals and help you maintain a healthy lifestyle. 
+**Power Pulse** est une application innovante pour tout appareil qui vous aidera à atteindre vos objectifs de santé et à maintenir un mode de vie sain. 
 
-With our advanced functionality and user-friendly interface, we make the journey to a healthy and energetic life fun and effective.
+Grâce à nos fonctionnalités avancées et à notre interface conviviale, nous rendons le voyage vers une vie saine et énergique amusant et efficace.
 
-## Review
+## Description
 
 It is designed for active and motivated people who strive for a healthy lifestyle and want to control their eating and exercise habits. The app is ideal for both fitness beginners and experienced trainers, especially for those looking for a convenient tool to track their fitness and nutrition achievements.
 
-## Content
+## Contenu
 
 - [PowerPulse 2.0](#powerpulse-20)
-  - [Review](#review)
-  - [Content](#content)
+  - [Description](#description)
+  - [Contenu](#contenu)
   - [Technologies](#technologies)
-  - [Functionality](#functionality)
+  - [Fonctionnalité](#fonctionnalité)
   - [Installation](#installation)
-  - [Development Team](#development-team)
-  - [Useful links](#useful-links)
+  - [Équipe de développement](#équipe-de-développement)
+  - [Liens utiles](#liens-utiles)
 
 ## Technologies
 
-- ***General***
+- ***Général***
   - ![VSCode](https://img.shields.io/badge/vscode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
   - ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
   - ![Design](https://img.shields.io/badge/Adaptive_and_responsive_design-white?style=for-the-badge&logoColor=white)
@@ -43,38 +43,38 @@ It is designed for active and motivated people who strive for a healthy lifestyl
   - ![MongoDB](https://img.shields.io/badge/mongodb-47A248?style=for-the-badge&logo=mongodb&logoColor=white) ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=Cloudinary&logoColor=white)
   - ![Render](https://img.shields.io/badge/Render-AA3DCE?style=for-the-badge&logoColor=white)
 
-## Functionality
+## Fonctionnalité
 
-***Daily tracking of***
+***Suivi quotidien des***
 
-- foods you have eaten
-- the exercises you have done
+- les aliments que vous avez consommés
+- les exercices que vous avez effectués
 
-***Summary information for the day on***
+***Informations récapitulatives pour la journée sur***
 
-- calorie intake
-- time for sports activities
-- number of calories consumed
-- number of calories burned
+- l'apport calorique
+- le temps consacré aux activités sportives
+- le nombre de calories consommées
+- le nombre de calories brûlées
 
-***Information about the exercise***
+***Informations sur l'exercice***
 
-- demonstration of correct execution
-- necessary equipment
-- timer for keeping track of the time of the exercise
-- dynamic calculation of calories burned during the exercise
+- démonstration de l'exécution correcte
+- matériel nécessaire
+- chronomètre pour le suivi de la durée de l'exercice
+- calcul dynamique des calories brûlées pendant l'exercice
 
-***Accounting for consumed products***
+***Comptabilisation des produits consommés***
 
-- name of the product you are consuming
-- enter the amount of the consumed product in grams
+- nom du produit consommé
+- indiquer la quantité du produit consommé en grammes
 
 ## Installation
 
-1. Install the dependencies: `npm install`.
-2. Run the application: `npm run dev`.
+1. Installez les dépendances : `npm install`.
+2. Exécutez l'application: `npm run dev`.
 
-## Development Team
+## Équipe de développement
 
 - [![Github](https://img.shields.io/badge/SaltyUA-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SaltyUA) 
   [![LinkedIn](https://img.shields.io/badge/vladyslav_litvishko-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vladyslav-litvishko)
@@ -120,8 +120,8 @@ It is designed for active and motivated people who strive for a healthy lifestyl
   [![LinkedIn](https://img.shields.io/badge/alyona_polova-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](http://linkedin.com/in/alyonapolova)
   - **Polova Alyona** - Back-end developer
 
-## Useful links
+## Liens utiles
 
-[**Figma Layout**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0)
+[**Mise en page Figma**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0)
 
 [**GitHub Repository - Back-end**](https://github.com/OlehKhv/projectSERV)

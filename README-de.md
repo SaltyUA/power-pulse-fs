@@ -1,31 +1,31 @@
-[UK](README-uk.md) | [ES](README-es.md) | [DE](README-de.md) | [FR](README-fr.md)
+[EN](README.md) | [UK](README-uk.md) | [ES](README-es.md) | [FR](README-fr.md)
 
 # PowerPulse 2.0
 
 ![Welcome Page](./public/Desktop.jpg)
 
-**Power Pulse** is an innovative app for any device that will support you in achieving your healthy goals and help you maintain a healthy lifestyle. 
+**Power Pulse** ist eine innovative App für jedes Gerät, die Sie beim Erreichen Ihrer Gesundheitsziele unterstützt und Ihnen hilft, einen gesunden Lebensstil beizubehalten. 
 
-With our advanced functionality and user-friendly interface, we make the journey to a healthy and energetic life fun and effective.
+Mit unserer fortschrittlichen Funktionalität und benutzerfreundlichen Oberfläche machen wir die Reise zu einem gesunden und energiegeladenen Leben unterhaltsam und effektiv.
 
-## Review
+## Überprüfung
 
-It is designed for active and motivated people who strive for a healthy lifestyle and want to control their eating and exercise habits. The app is ideal for both fitness beginners and experienced trainers, especially for those looking for a convenient tool to track their fitness and nutrition achievements.
+Sie wurde für aktive und motivierte Menschen entwickelt, die einen gesunden Lebensstil anstreben und ihre Ess- und Bewegungsgewohnheiten kontrollieren möchten. Die App ist sowohl für Fitness-Anfänger als auch für erfahrene Trainer ideal, insbesondere für diejenigen, die ein praktisches Tool suchen, um ihre Fitness- und Ernährungserfolge zu verfolgen.
 
-## Content
+## Inhalt
 
 - [PowerPulse 2.0](#powerpulse-20)
-  - [Review](#review)
-  - [Content](#content)
-  - [Technologies](#technologies)
-  - [Functionality](#functionality)
+  - [Überprüfung](#überprüfung)
+  - [Inhalt](#inhalt)
+  - [Technologien](#technologien)
+  - [Funktionsweise](#funktionsweise)
   - [Installation](#installation)
-  - [Development Team](#development-team)
-  - [Useful links](#useful-links)
+  - [Entwicklungsteam](#entwicklungsteam)
+  - [Nützliche Links](#nützliche-links)
 
-## Technologies
+## Technologien
 
-- ***General***
+- ***Allgemein***
   - ![VSCode](https://img.shields.io/badge/vscode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
   - ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
   - ![Design](https://img.shields.io/badge/Adaptive_and_responsive_design-white?style=for-the-badge&logoColor=white)
@@ -43,38 +43,38 @@ It is designed for active and motivated people who strive for a healthy lifestyl
   - ![MongoDB](https://img.shields.io/badge/mongodb-47A248?style=for-the-badge&logo=mongodb&logoColor=white) ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=Cloudinary&logoColor=white)
   - ![Render](https://img.shields.io/badge/Render-AA3DCE?style=for-the-badge&logoColor=white)
 
-## Functionality
+## Funktionsweise
 
-***Daily tracking of***
+***Tägliche Verfolgung von***
 
-- foods you have eaten
-- the exercises you have done
+- der Lebensmittel, die Sie gegessen haben
+- die ausgeführten Übungen
 
-***Summary information for the day on***
+***Zusammenfassende Informationen für den Tag über***
 
-- calorie intake
-- time for sports activities
-- number of calories consumed
-- number of calories burned
+- Kalorienaufnahme
+- Zeit für sportliche Aktivitäten
+- Anzahl der verbrauchten Kalorien
+- Anzahl der verbrannten Kalorien
 
-***Information about the exercise***
+***Informationen zur Übung***
 
-- demonstration of correct execution
-- necessary equipment
-- timer for keeping track of the time of the exercise
-- dynamic calculation of calories burned during the exercise
+- Demonstration der korrekten Ausführung
+- notwendige Ausrüstung
+- Timer, um die Zeit der Übung zu verfolgen
+- dynamische Berechnung des Kalorienverbrauchs während der Übung
 
-***Accounting for consumed products***
+***Buchhaltung für verbrauchte Produkte***
 
-- name of the product you are consuming
-- enter the amount of the consumed product in grams
+- Name des Produkts, das Sie konsumieren
+- Geben Sie die Menge des verzehrten Produkts in Gramm an
 
 ## Installation
 
-1. Install the dependencies: `npm install`.
-2. Run the application: `npm run dev`.
+1. Installieren Sie die Abhängigkeiten: `npm install`.
+2. Starten Sie die Anwendung: `npm run dev`.
 
-## Development Team
+## Entwicklungsteam
 
 - [![Github](https://img.shields.io/badge/SaltyUA-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SaltyUA) 
   [![LinkedIn](https://img.shields.io/badge/vladyslav_litvishko-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vladyslav-litvishko)
@@ -120,7 +120,7 @@ It is designed for active and motivated people who strive for a healthy lifestyl
   [![LinkedIn](https://img.shields.io/badge/alyona_polova-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](http://linkedin.com/in/alyonapolova)
   - **Polova Alyona** - Back-end developer
 
-## Useful links
+## Nützliche Links
 
 [**Figma Layout**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0)
 

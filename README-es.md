@@ -1,29 +1,29 @@
-[UK](README-uk.md) | [ES](README-es.md) | [DE](README-de.md) | [FR](README-fr.md)
+[EN](README.md) | [UK](README-uk.md) | [DE](README-de.md) | [FR](README-fr.md)
 
 # PowerPulse 2.0
 
 ![Welcome Page](./public/Desktop.jpg)
 
-**Power Pulse** is an innovative app for any device that will support you in achieving your healthy goals and help you maintain a healthy lifestyle. 
+**Power Pulse** es una innovadora aplicación para cualquier dispositivo que te ayudará a alcanzar tus objetivos saludables y a mantener un estilo de vida sano.
 
-With our advanced functionality and user-friendly interface, we make the journey to a healthy and energetic life fun and effective.
+Con nuestra funcionalidad avanzada y nuestra interfaz fácil de usar, hacemos que el camino hacia una vida sana y enérgica sea divertido y eficaz.
 
-## Review
+## Descripción
 
-It is designed for active and motivated people who strive for a healthy lifestyle and want to control their eating and exercise habits. The app is ideal for both fitness beginners and experienced trainers, especially for those looking for a convenient tool to track their fitness and nutrition achievements.
+Está diseñada para personas activas y motivadas que se esfuerzan por llevar un estilo de vida saludable y desean controlar sus hábitos de alimentación y ejercicio. La aplicación es ideal tanto para principiantes en fitness como para entrenadores experimentados, especialmente para aquellos que buscan una herramienta cómoda para hacer un seguimiento de sus logros en fitness y nutrición.
 
-## Content
+## Contenido
 
 - [PowerPulse 2.0](#powerpulse-20)
-  - [Review](#review)
-  - [Content](#content)
-  - [Technologies](#technologies)
-  - [Functionality](#functionality)
-  - [Installation](#installation)
-  - [Development Team](#development-team)
-  - [Useful links](#useful-links)
+  - [Descripción](#descripción)
+  - [Contenido](#contenido)
+  - [Tecnologías](#tecnologías)
+  - [Funcionalidad](#funcionalidad)
+  - [Instalación](#instalación)
+  - [Equipo de desarrollo](#equipo-de-desarrollo)
+  - [Enlaces útiles](#enlaces-útiles)
 
-## Technologies
+## Tecnologías
 
 - ***General***
   - ![VSCode](https://img.shields.io/badge/vscode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
@@ -43,38 +43,38 @@ It is designed for active and motivated people who strive for a healthy lifestyl
   - ![MongoDB](https://img.shields.io/badge/mongodb-47A248?style=for-the-badge&logo=mongodb&logoColor=white) ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=Cloudinary&logoColor=white)
   - ![Render](https://img.shields.io/badge/Render-AA3DCE?style=for-the-badge&logoColor=white)
 
-## Functionality
+## Funcionalidad
 
-***Daily tracking of***
+***Seguimiento diario de***
 
-- foods you have eaten
-- the exercises you have done
+- los alimentos que ha comido
+- ejercicios realizados
 
-***Summary information for the day on***
+***Información resumida del día sobre***
 
-- calorie intake
-- time for sports activities
-- number of calories consumed
-- number of calories burned
+- ingesta de calorías
+- tiempo de actividad deportiva
+- número de calorías consumidas
+- número de calorías quemadas
 
-***Information about the exercise***
+***Información sobre el ejercicio***
 
-- demonstration of correct execution
-- necessary equipment
-- timer for keeping track of the time of the exercise
-- dynamic calculation of calories burned during the exercise
+- Demostración de la ejecución correcta
+- material necesario
+- cronómetro para controlar el tiempo del ejercicio
+- cálculo dinámico de las calorías quemadas durante el ejercicio
 
-***Accounting for consumed products***
+***Contabilización de los productos consumidos***
 
-- name of the product you are consuming
-- enter the amount of the consumed product in grams
+- nombre del producto consumido
+- introducción de la cantidad de alimentos consumidos en gramos
 
-## Installation
+## Instalación
 
-1. Install the dependencies: `npm install`.
-2. Run the application: `npm run dev`.
+1. Instale las dependencias: `npm install`.
+2. Ejecutar la aplicación: `npm run dev`.
 
-## Development Team
+## Equipo de desarrollo
 
 - [![Github](https://img.shields.io/badge/SaltyUA-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SaltyUA) 
   [![LinkedIn](https://img.shields.io/badge/vladyslav_litvishko-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vladyslav-litvishko)
@@ -120,8 +120,8 @@ It is designed for active and motivated people who strive for a healthy lifestyl
   [![LinkedIn](https://img.shields.io/badge/alyona_polova-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](http://linkedin.com/in/alyonapolova)
   - **Polova Alyona** - Back-end developer
 
-## Useful links
+## Enlaces útiles
 
-[**Figma Layout**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0)
+[**Diseño Figma**](https://www.figma.com/file/0xm1EIt7GWmWxWTa8xu2K5/Power-Pulse-2.0?type=design&node-id=0-1&mode=design&t=jI0csq1JsWnjOpnF-0)
 
 [**GitHub Repository - Back-end**](https://github.com/OlehKhv/projectSERV)
