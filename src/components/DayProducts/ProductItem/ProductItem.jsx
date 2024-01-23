@@ -18,21 +18,18 @@ import sprite from '../../../assets/images/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { delProductsDay } from '../../../store/diary/operationDiary';
 import { getDateInfo } from '../../../store/diary/selectorsDiary';
+import { selectUser } from '../../../store/selectors';
 
-const ProductItem = ({
-  product,
-  calories,
-  amount,
-}
-) => {
-  const isRecommended = true;
-const dateDel = useSelector(getDateInfo);
-const dispatch = useDispatch();
-const handleClick = (_id) => {
+
+const ProductItem = ({ product, calories, amount }) => {
+  const { blood } = useSelector(selectUser);
   
-  dispatch(delProductsDay({ date: dateDel, id: _id }));
+  const dateDel = useSelector(getDateInfo);
+  const dispatch = useDispatch();
+  const handleClick = (_id) => {
+    dispatch(delProductsDay({ date: dateDel, id: _id }));
   };
-  
+  const isRecommended = product.groupBloodNotAllowed[blood];
   return (
     <ProductDiv key={product._id}>
       <Grid1>
@@ -80,8 +77,6 @@ const handleClick = (_id) => {
         </ButtonEl>
       </Grid6>
     </ProductDiv>
-
-    
   );
 };
 
