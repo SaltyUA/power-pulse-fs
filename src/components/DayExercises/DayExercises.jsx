@@ -2,9 +2,6 @@ import {
   DayExercisesArea,
   TitleArea,
   Title,
-  Button,
-  Add,
-  ArrowIcon,
   TableArea,
   TableHeader,
   List,
@@ -18,7 +15,7 @@ import {
   ShorterTitle,
   Message,
 } from './DayExercises.styled';
-import sprite from '../../assets/images/sprite.svg'; // ?
+import { AddButton } from '../AddButton/AddButton';
 // import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
@@ -55,39 +52,42 @@ const DayExercises = ({ consumedExercises }) => {
    };
     
   return (
-    <DayExercisesArea>
+    <DayExercisesArea
+      dimentionArea={
+      consumedExercises && consumedExercises.length > 0 ? 'true' : 'false'
+    }>
       <TitleArea>
         <Title>Execrcises</Title>
-        <Button onClick={() => handleClick()}>
-          <Add>Add exercise</Add>
-          <ArrowIcon iconColor="#E6533C">
-            <use href={`${sprite}#icon-start-arrow`} />
-          </ArrowIcon>
-        </Button>
+        <AddButton onClick={() => handleClick()}>Add</AddButton>
       </TitleArea>
       <TableArea>
-        <TableHeader>
-          <Grid1>Body Part</Grid1>
-          <Grid2>Equipment</Grid2>
-          <Grid3>Name</Grid3>
-          <Grid4>Target</Grid4>
-          <Grid5>
-            <ShorterTitle>Burned Calories</ShorterTitle>
-          </Grid5>
-          <Grid6>Time</Grid6>
-          <Grid7 />
-        </TableHeader>
+        {consumedExercises && consumedExercises.length > 0 ? (
+          <>
+            <TableHeader>
+              <Grid1>Body Part</Grid1>
+              <Grid2>Equipment</Grid2>
+              <Grid3>Name</Grid3>
+              <Grid4>Target</Grid4>
+              <Grid5>
+              <ShorterTitle>Burned Calories</ShorterTitle>
+              </Grid5>
+              <Grid6>Time</Grid6>
+              <Grid7 />
+            </TableHeader>
+            <List
+            dimentionList={
+            consumedExercises && consumedExercises.length > 0 ? 'true' : 'false'
+            }
+            >
+              {consumedExercises.map((item) => (
+                <ExerciseItem key={nanoid()} {...item} />
+              ))}
+            </List>
+          </>
+        ) : (
+          <Message>Not found exercises</Message>
+        )}
       </TableArea>
-
-      {consumedExercises && consumedExercises.length > 0 ? (
-        <List>
-          {consumedExercises.map((item) => (
-            <ExerciseItem key={nanoid()} {...item} />
-          ))}
-        </List>
-      ) : (
-        <Message>Not found exercises</Message>
-      )}
     </DayExercisesArea>
   );
 };

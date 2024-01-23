@@ -4,12 +4,11 @@ export const DayDashboardArea = styled.ul`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  @media screen and (min-width: 375px) {
-    height: 328px;
-    margin-bottom: 20px;
-    row-gap: 20px;
-    column-gap: 13px;
-  }
+  height: 328px;
+  margin-bottom: 20px;
+  row-gap: 20px;
+  column-gap: 13px;
+  
   @media screen and (min-width: 768px) {
     height: 248px;
     margin-bottom: 32px;
@@ -25,36 +24,46 @@ export const DayDashboardArea = styled.ul`
 `;
 
 const setBgColor = props => {
-    switch (props.accent) {
-        case 'true':
-            return '#e6533c';
-        case 'false':
-            return 'rgba(239, 237, 232, 0.05)';
-        default:
-            return 'rgba(239, 237, 232, 0.05)';
-    }
+  switch (props.accent) {
+    case 'true':
+      return '#e6533c';
+    case 'false':
+      return 'rgba(239, 237, 232, 0.05)';
+    default:
+      return 'rgba(239, 237, 232, 0.05)';
+  }
+};
+
+const setRedBorderColor = props => {
+  switch (props.borderColor) {
+    case 'red':
+      return '#E9101D';
+    case 'green':
+      return '#3CBF61';
+    case 'default':
+      return 'rgba(239, 237, 232, 0.2)';
+    default:
+      return 'rgba(239, 237, 232, 0.2)';
+  }
 };
 
 export const DashboardItem = styled.li`
   border: 1px solid;
-
   border-color: ${(props) =>
     props.rest === 'green'
       ? '#3CBF61'
       : props.rest === 'red'
       ? '#E9101D'
       : 'rgba(239, 237, 232, 0.2)'};
-
   border-radius: 12px;
   background-color: ${setBgColor};
   padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media screen and (min-width: 375px) {
     width: 161px;
     height: 96px;
-  }
+
   @media screen and (min-width: 768px) {
     width: 187px;
     height: 116px;
@@ -68,25 +77,25 @@ export const TitleArea = styled.div`
 `;
 
 export const Icon = styled.svg(
-    {
-        width: '20px',
-        height: '20px',
-    },
-    ({ iconColor = '#EF8964' }) => ({
-        fill: iconColor,
-        stroke: iconColor,
-    })
+  {
+    width: '20px',
+    height: '20px',
+  },
+  ({ iconColor = '#EF8964' }) => ({
+    fill: iconColor,
+    stroke: iconColor,
+  })
 );
 
 const setTitleColor = props => {
-    switch (props.accent) {
-        case 'true':
-            return 'rgba(239, 237, 232, 0.8)';
-        case 'false':
-            return 'rgba(239, 237, 232, 0.4)';
-        default:
-            return 'rgba(239, 237, 232, 0.4)';
-    }
+  switch (props.accent) {
+    case 'true':
+      return 'rgba(239, 237, 232, 0.8)';
+    case 'false':
+      return 'rgba(239, 237, 232, 0.4)';
+    default:
+      return 'rgba(239, 237, 232, 0.4)';
+  }
 };
 
 export const Title = styled.p`
@@ -98,9 +107,8 @@ export const Title = styled.p`
 export const Value = styled.p`
   font-weight: 700;
   color: #efede8;
-  @media screen and (min-width: 375px) {
     font-size: 18px;
-  }
+    
   @media screen and (min-width: 768px) {
     font-size: 24px;
   }
