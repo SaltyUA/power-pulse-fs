@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import sprite from '../../assets/images/sprite.svg';
 import {
   AvatarFrame,
+  BurgerButton,
   BurgerIcon,
   HeaderContainer,
   HeaderLogo,
@@ -29,7 +30,9 @@ export const Header = () => {
   }, []);
 
   const { avatarURL } = useSelector(selectUser);
+
   const width = window.innerWidth;
+
   return (
     <HeaderContainer $isLoggedIn={isLogged}>
       <HeaderWrap>
@@ -61,7 +64,7 @@ export const Header = () => {
               <UserAvatar src={avatarURL} />
             </AvatarFrame>
             {width < 1439 ? (
-              <button
+              <BurgerButton
                 type="button"
                 onClick={() => {
                   setBurgerIsActive(true);
@@ -70,7 +73,7 @@ export const Header = () => {
                 <BurgerIcon>
                   <use href={sprite + '#icon-menu'} />
                 </BurgerIcon>
-              </button>
+              </BurgerButton>
             ) : (
               <LogoutButton />
             )}

@@ -99,14 +99,6 @@ export const DeleteIcon = styled.svg(
   })
 );
 
-// export const Indicator = styled.span`
-//   display: inline-block;
-//   width: 14px;
-//   height: 14px;
-//   border-radius: 10px;
-//   background: ${(props) => props.color};
-// `;
-
 export const RecommendText = styled.span`
   margin-left: 8px;
 `;

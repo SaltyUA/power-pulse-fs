@@ -60,4 +60,8 @@ export const BurgerLogout = styled.div`
   position: absolute;
   left: 32px;
   bottom: 32px;
+
+  & > button > svg {
+    stroke: currentColor;
+  }
 `;

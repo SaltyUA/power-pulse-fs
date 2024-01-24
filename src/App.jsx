@@ -7,6 +7,7 @@ import { PublicGuard } from './guards/publicGuard';
 import { PrivateGuard } from './guards/privateGuard';
 import { selectIsLoggedIn, selectToken, selectUser } from './store/selectors';
 import { PageLoader } from './components/AnimatedPage/PageLoader';
+
 const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 const Welcome = lazy(() => import('./pages/Welcome/Welcome'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
@@ -22,16 +23,15 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const publicRedirect = user.height ? '/diary' : '/profile';
-  const { isLoading, isRefreshing } = useSelector(state => state.auth);
-      
+  const { isLoading, isRefreshing } = useSelector((state) => state.auth);
+
   useEffect(() => {
-!isLoggedIn && token && dispatch(refreshUser());
+    !isLoggedIn && token && dispatch(refreshUser());
   }, [dispatch, token, isLoggedIn]);
 
-  return  isLoading ||  isRefreshing ? (
-   <PageLoader/>
-  ) :
-    (
+  return isLoading || isRefreshing ? (
+    <PageLoader />
+  ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route

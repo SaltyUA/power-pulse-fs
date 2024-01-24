@@ -4,11 +4,7 @@ import training from '../../assets/images/side-view-people-training-gym-1x.jpg';
 import trainingTablet from '../../assets/images/side-view-people-training-gym-2x.jpg';
 import trainingDesctop from '../../assets/images/side-view-people-training-gym-3x.jpg';
 
-export const WelcomeContainer = styled.div`
-  overflow: hidden;
-  width: 320px;
-  padding: 0px 20px;
-  margin: 0 auto;
+export const BackgroundContainer = styled.div`
   background-image: linear-gradient(
       170deg,
       #040404 3.66%,
@@ -19,14 +15,8 @@ export const WelcomeContainer = styled.div`
   background-position: bottom right;
   background-repeat: no-repeat;
 
-  @media screen and (min-width: 375px) {
-    width: 375px;
-  }
-
   @media screen and (min-width: 768px) {
-    padding: 0px 32px;
     background-image: url(${trainingTablet});
-    width: 768px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -36,6 +26,25 @@ export const WelcomeContainer = styled.div`
         rgba(4, 4, 4, 0) 68.17%
       ),
       url(${trainingDesctop});
+    background-size: contain;
+  }
+`;
+export const WelcomeContainer = styled.div`
+  overflow: hidden;
+  width: 320px;
+  padding: 0px 20px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0px 32px;
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1440px) {
     padding: 0px 32px;
     width: 100%;
     display: flex;

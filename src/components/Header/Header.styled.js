@@ -3,9 +3,8 @@ import { styleGuide } from '../../constants/styleGuide';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
-
+  z-index: 10;
   background-color: transparent;
-
 
   ${(props) =>
     props.$isLoggedIn
@@ -17,7 +16,7 @@ export const HeaderWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  min-width: 320px;
   padding: 24px 20px;
   margin: 0 auto;
 
@@ -76,6 +75,12 @@ export const SettingsIcon = styled.svg`
   width: 24px;
   height: 24px;
 
+  transition: scale ${styleGuide.animation};
+
+  &:hover {
+    transform: scale(0.8);
+  }
+
   @media screen and (min-width: 768px) {
     width: 28px;
     height: 28px;
@@ -105,6 +110,13 @@ export const UserAvatar = styled.img`
   @media screen and (min-width: 768px) {
     width: 46px;
     height: 46px;
+  }
+`;
+export const BurgerButton = styled.button`
+  transition: scale ${styleGuide.animation};
+
+  &:hover {
+    transform: scale(0.8);
   }
 `;
 

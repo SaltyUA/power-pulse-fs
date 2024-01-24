@@ -23,6 +23,8 @@ export const StyledNavLink = styled(NavLink)`
   border-radius: 12px;
   padding: 10px 27px;
 
+  transition: all ${styleGuide.animation};
+
   &:is(:hover, .active) {
     border-color: ${styleGuide.whiteColor};
   }

@@ -13,7 +13,6 @@ import {
 import { Link, useSearchParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
-import { Container } from '../../App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, verifyEmail } from '../../store/auth/thunk';
 import { Statistics } from '../../components/Statistics/statistics';
@@ -21,6 +20,7 @@ import { PageAnimatedWrapper } from '../../components/AnimatedPage/PageAnimatedW
 import { ResendModal } from '../../components/ResendModal/ResendModal';
 import { selectIsResendShown } from '../../store/selectors';
 import { useEffect } from 'react';
+import { BackgroundContainer } from '../Welcome/Welcome.styled';
 
 const SignIn = () => {
   const isResendShown = useSelector(selectIsResendShown);
@@ -51,71 +51,72 @@ const SignIn = () => {
   });
 
   return (
-    <Container>
-      <PageAnimatedWrapper direction="Y" />
-      <SignWrap>
-        <FormContainer>
-          <FormTitle>Sign In</FormTitle>
-          <AuthText>
-            Welcome! Please enter your credentials to login to the platform:
-          </AuthText>
-          <FormWrapper onSubmit={formik.handleSubmit}>
-            <InputWrap>
-              <AuthInput
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                className={
-                  formik.touched.email
-                    ? formik.errors.email
-                      ? 'error'
-                      : 'success'
-                    : null
-                }
-                message={
-                  formik.touched.email
-                    ? formik.errors.email
+    <PageAnimatedWrapper direction="Y">
+      <BackgroundContainer>
+        <SignWrap>
+          <FormContainer>
+            <FormTitle>Sign In</FormTitle>
+            <AuthText>
+              Welcome! Please enter your credentials to login to the platform:
+            </AuthText>
+            <FormWrapper onSubmit={formik.handleSubmit}>
+              <InputWrap>
+                <AuthInput
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  className={
+                    formik.touched.email
                       ? formik.errors.email
-                      : 'Success email'
-                    : null
-                }
-                placeholder="Email"
-                name="email"
-                type="email"
-              />
-              <AuthInput
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                className={
-                  formik.touched.password
-                    ? formik.errors.password
-                      ? 'error'
-                      : 'success'
-                    : null
-                }
-                message={
-                  formik.touched.password
-                    ? formik.errors.password
+                        ? 'error'
+                        : 'success'
+                      : null
+                  }
+                  message={
+                    formik.touched.email
+                      ? formik.errors.email
+                        ? formik.errors.email
+                        : 'Success email'
+                      : null
+                  }
+                  placeholder="Email"
+                  name="email"
+                  type="email"
+                />
+                <AuthInput
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
+                  className={
+                    formik.touched.password
                       ? formik.errors.password
-                      : 'Success password'
-                    : null
-                }
-                placeholder="Password"
-                name="password"
-                type="password"
-              />
-            </InputWrap>
-            <Button type="submit" width="136px">
-              SignIn
-            </Button>
-            <RedirectText>
-              Don’t have an account? <Link to={'/signup'}>Sign Up</Link>
-            </RedirectText>
-          </FormWrapper>
-        </FormContainer>
-        <Statistics />
-      </SignWrap>
-      {isResendShown && <ResendModal />}
-    </Container>
+                        ? 'error'
+                        : 'success'
+                      : null
+                  }
+                  message={
+                    formik.touched.password
+                      ? formik.errors.password
+                        ? formik.errors.password
+                        : 'Success password'
+                      : null
+                  }
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                />
+              </InputWrap>
+              <Button type="submit" width="136px">
+                Sign In
+              </Button>
+              <RedirectText>
+                Don’t have an account? <Link to={'/signup'}>Sign Up</Link>
+              </RedirectText>
+            </FormWrapper>
+          </FormContainer>
+          <Statistics />
+        </SignWrap>
+        {isResendShown && <ResendModal />}
+      </BackgroundContainer>
+    </PageAnimatedWrapper>
   );
 };
 

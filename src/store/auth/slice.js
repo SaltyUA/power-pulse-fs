@@ -8,8 +8,8 @@ import {
   refreshUser,
   updateUserData,
   resendEmail,
+  updateUserAvatar,
 } from './thunk';
-
 
 const authSlice = createSlice({
   name: 'auth',
@@ -25,12 +25,9 @@ const authSlice = createSlice({
       .addCase(register.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(register.fulfilled, (state, { payload }) => {
-        state.user = payload;
-        state.token = payload.token;
-        state.isLoggedIn = true;
+      .addCase(register.fulfilled, (state) => {
+        state.error = 'Email not verified';
         state.isLoading = false;
-        state.error = null;
       })
       .addCase(register.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -87,13 +84,15 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(updateUserData.fulfilled, (state, { payload }) => {
-        console.log(payload)
         state.user = payload;
         state.isLoggedIn = true;
-        state.goToParams = false;
         state.token = payload.token;
         state.isLoading = false;
         state.error = null;
+      })
+      .addCase(updateUserData.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
       })
       .addCase(resendEmail.pending, (state) => {
         state.isLoading = true;
@@ -105,9 +104,20 @@ const authSlice = createSlice({
       .addCase(resendEmail.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+      })
+      .addCase(updateUserAvatar.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
+        console.log(payload);
+        state.isLoading = false;
+        state.user.avatarURL = payload.avatarURL;
+      })
+      .addCase(updateUserAvatar.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
       }),
 });
-
 
 export const authReducer = authSlice.reducer;
 export const { setResendShown } = authSlice.actions;

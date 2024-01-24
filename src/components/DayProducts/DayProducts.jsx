@@ -2,9 +2,6 @@ import {
   DayProductsArea,
   TitleArea,
   Title,
-  Button,
-  Add,
-  ArrowIcon,
   TableArea,
   Message,
   TableHeader,
@@ -16,7 +13,7 @@ import {
   Grid5,
   Grid6,
 } from './DayProducts.styled';
-import sprite from '../../assets/images/sprite.svg';
+import { AddButton } from '../AddButton/AddButton';
 
 import { nanoid } from 'nanoid';
 
@@ -32,36 +29,44 @@ const DayProducts = ({ consumedProducts }) => {
   };
 
   return (
-    <DayProductsArea>
+    <DayProductsArea
+      dimentionArea={
+        consumedProducts && consumedProducts.length > 0 ? 'true' : 'false'
+      }
+    >
       <TitleArea>
         <Title>Products</Title>
-        <Button onClick={() => handleClick()}>
-          <Add>Add product</Add>
-          <ArrowIcon iconColor="#E6533C">
-            <use href={`${sprite}#icon-start-arrow`} />
-          </ArrowIcon>
-        </Button>
+        <AddButton onClick={() => handleClick()}>Add product</AddButton>
       </TitleArea>
       <TableArea>
-        <TableHeader>
+        {consumedProducts && consumedProducts.length > 0 ? (
+          <>
+            <TableHeader>
           <Grid1>Title</Grid1>
           <Grid2>Category</Grid2>
           <Grid3>Calories</Grid3>
           <Grid4>Weight</Grid4>
           <Grid5>Recommend</Grid5>
           <Grid6></Grid6>
-        </TableHeader>
-
-      </TableArea>
-      {consumedProducts && consumedProducts.length > 0 ? (
-        <List>
+            </TableHeader>
+             <List
+          dimentionList={
+          consumedProducts && consumedProducts.length > 0
+          ? 'true'
+          : 'false'
+        }>
           {consumedProducts.map((item) => (
             <ProductItem key={nanoid()} {...item} />
           ))}
-        </List>
-      ) : (
-        <Message>Not found products</Message>
+            </List>
+
+          </>
+                      ) : (
+              <Message>Not found products</Message>
       )}
+        
+
+      </TableArea>
     </DayProductsArea>
   );
 };

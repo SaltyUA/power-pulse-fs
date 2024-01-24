@@ -14,7 +14,6 @@ export const clearToken = () => {
 
 export async function signUp(body) {
   const { data } = await auth.post('/register', body);
-  setToken(data.token);
   return data;
 }
 
