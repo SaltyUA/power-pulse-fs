@@ -19,9 +19,12 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { useEffect, useState } from 'react';
 import LogoutButton from '../LogoutButton/LogoutButton';
 import UserNav from '../UserNav/UserNav';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export const Header = () => {
   const isLogged = useSelector(selectIsLoggedIn);
+
+  const size = useWindowSize();
 
   const [burgerIsActive, setBurgerIsActive] = useState(false);
 
@@ -31,21 +34,19 @@ export const Header = () => {
 
   const { avatarURL } = useSelector(selectUser);
 
-  const width = window.innerWidth;
-
   return (
     <HeaderContainer $isLoggedIn={isLogged}>
       <HeaderWrap>
         <HeaderLogo to={'/'}>
           <IconLogo>
-            {width > 767 ? (
+            {size.width >= 768 ? (
               <use href={sprite + '#icon-logo'} />
             ) : (
               <use href={sprite + '#icon-logo-mob'} />
             )}
           </IconLogo>
           <IconText>
-            {width > 767 ? (
+            {size.width >= 768 ? (
               <use href={sprite + '#icon-logo-text'} />
             ) : (
               <use href={sprite + '#icon-logo-text-mob'} />
@@ -54,7 +55,7 @@ export const Header = () => {
         </HeaderLogo>
         {isLogged && (
           <UserContainer>
-            {width >= 1440 && <UserNav />}
+            {size.width >= 1440 && <UserNav />}
             <Link to={'/profile'}>
               <SettingsIcon>
                 <use href={sprite + '#icon-settings'} />
@@ -63,7 +64,7 @@ export const Header = () => {
             <AvatarFrame>
               <UserAvatar src={avatarURL} />
             </AvatarFrame>
-            {width < 1439 ? (
+            {size.width < 1440 ? (
               <BurgerButton
                 type="button"
                 onClick={() => {
@@ -80,7 +81,7 @@ export const Header = () => {
           </UserContainer>
         )}
       </HeaderWrap>
-      {width < 1439 && isLogged && (
+      {size.width < 1440 && isLogged && (
         <BurgerMenu
           setBurgerIsActive={setBurgerIsActive}
           isActive={burgerIsActive}
