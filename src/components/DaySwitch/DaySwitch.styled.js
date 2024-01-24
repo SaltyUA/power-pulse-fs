@@ -7,11 +7,11 @@ export const DaySwitchArea = styled.div`
   align-items: center;
   right: 0;
   top: 46px;
-  gap: 20px;
+  // gap: 20px; 
 
   @media screen and (min-width: 768px) {
     top: 52px;
-    gap: 40px;
+    // gap: 40px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -38,4 +38,8 @@ export const Button = styled.button`
 export const ArrowArea = styled.div`
   display: flex;
   gap: 6px;
+  margin-left: 20px;
+  @media screen and (min-width: 768px) {
+    margin-left: 40px;
+  }
 `;

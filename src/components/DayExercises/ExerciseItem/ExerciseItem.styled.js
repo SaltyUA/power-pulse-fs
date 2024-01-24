@@ -6,6 +6,16 @@ export const ExerciseDiv = styled.div`
   font-weight: 400;
   color: #efede8;
   display: grid;
+   @media screen and (max-width: 374px) {
+     grid-gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr 20px;
+  grid-template-rows: auto;
+  grid-template-areas:
+      'grid1 grid1 grid1 grid1'
+    'grid2 grid2 grid2 grid2'
+    'grid3 grid3 grid3 grid3'
+    'grid4 grid5 grid6 grid7';
+   }
   grid-gap: 14px;
   grid-template-columns: 81px 80px 76px 20px;
   grid-template-rows: auto;

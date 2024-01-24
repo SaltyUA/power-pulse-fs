@@ -63,6 +63,9 @@ export const DashboardItem = styled.li`
   justify-content: space-between;
     width: 161px;
     height: 96px;
+@media screen and (max-width: 374px){
+width: calc((100% - 13px) / 2);
+}
 
   @media screen and (min-width: 768px) {
     width: 187px;
