@@ -77,6 +77,7 @@ const authSlice = createSlice({
         state.user = initialState.user;
         state.isLoggedIn = false;
         state.isRefreshing = false;
+        state.isLoading = false;
         state.token = null;
         state.error = payload;
       })
