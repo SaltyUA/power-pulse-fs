@@ -38,7 +38,11 @@ export const SuccessPopUp = () => {
                 <p className='title'>Well done</p>
           <p className="calories">Calories: <span className="calories-span">{calories}</span></p>
                 <button onClick={()=>dispatch(setIsSuccessPopUpShown(false))} className="button" type='button'>Next product</button>
-                <StyledNavLink to='/diary' onClick={()=>dispatch(setIsSuccessPopUpShown(false))}>To the diary <StyledArrowSvg>
+          <StyledNavLink to='/diary' onClick={() => {
+            dispatch(setIsSuccessPopUpShown(false))
+            document.body.style.overflowY = 'auto'
+          }}
+          >To the diary <StyledArrowSvg>
             <use href={sprite + '#locationarrow'}></use>
           </StyledArrowSvg></StyledNavLink>
             </StyledModal>

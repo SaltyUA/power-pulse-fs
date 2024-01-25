@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const setAreaHeight = props => {
   switch (props.dimentionArea) {
     case 'true':
-      return '780px';
+      return '100%';
     case 'false':
       return '335px';
     default:
@@ -105,7 +105,7 @@ export const Grid6 = styled.div`
 const setListHeight = props => {
   switch (props.dimentionList) {
     case 'true':
-      return '700px';
+      return '100%';
     case 'false':
       return '335px';
     default:
