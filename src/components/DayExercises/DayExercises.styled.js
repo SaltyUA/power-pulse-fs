@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const setAreaHeight = props => {
   switch (props.dimentionArea) {
     case 'true':
-      return '1010px';
+      return '100%';
     case 'false':
       return '335px';
     default:
@@ -136,7 +136,7 @@ export const ShorterTitle = styled.div`
 const setListHeight = props => {
   switch (props.dimentionList) {
     case 'true':
-      return '930px';
+      return '100%';
     case 'false':
       return '335px';
     default:
