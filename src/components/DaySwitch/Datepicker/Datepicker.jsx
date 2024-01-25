@@ -1,4 +1,4 @@
-import { useEffect, forwardRef } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import {
@@ -14,15 +14,24 @@ import { setDayInfo } from '../../../store/diary/sliceDiary';
 
 const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
   const dispatch = useDispatch();
- 
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     dispatch(setDayInfo(format(selectedDate, 'dd-MM-yyyy')));
   });  
-
+  const onClickOutside = e => {
+  if (e.target.tagName.toLowerCase() === 'button') return;
+  setIsOpen(false)
+}
   // eslint-disable-next-line react/display-name
   const CustomInput = forwardRef(({ onClick }, ref) => {
     return (
-      <TitleWrapper onClick={onClick} ref={ref}>
+      <TitleWrapper
+        onClick={() => {
+        setIsOpen(!isOpen)
+        onClick()
+      }
+      } ref={ref}>
         {format(selectedDate, 'dd/MM/yyyy')}
         <CalendarIcon iconColor="#EF8964">
           <use href={`${sprite}#calendar`} />
@@ -39,6 +48,8 @@ const StyledDatepicker = ({ selectedDate, setSelectedDate }) => {
         onChange={(date) => {
           setSelectedDate(date);
         }}
+        open={isOpen}
+        onClickOutside={onClickOutside}
         customInput={<CustomInput />}
         dateFormat={'dd MM yyyy'}
         calendarStartDay={1}
