@@ -1,4 +1,4 @@
-import{s as n,j as e,a as t}from"./index-474e415a.js";import{n as i}from"./emotion-styled.browser.esm-6d7bbdf1.js";import{t as d,a,b as r}from"./side-view-people-training-gym-3x-98657c57.js";const y=i.div`
+import{s as n,j as e,a as t}from"./index-7711afc5.js";import{n as i}from"./emotion-styled.browser.esm-f7c559bf.js";import{t as d,a,b as r}from"./side-view-people-training-gym-3x-98657c57.js";const y=i.div`
   background-image: linear-gradient(
       170deg,
       #040404 3.66%,
