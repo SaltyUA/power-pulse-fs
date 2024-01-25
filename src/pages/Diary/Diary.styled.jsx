@@ -55,26 +55,26 @@ export const Left = styled.div`
     grid-area: grid1;
   display: flex;
   flex-direction: column;
-  width: 335px;
+  max-width: 335px;
   gap: 40px;
 
   @media screen and (min-width: 768px) {
-    width: 704px;
+    max-width: 704px;
     gap: 32px;
   }
   @media screen and (min-width: 1440px) {
-    width: 826px;
+    max-width: 826px;
   }
 `;
 
 export const Right = styled.div`
   grid-area: grid2;
-  width: 335px;
+  max-width: 335px;
 
   @media screen and (min-width: 768px) {
-    width: 593px;
+    max-width: 593px;
   }
   @media screen and (min-width: 1440px) {
-    width: 390px;
+    max-width: 390px;
   }
 `;

@@ -75,10 +75,10 @@ export const SettingsIcon = styled.svg`
   width: 24px;
   height: 24px;
 
-  transition: scale ${styleGuide.animation};
+  transition: transform ${styleGuide.animation};
 
   &:hover {
-    transform: scale(0.8);
+    transform: scale(1.2) rotate(90deg);
   }
 
   @media screen and (min-width: 768px) {

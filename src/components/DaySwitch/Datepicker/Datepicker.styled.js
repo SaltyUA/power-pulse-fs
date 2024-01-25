@@ -20,11 +20,15 @@ export const calendarGlobalStyles = css`
     font-family: Inter;
     border-radius: 16px;
     border: none;
+    @media screen and (max-width: 768px){
+      left:-50px;
+    }
   }
   .react-datepicker__month-container {
     float: inherit;
     box-sizing: border-box;
   }
+ 
   .react-datepicker__header {
     position: relative;
     background-color: #ef8964;
