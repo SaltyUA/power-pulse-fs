@@ -64,6 +64,7 @@ export const Left = styled.div`
   }
   @media screen and (min-width: 1440px) {
     max-width: 826px;
+    width:826px;
   }
 `;
 
