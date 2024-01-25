@@ -23,7 +23,7 @@ import { useWindowSize } from '@uidotdev/usehooks';
 
 export const Header = () => {
   const isLogged = useSelector(selectIsLoggedIn);
-
+  const user = useSelector(selectUser);
   const size = useWindowSize();
 
   const [burgerIsActive, setBurgerIsActive] = useState(false);
@@ -55,7 +55,7 @@ export const Header = () => {
         </HeaderLogo>
         {isLogged && (
           <UserContainer>
-            {size.width >= 1440 && <UserNav />}
+            {size.width >= 1440 && user.height && <UserNav />}
             <Link to={'/profile'}>
               <SettingsIcon>
                 <use href={sprite + '#icon-settings'} />

@@ -7,8 +7,11 @@ import {
   StyledCloseButton,
 } from './BurgerMenu.styled';
 import sprite from '../../assets/images/sprite.svg';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../store/selectors';
 
 const BurgerMenu = ({ setBurgerIsActive, isActive }) => {
+  const user = useSelector(selectUser);
   return (
     <BurgerContainer className={isActive ? '' : 'isHidden'}>
       <StyledCloseButton
@@ -21,7 +24,7 @@ const BurgerMenu = ({ setBurgerIsActive, isActive }) => {
           <use href={sprite + '#icon-close'} />
         </CloseButtonIcon>
       </StyledCloseButton>
-      <UserNav setBurgerIsActive={setBurgerIsActive} />
+      {user.height && <UserNav setBurgerIsActive={setBurgerIsActive} />}
       <BurgerLogout>
         <LogoutButton setBurgerIsActive={setBurgerIsActive} />
       </BurgerLogout>
