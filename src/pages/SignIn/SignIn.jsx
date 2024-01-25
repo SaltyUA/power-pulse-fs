@@ -21,6 +21,7 @@ import { ResendModal } from '../../components/ResendModal/ResendModal';
 import { selectIsResendShown } from '../../store/selectors';
 import { useEffect } from 'react';
 import { BackgroundContainer } from '../Welcome/Welcome.styled';
+import { toast } from 'react-toastify';
 
 const SignIn = () => {
   const isResendShown = useSelector(selectIsResendShown);
@@ -29,7 +30,10 @@ const SignIn = () => {
   const verifyToken = searchParams.get('v');
 
   useEffect(() => {
-    if (verifyToken) dispatch(verifyEmail({ verificationToken: verifyToken }));
+    if (verifyToken) {
+      dispatch(verifyEmail({ verificationToken: verifyToken }));
+      toast.success('Verification successfull');
+    }
   }, [dispatch, verifyToken]);
 
   const formik = useFormik({
